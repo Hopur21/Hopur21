@@ -48,8 +48,10 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../Hopur21Verkefni/main.cpp 
-OBJECTS       = main.o
+SOURCES       = ../Hopur21Verkefni/main.cpp \
+		../Hopur21Verkefni/jolasveinn.cpp 
+OBJECTS       = main.o \
+		jolasveinn.o
 DIST          = ../../Qt/5.7/clang_64/mkspecs/features/spec_pre.prf \
 		../../Qt/5.7/clang_64/mkspecs/qdevice.pri \
 		../../Qt/5.7/clang_64/mkspecs/features/device_config.prf \
@@ -182,6 +184,7 @@ DIST          = ../../Qt/5.7/clang_64/mkspecs/features/spec_pre.prf \
 		../../Qt/5.7/clang_64/mkspecs/features/qt_config.prf \
 		../../Qt/5.7/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../Qt/5.7/clang_64/mkspecs/features/spec_post.prf \
+		../Hopur21Verkefni/.qmake.stash \
 		../../Qt/5.7/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../Qt/5.7/clang_64/mkspecs/features/default_pre.prf \
 		../../Qt/5.7/clang_64/mkspecs/features/mac/default_pre.prf \
@@ -202,7 +205,8 @@ DIST          = ../../Qt/5.7/clang_64/mkspecs/features/spec_pre.prf \
 		../../Qt/5.7/clang_64/mkspecs/features/exceptions.prf \
 		../../Qt/5.7/clang_64/mkspecs/features/yacc.prf \
 		../../Qt/5.7/clang_64/mkspecs/features/lex.prf \
-		../Hopur21Verkefni/Hopur21Verkefni.pro  ../Hopur21Verkefni/main.cpp
+		../Hopur21Verkefni/Hopur21Verkefni.pro ../Hopur21Verkefni/jolasveinn.h ../Hopur21Verkefni/main.cpp \
+		../Hopur21Verkefni/jolasveinn.cpp
 QMAKE_TARGET  = Hopur21Verkefni
 DESTDIR       = 
 TARGET        = Hopur21Verkefni
@@ -346,6 +350,7 @@ Makefile: ../Hopur21Verkefni/Hopur21Verkefni.pro ../../Qt/5.7/clang_64/mkspecs/m
 		../../Qt/5.7/clang_64/mkspecs/features/qt_config.prf \
 		../../Qt/5.7/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../Qt/5.7/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../Qt/5.7/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../Qt/5.7/clang_64/mkspecs/features/default_pre.prf \
 		../../Qt/5.7/clang_64/mkspecs/features/mac/default_pre.prf \
@@ -501,6 +506,7 @@ Makefile: ../Hopur21Verkefni/Hopur21Verkefni.pro ../../Qt/5.7/clang_64/mkspecs/m
 ../../Qt/5.7/clang_64/mkspecs/features/qt_config.prf:
 ../../Qt/5.7/clang_64/mkspecs/macx-clang/qmake.conf:
 ../../Qt/5.7/clang_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../Qt/5.7/clang_64/mkspecs/features/exclusive_builds.prf:
 ../../Qt/5.7/clang_64/mkspecs/features/default_pre.prf:
 ../../Qt/5.7/clang_64/mkspecs/features/mac/default_pre.prf:
@@ -537,7 +543,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../Hopur21Verkefni/main.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Hopur21Verkefni/jolasveinn.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Hopur21Verkefni/main.cpp ../Hopur21Verkefni/jolasveinn.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -581,6 +588,9 @@ compiler_clean:
 
 main.o: ../Hopur21Verkefni/main.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Hopur21Verkefni/main.cpp
+
+jolasveinn.o: ../Hopur21Verkefni/jolasveinn.cpp ../Hopur21Verkefni/jolasveinn.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o jolasveinn.o ../Hopur21Verkefni/jolasveinn.cpp
 
 ####### Install
 
