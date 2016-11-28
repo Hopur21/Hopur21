@@ -49,9 +49,9 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../Hopur21Verkefni/main.cpp \
-		../Hopur21Verkefni/jolasveinn.cpp 
+		../Hopur21Verkefni/csperson.cpp 
 OBJECTS       = main.o \
-		jolasveinn.o
+		csperson.o
 DIST          = ../../Qt/5.7/clang_64/mkspecs/features/spec_pre.prf \
 		../../Qt/5.7/clang_64/mkspecs/qdevice.pri \
 		../../Qt/5.7/clang_64/mkspecs/features/device_config.prf \
@@ -205,8 +205,9 @@ DIST          = ../../Qt/5.7/clang_64/mkspecs/features/spec_pre.prf \
 		../../Qt/5.7/clang_64/mkspecs/features/exceptions.prf \
 		../../Qt/5.7/clang_64/mkspecs/features/yacc.prf \
 		../../Qt/5.7/clang_64/mkspecs/features/lex.prf \
-		../Hopur21Verkefni/Hopur21Verkefni.pro ../Hopur21Verkefni/jolasveinn.h ../Hopur21Verkefni/main.cpp \
-		../Hopur21Verkefni/jolasveinn.cpp
+		../Hopur21Verkefni/Hopur21Verkefni.pro ../Hopur21Verkefni/listaccess.h \
+		csperson.h ../Hopur21Verkefni/main.cpp \
+		../Hopur21Verkefni/csperson.cpp
 QMAKE_TARGET  = Hopur21Verkefni
 DESTDIR       = 
 TARGET        = Hopur21Verkefni
@@ -543,8 +544,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../Hopur21Verkefni/jolasveinn.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Hopur21Verkefni/main.cpp ../Hopur21Verkefni/jolasveinn.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Hopur21Verkefni/listaccess.h csperson.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Hopur21Verkefni/main.cpp ../Hopur21Verkefni/csperson.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -589,8 +590,8 @@ compiler_clean:
 main.o: ../Hopur21Verkefni/main.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Hopur21Verkefni/main.cpp
 
-jolasveinn.o: ../Hopur21Verkefni/jolasveinn.cpp ../Hopur21Verkefni/jolasveinn.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o jolasveinn.o ../Hopur21Verkefni/jolasveinn.cpp
+csperson.o: ../Hopur21Verkefni/csperson.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o csperson.o ../Hopur21Verkefni/csperson.cpp
 
 ####### Install
 

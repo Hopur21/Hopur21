@@ -1,10 +1,9 @@
 #include <iostream>
 using namespace std;
 
-
 int main()
 {
-    cout << "HELLO TEAM21";
+    cout << "TEST2";
 
     return 0;
 }
