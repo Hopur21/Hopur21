@@ -1,6 +1,6 @@
 #ifndef CSPERSON_H
 #define CSPERSON_H
-
+#include <string>
 using namespace std;
 
 class CSPerson
@@ -10,6 +10,7 @@ class CSPerson
         string gender;
         int birthYear;
         int deathYear;
+
     public:
         CSPerson();
         void addPerson();

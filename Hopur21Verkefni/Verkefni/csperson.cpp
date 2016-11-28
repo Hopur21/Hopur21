@@ -4,24 +4,20 @@
 
 using namespace std;
 
-CSPerson::CSPerson()
-{
-
-}
-
 void CSPerson::addPerson()
 {
+    CSPerson newPerson;
     cout << "Enter name: ";
-    cin >> name;
+    cin >> newPerson.name;
     cout << endl;
     cout << "Enter gender: ";
-    cin >> gender;
+    cin >> newPerson.gender;
     cout << endl;
     cout << "Enter the year of birth: ";
-    cin >> birthYear;
+    cin >> newPerson.birthYear;
     cout << endl;
     cout << "Enter the year of death: ";
-    cin >> deathYear;
+    cin >> newPerson.deathYear;
 
 }
 

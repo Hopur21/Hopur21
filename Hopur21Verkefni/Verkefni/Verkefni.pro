@@ -10,7 +10,11 @@ CONFIG -= app_bundle
 TEMPLATE = app
 
 SOURCES += main.cpp \
-    csperson.cpp
+    csperson.cpp \
+    menuinterface.cpp \
+    listaccess.cpp
 
 HEADERS += \
-    csperson.h
+    csperson.h \
+    menuinterface.h \
+    listaccess.h
