@@ -10,13 +10,14 @@ void MenuInterface::DisplayMenu()
     cout << "WELCOME TO THE COMPUTER SCIENTIST LIST" << endl;
     cout << "**************************************" << endl;
     cout << endl;
+
+    // THIS MENU IS NOT COMPLETE YET!!!!!
+
     cout << "Enter 1 to display the complete list in alphabetical order" << endl;
     cout << "Enter 2 to add a computer scientist to the list" << endl;
     cout << "Enter 3 to search the list for a computer scientist" << endl;
     cout << "Enter 4 to exit program" << endl;
     cin >> choice;
-
-
 
     if(choice == 1 || choice == 2 || choice == 3 || choice ==4)
     {
@@ -24,7 +25,7 @@ void MenuInterface::DisplayMenu()
     }
     else
     {
-        cout << "You have entered an invalid input, please try again." << endl;
+        cout << "Your input is invalid, please try again." << endl;
         DisplayMenu();
     }
 }
@@ -32,9 +33,10 @@ void MenuInterface::DisplayMenu()
 
 void MenuInterface::processChoice(int choice)
 {
-    for(int i=0;i<100;i++)
+    // Here the input from the main menu is processed
+    if(choice == 2)
     {
-        cout << choice;
+        person.addPerson();
     }
 
 }

@@ -1,6 +1,8 @@
 #ifndef CSPERSON_H
 #define CSPERSON_H
+
 #include <string>
+#include <listaccess.h>
 using namespace std;
 
 class CSPerson
@@ -10,9 +12,10 @@ class CSPerson
         string gender;
         int birthYear;
         int deathYear;
-
-    public:
+        ListAccess lA;
         CSPerson();
+    public:
+
         void addPerson();
         void printPerson();
 };

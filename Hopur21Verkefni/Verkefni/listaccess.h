@@ -1,8 +1,10 @@
 #ifndef LISTACCESS_H
 #define LISTACCESS_H
 
+#include <iostream>
 #include <csperson.h>
 #include <vector>
+
 using namespace std;
 
 class ListAccess
@@ -10,8 +12,7 @@ class ListAccess
     private:
         vector<CSPerson> listOfCSPersons;
     public:
-        //ListAccess();
-        //void addToList(CSPerson person);
+        void addToList(CSPerson p);
 };
 
 #endif // LISTACCESS_H
