@@ -48,8 +48,10 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../Verkefni/main.cpp 
-OBJECTS       = main.o
+SOURCES       = ../Verkefni/main.cpp \
+		../Verkefni/csperson.cpp 
+OBJECTS       = main.o \
+		csperson.o
 DIST          = ../../../Qt/5.7/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.7/clang_64/mkspecs/qdevice.pri \
 		../../../Qt/5.7/clang_64/mkspecs/features/device_config.prf \
@@ -182,6 +184,7 @@ DIST          = ../../../Qt/5.7/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.7/clang_64/mkspecs/features/qt_config.prf \
 		../../../Qt/5.7/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../Qt/5.7/clang_64/mkspecs/features/spec_post.prf \
+		../Verkefni/.qmake.stash \
 		../../../Qt/5.7/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/5.7/clang_64/mkspecs/features/default_pre.prf \
 		../../../Qt/5.7/clang_64/mkspecs/features/mac/default_pre.prf \
@@ -202,7 +205,8 @@ DIST          = ../../../Qt/5.7/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.7/clang_64/mkspecs/features/exceptions.prf \
 		../../../Qt/5.7/clang_64/mkspecs/features/yacc.prf \
 		../../../Qt/5.7/clang_64/mkspecs/features/lex.prf \
-		../Verkefni/Verkefni.pro  ../Verkefni/main.cpp
+		../Verkefni/Verkefni.pro ../Verkefni/csperson.h ../Verkefni/main.cpp \
+		../Verkefni/csperson.cpp
 QMAKE_TARGET  = Verkefni
 DESTDIR       = 
 TARGET        = Verkefni
@@ -346,6 +350,7 @@ Makefile: ../Verkefni/Verkefni.pro ../../../Qt/5.7/clang_64/mkspecs/macx-clang/q
 		../../../Qt/5.7/clang_64/mkspecs/features/qt_config.prf \
 		../../../Qt/5.7/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../Qt/5.7/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../Qt/5.7/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/5.7/clang_64/mkspecs/features/default_pre.prf \
 		../../../Qt/5.7/clang_64/mkspecs/features/mac/default_pre.prf \
@@ -501,6 +506,7 @@ Makefile: ../Verkefni/Verkefni.pro ../../../Qt/5.7/clang_64/mkspecs/macx-clang/q
 ../../../Qt/5.7/clang_64/mkspecs/features/qt_config.prf:
 ../../../Qt/5.7/clang_64/mkspecs/macx-clang/qmake.conf:
 ../../../Qt/5.7/clang_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../Qt/5.7/clang_64/mkspecs/features/exclusive_builds.prf:
 ../../../Qt/5.7/clang_64/mkspecs/features/default_pre.prf:
 ../../../Qt/5.7/clang_64/mkspecs/features/mac/default_pre.prf:
@@ -537,7 +543,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../Verkefni/main.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Verkefni/csperson.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Verkefni/main.cpp ../Verkefni/csperson.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -581,6 +588,9 @@ compiler_clean:
 
 main.o: ../Verkefni/main.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Verkefni/main.cpp
+
+csperson.o: ../Verkefni/csperson.cpp ../Verkefni/csperson.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o csperson.o ../Verkefni/csperson.cpp
 
 ####### Install
 

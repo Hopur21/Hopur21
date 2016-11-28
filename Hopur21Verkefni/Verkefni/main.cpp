@@ -1,9 +1,12 @@
 #include <iostream>
+#include <csperson.h>
 using namespace std;
 
 int main()
 {
-    cout << "TEST2";
+    CSPerson newPers;
+    newPers.addPerson();
+    newPers.printPerson();
 
     return 0;
 }
