@@ -1,6 +1,7 @@
 #ifndef USERLAYER_H
 #define USERLAYER_H
 
+#include "cspersonservice.h"
 #include <iostream>
 using namespace std;
 
