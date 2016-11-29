@@ -18,6 +18,18 @@ class CSPerson
         CSPerson();
         void addPerson();
         void printPerson();
+
+        /* frá Dabs
+        string getName() const
+            {
+                return _name;
+            }
+
+            int getAge() const
+            {
+                return _age;
+            }
+         */
 };
 
 #endif // CSPERSON_H

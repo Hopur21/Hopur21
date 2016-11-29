@@ -36,7 +36,7 @@ void MenuInterface::processChoice(int choice)
     // Here the input from the main menu is processed
     if(coice == 1)
     {
-        //menu for different display options
+        //sub menu for different display options
         //in alphabetical order
         //by age
         //by year of birth
