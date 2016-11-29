@@ -18,3 +18,9 @@ void ListAccess::writeToFile();
 {
 
 }*/
+
+/* frá Dabs, athugar hvort aðili sé þegar í listanum -
+ * struct PerformerComparison {
+  bool operator() (Performer i,Performer j) { return (i.getName()<j.getName());}
+};
+*/

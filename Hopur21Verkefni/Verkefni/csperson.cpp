@@ -7,6 +7,14 @@ using namespace std;
 
 CSPerson::CSPerson(){};
 
+/* frá Dabs
+Performer::Performer(string name, int age)
+{
+   _name = name;
+   _age = age;
+}
+*/
+
 void CSPerson::addPerson()
 {
     CSPerson newPerson;
