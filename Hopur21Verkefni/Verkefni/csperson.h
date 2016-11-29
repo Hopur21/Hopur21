@@ -12,10 +12,10 @@ class CSPerson
         string gender;
         int birthYear;
         int deathYear;
-        ListAccess lA;
-        CSPerson();
-    public:
+        //ListAccess lA;
 
+    public:
+        CSPerson();
         void addPerson();
         void printPerson();
 };

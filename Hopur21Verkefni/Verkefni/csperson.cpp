@@ -23,7 +23,7 @@ void CSPerson::addPerson()
     cout << "Enter the year of death: ";
     cin >> newPerson.deathYear;
 
-    lA.addToList(newPerson);
+   // lA.addToList(newPerson);
 
 }
 
