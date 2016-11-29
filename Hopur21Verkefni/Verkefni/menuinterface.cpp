@@ -1,5 +1,6 @@
 #include "menuinterface.h"
 #include <iostream>
+#include <stdlib.h>
 using namespace std;
 
 
@@ -75,6 +76,7 @@ void MenuInterface::processChoice(int choice)
 
     else if(choice == 4)
     {
+        exit();
         //exit program
         //return 0;
     }

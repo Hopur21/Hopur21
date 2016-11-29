@@ -51,11 +51,13 @@ OBJECTS_DIR   = ./
 SOURCES       = ../Verkefni/main.cpp \
 		../Verkefni/csperson.cpp \
 		../Verkefni/menuinterface.cpp \
-		../Verkefni/userlayer.cpp 
+		../Verkefni/userlayer.cpp \
+		../Verkefni/datalayer.cpp 
 OBJECTS       = main.o \
 		csperson.o \
 		menuinterface.o \
-		userlayer.o
+		userlayer.o \
+		datalayer.o
 DIST          = ../../../Qt/5.7/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.7/clang_64/mkspecs/qdevice.pri \
 		../../../Qt/5.7/clang_64/mkspecs/features/device_config.prf \
@@ -211,10 +213,12 @@ DIST          = ../../../Qt/5.7/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.7/clang_64/mkspecs/features/lex.prf \
 		../Verkefni/Verkefni.pro ../Verkefni/csperson.h \
 		../Verkefni/menuinterface.h \
-		../Verkefni/userlayer.h ../Verkefni/main.cpp \
+		../Verkefni/userlayer.h \
+		../Verkefni/datalayer.h ../Verkefni/main.cpp \
 		../Verkefni/csperson.cpp \
 		../Verkefni/menuinterface.cpp \
-		../Verkefni/userlayer.cpp
+		../Verkefni/userlayer.cpp \
+		../Verkefni/datalayer.cpp
 QMAKE_TARGET  = Verkefni
 DESTDIR       = 
 TARGET        = Verkefni
@@ -551,8 +555,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../Verkefni/csperson.h ../Verkefni/menuinterface.h ../Verkefni/userlayer.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Verkefni/main.cpp ../Verkefni/csperson.cpp ../Verkefni/menuinterface.cpp ../Verkefni/userlayer.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Verkefni/csperson.h ../Verkefni/menuinterface.h ../Verkefni/userlayer.h ../Verkefni/datalayer.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Verkefni/main.cpp ../Verkefni/csperson.cpp ../Verkefni/menuinterface.cpp ../Verkefni/userlayer.cpp ../Verkefni/datalayer.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -612,6 +616,9 @@ menuinterface.o: ../Verkefni/menuinterface.cpp ../Verkefni/menuinterface.h \
 userlayer.o: ../Verkefni/userlayer.cpp ../Verkefni/userlayer.h \
 		../Verkefni/csperson.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o userlayer.o ../Verkefni/userlayer.cpp
+
+datalayer.o: ../Verkefni/datalayer.cpp ../Verkefni/datalayer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o datalayer.o ../Verkefni/datalayer.cpp
 
 ####### Install
 

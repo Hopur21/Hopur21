@@ -30,6 +30,5 @@ void UserLayer::addPerson()
     CSPerson newPerson(name, gender, birthYear, deathYear, comment);
 
     //lA.addToList(newPerson);
-
 }
 
