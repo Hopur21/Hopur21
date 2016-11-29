@@ -16,34 +16,4 @@ CSPerson::CSPerson(string name, string gender, int birthYear, int deathYear, str
    _comment = comment;
 }
 
-<<<<<<< HEAD
 
-=======
-void CSPerson::addPerson()
-{
-    CSPerson newPerson;
-    cout << "Enter name: ";
-    cin >> newPerson._name;
-    // TODO :IF PERSON EXISTS DISPLAY ERROR MESSAGE
-    cout << endl;
-    cout << "Enter gender: ";
-    cin >> newPerson._gender;
-    cout << endl;
-    cout << "Enter the year of birth: ";
-    cin >> newPerson._birthYear;
-    cout << endl;
-    cout << "Enter the year of death: ";
-    cin >> newPerson._deathYear;
-
-   // lA.addToList(newPerson);
-
-}
-
-void CSPerson::printPerson()
-{
-    cout << "Name:          " << _name       << endl;
-    cout << "Gender:        " << _gender     << endl;
-    cout << "Year of birth: " << _birthYear  << endl;
-    cout << "Year of death: " << _deathYear  << endl;
-}
->>>>>>> 380808f6980f8422c5f29af9df9fab07b2db839d

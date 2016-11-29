@@ -51,11 +51,13 @@ OBJECTS_DIR   = ./
 SOURCES       = ../Verkefni/main.cpp \
 		../Verkefni/csperson.cpp \
 		../Verkefni/menuinterface.cpp \
-		../Verkefni/listaccess.cpp 
+		../Verkefni/listaccess.cpp \
+		../Verkefni/userlayer.cpp 
 OBJECTS       = main.o \
 		csperson.o \
 		menuinterface.o \
-		listaccess.o
+		listaccess.o \
+		userlayer.o
 DIST          = ../../../Qt/5.7/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.7/clang_64/mkspecs/qdevice.pri \
 		../../../Qt/5.7/clang_64/mkspecs/features/device_config.prf \
@@ -211,10 +213,12 @@ DIST          = ../../../Qt/5.7/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.7/clang_64/mkspecs/features/lex.prf \
 		../Verkefni/Verkefni.pro ../Verkefni/csperson.h \
 		../Verkefni/menuinterface.h \
-		../Verkefni/listaccess.h ../Verkefni/main.cpp \
+		../Verkefni/listaccess.h \
+		../Verkefni/userlayer.h ../Verkefni/main.cpp \
 		../Verkefni/csperson.cpp \
 		../Verkefni/menuinterface.cpp \
-		../Verkefni/listaccess.cpp
+		../Verkefni/listaccess.cpp \
+		../Verkefni/userlayer.cpp
 QMAKE_TARGET  = Verkefni
 DESTDIR       = 
 TARGET        = Verkefni
@@ -551,8 +555,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../Verkefni/csperson.h ../Verkefni/menuinterface.h ../Verkefni/listaccess.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Verkefni/main.cpp ../Verkefni/csperson.cpp ../Verkefni/menuinterface.cpp ../Verkefni/listaccess.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Verkefni/csperson.h ../Verkefni/menuinterface.h ../Verkefni/listaccess.h ../Verkefni/userlayer.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Verkefni/main.cpp ../Verkefni/csperson.cpp ../Verkefni/menuinterface.cpp ../Verkefni/listaccess.cpp ../Verkefni/userlayer.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -595,17 +599,25 @@ compiler_clean:
 ####### Compile
 
 main.o: ../Verkefni/main.cpp ../Verkefni/csperson.h \
+		../Verkefni/listaccess.h \
 		../Verkefni/menuinterface.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Verkefni/main.cpp
 
-csperson.o: ../Verkefni/csperson.cpp ../Verkefni/csperson.h
+csperson.o: ../Verkefni/csperson.cpp ../Verkefni/csperson.h \
+		../Verkefni/listaccess.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o csperson.o ../Verkefni/csperson.cpp
 
-menuinterface.o: ../Verkefni/menuinterface.cpp ../Verkefni/menuinterface.h
+menuinterface.o: ../Verkefni/menuinterface.cpp ../Verkefni/menuinterface.h \
+		../Verkefni/csperson.h \
+		../Verkefni/listaccess.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o menuinterface.o ../Verkefni/menuinterface.cpp
 
-listaccess.o: ../Verkefni/listaccess.cpp ../Verkefni/listaccess.h
+listaccess.o: ../Verkefni/listaccess.cpp ../Verkefni/listaccess.h \
+		../Verkefni/csperson.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o listaccess.o ../Verkefni/listaccess.cpp
+
+userlayer.o: ../Verkefni/userlayer.cpp ../Verkefni/userlayer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o userlayer.o ../Verkefni/userlayer.cpp
 
 ####### Install
 

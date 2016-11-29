@@ -65,7 +65,7 @@ void MenuInterface::processChoice(int choice)
 
     else if(choice == 2)
     {
-        person.addPerson();
+        uL.addPerson();
     }
 
     else if(choice == 3)
