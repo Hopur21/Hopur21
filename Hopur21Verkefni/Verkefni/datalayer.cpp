@@ -13,7 +13,7 @@ vector<CSPerson> DataLayer::readFromFile(string fileName)
 {
     vector<CSPerson> vectPersons;
     ifstream myFile;
-    char delimeter = ';';
+    const char delimeter = ';';
     string personName, gender, comment, yearBorn, yearPassedAway;
     try
     {
@@ -37,16 +37,17 @@ vector<CSPerson> DataLayer::readFromFile(string fileName)
 //Filename is set in the header file if no name is given
 void DataLayer::writeToFile(const vector<CSPerson>& vectPersons, const string fileName)
 {
+    const char delimeter = ';';
     ofstream myFile(fileName, std::ios_base::trunc); //discard the contents of the stream when opening
     try
     {
         for(size_t i = 0; i < vectPersons.size(); i++)
         {
-            myFile << vectPersons[i].getName() << ";";
-            myFile << vectPersons[i].getGender() << ";";
-            myFile << vectPersons[i].getBirthyear() << ";";
-            myFile << vectPersons[i].getPassedAwayYear() << ";";
-            myFile << vectPersons[i].getComments() << ";";
+            myFile << vectPersons[i].getName() << delimeter;
+            myFile << vectPersons[i].getGender() << delimeter;
+            myFile << vectPersons[i].getBirthyear() << delimeter;
+            myFile << vectPersons[i].getPassedAwayYear() << delimeter;
+            myFile << vectPersons[i].getComments() << delimeter;
         }
 
         myFile.close();
