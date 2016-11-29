@@ -16,8 +16,7 @@ class CSPerson
 
     public:
         CSPerson();
-        void addPerson();
-        void printPerson();
+
 
         /* frá Dabs
         string getName() const

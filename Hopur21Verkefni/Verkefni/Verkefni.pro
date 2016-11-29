@@ -12,9 +12,11 @@ TEMPLATE = app
 SOURCES += main.cpp \
     csperson.cpp \
     menuinterface.cpp \
-    listaccess.cpp
+    listaccess.cpp \
+    userlayer.cpp
 
 HEADERS += \
     csperson.h \
     menuinterface.h \
-    listaccess.h
+    listaccess.h \
+    userlayer.h

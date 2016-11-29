@@ -13,7 +13,7 @@ void MenuInterface::DisplayMenu()
 
     // THIS MENU IS NOT COMPLETE YET!!!!!
 
-    cout << "Enter 1 to display the complete list in alphabetical order " << endl;
+    cout << "Enter 1 to display the complete list " << endl;
     cout << "Enter 2 to add a computer scientist to the list " << endl;
     cout << "Enter 3 to search the list for a computer scientist " << endl;
     cout << "Enter 4 to exit program " << endl;
@@ -25,7 +25,8 @@ void MenuInterface::DisplayMenu()
     }
     else
     {
-        cout << "Your input is invalid, please try again." << endl;
+        cout << endl;
+        cout << "Your input was invalid, please try again." << endl;
         DisplayMenu();
     }
 }
@@ -36,7 +37,6 @@ void MenuInterface::processChoice(int choice)
     // Here the input from the main menu is processed
     if(choice == 1)
     {
-
         cout << "Enter 1 to sort computer scientists by alphabetical order:" << endl;
         cout << "Enter 2 to sort computer scientists by year of birth:" << endl;
         cout << "Enter 3 to sort computer scientists by year of death:" << endl;
@@ -44,7 +44,9 @@ void MenuInterface::processChoice(int choice)
         cin >> choiceSub;
         if(choiceSub == 1)
         {
-
+            cout << "Computer Scientists in alphabetical order:" << endl;
+            cout << "******************************************" << endl;
+            cout << endl;
         }
         else if(choiceSub == 2)
         {
@@ -56,7 +58,7 @@ void MenuInterface::processChoice(int choice)
         }
         else
         {
-            cout << "Your input is invalid, please try again." << endl;
+            cout << "Your input was invalid, please try again." << endl;
             DisplayMenu();
         }
     }
@@ -66,6 +68,15 @@ void MenuInterface::processChoice(int choice)
         person.addPerson();
     }
 
-    //Nonni er bestur
+    else if(choice == 3)
+    {
+        //search list for CS
+    }
+
+    else if(choice == 4)
+    {
+        //exit program
+        //return 0;
+    }
 
 }
