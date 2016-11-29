@@ -8,10 +8,12 @@ using namespace std;
 CSPerson::CSPerson(){};
 
 /* frá Dabs
-Performer::Performer(string name, int age)
+CSPerson::CSPerson(string name, int age)
 {
    _name = name;
-   _age = age;
+   _gender = gender;
+   _birthYear = birthYear;
+   _deathYear = deathYear;
 }
 */
 

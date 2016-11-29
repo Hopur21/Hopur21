@@ -8,10 +8,11 @@ using namespace std;
 class CSPerson
 {
     private:
-        string name;
-        string gender;
-        int birthYear;
-        int deathYear;
+        string _name;
+        string _gender;
+        int _birthYear;
+        int _deathYear;
+        string _comment;
         //ListAccess lA;
 
     public:
