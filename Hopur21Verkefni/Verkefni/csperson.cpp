@@ -2,7 +2,6 @@
 #include <iostream>
 #include <string>
 
-
 using namespace std;
 
 CSPerson::CSPerson(){};
@@ -15,4 +14,3 @@ CSPerson::CSPerson(string name, string gender, int birthYear, int deathYear, str
    _deathYear = deathYear;
    _comment = comment;
 }
-
