@@ -32,6 +32,7 @@ void MenuInterface::DisplayMenu()
 
 void MenuInterface::processChoice(int choice)
 {
+    int choiceSub;
     // Here the input from the main menu is processed
     if(choice == 1)
     {
@@ -42,13 +43,11 @@ void MenuInterface::processChoice(int choice)
         //by year of birth
         //by year of death
 
-        cout << "Enter 1 to display the complete list in alphabetical order " << endl;
-        cout << "Enter 2 to display the complete list by age of Computer Scientist " << endl;
-        cout << "Enter 3 to display the complete list by year of birth " << endl;
-        cout << "Enter 4 to display the complete list by year of death " << endl;
-        int choiceSub = 0;
-        cin >> choiceSub;
+        cout << "Enter 1 to sort computer scientists by alphabetical order:" << endl;
+        cout << "Enter 2 to sort computer scientists by year of birth:" << endl;
+        cout << "Enter 3 to sort computer scientists by year of death:" << endl;
 
+        cin >> choiceSub;
         if(choiceSub == 1)
         {
             cout << "Computer Scientists in alphabetical order:" << endl;
@@ -56,6 +55,8 @@ void MenuInterface::processChoice(int choice)
             cout << endl;
 
             //funtion sort alphabetical
+
+            // TODO
         }
         else if(choiceSub == 2)
         {
@@ -97,7 +98,7 @@ void MenuInterface::processChoice(int choice)
     else if(choice == 4)
     {
         //exit program
-        return 0;
+        //return 0;
     }
 
 }

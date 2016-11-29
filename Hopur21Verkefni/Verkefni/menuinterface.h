@@ -6,7 +6,7 @@ class MenuInterface
 {
     private:
         CSPerson person;
-        ListAccess lA;
+        //ListAccess lA;
     public:
         void DisplayMenu();
         void processChoice(int choice);
