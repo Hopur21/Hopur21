@@ -25,9 +25,7 @@ void UserLayer::addPerson()
     cin >> comment;
     cout << endl;
 
-    //CSPerson newPerson(name, gender, birthYear, deathYear, comment); TODO Lesa inn nýjan Person
-
-    //lA.addToList(newPerson);
+    CSPS.newPerson(name, gender, birthYear, deathYear, comment);
 
 }
 

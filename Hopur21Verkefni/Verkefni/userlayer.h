@@ -7,6 +7,8 @@ using namespace std;
 
 class UserLayer
 {
+    private:
+        CSPersonService CSPS;
     public:
         UserLayer();
         void addPerson();
