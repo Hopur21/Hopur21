@@ -25,7 +25,8 @@ void ListAccess::writeToFile();
 };
 */
 
-vector<CSPerson> ListAccess::AddToVector
+/*vector<CSPerson> ListAccess::AddToVector()
 {
 
-}
+    return vectorOfCSPersons;
+}*/

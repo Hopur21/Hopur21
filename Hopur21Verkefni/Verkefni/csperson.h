@@ -19,10 +19,12 @@ class CSPerson
         CSPerson();
         void addPerson();
         void printPerson();
+        CSPerson(string name, string gender, int birthYear, int deathYear, string comment);
 
         /* frá Dabs
         string getName() const
             {
+
                 return _name;
             }
 
