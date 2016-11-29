@@ -7,7 +7,7 @@ class MenuInterface
 {
     private:
         UserLayer uL;
-        //ListAccess lA;
+
     public:
         void DisplayMenu();
         void processChoice(int choice);
