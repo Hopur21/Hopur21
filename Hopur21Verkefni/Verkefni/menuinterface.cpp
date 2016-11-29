@@ -13,7 +13,7 @@ void MenuInterface::DisplayMenu()
 
     // THIS MENU IS NOT COMPLETE YET!!!!!
 
-    cout << "Enter 1 to display the complete list in alphabetical order " << endl;
+    cout << "Enter 1 to display the complete list " << endl;
     cout << "Enter 2 to add a computer scientist to the list " << endl;
     cout << "Enter 3 to search the list for a computer scientist " << endl;
     cout << "Enter 4 to exit program " << endl;
@@ -29,7 +29,6 @@ void MenuInterface::DisplayMenu()
         DisplayMenu();
     }
 }
-
 
 void MenuInterface::processChoice(int choice)
 {
@@ -54,24 +53,33 @@ void MenuInterface::processChoice(int choice)
         {
             cout << "Computer Scientists in alphabetical order:" << endl;
             cout << "******************************************" << endl;
+            cout << endl;
+
             //funtion sort alphabetical
         }
         else if(choiceSub == 2)
         {
             cout << "Computer Scientists by age:" << endl;
             cout << "***************************" << endl;
+            cout << endl;
+
             //funtion sort by age, age = deathYear-birthYear
+            //if still alive (no deathYear), age = 2016-birthYear
         }
         else if(choiceSub == 3)
         {
             cout << "Computer Scientists by year of birth:" << endl;
             cout << "*************************************" << endl;
+            cout << endl;
+
             //funtion sort by year of birth
         }
         else if(choiceSub == 4)
         {
             cout << "Computer Scientists by year of death:" << endl;
             cout << "*************************************" << endl;
+            cout << endl;
+
             //funtion sort by year of death
         }
     }
@@ -81,6 +89,15 @@ void MenuInterface::processChoice(int choice)
         person.addPerson();
     }
 
-    //Nonni er bestur
+    else if(choice == 3)
+    {
+        //search list for CS
+    }
+
+    else if(choice == 4)
+    {
+        //exit program
+        return 0;
+    }
 
 }
