@@ -17,13 +17,6 @@ class CSPerson
 
     public:
         CSPerson();
-<<<<<<< HEAD
-
-=======
-        void addPerson();
-        void printPerson();
-        CSPerson(string name, string gender, int birthYear, int deathYear, string comment);
->>>>>>> 380808f6980f8422c5f29af9df9fab07b2db839d
 
         /* frá Dabs
         string getName() const
