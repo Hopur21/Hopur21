@@ -1,6 +1,5 @@
 #ifndef CSPERSON_H
 #define CSPERSON_H
-#include "userlayer.h"
 #include <iostream>
 #include <string>
 
@@ -15,7 +14,7 @@ class CSPerson
         int _birthYear;
         int _deathYear;
         string _comment;
-        UserLayer uL;
+        //UserLayer uL;
 
     public:
         CSPerson();

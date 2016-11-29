@@ -13,10 +13,12 @@ SOURCES += main.cpp \
     csperson.cpp \
     menuinterface.cpp \
     userlayer.cpp \
-    datalayer.cpp
+    datalayer.cpp \
+    cspersonservice.cpp
 
 HEADERS += \
     csperson.h \
     menuinterface.h \
     userlayer.h \
-    datalayer.h
+    datalayer.h \
+    cspersonservice.h
