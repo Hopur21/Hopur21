@@ -1,13 +1,14 @@
 #ifndef USERLAYER_H
 #define USERLAYER_H
 
+#include <iostream>
+using namespace std;
 
 class UserLayer
 {
     public:
         UserLayer();
         void addPerson();
-        void printPerson();
 };
 
 #endif // USERLAYER_H

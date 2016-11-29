@@ -1,11 +1,12 @@
 #ifndef MENUINTERFACE_H
 #define MENUINTERFACE_H
+#include <userlayer.h>
 #include <csperson.h>
 
 class MenuInterface
 {
     private:
-        CSPerson person;
+        UserLayer uL;
         //ListAccess lA;
     public:
         void DisplayMenu();

@@ -1,4 +1,7 @@
 #include "userlayer.h"
+#include <csperson.h>
+#include <iostream>
+using namespace std;
 
 UserLayer::UserLayer()
 {
@@ -7,28 +10,28 @@ UserLayer::UserLayer()
 
 void UserLayer::addPerson()
 {
-    CSPerson person;
+    string name, gender, comment;
+    int birthYear,deathYear;
     cout << "Enter name: ";
-    cin >> person.name;
+    cin >> name;
     // TODO :IF PERSON EXISTS DISPLAY ERROR MESSAGE
     cout << endl;
     cout << "Enter gender: ";
-    cin >> person.gender;
+    cin >> gender;
     cout << endl;
     cout << "Enter the year of birth: ";
-    cin >> person.birthYear;
+    cin >> birthYear;
     cout << endl;
     cout << "Enter the year of death: ";
-    cin >> person.deathYear;
+    cin >> deathYear;
+    cout << "Enter information about the person: ";
+    cin >> comment;
+
+
+
+    CSPerson newPerson(name, gender, birthYear, deathYear, comment);
 
     //lA.addToList(newPerson);
 
 }
 
-void UserLayer::printPerson()
-{
-    cout << "Name:          " << name << endl;
-    cout << "Gender:        " << gender << endl;
-    cout << "Year of birth: " << birthYear << endl;
-    cout << "Year of death: " << deathYear << endl;
-}

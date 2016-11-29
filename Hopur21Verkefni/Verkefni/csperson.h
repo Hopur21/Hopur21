@@ -1,8 +1,10 @@
 #ifndef CSPERSON_H
 #define CSPERSON_H
-
+#include "userlayer.h"
+#include <iostream>
 #include <string>
-#include <listaccess.h>
+
+
 using namespace std;
 
 class CSPerson
@@ -13,17 +15,15 @@ class CSPerson
         int _birthYear;
         int _deathYear;
         string _comment;
-        //ListAccess lA;
+        UserLayer uL;
 
     public:
         CSPerson();
 <<<<<<< HEAD
+        CSPerson(string name, string gender, int birthYear, int deathYear, string comment);
 
 =======
-        void addPerson();
-        void printPerson();
-        CSPerson(string name, string gender, int birthYear, int deathYear, string comment);
->>>>>>> 380808f6980f8422c5f29af9df9fab07b2db839d
+>>>>>>> f88331df252f3a2115c3926a786eca266839a200
 
         /* frá Dabs
         string getName() const
