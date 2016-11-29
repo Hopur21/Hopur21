@@ -5,7 +5,7 @@
 class MenuInterface
 {
     private:
-        UserLayer uL;
+        UserLayer _uL;
 
     public:
         void DisplayMenu();
