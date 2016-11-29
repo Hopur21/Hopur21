@@ -1,0 +1,47 @@
+<>
+xml
+name
+gender
+birthyear
+deathyear
+
+Charles Babbage
+male
+1791
+1871
+He is best remembered for originating the concept of a programmable computer.
+
+Ada Lovelace
+female
+1815
+1852
+was an analyst of Charles Babbage's analytical engine and considered by many the "first computer programmer
+
+Blaise Pascal
+male
+1623
+1662
+In 1642, while still a teenager, he started some pioneering work on calculating machines, called Pascal's calculators and later Pascalines.
+
+Daníel Brandur Sigurgeirsson
+male
+1973
+--
+Teaches programming at Reykjavik University.
+
+Marissa Ann Mayer
+female
+1975
+--
+Was the first female engineer hired at Google, and was later named Vice President of Search Product and User Experience. She is currently the CEO of Yahoo!
+
+Grace Brewster Murray Hopper
+female
+1906 
+1992
+Was the first person to create a compiler for a Programming language and one of the first programmers of Mark I computer.
+
+Adele Goldberg
+female
+1945
+She participated in developing the programming language Smalltalk
