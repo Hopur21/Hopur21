@@ -6,9 +6,7 @@ using namespace std;
 
 int main()
 {
-    //CSPerson newPers;
-    //newPers.addPerson();
-    //newPers.printPerson();
+
     MenuInterface mI;
     mI.DisplayMenu();
 
