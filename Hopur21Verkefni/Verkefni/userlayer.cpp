@@ -27,8 +27,6 @@ void UserLayer::addPerson()
     cout << "Enter information about the person: ";
     cin >> comment;
 
-
-
     CSPerson newPerson(name, gender, birthYear, deathYear, comment);
 
     //lA.addToList(newPerson);
