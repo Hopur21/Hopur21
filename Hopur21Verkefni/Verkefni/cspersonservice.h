@@ -10,6 +10,9 @@ public:
     CSPersonService();
 
     void newPerson();
+
+private:
+
 };
 
 #endif // CSPERSONSERVICE_H

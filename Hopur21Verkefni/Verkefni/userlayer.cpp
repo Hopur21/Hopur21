@@ -5,7 +5,7 @@ using namespace std;
 
 UserLayer::UserLayer()
 {
-
+    CSPersonService test;
 }
 
 void UserLayer::addPerson()
