@@ -14,12 +14,12 @@ class CSPerson
         int _birthYear;
         int _deathYear;
         string _comment;
-        //UserLayer uL;
 
     public:
         CSPerson();
 
         CSPerson(string name, string gender, int birthYear, int deathYear, string comment);
+
 
 
         /* frá Dabs
