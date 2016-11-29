@@ -37,8 +37,8 @@ void CSPerson::addPerson()
 
 void CSPerson::printPerson()
 {
-    cout << "Name:          " << name << endl;
-    cout << "Gender:        " << gender << endl;
-    cout << "Year of birth: " << birthYear << endl;
-    cout << "Year of death: " << deathYear << endl;
+    cout << "Name:          " << name       << endl;
+    cout << "Gender:        " << gender     << endl;
+    cout << "Year of birth: " << birthYear  << endl;
+    cout << "Year of death: " << deathYear  << endl;
 }
