@@ -6,15 +6,6 @@ using namespace std;
 
 DataLayer::DataLayer()
 {
-    /*
-    ofstream myfile;
-    myfile.open ("example.txt");
-    myfile << "Writing this to a fi33.\n";
-    myfile.close();
-    */
-
-    vector<CSPerson> test = readFromFile();
-
 }
 
 //Filename is set in Header file if no name is given.
@@ -41,5 +32,27 @@ vector<CSPerson> DataLayer::readFromFile(string fileName)
     catch(int e)
     {
         return vectPersons;
+    }
+}
+//Filename is set in the header file if no name is given
+void DataLayer::writeToFile(const vector<CSPerson>& vectPersons, const string fileName)
+{
+    ofstream myFile(fileName, std::ios_base::trunc); //discard the contents of the stream when opening
+    try
+    {
+        for(size_t i = 0; i < vectPersons.size(); i++)
+        {
+            myFile << vectPersons[i].getName() << ";";
+            myFile << vectPersons[i].getGender() << ";";
+            myFile << vectPersons[i].getBirthyear() << ";";
+            myFile << vectPersons[i].getPassedAwayYear() << ";";
+            myFile << vectPersons[i].getComments() << ";";
+        }
+
+        myFile.close();
+    }
+    catch(int e)
+    {
+
     }
 }
