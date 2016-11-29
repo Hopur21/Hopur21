@@ -44,17 +44,15 @@ void MenuInterface::processChoice(int choice)
         cin >> choiceSub;
         if(choiceSub == 1)
         {
-            cout << "Computer Scientists in alphabetical order:" << endl;
-            cout << "******************************************" << endl;
-            cout << endl;
+            // call sort function
         }
         else if(choiceSub == 2)
         {
-
+            // call sort function
         }
         else if(choiceSub == 3)
         {
-
+            // call sort ...
         }
         else
         {
