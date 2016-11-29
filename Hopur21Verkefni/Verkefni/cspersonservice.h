@@ -9,7 +9,7 @@ class CSPersonService
 public:
     CSPersonService();
 
-    void newPerson();
+    void newPerson(string name, string gender, int birthYear, int deathYear, string comment);
 };
 
 #endif // CSPERSONSERVICE_H
