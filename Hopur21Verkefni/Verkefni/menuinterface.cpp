@@ -25,7 +25,8 @@ void MenuInterface::DisplayMenu()
     }
     else
     {
-        cout << "Your input is invalid, please try again." << endl;
+        cout << endl;
+        cout << "Your input was invalid, please try again." << endl;
         DisplayMenu();
     }
 }
@@ -36,13 +37,6 @@ void MenuInterface::processChoice(int choice)
     // Here the input from the main menu is processed
     if(choice == 1)
     {
-        // SETJA ALLT ÞETTA DRASL Í SÉR FÖLL!!!!
-        //sub menu for different display options
-        //in alphabetical order
-        //by age
-        //by year of birth
-        //by year of death
-
         cout << "Enter 1 to sort computer scientists by alphabetical order:" << endl;
         cout << "Enter 2 to sort computer scientists by year of birth:" << endl;
         cout << "Enter 3 to sort computer scientists by year of death:" << endl;
@@ -53,35 +47,19 @@ void MenuInterface::processChoice(int choice)
             cout << "Computer Scientists in alphabetical order:" << endl;
             cout << "******************************************" << endl;
             cout << endl;
-
-            //funtion sort alphabetical
-
-            // TODO
         }
         else if(choiceSub == 2)
         {
-            cout << "Computer Scientists by age:" << endl;
-            cout << "***************************" << endl;
-            cout << endl;
 
-            //funtion sort by age, age = deathYear-birthYear
-            //if still alive (no deathYear), age = 2016-birthYear
         }
         else if(choiceSub == 3)
         {
-            cout << "Computer Scientists by year of birth:" << endl;
-            cout << "*************************************" << endl;
-            cout << endl;
 
-            //funtion sort by year of birth
         }
-        else if(choiceSub == 4)
+        else
         {
-            cout << "Computer Scientists by year of death:" << endl;
-            cout << "*************************************" << endl;
-            cout << endl;
-
-            //funtion sort by year of death
+            cout << "Your input was invalid, please try again." << endl;
+            DisplayMenu();
         }
     }
 

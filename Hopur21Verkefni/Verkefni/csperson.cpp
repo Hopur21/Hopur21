@@ -7,29 +7,33 @@ using namespace std;
 
 CSPerson::CSPerson(){};
 
-/* frá Dabs
-Performer::Performer(string name, int age)
+CSPerson::CSPerson(string name, string gender, int birthYear, int deathYear, string comment)
 {
    _name = name;
-   _age = age;
+   _gender = gender;
+   _birthYear = birthYear;
+   _deathYear = deathYear;
+   _comment = comment;
 }
-*/
 
+<<<<<<< HEAD
+
+=======
 void CSPerson::addPerson()
 {
     CSPerson newPerson;
     cout << "Enter name: ";
-    cin >> newPerson.name;
+    cin >> newPerson._name;
     // TODO :IF PERSON EXISTS DISPLAY ERROR MESSAGE
     cout << endl;
     cout << "Enter gender: ";
-    cin >> newPerson.gender;
+    cin >> newPerson._gender;
     cout << endl;
     cout << "Enter the year of birth: ";
-    cin >> newPerson.birthYear;
+    cin >> newPerson._birthYear;
     cout << endl;
     cout << "Enter the year of death: ";
-    cin >> newPerson.deathYear;
+    cin >> newPerson._deathYear;
 
    // lA.addToList(newPerson);
 
@@ -37,8 +41,9 @@ void CSPerson::addPerson()
 
 void CSPerson::printPerson()
 {
-    cout << "Name:          " << name << endl;
-    cout << "Gender:        " << gender << endl;
-    cout << "Year of birth: " << birthYear << endl;
-    cout << "Year of death: " << deathYear << endl;
+    cout << "Name:          " << _name       << endl;
+    cout << "Gender:        " << _gender     << endl;
+    cout << "Year of birth: " << _birthYear  << endl;
+    cout << "Year of death: " << _deathYear  << endl;
 }
+>>>>>>> 380808f6980f8422c5f29af9df9fab07b2db839d

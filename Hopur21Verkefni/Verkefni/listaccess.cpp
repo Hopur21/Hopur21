@@ -24,3 +24,9 @@ void ListAccess::writeToFile();
   bool operator() (Performer i,Performer j) { return (i.getName()<j.getName());}
 };
 */
+
+/*vector<CSPerson> ListAccess::AddToVector()
+{
+
+    return vectorOfCSPersons;
+}*/
