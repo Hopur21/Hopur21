@@ -13,6 +13,9 @@ class ListAccess
         vector<CSPerson> listOfCSPersons;
     public:
         void addToList(CSPerson p);
+        vector<CSPerson> readFromFile();
+        void writeToFile();
+
 };
 
 #endif // LISTACCESS_H
