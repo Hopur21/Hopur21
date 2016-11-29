@@ -52,12 +52,14 @@ SOURCES       = ../Verkefni/main.cpp \
 		../Verkefni/csperson.cpp \
 		../Verkefni/menuinterface.cpp \
 		../Verkefni/userlayer.cpp \
-		../Verkefni/datalayer.cpp 
+		../Verkefni/datalayer.cpp \
+		../Verkefni/cspersonservice.cpp 
 OBJECTS       = main.o \
 		csperson.o \
 		menuinterface.o \
 		userlayer.o \
-		datalayer.o
+		datalayer.o \
+		cspersonservice.o
 DIST          = ../../../Qt/5.7/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.7/clang_64/mkspecs/qdevice.pri \
 		../../../Qt/5.7/clang_64/mkspecs/features/device_config.prf \
@@ -214,11 +216,13 @@ DIST          = ../../../Qt/5.7/clang_64/mkspecs/features/spec_pre.prf \
 		../Verkefni/Verkefni.pro ../Verkefni/csperson.h \
 		../Verkefni/menuinterface.h \
 		../Verkefni/userlayer.h \
-		../Verkefni/datalayer.h ../Verkefni/main.cpp \
+		../Verkefni/datalayer.h \
+		../Verkefni/cspersonservice.h ../Verkefni/main.cpp \
 		../Verkefni/csperson.cpp \
 		../Verkefni/menuinterface.cpp \
 		../Verkefni/userlayer.cpp \
-		../Verkefni/datalayer.cpp
+		../Verkefni/datalayer.cpp \
+		../Verkefni/cspersonservice.cpp
 QMAKE_TARGET  = Verkefni
 DESTDIR       = 
 TARGET        = Verkefni
@@ -555,8 +559,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../Verkefni/csperson.h ../Verkefni/menuinterface.h ../Verkefni/userlayer.h ../Verkefni/datalayer.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Verkefni/main.cpp ../Verkefni/csperson.cpp ../Verkefni/menuinterface.cpp ../Verkefni/userlayer.cpp ../Verkefni/datalayer.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Verkefni/csperson.h ../Verkefni/menuinterface.h ../Verkefni/userlayer.h ../Verkefni/datalayer.h ../Verkefni/cspersonservice.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Verkefni/main.cpp ../Verkefni/csperson.cpp ../Verkefni/menuinterface.cpp ../Verkefni/userlayer.cpp ../Verkefni/datalayer.cpp ../Verkefni/cspersonservice.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -599,26 +603,36 @@ compiler_clean:
 ####### Compile
 
 main.o: ../Verkefni/main.cpp ../Verkefni/csperson.h \
-		../Verkefni/userlayer.h \
 		../Verkefni/menuinterface.h \
+		../Verkefni/userlayer.h \
+		../Verkefni/cspersonservice.h \
+		../Verkefni/datalayer.h \
 		../Verkefni/listaccess.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Verkefni/main.cpp
 
-csperson.o: ../Verkefni/csperson.cpp ../Verkefni/csperson.h \
-		../Verkefni/userlayer.h
+csperson.o: ../Verkefni/csperson.cpp ../Verkefni/csperson.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o csperson.o ../Verkefni/csperson.cpp
 
 menuinterface.o: ../Verkefni/menuinterface.cpp ../Verkefni/menuinterface.h \
 		../Verkefni/userlayer.h \
-		../Verkefni/csperson.h
+		../Verkefni/cspersonservice.h \
+		../Verkefni/csperson.h \
+		../Verkefni/datalayer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o menuinterface.o ../Verkefni/menuinterface.cpp
 
 userlayer.o: ../Verkefni/userlayer.cpp ../Verkefni/userlayer.h \
-		../Verkefni/csperson.h
+		../Verkefni/cspersonservice.h \
+		../Verkefni/csperson.h \
+		../Verkefni/datalayer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o userlayer.o ../Verkefni/userlayer.cpp
 
 datalayer.o: ../Verkefni/datalayer.cpp ../Verkefni/datalayer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o datalayer.o ../Verkefni/datalayer.cpp
+
+cspersonservice.o: ../Verkefni/cspersonservice.cpp ../Verkefni/cspersonservice.h \
+		../Verkefni/csperson.h \
+		../Verkefni/datalayer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cspersonservice.o ../Verkefni/cspersonservice.cpp
 
 ####### Install
 

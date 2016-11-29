@@ -22,6 +22,7 @@ class CSPerson
         CSPerson(string name, string gender, int birthYear, int deathYear, string comment);
 
 
+
         /* frá Dabs
         string getName() const
             {
