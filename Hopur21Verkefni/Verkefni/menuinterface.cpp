@@ -47,4 +47,6 @@ void MenuInterface::processChoice(int choice)
         person.addPerson();
     }
 
+    //Nonni er bestur
+
 }
