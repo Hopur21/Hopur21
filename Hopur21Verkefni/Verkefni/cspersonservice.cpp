@@ -1,7 +1,11 @@
 #include "cspersonservice.h"
+
+#include<iostream>
+using namespace std;
 CSPersonService::CSPersonService()
 {
     _fileKeeper = _data.readFromFile();
+    searchByName("Gol");
 }
 
 void CSPersonService::newPerson(string name, string gender, int birthYear, int deathYear, string comment)
@@ -24,4 +28,31 @@ void CSPersonService::removeNodeFromList(const int index)
 {
     _fileKeeper.erase(_fileKeeper.begin() + index +1); //+1 = off by one
     _data.writeToFile(_fileKeeper);
+}
+
+vector<CSPerson> CSPersonService::searchByName(const string searchString)
+{
+    vector<CSPerson> tempVector;
+    for(size_t i = 0; i < _fileKeeper.size(); i++)
+    {
+        if(checkIfStringSameIgnoreUpper(_fileKeeper[i].getName(), searchString))
+        {
+            tempVector.push_back(_fileKeeper[i]);
+        }
+    }
+    return tempVector;
+}
+
+bool CSPersonService::checkIfStringSameIgnoreUpper(string orginalString, string searchFor)
+{
+    std::transform(orginalString.begin(), orginalString.end(),orginalString.begin(), ::tolower);
+    std::transform(searchFor.begin(), searchFor.end(),searchFor.begin(), ::tolower);
+    if(orginalString.find(searchFor) != string::npos)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }

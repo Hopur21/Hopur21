@@ -11,9 +11,12 @@ public:
     vector<CSPerson> getCompleteList(){return _fileKeeper;}
 
     // TODO bæta við lesa inn skrá frá notenda
+    //Sets
     void setCompleteList();
-
     void newPerson();//TODO
+
+    //Gets
+    vector<CSPerson> searchByName(const string searchString);
 
 private:
     vector<CSPerson> _fileKeeper;
@@ -25,6 +28,8 @@ private:
 
     //Gets
     int getIndexOfValueByName(const string name);
+
+    bool checkIfStringSameIgnoreUpper(string orginalString, string searchFor);
 };
 
 #endif // CSPERSONSERVICE_H
