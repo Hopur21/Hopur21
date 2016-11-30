@@ -8,9 +8,16 @@ const string SEARCH_PERSON = "3";
 const string REMOVE_PERSON = "4";
 const string EXIT = "5";
 
+<<<<<<< HEAD
 const string SORT_ALPHABET = "1";
 const string SORT_BY_YEAR_OF_BIRTH = "2";
 const string SORT_BY_YEAR_OF_DEATH = "3";
+=======
+const string SEARCH_ALPHABET = "1";
+const string SEARCH_BY_YEAR_OF_BIRTH = "2";
+const string SEARCH_BY_YEAR_OF_DEATH = "3";
+const string GO_BACK = "0";
+>>>>>>> 78d59bc868a945214407000809105ec1f4fb6093
 
 void invalidInput()
 {
@@ -60,6 +67,7 @@ void MenuInterface::processChoice(const string choice)
         cout << " | 1 | Sort computer scientists by alphabetical order" << endl;
         cout << " | 2 | Sort computer scientists by year of birth" << endl;
         cout << " | 3 | Sort computer scientists by year of death" << endl;
+        cout << " | 0 | Go back" << endl;
         cout << " Enter your choice here: ";
         cin >> choiceSub;
         cout << endl;
@@ -75,6 +83,10 @@ void MenuInterface::processChoice(const string choice)
         else if(choiceSub == SORT_BY_YEAR_OF_DEATH)
         {
             // call sort ...
+        }
+        else if(choiceSub == GO_BACK)
+        {
+            DisplayMenu();
         }
         else
         {
