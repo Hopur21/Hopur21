@@ -8,16 +8,11 @@ const string SEARCH_PERSON = "3";
 const string REMOVE_PERSON = "4";
 const string EXIT = "5";
 
-<<<<<<< HEAD
 const string SORT_ALPHABET = "1";
 const string SORT_BY_YEAR_OF_BIRTH = "2";
 const string SORT_BY_YEAR_OF_DEATH = "3";
-=======
-const string SEARCH_ALPHABET = "1";
-const string SEARCH_BY_YEAR_OF_BIRTH = "2";
-const string SEARCH_BY_YEAR_OF_DEATH = "3";
 const string GO_BACK = "0";
->>>>>>> 78d59bc868a945214407000809105ec1f4fb6093
+
 
 void invalidInput()
 {
