@@ -14,7 +14,8 @@ public:
 
 private:
 
-
+    DataLayer _data;
+    vector<CSPerson> _fileKeeper;
     void newPerson(string name, string gender, int birthYear, int deathYear, string comment);
 };
 

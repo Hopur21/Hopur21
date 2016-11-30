@@ -13,7 +13,7 @@ public:
     DataLayer();
 
     void writeToFile(const vector<CSPerson>& vectPersons, const string fileName = "Computer_Scientist.txt");
-    vector<CSPerson> readFromFile(const string fileName = "Computer_Scientist.txt");
+    vector<CSPerson> readFromFile(string fileName = "Computer_Scientist.txt");
 };
 
 #endif // DATALAYER_H
