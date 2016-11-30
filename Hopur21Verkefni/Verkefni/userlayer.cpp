@@ -13,7 +13,7 @@ const string GENDER_OTHER = "3";
 const string ALIVE = "0";
 const char SPACE = ' ';
 
-void invalidInput();
+void invalidInput(); //Hvaða fall er þetta? (Vantar komment)
 
 UserLayer::UserLayer()
 {
@@ -22,12 +22,7 @@ UserLayer::UserLayer()
 
 void UserLayer::addPerson()
 {
-
-    string name, gender, comment;
-    string birthYear,deathYear;
-
-    // input and counter is for the gender input
-    string input;
+    string name, gender, comment, birthYear,deathYear, input;
     int error_counter = 0;
 
     cout << "Enter name: ";
@@ -35,7 +30,6 @@ void UserLayer::addPerson()
     getline(cin, name);
 
     // TODO :IF PERSON EXISTS DISPLAY ERROR MESSAGE
-
     do
     {
         input = "";
@@ -46,16 +40,13 @@ void UserLayer::addPerson()
             cout << endl;
         }
 
-        cout << "Select gender: " << endl << endl;
-        cout << "Enter 1 for male" << endl;
-        cout << "Enter 2 for female" << endl;
-        cout << "Enter 3 for other" << endl;
+        printGenderMenu();
 
         cin >> input;
         if(input == GENDER_MALE)
         {
             gender = "Male";
-            break;
+            break; //Þarf þessi breaks?
         }
         else if(input == GENDER_FEMALE)
         {
@@ -67,8 +58,7 @@ void UserLayer::addPerson()
             gender = "Other";
             break;
         }
-        error_counter ++;
-
+        error_counter++;
     }while(input != GENDER_MALE || input != GENDER_FEMALE || input != GENDER_OTHER);
 
     // counter is reset for next iteration.
@@ -76,7 +66,6 @@ void UserLayer::addPerson()
 
     // Birth year validation
     birthYearValidation(birthYear);
-
     cout << "Enter the year of death, 0 if this person is still alive: ";
     cin >> deathYear;
     cout << "What is this person's greatest achievement: ";
@@ -91,6 +80,14 @@ void UserLayer::addPerson()
 
 }
 
+void UserLayer::printGenderMenu()
+{
+    cout << "Select gender: " << endl << endl;
+    cout << "Enter 1 for male" << endl;
+    cout << "Enter 2 for female" << endl;
+    cout << "Enter 3 for other" << endl;
+}
+
 bool UserLayer::checkNumberValidity(string userInput)
 {
     // numberTest becomes zero if the user input is invalid.
@@ -103,7 +100,7 @@ bool UserLayer::checkNumberValidity(string userInput)
     {
         return false;
     }
-    if(numberTest <= 0  || numberTest >= 3000)
+    if(numberTest <= 0  || numberTest >= 3000)//Vantar komment
     {
         return true;
     }
@@ -221,6 +218,3 @@ void UserLayer::searchForAPerson()
         printList(_CSPServ.searchByYearOfDeath(searchString));
     }
 }
-
-
-

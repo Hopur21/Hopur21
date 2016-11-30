@@ -14,7 +14,7 @@ class CSPerson
         string _comment;
 
     public:
-        CSPerson();
+        CSPerson(){}
 
         CSPerson(const string name, const string gender, const int birthYear, const int deathYear, const string comment);
 

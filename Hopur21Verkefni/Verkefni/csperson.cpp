@@ -2,8 +2,6 @@
 
 using namespace std;
 
-CSPerson::CSPerson(){};
-
 CSPerson::CSPerson(string name, string gender, int birthYear, int passedAwayYear, string comment)
 {
    _name = name;

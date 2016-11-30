@@ -10,8 +10,7 @@ using namespace std;
 class DataLayer
 {
 public:
-    DataLayer();
-
+    DataLayer(){}
     void writeToFile(const vector<CSPerson>& vectPersons, const string fileName = "Computer_Scientist.txt");
     vector<CSPerson> readFromFile(string fileName = "Computer_Scientist.txt");
 };

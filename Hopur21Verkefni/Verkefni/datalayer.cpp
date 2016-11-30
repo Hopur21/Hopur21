@@ -1,13 +1,5 @@
 #include "datalayer.h"
 
-#include<iostream> //TODO Henda út
-
-using namespace std;
-
-DataLayer::DataLayer()
-{
-}
-
 //Filename is set in Header file if no name is given.
 vector<CSPerson> DataLayer::readFromFile(string fileName)
 {
@@ -18,11 +10,8 @@ vector<CSPerson> DataLayer::readFromFile(string fileName)
     try
     {
         myFile.open(fileName);
-
-
         while(getline(myFile, personName,delimeter))
         {
-
             getline(myFile, gender, delimeter);
             getline(myFile, yearBorn, delimeter);
             getline(myFile, yearPassedAway, delimeter);
@@ -73,9 +62,7 @@ void DataLayer::writeToFile(const vector<CSPerson>& vectPersons, const string fi
             myFile << vectPersons[i].getBirthYear() << delimeter;
             myFile << vectPersons[i].getPassedAwayYear() << delimeter;
             myFile << vectPersons[i].getComments() << delimeter;
-
         }
-
         myFile.close();
     }
     catch(int e)

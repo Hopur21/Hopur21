@@ -1,7 +1,5 @@
 #include "cspersonservice.h"
 
-#include<iostream>
-using namespace std;
 CSPersonService::CSPersonService()
 {
     _fileKeeper = _data.readFromFile();
@@ -18,8 +16,9 @@ void CSPersonService::addNewPersonToList(const string name,const string gender, 
     {
         tempDeathYear = deathYear;
     }
-
+    //Save our new person in our vector
     _fileKeeper.push_back(CSPerson (name, gender, tempBirthYear, tempDeathYear, comment));
+    _data.writeToFile(_fileKeeper);// Write our updated vector to file
 }
 
 int CSPersonService::getIndexOfValueByName(const string name)
@@ -31,7 +30,7 @@ int CSPersonService::getIndexOfValueByName(const string name)
             return i;
         }
     }
-    return -1;
+    return -1;//Return value less then 0
 }
 void CSPersonService::removeNodeFromList(const int index)
 {

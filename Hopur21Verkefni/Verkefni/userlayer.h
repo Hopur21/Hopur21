@@ -9,12 +9,13 @@ class UserLayer
 {
     private:
         CSPersonService _CSPServ;
+        void printList(vector<CSPerson> list);
+        bool checkNumberValidity(string userInput);
+        void birthYearValidation(string birthYear);
+        void printGenderMenu();
     public:
         UserLayer();
         void addPerson();
-        bool checkNumberValidity(string userInput);
-        void birthYearValidation(string birthYear);
-        void printList(vector<CSPerson> list);
         void sortListAlphabetically();
         void searchForAPerson();
 
