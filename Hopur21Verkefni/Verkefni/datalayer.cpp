@@ -18,12 +18,23 @@ vector<CSPerson> DataLayer::readFromFile(string fileName)
     try
     {
         myFile.open(fileName);
+
+
         while(getline(myFile, personName,delimeter))
         {
+
             getline(myFile, gender, delimeter);
             getline(myFile, yearBorn, delimeter);
             getline(myFile, yearPassedAway, delimeter);
             getline(myFile, comment, delimeter);
+
+            if(personName[0] == '\n')
+            {
+                personName.erase(0,1);
+            }
+
+
+
             vectPersons.push_back(CSPerson(personName, gender, stoi(yearBorn), stoi(yearPassedAway), comment));
         }
         myFile.close();
@@ -45,9 +56,10 @@ void DataLayer::writeToFile(const vector<CSPerson>& vectPersons, const string fi
         {
             myFile << vectPersons[i].getName() << delimeter;
             myFile << vectPersons[i].getGender() << delimeter;
-            myFile << vectPersons[i].getBirthyear() << delimeter;
+            myFile << vectPersons[i].getBirthYear() << delimeter;
             myFile << vectPersons[i].getPassedAwayYear() << delimeter;
             myFile << vectPersons[i].getComments() << delimeter;
+
         }
 
         myFile.close();
