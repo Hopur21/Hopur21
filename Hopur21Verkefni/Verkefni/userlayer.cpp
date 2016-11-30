@@ -7,8 +7,6 @@ const string SEARCH_BY_NAME = "1";
 const string SEARCH_BY_YEAR_OF_BIRTH = "2";
 const string SEARCH_BY_YEAR_OF_DEATH = "3";
 
-
-
 const string GENDER_MALE = "1";
 const string GENDER_FEMALE = "2";
 const string GENDER_OTHER = "3";
@@ -143,7 +141,6 @@ void UserLayer::printList(vector<CSPerson> list)
         return;
     }
 
-
     for(int i=0;i<sizeOfList;i++)
     {
         string name = list.at(i).getName();
@@ -209,6 +206,8 @@ void UserLayer::searchForAPerson()
     cin.ignore();
     getline(cin, searchString);
 
+    cout << "SEARCHSTRING" << searchString;
+
     if(userInput == SEARCH_BY_NAME)
     {
         cout << "HELLO FROM SEARCH BY NAME";
@@ -222,7 +221,7 @@ void UserLayer::searchForAPerson()
     else if(userInput == SEARCH_BY_YEAR_OF_DEATH)
     {
         cout << "HELLO FROM SEARCH BY YEAR OF DEATH";
-         _CSPServ.searchByYearOfDeath(searchString);
+        _CSPServ.searchByYearOfDeath(searchString);
     }
 }
 
