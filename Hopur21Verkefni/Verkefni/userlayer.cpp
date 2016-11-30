@@ -176,7 +176,7 @@ void UserLayer::printList(vector<CSPerson> list)
 
 void UserLayer::sortListAlphabetically()
 {
-    vector <CSPerson> sortedList = _CSPServ.sortAlphabetically();
+    //vector <CSPerson> sortedList = _CSPServ.sortAlphabetically();
     //SORT
     //printList();
 }
