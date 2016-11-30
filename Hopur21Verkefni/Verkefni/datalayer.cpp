@@ -32,6 +32,22 @@ vector<CSPerson> DataLayer::readFromFile(string fileName)
             {
                 personName.erase(0,1);
             }
+            if(gender[0] == '\n')
+            {
+                gender.erase(0,1);
+            }
+            if(yearBorn[0] == '\n')
+            {
+                yearBorn.erase(0,1);
+            }
+            if(yearPassedAway[0] == '\n')
+            {
+                yearPassedAway.erase(0,1);
+            }
+            if(comment[0] == '\n')
+            {
+                comment.erase(0,1);
+            }
 
 
 
