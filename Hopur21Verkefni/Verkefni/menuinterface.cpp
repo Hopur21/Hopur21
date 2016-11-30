@@ -97,7 +97,7 @@ void MenuInterface::processChoice(const string choice)
 
     else if(choice == SEARCH_PERSON)
     {
-        //search list for CS
+        _uL.searchForAPerson();  //HELLO
     }
 
     else if(choice == REMOVE_PERSON)

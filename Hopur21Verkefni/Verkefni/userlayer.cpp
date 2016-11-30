@@ -3,12 +3,17 @@
 #include <iostream>
 using namespace std;
 
+const string SEARCH_BY_NAME = "1";
+const string SEARCH_BY_YEAR_OF_BIRTH = "2";
+const string SEARCH_BY_YEAR_OF_DEATH = "3";
+
+
+
 const string GENDER_MALE = "1";
 const string GENDER_FEMALE = "2";
 const string GENDER_OTHER = "3";
 const string ALIVE = "0";
 const char SPACE = ' ';
-
 
 void invalidInput();
 
@@ -179,6 +184,46 @@ void UserLayer::sortListAlphabetically()
     //vector <CSPerson> sortedList = _CSPServ.sortAlphabetically();
     //SORT
     //printList();
+}
+
+void UserLayer::searchForAPerson()
+{
+    string userInput, searchString;
+
+    do
+    {
+        cout << "Enter 1 to : Search by name" << endl;
+        cout << "Enter 2 to : Search by year of year of birth" << endl;
+        cout << "Enter 3 to : Search by year of year of death" << endl;
+
+        cin >> userInput;
+        if(userInput == SEARCH_BY_NAME || userInput == SEARCH_BY_YEAR_OF_BIRTH || userInput == SEARCH_BY_YEAR_OF_DEATH)
+        {
+            break;
+        }
+        cout << "Invalid input, please try again" << endl;
+
+    }while(userInput != SEARCH_BY_NAME || userInput != SEARCH_BY_YEAR_OF_BIRTH || userInput != SEARCH_BY_YEAR_OF_DEATH);
+
+    cout << "Enter the search string : ";
+    cin.ignore();
+    getline(cin, searchString);
+
+    if(userInput == SEARCH_BY_NAME)
+    {
+        cout << "HELLO FROM SEARCH BY NAME";
+        _CSPServ.searchByName(searchString);
+    }
+    else if(userInput == SEARCH_BY_YEAR_OF_BIRTH)
+    {
+        cout << "HELLO FROM SEARCH BY YEAR OF BIRTH";
+        _CSPServ.searchByYearOfBirth(searchString);
+    }
+    else if(userInput == SEARCH_BY_YEAR_OF_DEATH)
+    {
+        cout << "HELLO FROM SEARCH BY YEAR OF DEATH";
+         _CSPServ.searchByYearOfDeath(searchString);
+    }
 }
 
 

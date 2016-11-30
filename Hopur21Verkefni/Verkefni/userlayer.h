@@ -16,6 +16,7 @@ class UserLayer
         void birthYearValidation(string birthYear);
         void printList(vector<CSPerson> list);
         void sortListAlphabetically();
+        void searchForAPerson();
 
 };
 
