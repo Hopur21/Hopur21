@@ -43,8 +43,7 @@ void UserLayer::addPerson()
             cout << endl;
         }
 
-        cout << "Select gender: " << endl;
-        cout << endl;
+        cout << "Select gender: " << endl << endl;
         cout << "Enter 1 for male" << endl;
         cout << "Enter 2 for female" << endl;
         cout << "Enter 3 for other" << endl;
@@ -158,11 +157,17 @@ void UserLayer::printList()
             string alive = "Alive";
             cout << alive.append(17 - alive.length(), SPACE);
         }
+<<<<<<< HEAD
         cout << endl;
         cout << endl;
         cout << info << endl;
         cout <<   "------------------------------------------------------------------------"<< endl;
         cout << endl;
+=======
+        cout << "Info        : " << completeList.at(i).getComments() << endl;
+        cout << endl;
+
+>>>>>>> 57f2c4307c3832fe6d763476ff474574a6901040
     }
 }
 
