@@ -19,7 +19,7 @@ void CSPersonService::addNewPersonToList(const string name,const string gender, 
         tempDeathYear = deathYear;
     }
 
-    _fileKeeper.push_back(CSPerson (name, gender, birthYear, deathYear, comment));
+    _fileKeeper.push_back(CSPerson (name, gender, tempBirthYear, tempDeathYear, comment));
 }
 
 int CSPersonService::getIndexOfValueByName(const string name)
@@ -42,6 +42,7 @@ void CSPersonService::removeNodeFromList(const int index)
 //Search by name, find every value that we find and return all of those values in a vector
 vector<CSPerson> CSPersonService::searchByName(const string searchString)
 {
+    cout << "blahh" << endl;
     vector<CSPerson> tempVector;
     for(size_t i = 0; i < _fileKeeper.size(); i++)
     {
