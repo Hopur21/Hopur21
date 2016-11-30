@@ -74,6 +74,7 @@ void UserLayer::addPerson()
     cin >> comment;
     cout << endl;
     cout << "Thank you, this person has now been added to your list." << endl;
+    cout << endl;
 
     //CSPerson newPerson(name, gender, birthYear, deathYear, comment); TODO Lesa inn nýjan Person
 
