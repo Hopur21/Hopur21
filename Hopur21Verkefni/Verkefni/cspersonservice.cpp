@@ -5,8 +5,9 @@ CSPersonService::CSPersonService()
     _fileKeeper = _data.readFromFile();
 }
 
-void CSPersonService::addNewPersonToList(const string name,const string gender, int birthYear, int deathYear,const string comment)
+bool CSPersonService::addNewPersonToList(const string name,const string gender,const int birthYear,const int deathYear,const string comment)
 {
+    //We will set years to 0 if they are not valid.
     int tempBirthYear = 0, tempDeathYear = 0;
     if(validNumber(to_string(birthYear))) //If number is valid
     {
@@ -19,6 +20,17 @@ void CSPersonService::addNewPersonToList(const string name,const string gender, 
     //Save our new person in our vector
     _fileKeeper.push_back(CSPerson (name, gender, tempBirthYear, tempDeathYear, comment));
     _data.writeToFile(_fileKeeper);// Write our updated vector to file
+    return true;//Return true that we made it
+}
+bool CSPersonService::removePersonFromList(const string name)
+{
+    int index = getIndexOfValueByName(name);
+    if(index >= 0)//If name was found
+    {
+        removeNodeFromList(index);
+        return true;//Return true that we made it
+    }
+    return false;
 }
 
 int CSPersonService::getIndexOfValueByName(const string name)

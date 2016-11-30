@@ -15,7 +15,8 @@ public:
 
     //Sets
     void setCompleteList();
-    void addNewPersonToList(const string name,const string gender, int birthYear, int deathYear,const string comment);
+    bool addNewPersonToList(const string name,const string gender,const int birthYear,const int deathYear,const string comment);
+    bool removePersonFromList(const string name);
 
     //Gets
     vector<CSPerson> searchByName(const string searchString);
