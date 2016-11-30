@@ -14,7 +14,6 @@ class CSPerson
         int _birthYear;
         int _deathYear;
         string _comment;
-        //UserLayer uL;
 
     public:
         CSPerson();
