@@ -6,7 +6,7 @@ using namespace std;
 const string GENDER_MALE = "1";
 const string GENDER_FEMALE = "2";
 const string GENDER_OTHER = "3";
-const string DEAD = "0";
+const string ALIVE = "0";
 const char SPACE = ' ';
 
 
@@ -128,11 +128,9 @@ void UserLayer::birthYearValidation(string birthYear)
     }
 }
 
-void UserLayer::printList()
+void UserLayer::printList(vector<CSPerson> list)
 {
-    vector<CSPerson> completeList = _CSPS.getCompleteList();
-
-    int sizeOfList = completeList.size();
+    int sizeOfList = list.size();
 
     if(sizeOfList == 0)
     {
@@ -143,11 +141,11 @@ void UserLayer::printList()
 
     for(int i=0;i<sizeOfList;i++)
     {
-        string name = completeList.at(i).getName();
-        string gender = completeList.at(i).getGender();
-        string stringBirthYear = to_string(completeList.at(i).getBirthYear());
-        string stringPassedAway = to_string(completeList.at(i).getPassedAwayYear());
-        string info = completeList.at(i).getComments() ;
+        string name = list.at(i).getName();
+        string gender = list.at(i).getGender();
+        string stringBirthYear = to_string(list.at(i).getBirthYear());
+        string stringPassedAway = to_string(list.at(i).getPassedAwayYear());
+        string info = list.at(i).getComments() ;
 
         cout << endl;
         cout <<   "NAME                            GENDER    YEAR OF BIRTH    YEAR OF DEATH" << endl;
@@ -157,7 +155,7 @@ void UserLayer::printList()
         cout << gender.append(10 - gender.length(), SPACE);
         cout << stringBirthYear.append(17 - stringBirthYear.length(), SPACE);
 
-        if(stringPassedAway != DEAD)
+        if(stringPassedAway != ALIVE)
         {
             cout << stringPassedAway.append(17- stringPassedAway.length(), SPACE);
         }
@@ -174,6 +172,13 @@ void UserLayer::printList()
         cout <<   "------------------------------------------------------------------------"<< endl;
         cout << endl;
     }
+}
+
+void UserLayer::sortListAlphabetically()
+{
+    vector <CSPerson> sortedList = _CSPServ.sortAlphabetically();
+    //SORT
+    //printList();
 }
 
 
