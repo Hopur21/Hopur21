@@ -210,15 +210,15 @@ void UserLayer::searchForAPerson()
 
     if(userInput == SEARCH_BY_NAME)
     {
-        _CSPServ.searchByName(searchString);
+        printList(_CSPServ.searchByName(searchString));
     }
     else if(userInput == SEARCH_BY_YEAR_OF_BIRTH)
     {
-        _CSPServ.searchByYearOfBirth(searchString);
+        printList(_CSPServ.searchByYearOfBirth(searchString));
     }
     else if(userInput == SEARCH_BY_YEAR_OF_DEATH)
     {
-        _CSPServ.searchByYearOfDeath(searchString);
+        printList(_CSPServ.searchByYearOfDeath(searchString));
     }
 }
 
