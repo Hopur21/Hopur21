@@ -8,7 +8,10 @@ class CSPersonService
 {
 public:
     CSPersonService();
+    vector<CSPerson> getCompleteList(){return _fileKeeper;};
 
+    // TODO bæta við lesa inn skrá frá notenda
+    void setCompleteList();
 
     void newPerson();
 
