@@ -7,6 +7,8 @@ const string GENDER_MALE = "1";
 const string GENDER_FEMALE = "2";
 const string GENDER_OTHER = "3";
 
+void invalidInput();
+
 UserLayer::UserLayer()
 {
     CSPersonService test;
@@ -34,7 +36,7 @@ void UserLayer::addPerson()
         if(error_counter > 0)
         {
             cout << endl;
-            cout << "Invalid input, try again." << endl;
+            invalidInput();
             cout << endl;
         }
 

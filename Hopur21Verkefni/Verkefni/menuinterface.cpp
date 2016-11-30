@@ -14,17 +14,22 @@ const string SEARCH_BY_YEAR_OF_DEATH = "3";
 
 void invalidInput()
 {
-    cout << "Your input was invalid, please try again.";
+    cout << "Your input was invalid, please try again." << endl;
 }
 
-void MenuInterface::DisplayMenu()
+void welcomeBanner()
 {
-    string choice;
     cout << endl;
     cout << "       ********************************************" << endl;
     cout << "       *  WELCOME TO THE COMPUTER SCIENTIST LIST  *" << endl;
     cout << "       ********************************************" << endl;
     cout << endl;
+}
+
+void MenuInterface::DisplayMenu()
+{
+    string choice;
+
     cout << endl;
     cout << " | 1 | Display the complete list" << endl;
     cout << " | 2 | Add a computer scientist to the list" << endl;
@@ -41,7 +46,6 @@ void MenuInterface::DisplayMenu()
     }
     else
     {
-        cout << endl;
         invalidInput();
         DisplayMenu();
     }
