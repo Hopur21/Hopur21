@@ -46,8 +46,9 @@ vector<CSPerson> CSPersonService::searchByName(const string searchString)
 //Returns true/false if the string2 is in string1, no matter upper or lower case.
 bool CSPersonService::checkIfStringSameIgnoreUpper(string orginalString, string searchFor)
 {
-    std::transform(orginalString.begin(), orginalString.end(),orginalString.begin(), ::tolower);
-    std::transform(searchFor.begin(), searchFor.end(),searchFor.begin(), ::tolower);
+    //Make sure both strings are the same case
+    transform(orginalString.begin(), orginalString.end(),orginalString.begin(), ::tolower);
+    transform(searchFor.begin(), searchFor.end(),searchFor.begin(), ::tolower);
     if(orginalString.find(searchFor) != string::npos)//If string.find is not size_t max size
     {
         return true;
