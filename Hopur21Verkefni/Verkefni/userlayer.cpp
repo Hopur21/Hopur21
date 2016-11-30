@@ -152,6 +152,7 @@ void UserLayer::printList()
             cout << "Passed away : " << completeList.at(i).getPassedAwayYear() << endl;
         }
         cout << "Info        : " << completeList.at(i).getComments() << endl;
+        cout << endl;
 
     }
 }
