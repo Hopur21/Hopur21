@@ -9,19 +9,17 @@ void MenuInterface::DisplayMenu()
 
 
     int choice = 0;
-    cout << "**************************************" << endl;
-    cout << "WELCOME TO THE COMPUTER SCIENTIST LIST" << endl;
-    cout << "**************************************" << endl;
+    cout << "********************************************" << endl;
+    cout << "*  WELCOME TO THE COMPUTER SCIENTIST LIST  *" << endl;
+    cout << "********************************************" << endl;
     cout << endl;
-
-
+    cout << endl;
     cout << "Enter 1 to display the complete list " << endl;
     cout << "Enter 2 to add a computer scientist to the list " << endl;
     cout << "Enter 3 to search the list for a computer scientist " << endl;
     cout << "Enter 4 to remove a computer scientist from the list" << endl;
     cout << "Enter 5 to exit program " << endl;
     cin >> choice;
-
     if(choice == 1 || choice == 2 || choice == 3 || choice ==4)
     {
         processChoice(choice);
