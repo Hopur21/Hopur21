@@ -2,13 +2,20 @@
 #include <iostream>
 using namespace std;
 
+const string DISPLAY_LIST = "1";
+const string ADD_PERSON = "2";
+const string SEARCH_PERSON = "3";
+const string REMOVE_PERSON = "4";
+const string EXIT = "5";
+
+const string SEARCH_ALPHABET = "1";
+const string SEARCH_BY_YEAR_OF_BIRTH = "2";
+const string SEARCH_BY_YEAR_OF_DEATH = "3";
 
 void MenuInterface::DisplayMenu()
 {
-    // TODO: Setja valmöguleikana í const
+    string choice;
 
-
-    int choice = 0;
     cout << "**************************************" << endl;
     cout << "WELCOME TO THE COMPUTER SCIENTIST LIST" << endl;
     cout << "**************************************" << endl;
@@ -22,7 +29,7 @@ void MenuInterface::DisplayMenu()
     cout << "Enter 5 to exit program " << endl;
     cin >> choice;
 
-    if(choice == 1 || choice == 2 || choice == 3 || choice ==4)
+    if(choice == DISPLAY_LIST || choice == ADD_PERSON || choice == SEARCH_PERSON || choice ==REMOVE_PERSON)
     {
         processChoice(choice);
     }
@@ -34,26 +41,26 @@ void MenuInterface::DisplayMenu()
     }
 }
 
-void MenuInterface::processChoice(int choice)
+void MenuInterface::processChoice(const string choice)
 {
-    int choiceSub;
+    string choiceSub;
     // Here the input from the main menu is processed
-    if(choice == 1)
+    if(choice == DISPLAY_LIST)
     {
         cout << "Enter 1 to sort computer scientists by alphabetical order:" << endl;
         cout << "Enter 2 to sort computer scientists by year of birth:" << endl;
         cout << "Enter 3 to sort computer scientists by year of death:" << endl;
 
         cin >> choiceSub;
-        if(choiceSub == 1)
+        if(choiceSub == SEARCH_ALPHABET)
         {
             // call sort function
         }
-        else if(choiceSub == 2)
+        else if(choiceSub == SEARCH_BY_YEAR_OF_BIRTH)
         {
             // call sort function
         }
-        else if(choiceSub == 3)
+        else if(choiceSub == SEARCH_BY_YEAR_OF_DEATH)
         {
             // call sort ...
         }
@@ -64,17 +71,17 @@ void MenuInterface::processChoice(int choice)
         }
     }
 
-    else if(choice == 2)
+    else if(choice == ADD_PERSON)
     {
         _uL.addPerson();
     }
 
-    else if(choice == 3)
+    else if(choice == SEARCH_PERSON)
     {
         //search list for CS
     }
 
-    else if(choice == 4)
+    else if(choice == REMOVE_PERSON)
     {
         return;
     }
