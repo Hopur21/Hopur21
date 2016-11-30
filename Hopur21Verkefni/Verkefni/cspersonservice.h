@@ -19,7 +19,6 @@ public:
     vector<CSPerson> searchByName(const string searchString);
     vector<CSPerson> searchByYearOfBirth(const string searchString);
     vector<CSPerson> searchByYearOfDeath(const string searchString);
-    vector<CSPerson> searchByAlive(const string searchString);
 
     //Sorts
     vector<CSPerson> sortAlphabetically(); // TODO
