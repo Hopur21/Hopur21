@@ -5,7 +5,7 @@ using namespace std;
 
 UserLayer::UserLayer()
 {
-
+    CSPersonService test;
 }
 
 void UserLayer::addPerson()
@@ -25,7 +25,9 @@ void UserLayer::addPerson()
     cin >> comment;
     cout << endl;
 
-    CSPS.newPerson(name, gender, birthYear, deathYear, comment);
+    //CSPerson newPerson(name, gender, birthYear, deathYear, comment); TODO Lesa inn nýjan Person
+
+    //lA.addToList(newPerson);
 
 }
 

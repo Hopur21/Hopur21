@@ -1,18 +1,14 @@
 #include <csperson.h>
-#include <iostream>
-#include <string>
-
 
 using namespace std;
 
 CSPerson::CSPerson(){};
 
-CSPerson::CSPerson(string name, string gender, int birthYear, int deathYear, string comment)
+CSPerson::CSPerson(string name, string gender, int birthYear, int passedAwayYear, string comment)
 {
    _name = name;
    _gender = gender;
    _birthYear = birthYear;
-   _deathYear = deathYear;
+   _passedAwayYear = passedAwayYear;
    _comment = comment;
 }
-

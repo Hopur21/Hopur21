@@ -5,6 +5,9 @@ using namespace std;
 
 void MenuInterface::DisplayMenu()
 {
+    // TODO: Setja valmöguleikana í const
+
+
     int choice = 0;
     cout << "**************************************" << endl;
     cout << "WELCOME TO THE COMPUTER SCIENTIST LIST" << endl;
@@ -44,17 +47,15 @@ void MenuInterface::processChoice(int choice)
         cin >> choiceSub;
         if(choiceSub == 1)
         {
-            cout << "Computer Scientists in alphabetical order:" << endl;
-            cout << "******************************************" << endl;
-            cout << endl;
+            // call sort function
         }
         else if(choiceSub == 2)
         {
-
+            // call sort function
         }
         else if(choiceSub == 3)
         {
-
+            // call sort ...
         }
         else
         {
@@ -65,7 +66,7 @@ void MenuInterface::processChoice(int choice)
 
     else if(choice == 2)
     {
-        uL.addPerson();
+        _uL.addPerson();
     }
 
     else if(choice == 3)

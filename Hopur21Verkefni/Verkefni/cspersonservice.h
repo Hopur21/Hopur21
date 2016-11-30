@@ -9,6 +9,12 @@ class CSPersonService
 public:
     CSPersonService();
 
+
+    void newPerson();
+
+private:
+
+
     void newPerson(string name, string gender, int birthYear, int deathYear, string comment);
 };
 
