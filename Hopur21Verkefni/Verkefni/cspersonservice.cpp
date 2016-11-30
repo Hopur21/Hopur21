@@ -28,6 +28,7 @@ void CSPersonService::removeNodeFromList(const int index)
     _fileKeeper.erase(_fileKeeper.begin() + index +1); //+1 = off by one
     _data.writeToFile(_fileKeeper);
 }
+
 //Search by name, find every value that we find and return all of those values in a vector
 vector<CSPerson> CSPersonService::searchByName(const string searchString)
 {
@@ -66,20 +67,34 @@ bool CSPersonService::validNumber(string number)
 vector<CSPerson> CSPersonService::searchByYearOfBirth(const string searchString)
 {
     vector<CSPerson> tempVector;
-
+    if(validNumber(searchString))
+    {
+        for(size_t i = 0; i < _fileKeeper.size(); i++)
+        {
+            string temp = _fileKeeper[i].getBirthYear();
+            if(checkIfStringSameIgnoreUpper(temp, searchString))
+            {
+                tempVector.push_back(_fileKeeper[i]);
+            }
+        }
+    }
     return tempVector;
 }
 
 vector<CSPerson> CSPersonService::searchByYearOfDeath(const string searchString)
 {
     vector<CSPerson> tempVector;
-
-    return tempVector;
-}
-vector<CSPerson> CSPersonService::searchByAlive(const string searchString)
-{
-    vector<CSPerson> tempVector;
-
+    if(validNumber(searchString))
+    {
+        for(size_t i = 0; i < _fileKeeper.size(); i++)
+        {
+            string temp = _fileKeeper[i].getPassedAwayYear();
+            if(checkIfStringSameIgnoreUpper(temp, searchString))
+            {
+                tempVector.push_back(_fileKeeper[i]);
+            }
+        }
+    }
     return tempVector;
 }
 
