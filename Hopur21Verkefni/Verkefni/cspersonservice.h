@@ -1,6 +1,6 @@
 #ifndef CSPERSONSERVICE_H
 #define CSPERSONSERVICE_H
-
+#include <algorithm>
 #include "csperson.h"
 #include "datalayer.h"
 
@@ -8,7 +8,7 @@ class CSPersonService
 {
 public:
     CSPersonService();
-    vector<CSPerson> getCompleteList(){return _fileKeeper;};
+    vector<CSPerson> getCompleteList(){return _fileKeeper;}
 
     // TODO bæta við lesa inn skrá frá notenda
     void setCompleteList();
