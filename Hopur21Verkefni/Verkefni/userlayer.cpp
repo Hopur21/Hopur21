@@ -218,12 +218,7 @@ void UserLayer::searchForAPerson()
     }
     else if(userInput == SEARCH_BY_YEAR_OF_DEATH)
     {
-<<<<<<< HEAD
-        cout << "HELLO FROM SEARCH BY YEAR OF DEATH";
         _CSPServ.searchByYearOfDeath(searchString);
-=======
-         _CSPServ.searchByYearOfDeath(searchString);
->>>>>>> 5c0c80dbd20273a287d8bf9aca663d202f5c3329
     }
 }
 
