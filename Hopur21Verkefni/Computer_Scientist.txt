@@ -5,9 +5,9 @@ Was an analyst of Charles Babbage's analytical engine and considered by many the
 Blaise Pascal;
 male;1623;1662;
 In 1642, while still a teenager, he started some pioneering work on calculating machines, called Pascal's calculators and later Pascalines.;
-Daníel Brandur Sigurgeirsson;
+Daniel Brandur Sigurgeirsson;
 male;1973;0;
-Teaches programming at Reykjavik University. Managed to run whole 10 km in 76:02 minutes. Some say he will be the guy to cure stomach ache permanently. Office workers are not so impressed with him after the release of the disputed program SitStretch that made them move. He is an enthusiastic environmentalist and manages the Icelandic facebook group Áhugahópur um endurvinnslu og endurnýtingu, and is a supporter of the English football club Liverpool;
+Teaches programming at Reykjavik University. Managed to run whole 10 km in 76:02 minutes. Some say he will be the guy to cure stomach ache permanently. Office workers are not so impressed with him after the release of the disputed program SitStretch that made them move. He is an enthusiastic environmentalist and manages the Icelandic facebook group Ahugahopur um endurvinnslu og endurnytingu, and is a supporter of the English football club Liverpool;
 Marissa Ann Mayer;
 female;1975;0;
 Was the first female engineer hired at Google, and was later named Vice President of Search Product and User Experience. She is currently the CEO of Yahoo!;
