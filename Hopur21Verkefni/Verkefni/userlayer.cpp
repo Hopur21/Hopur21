@@ -40,8 +40,7 @@ void UserLayer::addPerson()
             cout << endl;
         }
 
-        cout << "Select gender: " << endl;
-        cout << endl;
+        cout << "Select gender: " << endl << endl;
         cout << "Enter 1 for male" << endl;
         cout << "Enter 2 for female" << endl;
         cout << "Enter 3 for other" << endl;
