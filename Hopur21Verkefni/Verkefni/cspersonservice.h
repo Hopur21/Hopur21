@@ -17,6 +17,9 @@ public:
 
     //Gets
     vector<CSPerson> searchByName(const string searchString);
+    vector<CSPerson> searchByYearOfBirth(const string searchString);
+    vector<CSPerson> searchByYearOfDeath(const string searchString);
+    vector<CSPerson> searchByAlive(const string searchString);
 
 private:
     vector<CSPerson> _fileKeeper;
@@ -28,7 +31,7 @@ private:
 
     //Gets
     int getIndexOfValueByName(const string name);
-
+    bool validNumber(string number);
     bool checkIfStringSameIgnoreUpper(string orginalString, string searchFor);
 };
 
