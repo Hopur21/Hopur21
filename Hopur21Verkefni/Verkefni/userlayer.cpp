@@ -10,13 +10,62 @@ UserLayer::UserLayer()
 
 void UserLayer::addPerson()
 {
+
     string name, gender, comment;
     int birthYear,deathYear;
+
+    // input and counter is for the gender
+    string input = 0;
+    int counter = 0;
+
     cout << "Enter name: ";
-    cin >> name;
+    cin.ignore();
+    getline(cin, name);
+    cout << "Name: " << name << endl;
     // TODO :IF PERSON EXISTS DISPLAY ERROR MESSAGE
-    cout << "Enter gender: ";
-    cin >> gender;
+
+
+    const string male = "1";
+    const string female = "2";
+    const string other = "3";
+
+    do
+    {
+        input = "";
+        if(counter > 0)
+        {
+            cout << "Invalid input, try again." << endl;
+        }
+
+        cout << "Select gender: " << endl;
+
+        cout << "Enter 1 for male" << endl;
+        cout << "Enter 2 for female" << endl;
+        cout << "Enter 3 for other" << endl;
+
+        cin >> input;
+        if(input == male)
+        {
+            gender = "male";
+            break;
+        }
+        else if(input == female)
+        {
+            gender = "female";
+            break;
+        }
+        else if(input == other)
+        {
+            gender = "other";
+            break;
+        }
+        counter ++;
+
+    }while(input != male || input != female || input != other);
+
+    // counter is reset for next iteration.
+    counter = 0;
+
     cout << "Enter the year of birth: ";
     cin >> birthYear;
     cout << "Enter the year of death: ";
