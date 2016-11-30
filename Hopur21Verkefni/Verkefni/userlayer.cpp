@@ -144,6 +144,7 @@ void UserLayer::printList()
         cout << endl;
         cout <<   "NAME                            GENDER    YEAR OF BIRTH    YEAR OF DEATH" << endl;
         cout <<   "------------------------------------------------------------------------"<< endl;
+        cout << endl;
         cout << name.append(32 - name.length(), SPACE);
         cout << gender.append(10 - gender.length(), SPACE);
         cout << stringBirthYear.append(17 - stringBirthYear.length(), SPACE);
@@ -157,17 +158,13 @@ void UserLayer::printList()
             string alive = "Alive";
             cout << alive.append(17 - alive.length(), SPACE);
         }
-<<<<<<< HEAD
+
         cout << endl;
         cout << endl;
         cout << info << endl;
+        cout << endl;
         cout <<   "------------------------------------------------------------------------"<< endl;
         cout << endl;
-=======
-        cout << "Info        : " << completeList.at(i).getComments() << endl;
-        cout << endl;
-
->>>>>>> 57f2c4307c3832fe6d763476ff474574a6901040
     }
 }
 
