@@ -1,6 +1,7 @@
 #ifndef MENUINTERFACE_H
 #define MENUINTERFACE_H
 #include <userlayer.h>
+#include <cspersonservice.h>
 
 class MenuInterface
 {
