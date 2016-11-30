@@ -16,7 +16,7 @@ void UserLayer::addPerson()
 {
 
     string name, gender, comment;
-    int birthYear,deathYear;
+    string birthYear,deathYear;
 
     // input and counter is for the gender input
     string input;
@@ -27,6 +27,7 @@ void UserLayer::addPerson()
     getline(cin, name);
 
     // TODO :IF PERSON EXISTS DISPLAY ERROR MESSAGE
+
     do
     {
         input = "";
@@ -66,8 +67,13 @@ void UserLayer::addPerson()
     // counter is reset for next iteration.
     error_counter = 0;
 
-    cout << "Enter the year of birth: ";
-    cin >> birthYear;
+    // Birth year validation
+    birthYearValidation(birthYear);
+
+    cout << "BYTESTESTEST:::" << birthYear << endl;
+
+
+
     cout << "Enter the year of death, 0 if this person is still alive: ";
     cin >> deathYear;
     cout << "Enter information about the person: ";
@@ -79,4 +85,38 @@ void UserLayer::addPerson()
     //lA.addToList(newPerson);
 
 }
+
+bool UserLayer::checkNumberValidity(string userInput)
+{
+    // numberTest becomes zero if the user input is invalid.
+    int numberTest = atoi(userInput.c_str());
+    if(numberTest <= 0  || numberTest >= 3000)
+    {
+        return true;
+    }
+
+    return false;
+}
+
+void UserLayer::birthYearValidation(string birthYear)
+{
+    bool birthYearValidation = true;
+    while(birthYearValidation)
+    {
+        cout << "Enter the year of birth: ";
+        cin >> birthYear;
+        if(checkNumberValidity(birthYear))
+        {
+            cout << endl;
+            cout << "Invalid input, try again." << endl;
+            cout << endl;
+        }
+        else
+        {
+            birthYearValidation = false;
+        }
+    }
+}
+
+
 

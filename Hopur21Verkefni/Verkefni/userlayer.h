@@ -12,6 +12,9 @@ class UserLayer
     public:
         UserLayer();
         void addPerson();
+        bool checkNumberValidity(string userInput);
+        void birthYearValidation(string birthYear);
+
 };
 
 #endif // USERLAYER_H
