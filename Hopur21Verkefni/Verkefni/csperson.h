@@ -21,7 +21,7 @@ class CSPerson
         //Gets
         string getName()const {return _name;};
         string getGender()const {return _gender;};
-        int getBirthyear()const {return _birthYear;};
+        int getBirthYear()const {return _birthYear;};
         int getPassedAwayYear()const {return _passedAwayYear;};
         string getComments()const {return _comment;};
 

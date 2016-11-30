@@ -65,6 +65,7 @@ void MenuInterface::processChoice(const string choice)
         cout << endl;
         if(choiceSub == SEARCH_ALPHABET)
         {
+            _uL.printList();
             // call sort function
         }
         else if(choiceSub == SEARCH_BY_YEAR_OF_BIRTH)

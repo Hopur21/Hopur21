@@ -122,5 +122,31 @@ void UserLayer::birthYearValidation(string birthYear)
     }
 }
 
+void UserLayer::printList()
+{
+    vector<CSPerson> completeList = _CSPS.getCompleteList();
+
+    int sizeOfList = completeList.size();
+
+    if(sizeOfList == 0)
+    {
+        cout << "List is empty." << endl;
+        return;
+    }
+
+    // MAYBE LATER
+    //cout << "Name----------------------------Gender----Year of birth----Year of death----Info-------------" << endl;
+
+    for(int i=0;i<sizeOfList;i++)
+    {
+        cout << "Name        : " <<  completeList.at(i).getName() << endl;
+        cout << "Gender      : " << completeList.at(i).getGender() << endl;
+        cout << "Birth year  : " << completeList.at(i).getBirthYear() << endl;
+        cout << "Passed away : " << completeList.at(i).getPassedAwayYear() << endl;
+        cout << "Info        : " << completeList.at(i).getComments() << endl;
+
+    }
+}
+
 
 

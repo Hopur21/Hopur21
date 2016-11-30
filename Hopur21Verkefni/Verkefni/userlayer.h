@@ -8,12 +8,13 @@ using namespace std;
 class UserLayer
 {
     private:
-        //CSPersonService _CSPS;
+        CSPersonService _CSPS;
     public:
         UserLayer();
         void addPerson();
         bool checkNumberValidity(string userInput);
         void birthYearValidation(string birthYear);
+        void printList();
 
 };
 
