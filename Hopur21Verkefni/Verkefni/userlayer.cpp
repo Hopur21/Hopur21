@@ -3,6 +3,10 @@
 #include <iostream>
 using namespace std;
 
+const string GENDER_MALE = "1";
+const string GENDER_FEMALE = "2";
+const string GENDER_OTHER = "3";
+
 UserLayer::UserLayer()
 {
     CSPersonService test;
@@ -14,57 +18,53 @@ void UserLayer::addPerson()
     string name, gender, comment;
     int birthYear,deathYear;
 
-    // input and counter is for the gender
-    string input = 0;
-    int counter = 0;
+    // input and counter is for the gender input
+    string input;
+    int error_counter = 0;
 
     cout << "Enter name: ";
     cin.ignore();
     getline(cin, name);
-    cout << "Name: " << name << endl;
+
     // TODO :IF PERSON EXISTS DISPLAY ERROR MESSAGE
-
-
-    const string male = "1";
-    const string female = "2";
-    const string other = "3";
-
     do
     {
         input = "";
-        if(counter > 0)
+        if(error_counter > 0)
         {
+            cout << endl;
             cout << "Invalid input, try again." << endl;
+            cout << endl;
         }
 
         cout << "Select gender: " << endl;
-
+        cout << endl;
         cout << "Enter 1 for male" << endl;
         cout << "Enter 2 for female" << endl;
         cout << "Enter 3 for other" << endl;
 
         cin >> input;
-        if(input == male)
+        if(input == GENDER_MALE)
         {
-            gender = "male";
+            gender = "Male";
             break;
         }
-        else if(input == female)
+        else if(input == GENDER_FEMALE)
         {
-            gender = "female";
+            gender = "Female";
             break;
         }
-        else if(input == other)
+        else if(input == GENDER_OTHER)
         {
-            gender = "other";
+            gender = "Other";
             break;
         }
-        counter ++;
+        error_counter ++;
 
-    }while(input != male || input != female || input != other);
+    }while(input != GENDER_MALE || input != GENDER_FEMALE || input != GENDER_OTHER);
 
     // counter is reset for next iteration.
-    counter = 0;
+    error_counter = 0;
 
     cout << "Enter the year of birth: ";
     cin >> birthYear;
