@@ -17,6 +17,7 @@ public:
     void setCompleteList();
     bool addNewPersonToList(const string name,const string gender,const int birthYear,const int deathYear,const string comment);
     bool removePersonFromList(const string name);
+    void sortByName();
 
     //Gets
     vector<CSPerson> searchByName(const string searchString);
@@ -24,7 +25,7 @@ public:
     vector<CSPerson> searchByYearOfDeath(const string searchString);
 
     //Sorts
-    vector<CSPerson> sortAlphabetically(); // TODO: Raða eftir miðnafni
+    //vector<CSPerson> sortAlphabetically(); // TODO: Raða eftir miðnafni
 
 private:
     vector<CSPerson> _fileKeeper;
@@ -37,6 +38,10 @@ private:
     int getIndexOfValueByName(const string name);
     bool validNumber(string number);
     bool checkIfStringSameIgnoreUpper(string orginalString, string searchFor);
+
+    //Sorts
+    //bool _sortByName(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getName() < rhs.getName(); }
+    //bool _sortByName(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getBirthYear() < rhs.getBirthYear(); }
 };
 
 #endif // CSPERSONSERVICE_H

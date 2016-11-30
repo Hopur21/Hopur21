@@ -49,6 +49,10 @@ void CSPersonService::removeNodeFromList(const int index)
     _fileKeeper.erase(_fileKeeper.begin() + index +1); //+1 = off by one
     _data.writeToFile(_fileKeeper);
 }
+void CSPersonService::sortByName()
+{
+    //sort(_fileKeeper.begin(), _fileKeeper.end(), _sortByName);
+}
 
 //Search by name, find every value that we find and return all of those values in a vector
 vector<CSPerson> CSPersonService::searchByName(const string searchString)
