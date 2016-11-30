@@ -78,10 +78,10 @@ void UserLayer::addPerson()
 
     cout << "Enter the year of death, 0 if this person is still alive: ";
     cin >> deathYear;
-    cout << "What is this persons greatest achievement: ";
+    cout << "What is this person's greatest achievement: ";
     cin >> comment;
     cout << endl;
-    cout << "Thank you, this person has now been added to your list." << endl;
+    cout << "This person has now been added to your list." << endl;
     cout << endl;
 
     //CSPerson newPerson(name, gender, birthYear, deathYear, comment); TODO Lesa inn nýjan Person
