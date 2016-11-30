@@ -1,8 +1,7 @@
 #include "cspersonservice.h"
 CSPersonService::CSPersonService()
 {
-    //Test
-    DataLayer _data;
+    _fileKeeper = _data.readFromFile();
 }
 
 void CSPersonService::newPerson(string name, string gender, int birthYear, int deathYear, string comment)
