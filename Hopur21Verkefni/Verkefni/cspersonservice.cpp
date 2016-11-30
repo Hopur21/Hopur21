@@ -42,6 +42,47 @@ vector<CSPerson> CSPersonService::searchByName(const string searchString)
     return tempVector;
 }
 
+bool CSPersonService::validNumber(string number)
+{
+    int inputNumber = 0;
+    try
+    {
+        inputNumber = atoi(number.c_str());//Try to convert string to int
+    }
+    catch(int e)
+    {
+        return false;
+    }
+    if(inputNumber > 0  || inputNumber < 3000)//If the year is beetween 1 - 2999
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+vector<CSPerson> CSPersonService::searchByYearOfBirth(const string searchString)
+{
+    vector<CSPerson> tempVector;
+
+    return tempVector;
+}
+
+vector<CSPerson> CSPersonService::searchByYearOfDeath(const string searchString)
+{
+    vector<CSPerson> tempVector;
+
+    return tempVector;
+}
+vector<CSPerson> CSPersonService::searchByAlive(const string searchString)
+{
+    vector<CSPerson> tempVector;
+
+    return tempVector;
+}
+
 //Returns true/false if the string2 is in string1, no matter upper or lower case.
 bool CSPersonService::checkIfStringSameIgnoreUpper(string orginalString, string searchFor)
 {

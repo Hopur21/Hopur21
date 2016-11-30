@@ -91,7 +91,15 @@ void UserLayer::addPerson()
 bool UserLayer::checkNumberValidity(string userInput)
 {
     // numberTest becomes zero if the user input is invalid.
-    int numberTest = atoi(userInput.c_str());
+    int numberTest = 0;
+    try
+    {
+        numberTest = atoi(userInput.c_str());
+    }
+    catch(int e)
+    {
+        return false;
+    }
     if(numberTest <= 0  || numberTest >= 3000)
     {
         return true;
