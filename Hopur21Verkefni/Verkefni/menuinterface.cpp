@@ -21,13 +21,14 @@ void MenuInterface::DisplayMenu()
     cout << "       ********************************************" << endl;
     cout << endl;
     cout << endl;
-    cout << "| 1 | Display the complete list" << endl;
-    cout << "| 2 | Add a computer scientist to the list" << endl;
-    cout << "| 3 | Search the list for a computer scientist" << endl;
-    cout << "| 4 | Remove a computer scientist from the list" << endl;
-    cout << "| 5 | Exit the program" << endl;
+    cout << " | 1 | Display the complete list" << endl;
+    cout << " | 2 | Add a computer scientist to the list" << endl;
+    cout << " | 3 | Search the list for a computer scientist" << endl;
+    cout << " | 4 | Remove a computer scientist from the list" << endl;
+    cout << " | 5 | Exit the program" << endl;
+    cout << " Enter your choice here: ";
     cin >> choice;
-
+    cout << endl;
 
     if(choice == DISPLAY_LIST || choice == ADD_PERSON || choice == SEARCH_PERSON || choice ==REMOVE_PERSON)
     {
@@ -47,11 +48,12 @@ void MenuInterface::processChoice(const string choice)
     // Here the input from the main menu is processed
     if(choice == DISPLAY_LIST)
     {
-        cout << "| 1 | Sort computer scientists by alphabetical order" << endl;
-        cout << "| 2 | Sort computer scientists by year of birth" << endl;
-        cout << "| 3 | Sort computer scientists by year of death" << endl;
-
+        cout << " | 1 | Sort computer scientists by alphabetical order" << endl;
+        cout << " | 2 | Sort computer scientists by year of birth" << endl;
+        cout << " | 3 | Sort computer scientists by year of death" << endl;
+        cout << " Enter your choice here: ";
         cin >> choiceSub;
+        cout << endl;
         if(choiceSub == SEARCH_ALPHABET)
         {
             // call sort function
