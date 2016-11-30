@@ -18,26 +18,27 @@ void UserLayer::addPerson()
     string name, gender, comment;
     int birthYear,deathYear;
 
-    // input and counter is for the gender
+    // input and counter is for the gender input
     string input;
     int error_counter = 0;
 
     cout << "Enter name: ";
     cin.ignore();
     getline(cin, name);
-    cout << "Name: " << name << endl;
-    // TODO :IF PERSON EXISTS DISPLAY ERROR MESSAGE
 
+    // TODO :IF PERSON EXISTS DISPLAY ERROR MESSAGE
     do
     {
         input = "";
         if(error_counter > 0)
         {
+            cout << endl;
             cout << "Invalid input, try again." << endl;
+            cout << endl;
         }
 
         cout << "Select gender: " << endl;
-
+        cout << endl;
         cout << "Enter 1 for male" << endl;
         cout << "Enter 2 for female" << endl;
         cout << "Enter 3 for other" << endl;
