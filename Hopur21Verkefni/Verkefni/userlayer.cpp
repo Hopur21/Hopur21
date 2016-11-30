@@ -141,12 +141,16 @@ void UserLayer::printList()
     {
         cout << "Name        : " <<  completeList.at(i).getName() << endl;
         cout << "Gender      : " << completeList.at(i).getGender() << endl;
-        if(completeList.at(i).getBirthYear() == 0)
-        {
-            cout << "Still alive." << endl;
-        }
         cout << "Birth year  : " << completeList.at(i).getBirthYear() << endl;
-        cout << "Passed away : " << completeList.at(i).getPassedAwayYear() << endl;
+
+        if(completeList.at(i).getPassedAwayYear() == 0)
+        {
+            cout << "Passed away : Alive" << endl;
+        }
+        else
+        {
+            cout << "Passed away : " << completeList.at(i).getPassedAwayYear() << endl;
+        }
         cout << "Info        : " << completeList.at(i).getComments() << endl;
 
     }
