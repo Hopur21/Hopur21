@@ -29,7 +29,7 @@ void CSPersonService::removeNodeFromList(const int index)
     _fileKeeper.erase(_fileKeeper.begin() + index +1); //+1 = off by one
     _data.writeToFile(_fileKeeper);
 }
-
+//Search by name, find every value that we find and return all of those values in a vector
 vector<CSPerson> CSPersonService::searchByName(const string searchString)
 {
     vector<CSPerson> tempVector;
@@ -43,11 +43,12 @@ vector<CSPerson> CSPersonService::searchByName(const string searchString)
     return tempVector;
 }
 
+//Returns true/false if the string2 is in string1, no matter upper or lower case.
 bool CSPersonService::checkIfStringSameIgnoreUpper(string orginalString, string searchFor)
 {
     std::transform(orginalString.begin(), orginalString.end(),orginalString.begin(), ::tolower);
     std::transform(searchFor.begin(), searchFor.end(),searchFor.begin(), ::tolower);
-    if(orginalString.find(searchFor) != string::npos)
+    if(orginalString.find(searchFor) != string::npos)//If string.find is not size_t max size
     {
         return true;
     }
