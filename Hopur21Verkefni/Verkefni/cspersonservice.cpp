@@ -5,7 +5,6 @@ using namespace std;
 CSPersonService::CSPersonService()
 {
     _fileKeeper = _data.readFromFile();
-    searchByName("Gol");
 }
 
 void CSPersonService::newPerson(string name, string gender, int birthYear, int deathYear, string comment)
