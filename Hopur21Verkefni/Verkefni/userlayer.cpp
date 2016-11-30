@@ -6,6 +6,9 @@ using namespace std;
 const string GENDER_MALE = "1";
 const string GENDER_FEMALE = "2";
 const string GENDER_OTHER = "3";
+const string DEAD = "0";
+const char SPACE = ' ';
+
 
 void invalidInput();
 
@@ -70,10 +73,6 @@ void UserLayer::addPerson()
 
     // Birth year validation
     birthYearValidation(birthYear);
-
-    cout << "BYTESTESTEST:::" << birthYear << endl;
-
-
 
     cout << "Enter the year of death, 0 if this person is still alive: ";
     cin >> deathYear;
@@ -141,26 +140,42 @@ void UserLayer::printList()
         return;
     }
 
-    // MAYBE LATER
-    //cout << "Name----------------------------Gender----Year of birth----Year of death----Info-------------" << endl;
 
     for(int i=0;i<sizeOfList;i++)
     {
-        cout << "Name        : " <<  completeList.at(i).getName() << endl;
-        cout << "Gender      : " << completeList.at(i).getGender() << endl;
-        cout << "Birth year  : " << completeList.at(i).getBirthYear() << endl;
+        string name = completeList.at(i).getName();
+        string gender = completeList.at(i).getGender();
+        string stringBirthYear = to_string(completeList.at(i).getBirthYear());
+        string stringPassedAway = to_string(completeList.at(i).getPassedAwayYear());
+        string info = completeList.at(i).getComments() ;
 
-        if(completeList.at(i).getPassedAwayYear() == 0)
+        cout << endl;
+        cout <<   "NAME                            GENDER    YEAR OF BIRTH    YEAR OF DEATH" << endl;
+        cout <<   "------------------------------------------------------------------------"<< endl;
+        cout << name.append(32 - name.length(), SPACE);
+        cout << gender.append(10 - gender.length(), SPACE);
+        cout << stringBirthYear.append(17 - stringBirthYear.length(), SPACE);
+
+        if(stringPassedAway != DEAD)
         {
-            cout << "Passed away : Alive" << endl;
+            cout << stringPassedAway.append(17- stringPassedAway.length(), SPACE);
         }
         else
         {
-            cout << "Passed away : " << completeList.at(i).getPassedAwayYear() << endl;
+            string alive = "Alive";
+            cout << alive.append(17 - alive.length(), SPACE);
         }
+<<<<<<< HEAD
+        cout << endl;
+        cout << endl;
+        cout << info << endl;
+        cout <<   "------------------------------------------------------------------------"<< endl;
+        cout << endl;
+=======
         cout << "Info        : " << completeList.at(i).getComments() << endl;
         cout << endl;
 
+>>>>>>> 57f2c4307c3832fe6d763476ff474574a6901040
     }
 }
 
