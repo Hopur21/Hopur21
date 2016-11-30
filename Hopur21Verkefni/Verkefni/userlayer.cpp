@@ -211,17 +211,14 @@ void UserLayer::searchForAPerson()
 
     if(userInput == SEARCH_BY_NAME)
     {
-        cout << "HELLO FROM SEARCH BY NAME";
         _CSPServ.searchByName(searchString);
     }
     else if(userInput == SEARCH_BY_YEAR_OF_BIRTH)
     {
-        cout << "HELLO FROM SEARCH BY YEAR OF BIRTH";
         _CSPServ.searchByYearOfBirth(searchString);
     }
     else if(userInput == SEARCH_BY_YEAR_OF_DEATH)
     {
-        cout << "HELLO FROM SEARCH BY YEAR OF DEATH";
          _CSPServ.searchByYearOfDeath(searchString);
     }
 }
