@@ -21,11 +21,11 @@ void MenuInterface::DisplayMenu()
     cout << "       ********************************************" << endl;
     cout << endl;
     cout << endl;
-    cout << "Enter 1 to: Display the complete list " << endl;
-    cout << "Enter 2 to: Add a computer scientist to the list " << endl;
-    cout << "Enter 3 to: Search the list for a computer scientist " << endl;
-    cout << "Enter 4 to: Remove a computer scientist from the list" << endl;
-    cout << "Enter 5 to: Exit the program " << endl;
+    cout << "| 1 | Display the complete list" << endl;
+    cout << "| 2 | Add a computer scientist to the list" << endl;
+    cout << "| 3 | Search the list for a computer scientist" << endl;
+    cout << "| 4 | Remove a computer scientist from the list" << endl;
+    cout << "| 5 | Exit the program" << endl;
     cin >> choice;
 
 
@@ -47,9 +47,9 @@ void MenuInterface::processChoice(const string choice)
     // Here the input from the main menu is processed
     if(choice == DISPLAY_LIST)
     {
-        cout << "Enter 1 to: Sort computer scientists by alphabetical order." << endl;
-        cout << "Enter 2 to: Sort computer scientists by year of birth." << endl;
-        cout << "Enter 3 to: Sort computer scientists by year of death." << endl;
+        cout << "| 1 | Sort computer scientists by alphabetical order" << endl;
+        cout << "| 2 | Sort computer scientists by year of birth" << endl;
+        cout << "| 3 | Sort computer scientists by year of death" << endl;
 
         cin >> choiceSub;
         if(choiceSub == SEARCH_ALPHABET)
