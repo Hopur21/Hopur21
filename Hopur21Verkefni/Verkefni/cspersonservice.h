@@ -11,6 +11,8 @@ public:
     vector<CSPerson> getCompleteList(){return _fileKeeper;}
 
     // TODO bæta við lesa inn skrá frá notenda
+    // TODO Gera edit á user
+
     //Sets
     void setCompleteList();
     void newPerson();//TODO
@@ -21,7 +23,7 @@ public:
     vector<CSPerson> searchByYearOfDeath(const string searchString);
 
     //Sorts
-    vector<CSPerson> sortAlphabetically(); // TODO
+    vector<CSPerson> sortAlphabetically(); // TODO: Raða eftir miðnafni
 
 
 private:
@@ -29,7 +31,7 @@ private:
     DataLayer _data;
 
     //Sets
-    void newPerson(string name, string gender, int birthYear, int deathYear, string comment);
+    void addNewPersonToList(const string name,const string gender, int birthYear, int deathYear,const string comment);
     void removeNodeFromList(const int index);
 
     //Gets

@@ -7,9 +7,19 @@ CSPersonService::CSPersonService()
     _fileKeeper = _data.readFromFile();
 }
 
-void CSPersonService::newPerson(string name, string gender, int birthYear, int deathYear, string comment)
+void CSPersonService::addNewPersonToList(const string name,const string gender, int birthYear, int deathYear,const string comment)
 {
-    CSPerson newP = CSPerson (name, gender, birthYear, deathYear, comment);
+    int tempBirthYear = 0, tempDeathYear = 0;
+    if(validNumber(to_string(birthYear))) //If number is valid
+    {
+        tempBirthYear = birthYear;
+    }
+    if(validNumber(to_string(deathYear)))
+    {
+        tempDeathYear = deathYear;
+    }
+
+    _fileKeeper.push_back(CSPerson (name, gender, birthYear, deathYear, comment));
 }
 
 int CSPersonService::getIndexOfValueByName(const string name)
@@ -71,7 +81,7 @@ vector<CSPerson> CSPersonService::searchByYearOfBirth(const string searchString)
     {
         for(size_t i = 0; i < _fileKeeper.size(); i++)
         {
-            string temp = _fileKeeper[i].getBirthYear();
+            string temp = to_string(_fileKeeper[i].getBirthYear());
             if(checkIfStringSameIgnoreUpper(temp, searchString))
             {
                 tempVector.push_back(_fileKeeper[i]);
@@ -88,7 +98,7 @@ vector<CSPerson> CSPersonService::searchByYearOfDeath(const string searchString)
     {
         for(size_t i = 0; i < _fileKeeper.size(); i++)
         {
-            string temp = _fileKeeper[i].getPassedAwayYear();
+            string temp = to_string(_fileKeeper[i].getPassedAwayYear());
             if(checkIfStringSameIgnoreUpper(temp, searchString))
             {
                 tempVector.push_back(_fileKeeper[i]);
