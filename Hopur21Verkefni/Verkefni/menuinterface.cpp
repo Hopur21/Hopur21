@@ -12,6 +12,11 @@ const string SEARCH_ALPHABET = "1";
 const string SEARCH_BY_YEAR_OF_BIRTH = "2";
 const string SEARCH_BY_YEAR_OF_DEATH = "3";
 
+void invalidInput()
+{
+    cout << "Your input was invalid, please try again.";
+}
+
 void MenuInterface::DisplayMenu()
 {
     string choice;
@@ -37,7 +42,7 @@ void MenuInterface::DisplayMenu()
     else
     {
         cout << endl;
-        cout << "Your input was invalid, please try again." << endl;
+        invalidInput();
         DisplayMenu();
     }
 }
@@ -68,7 +73,7 @@ void MenuInterface::processChoice(const string choice)
         }
         else
         {
-            cout << "Your input was invalid, please try again." << endl;
+            invalidInput();
             DisplayMenu();
         }
     }
