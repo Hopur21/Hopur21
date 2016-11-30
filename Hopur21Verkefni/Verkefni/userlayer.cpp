@@ -68,7 +68,7 @@ void UserLayer::addPerson()
 
     cout << "Enter the year of birth: ";
     cin >> birthYear;
-    cout << "Enter the year of death: ";
+    cout << "Enter the year of death, 0 if this person is still alive: ";
     cin >> deathYear;
     cout << "Enter information about the person: ";
     cin >> comment;
