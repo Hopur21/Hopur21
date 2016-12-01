@@ -26,6 +26,7 @@ public:
     void sortByBirthYear();
     void sortByBirthYearASC();
     void sortByAge();
+    void sortByAgeASC();
 
     //Gets
     vector<CSPerson> searchByName(const string searchString);

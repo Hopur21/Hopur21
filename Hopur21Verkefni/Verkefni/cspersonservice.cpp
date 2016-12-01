@@ -8,7 +8,18 @@ bool sortByDeathYearDESC(const CSPerson &lhs, const CSPerson &rhs) {return lhs.g
 bool sortByDeathYearASCC(const CSPerson &lhs, const CSPerson &rhs) {return lhs.getPassedAwayYear() > rhs.getPassedAwayYear(); }
 bool sortByBirthYearDESC(const CSPerson &lhs, const CSPerson &rhs) {return lhs.getBirthYear() < rhs.getBirthYear(); }
 bool sortByBirthYearASCC(const CSPerson &lhs, const CSPerson &rhs) {return lhs.getBirthYear() > rhs.getBirthYear(); }
-//bool sortByAgeDESC(const CSPerson &lhs, const CSPerson &rhs) {return lhs.getAge() < rhs.getAge(); }
+bool sortByAgeDESC(const CSPerson &lhs, const CSPerson &rhs)
+{
+    CSPerson tempLeft = lhs;//Copy our const into a temo variable, so we can work with our int value and get the age.
+    CSPerson tempRight = rhs;
+    return tempLeft.getAge() < tempRight.getAge();
+}
+bool sortByAgeASCC(const CSPerson &lhs, const CSPerson &rhs)
+{
+    CSPerson tempLeft = lhs;//Copy our const into a temo variable, so we can work with our int value and get the age.
+    CSPerson tempRight = rhs;
+    return tempLeft.getAge() > tempRight.getAge();
+}
 
 CSPersonService::CSPersonService()
 {
@@ -189,8 +200,13 @@ void CSPersonService::sortByBirthYearASC()
     sort(_fileKeeper.begin(), _fileKeeper.end(), sortByBirthYearASCC);
     _data.writeToFile(_fileKeeper);
 }
-/*void CSPersonService::sortByAge()
+void CSPersonService::sortByAge()
 {
-    sort(_fileKeeper.begin(), _fileKeeper.end(), sortByAgeDESC());
+    sort(_fileKeeper.begin(), _fileKeeper.end(), sortByAgeDESC);
     _data.writeToFile(_fileKeeper);
-}*/
+}
+void CSPersonService::sortByAgeASC()
+{
+    sort(_fileKeeper.begin(), _fileKeeper.end(), sortByAgeASCC);
+    _data.writeToFile(_fileKeeper);
+}
