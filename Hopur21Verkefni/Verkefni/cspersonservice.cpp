@@ -1,5 +1,7 @@
 #include "cspersonservice.h"
 
+bool sortByNameDESC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getName() < rhs.getName(); }
+
 CSPersonService::CSPersonService()
 {
     _fileKeeper = _data.readFromFile();
@@ -51,7 +53,8 @@ void CSPersonService::removeNodeFromList(const int index)
 }
 void CSPersonService::sortByName()
 {
-    //sort(_fileKeeper.begin(), _fileKeeper.end(), _sortByName);
+    sort(_fileKeeper.begin(), _fileKeeper.end(), sortByNameDESC);
+    _data.writeToFile(_fileKeeper);
 }
 
 //Search by name, find every value that we find and return all of those values in a vector
