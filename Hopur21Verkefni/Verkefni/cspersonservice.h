@@ -18,6 +18,8 @@ public:
     bool addNewPersonToList(const string name,const string gender,const int birthYear,const int deathYear,const string comment);
     bool removePersonFromList(const string name);
     void sortByName();// TODO: Raða eftir miðnafni
+    void sortByNameASC();
+    void sortByGender();
 
     //Gets
     vector<CSPerson> searchByName(const string searchString);

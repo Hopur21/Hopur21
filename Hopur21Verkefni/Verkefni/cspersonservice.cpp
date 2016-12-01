@@ -1,6 +1,9 @@
 #include "cspersonservice.h"
 
 bool sortByNameDESC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getName() < rhs.getName(); }
+bool sortByNameASCC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getName() > rhs.getName(); }
+bool sortByGenderDESC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getGender() > rhs.getGender(); }
+bool sortByGenderASC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getGender() > rhs.getGender(); }
 
 CSPersonService::CSPersonService()
 {
@@ -49,11 +52,6 @@ int CSPersonService::getIndexOfValueByName(const string name)
 void CSPersonService::removeNodeFromList(const int index)
 {
     _fileKeeper.erase(_fileKeeper.begin() + index +1); //+1 = off by one
-    _data.writeToFile(_fileKeeper);
-}
-void CSPersonService::sortByName()
-{
-    sort(_fileKeeper.begin(), _fileKeeper.end(), sortByNameDESC);
     _data.writeToFile(_fileKeeper);
 }
 
@@ -140,4 +138,24 @@ bool CSPersonService::checkIfStringSameIgnoreUpper(string orginalString, string 
     {
         return false;
     }
+}
+
+
+
+//Sorts
+
+void CSPersonService::sortByName()
+{
+    sort(_fileKeeper.begin(), _fileKeeper.end(), sortByNameDESC);
+    _data.writeToFile(_fileKeeper);//Write our change to the file
+}
+void CSPersonService::sortByNameASC()
+{
+    sort(_fileKeeper.begin(), _fileKeeper.end(), sortByNameASCC);
+    _data.writeToFile(_fileKeeper);
+}
+void CSPersonService::sortByGender()
+{
+    sort(_fileKeeper.begin(), _fileKeeper.end(), sortByGenderDESC);
+    _data.writeToFile(_fileKeeper);
 }
