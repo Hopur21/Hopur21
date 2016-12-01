@@ -21,6 +21,10 @@ public:
     void sortByNameASC();
     void sortByGender();
     void sortByGenderASC();
+    void sortByDeathYear();
+    void sortByDeathYearASC();
+    void sortByBirthYear();
+    void sortByBirthYearASC();
 
     //Gets
     vector<CSPerson> searchByName(const string searchString);
