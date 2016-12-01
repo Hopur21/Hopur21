@@ -124,7 +124,7 @@ vector<CSPerson> CSPersonService::searchByYearOfDeath(const string searchString)
     return tempVector;
 }
 
-//Returns true/false if the string2 is in string1, no matter upper or lower case.
+//Returns true if string2 is a part of string1, no matter upper or lower case.
 bool CSPersonService::checkIfStringSameIgnoreUpper(string orginalString, string searchFor)
 {
     //Make sure both strings are the same case
