@@ -1,6 +1,7 @@
 #ifndef CSPERSON_H
 #define CSPERSON_H
 #include<string>
+#include <ctime>
 
 using namespace std;
 
@@ -12,6 +13,7 @@ class CSPerson
         int _birthYear;
         int _passedAwayYear;
         string _comment;
+        int getCurrentYear();
 
     public:
         CSPerson(){}
@@ -23,6 +25,8 @@ class CSPerson
         string getGender()const {return _gender;}
         int getBirthYear()const {return _birthYear;}
         int getPassedAwayYear()const {return _passedAwayYear;}
+        int getAge();
+
         string getComments()const {return _comment;}
 
         //Sets
