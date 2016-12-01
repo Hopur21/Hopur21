@@ -1,5 +1,26 @@
 #include "cspersonservice.h"
 
+bool sortByNameDESC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getName() < rhs.getName(); }
+bool sortByNameASCC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getName() > rhs.getName(); }
+bool sortByGenderDESC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getGender() < rhs.getGender(); }
+bool sortByGenderASCC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getGender() > rhs.getGender(); }
+bool sortByDeathYearDESC(const CSPerson &lhs, const CSPerson &rhs) {return lhs.getPassedAwayYear() < rhs.getPassedAwayYear(); }
+bool sortByDeathYearASCC(const CSPerson &lhs, const CSPerson &rhs) {return lhs.getPassedAwayYear() > rhs.getPassedAwayYear(); }
+bool sortByBirthYearDESC(const CSPerson &lhs, const CSPerson &rhs) {return lhs.getBirthYear() < rhs.getBirthYear(); }
+bool sortByBirthYearASCC(const CSPerson &lhs, const CSPerson &rhs) {return lhs.getBirthYear() > rhs.getBirthYear(); }
+bool sortByAgeDESC(const CSPerson &lhs, const CSPerson &rhs)
+{
+    CSPerson tempLeft = lhs;//Copy our const into a temp variable, so we can work with our int value and get the age.
+    CSPerson tempRight = rhs;
+    return tempLeft.getAge() < tempRight.getAge();
+}
+bool sortByAgeASCC(const CSPerson &lhs, const CSPerson &rhs)
+{
+    CSPerson tempLeft = lhs;//Copy our const into a temp variable, so we can work with our int value and get the age.
+    CSPerson tempRight = rhs;
+    return tempLeft.getAge() > tempRight.getAge();
+}
+
 CSPersonService::CSPersonService()
 {
     _fileKeeper = _data.readFromFile();
@@ -48,10 +69,6 @@ void CSPersonService::removeNodeFromList(const int index)
 {
     _fileKeeper.erase(_fileKeeper.begin() + index +1); //+1 = off by one
     _data.writeToFile(_fileKeeper);
-}
-void CSPersonService::sortByName()
-{
-    //sort(_fileKeeper.begin(), _fileKeeper.end(), _sortByName);
 }
 
 //Search by name, find every value that we find and return all of those values in a vector
@@ -123,7 +140,7 @@ vector<CSPerson> CSPersonService::searchByYearOfDeath(const string searchString)
     return tempVector;
 }
 
-//Returns true/false if the string2 is in string1, no matter upper or lower case.
+//Returns true if string2 is a part of string1, no matter upper or lower case.
 bool CSPersonService::checkIfStringSameIgnoreUpper(string orginalString, string searchFor)
 {
     //Make sure both strings are the same case
@@ -137,4 +154,59 @@ bool CSPersonService::checkIfStringSameIgnoreUpper(string orginalString, string 
     {
         return false;
     }
+}
+
+
+
+//Sorts
+
+void CSPersonService::sortByName()
+{
+    sort(_fileKeeper.begin(), _fileKeeper.end(), sortByNameDESC);
+    _data.writeToFile(_fileKeeper);//Write our change to the file
+}
+void CSPersonService::sortByNameASC()
+{
+    sort(_fileKeeper.begin(), _fileKeeper.end(), sortByNameASCC);
+    _data.writeToFile(_fileKeeper);
+}
+void CSPersonService::sortByGender()
+{
+    sort(_fileKeeper.begin(), _fileKeeper.end(), sortByGenderDESC);
+    _data.writeToFile(_fileKeeper);
+}
+void CSPersonService::sortByGenderASC()
+{
+    sort(_fileKeeper.begin(), _fileKeeper.end(), sortByGenderASCC);
+    _data.writeToFile(_fileKeeper);
+}
+void CSPersonService::sortByDeathYear()
+{
+    sort(_fileKeeper.begin(), _fileKeeper.end(), sortByDeathYearDESC);
+    _data.writeToFile(_fileKeeper);
+}
+void CSPersonService::sortByDeathYearASC()
+{
+    sort(_fileKeeper.begin(), _fileKeeper.end(), sortByDeathYearASCC);
+    _data.writeToFile(_fileKeeper);
+}
+void CSPersonService::sortByBirthYear()
+{
+    sort(_fileKeeper.begin(), _fileKeeper.end(), sortByBirthYearDESC);
+    _data.writeToFile(_fileKeeper);
+}
+void CSPersonService::sortByBirthYearASC()
+{
+    sort(_fileKeeper.begin(), _fileKeeper.end(), sortByBirthYearASCC);
+    _data.writeToFile(_fileKeeper);
+}
+void CSPersonService::sortByAge()
+{
+    sort(_fileKeeper.begin(), _fileKeeper.end(), sortByAgeDESC);
+    _data.writeToFile(_fileKeeper);
+}
+void CSPersonService::sortByAgeASC()
+{
+    sort(_fileKeeper.begin(), _fileKeeper.end(), sortByAgeASCC);
+    _data.writeToFile(_fileKeeper);
 }

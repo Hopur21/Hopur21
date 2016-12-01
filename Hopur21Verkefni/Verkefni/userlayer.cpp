@@ -174,9 +174,29 @@ void UserLayer::printList(vector<CSPerson> list)
 
 void UserLayer::sortListAlphabetically()
 {
-    //vector <CSPerson> sortedList = _CSPServ.sortAlphabetically();
     //SORT
-    //printList();
+    _CSPServ.sortByName();
+    printList(_CSPServ.getCompleteList());
+}
+void UserLayer::sortListByGender()
+{
+    _CSPServ.sortByGender();
+    printList(_CSPServ.getCompleteList());
+}
+void UserLayer::sortListByDeathYear()
+{
+    _CSPServ.sortByDeathYear();
+    printList(_CSPServ.getCompleteList());
+}
+void UserLayer::sortListByBirthYear()
+{
+    _CSPServ.sortByBirthYear();
+    printList(_CSPServ.getCompleteList());
+}
+void UserLayer::sortListByAge()
+{
+    _CSPServ.sortByAge();
+    printList(_CSPServ.getCompleteList());
 }
 
 void UserLayer::searchForAPerson()
@@ -200,11 +220,9 @@ void UserLayer::searchForAPerson()
 
     }while(userInput != SEARCH_BY_NAME || userInput != SEARCH_BY_YEAR_OF_BIRTH || userInput != SEARCH_BY_YEAR_OF_DEATH);
 
-    cout << "Enter the search string : "; //þetta er sjúklega tölvunarfræðileg setning, ekki viss um að fólk almennt viti hvað search string er??
+    cout << "Who are we searching for : ";
     cin.ignore();
     getline(cin, searchString);
-
-    cout << "SEARCHSTRING " << searchString;
 
     if(userInput == SEARCH_BY_NAME)
     {

@@ -1,0 +1,14 @@
+Sýna aldur 
+Bæta við fleiri sorts
+Henda forritinu inn í while loopu
+Bæta við Press 0 to go back
+Hafa add og remove person hlið við hlið í valmynd
+Velja 5 (EXit) kemur að sé invalid input
+
+
+Pælingar:
+- Sýna listann fyrr (of margir valmöguleikar)
+
+Spurning að sýna listann án kommenta og hafa hann þá í beinni línu niður, kemur betur út á minni skjá (console glugga)
+-- Hafa kommentin og þetta sama útlit þegar leitin er notuð?
+

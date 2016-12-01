@@ -11,6 +11,7 @@ const string EXIT = "5";
 const string SORT_ALPHABET = "1";
 const string SORT_BY_YEAR_OF_BIRTH = "2";
 const string SORT_BY_YEAR_OF_DEATH = "3";
+const string SORT_BY_AGE = "4";
 const string GO_BACK = "0";
 
 
@@ -63,6 +64,7 @@ void MenuInterface::processChoice(const string choice)
         cout << "| 1 | Sort computer scientists by alphabetical order" << endl;
         cout << "| 2 | Sort computer scientists by year of birth" << endl;
         cout << "| 3 | Sort computer scientists by year of death" << endl;
+        cout << "| 4 | Sort computer scientists by age" << endl;
         cout << "| 0 | Go back" << endl;
         cout << "Enter your choice here: ";
         cin >> choiceSub;
@@ -74,11 +76,16 @@ void MenuInterface::processChoice(const string choice)
         }
         else if(choiceSub == SORT_BY_YEAR_OF_BIRTH)
         {
-
+            _uL.sortListByBirthYear();
         }
         else if(choiceSub == SORT_BY_YEAR_OF_DEATH)
         {
             // call sort ...
+            _uL.sortListByDeathYear();
+        }
+        else if(choiceSub == SORT_BY_AGE)
+        {
+            _uL.sortListByAge();
         }
         else if(choiceSub == GO_BACK)
         {
