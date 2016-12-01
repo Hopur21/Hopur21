@@ -10,13 +10,13 @@ bool sortByBirthYearDESC(const CSPerson &lhs, const CSPerson &rhs) {return lhs.g
 bool sortByBirthYearASCC(const CSPerson &lhs, const CSPerson &rhs) {return lhs.getBirthYear() > rhs.getBirthYear(); }
 bool sortByAgeDESC(const CSPerson &lhs, const CSPerson &rhs)
 {
-    CSPerson tempLeft = lhs;//Copy our const into a temo variable, so we can work with our int value and get the age.
+    CSPerson tempLeft = lhs;//Copy our const into a temp variable, so we can work with our int value and get the age.
     CSPerson tempRight = rhs;
     return tempLeft.getAge() < tempRight.getAge();
 }
 bool sortByAgeASCC(const CSPerson &lhs, const CSPerson &rhs)
 {
-    CSPerson tempLeft = lhs;//Copy our const into a temo variable, so we can work with our int value and get the age.
+    CSPerson tempLeft = lhs;//Copy our const into a temp variable, so we can work with our int value and get the age.
     CSPerson tempRight = rhs;
     return tempLeft.getAge() > tempRight.getAge();
 }
