@@ -74,11 +74,12 @@ void MenuInterface::processChoice(const string choice)
         }
         else if(choiceSub == SORT_BY_YEAR_OF_BIRTH)
         {
-
+            _uL.sortListByBirthYear();
         }
         else if(choiceSub == SORT_BY_YEAR_OF_DEATH)
         {
             // call sort ...
+            _uL.sortListByDeathYear();
         }
         else if(choiceSub == GO_BACK)
         {
