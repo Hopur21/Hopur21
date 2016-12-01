@@ -1,21 +1,22 @@
 #include "datalayer.h"
+const char DELIMETER = ';';
 
 //Filename is set in Header file if no name is given.
 vector<CSPerson> DataLayer::readFromFile(string fileName)
 {
     vector<CSPerson> vectPersons;
     ifstream myFile;
-    const char delimeter = ';';
+
     string personName, gender, comment, yearBorn, yearPassedAway;
     try
     {
         myFile.open(fileName);
-        while(getline(myFile, personName,delimeter))
+        while(getline(myFile, personName,DELIMETER))
         {
-            getline(myFile, gender, delimeter);
-            getline(myFile, yearBorn, delimeter);
-            getline(myFile, yearPassedAway, delimeter);
-            getline(myFile, comment, delimeter);
+            getline(myFile, gender, DELIMETER);
+            getline(myFile, yearBorn, DELIMETER);
+            getline(myFile, yearPassedAway, DELIMETER);
+            getline(myFile, comment, DELIMETER);
 
             //Erease newline infront of the string if there is one.
             if(personName[0] == '\n')
@@ -51,17 +52,16 @@ vector<CSPerson> DataLayer::readFromFile(string fileName)
 //Filename is set in the header file if no name is given
 void DataLayer::writeToFile(const vector<CSPerson>& vectPersons, const string fileName)
 {
-    const char delimeter = ';';
-    ofstream myFile(fileName, std::ios_base::trunc); //discard the contents of the stream when opening
+    ofstream myFile(fileName, std::ios_base::trunc); //discard the contents of the file before each write
     try
     {
         for(size_t i = 0; i < vectPersons.size(); i++)
         {
-            myFile << vectPersons[i].getName() << delimeter;
-            myFile << vectPersons[i].getGender() << delimeter;
-            myFile << vectPersons[i].getBirthYear() << delimeter;
-            myFile << vectPersons[i].getPassedAwayYear() << delimeter;
-            myFile << vectPersons[i].getComments() << delimeter;
+            myFile << vectPersons[i].getName() << DELIMETER;
+            myFile << vectPersons[i].getGender() << DELIMETER;
+            myFile << vectPersons[i].getBirthYear() << DELIMETER;
+            myFile << vectPersons[i].getPassedAwayYear() << DELIMETER;
+            myFile << vectPersons[i].getComments() << DELIMETER;
         }
         myFile.close();
     }

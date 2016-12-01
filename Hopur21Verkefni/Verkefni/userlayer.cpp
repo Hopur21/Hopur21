@@ -200,11 +200,9 @@ void UserLayer::searchForAPerson()
 
     }while(userInput != SEARCH_BY_NAME || userInput != SEARCH_BY_YEAR_OF_BIRTH || userInput != SEARCH_BY_YEAR_OF_DEATH);
 
-    cout << "Enter the search string : "; //þetta er sjúklega tölvunarfræðileg setning, ekki viss um að fólk almennt viti hvað search string er??
+    cout << "Who are we searching for : ";
     cin.ignore();
     getline(cin, searchString);
-
-    cout << "SEARCHSTRING " << searchString;
 
     if(userInput == SEARCH_BY_NAME)
     {
