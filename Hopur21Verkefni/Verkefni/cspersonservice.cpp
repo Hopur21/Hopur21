@@ -2,8 +2,8 @@
 
 bool sortByNameDESC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getName() < rhs.getName(); }
 bool sortByNameASCC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getName() > rhs.getName(); }
-bool sortByGenderDESC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getGender() > rhs.getGender(); }
-bool sortByGenderASC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getGender() > rhs.getGender(); }
+bool sortByGenderDESC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getGender() < rhs.getGender(); }
+bool sortByGenderASCC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getGender() > rhs.getGender(); }
 
 CSPersonService::CSPersonService()
 {
@@ -157,5 +157,10 @@ void CSPersonService::sortByNameASC()
 void CSPersonService::sortByGender()
 {
     sort(_fileKeeper.begin(), _fileKeeper.end(), sortByGenderDESC);
+    _data.writeToFile(_fileKeeper);
+}
+void CSPersonService::sortByGenderASC()
+{
+    sort(_fileKeeper.begin(), _fileKeeper.end(), sortByGenderASCC);
     _data.writeToFile(_fileKeeper);
 }

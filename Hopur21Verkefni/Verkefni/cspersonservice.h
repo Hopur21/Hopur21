@@ -20,6 +20,7 @@ public:
     void sortByName();// TODO: Raða eftir miðnafni
     void sortByNameASC();
     void sortByGender();
+    void sortByGenderASC();
 
     //Gets
     vector<CSPerson> searchByName(const string searchString);
