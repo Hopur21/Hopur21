@@ -15,7 +15,7 @@ Fyrst birtist notendanum menu með lista af möguleikum:
 1. Birta lista af tölvunarfræðingum
 2. Bæta persónu í listann
 3. Leita í listanum
-4. Eyða úr listanum
+4. Eyða færslu úr listanum
 5. Hætta í forritinu
 
 Ef valinn er möguleiki 1, að birta lista kemur upp annar listi af valmöguleikum:
@@ -23,6 +23,11 @@ Ef valinn er möguleiki 1, að birta lista kemur upp annar listi af valmöguleik
 2. Birta tölvunarfræðinga eftir fæðingarári
 3. Birta tölvunarfræðinga eftir dánarári
 0. Fara til baka í fyrri menu
+
+Ef valinn er möguleiki 3, að leita í listanum kemur upp annar listi af valmöguleikum:
+1. Leita eftir nafni, eða hluta af nafni
+2. Leita eftir fæðingarári
+3. Leita eftir dánarári
 
 Þegar notandi velur að birta lista vistar forritið listann í skránni í þeirri röð sem notandinn valdi og hún uppfærist sjálfkrafa 
 þegar búið er að bæta í listann eða eyða útaf honum. 
