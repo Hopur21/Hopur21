@@ -18,7 +18,6 @@ class UserLayer
         void addPerson();
         void sortListAlphabetically();
         void searchForAPerson();
-
 };
 
 #endif // USERLAYER_H
