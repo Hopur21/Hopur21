@@ -13,7 +13,7 @@ const string GENDER_OTHER = "3";
 const string ALIVE = "0";
 const char SPACE = ' ';
 
-void invalidInput(); //Hvaða fall er þetta? (Vantar komment)
+void invalidInput(); //Gefur villuskilaboð ef notandi slær inn tölu sem er ekki valmöguleiki
 
 UserLayer::UserLayer()
 {
@@ -83,9 +83,10 @@ void UserLayer::addPerson()
 void UserLayer::printGenderMenu()
 {
     cout << "Select gender: " << endl << endl;
-    cout << "Enter 1 for male" << endl;
-    cout << "Enter 2 for female" << endl;
-    cout << "Enter 3 for other" << endl;
+    cout << "| 1 | Male" << endl;
+    cout << "| 2 | Female" << endl;
+    cout << "| 3 | Other" << endl;
+    cout << "Enter your choice here: ";
 }
 
 bool UserLayer::checkNumberValidity(string userInput)
@@ -117,9 +118,7 @@ void UserLayer::birthYearValidation(string birthYear)
         cin >> birthYear;
         if(checkNumberValidity(birthYear))
         {
-            cout << endl;
-            cout << "Invalid input, try again." << endl;
-            cout << endl;
+            invalidInput();
         }
         else
         {
@@ -135,7 +134,7 @@ void UserLayer::printList(vector<CSPerson> list)
     if(sizeOfList == 0)
     {
         cout << "List is empty." << endl;
-        return;
+        return; //á að hætta í forritinu hér?
     }
 
     for(int i=0;i<sizeOfList;i++)
@@ -186,24 +185,26 @@ void UserLayer::searchForAPerson()
 
     do
     {
-        cout << "Enter 1 to : Search by name" << endl;
-        cout << "Enter 2 to : Search by year of year of birth" << endl;
-        cout << "Enter 3 to : Search by year of year of death" << endl;
+        cout << "| 1 | Search by name" << endl;
+        cout << "| 2 | Search by year of year of birth" << endl;
+        cout << "| 3 | Search by year of year of death" << endl;
+        cout << "Enter your choice here: ";
+        //viljum við hafa Go Back option hérna til að hætta við leit?
 
         cin >> userInput;
         if(userInput == SEARCH_BY_NAME || userInput == SEARCH_BY_YEAR_OF_BIRTH || userInput == SEARCH_BY_YEAR_OF_DEATH)
         {
             break;
         }
-        cout << "Invalid input, please try again" << endl;
+        invalidInput();
 
     }while(userInput != SEARCH_BY_NAME || userInput != SEARCH_BY_YEAR_OF_BIRTH || userInput != SEARCH_BY_YEAR_OF_DEATH);
 
-    cout << "Enter the search string : ";
+    cout << "Enter the search string : "; //þetta er sjúklega tölvunarfræðileg setning, ekki viss um að fólk almennt viti hvað search string er??
     cin.ignore();
     getline(cin, searchString);
 
-    cout << "SEARCHSTRING" << searchString;
+    cout << "SEARCHSTRING " << searchString;
 
     if(userInput == SEARCH_BY_NAME)
     {
