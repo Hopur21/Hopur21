@@ -20,6 +20,7 @@ class UserLayer
         void sortListByGender();
         void sortListByDeathYear();
         void sortListByBirthYear();
+        void sortListByAge();
         void searchForAPerson();
 };
 

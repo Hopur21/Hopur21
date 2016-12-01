@@ -8,6 +8,7 @@ bool sortByDeathYearDESC(const CSPerson &lhs, const CSPerson &rhs) {return lhs.g
 bool sortByDeathYearASCC(const CSPerson &lhs, const CSPerson &rhs) {return lhs.getPassedAwayYear() > rhs.getPassedAwayYear(); }
 bool sortByBirthYearDESC(const CSPerson &lhs, const CSPerson &rhs) {return lhs.getBirthYear() < rhs.getBirthYear(); }
 bool sortByBirthYearASCC(const CSPerson &lhs, const CSPerson &rhs) {return lhs.getBirthYear() > rhs.getBirthYear(); }
+//bool sortByAgeDESC(const CSPerson &lhs, const CSPerson &rhs) {return lhs.getAge() < rhs.getAge(); }
 
 CSPersonService::CSPersonService()
 {
@@ -188,3 +189,8 @@ void CSPersonService::sortByBirthYearASC()
     sort(_fileKeeper.begin(), _fileKeeper.end(), sortByBirthYearASCC);
     _data.writeToFile(_fileKeeper);
 }
+/*void CSPersonService::sortByAge()
+{
+    sort(_fileKeeper.begin(), _fileKeeper.end(), sortByAgeDESC());
+    _data.writeToFile(_fileKeeper);
+}*/

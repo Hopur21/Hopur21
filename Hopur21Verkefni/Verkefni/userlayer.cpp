@@ -193,6 +193,11 @@ void UserLayer::sortListByBirthYear()
     _CSPServ.sortByBirthYear();
     printList(_CSPServ.getCompleteList());
 }
+/*void UserLayer::sortListByAge()
+{
+    _CSPServ.sortByAge();
+    printList(_CSPServ.getCompleteList());
+}*/
 
 void UserLayer::searchForAPerson()
 {
