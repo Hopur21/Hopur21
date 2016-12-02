@@ -124,7 +124,7 @@ bool UserLayer::checkNumberValidity(string userInput)
     {
         return false;
     }
-    if(numberTest <= 0  || numberTest >= 3000)//Vantar komment
+    if(numberTest <= 0  || numberTest >= 3000)//If number is beetween 1 - 2999
     {
         return true;
     }
