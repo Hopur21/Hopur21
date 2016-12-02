@@ -124,7 +124,7 @@ bool UserLayer::checkNumberValidity(string userInput)
     {
         return false;
     }
-    if(numberTest <= 0  || numberTest >= 3000)//Vantar komment
+    if(numberTest <= 0  || numberTest >= 3000)//If number is beetween 1 - 2999
     {
         return true;
     }
@@ -186,14 +186,12 @@ string UserLayer::deathYearValidation(string birthYear, string deathYear)
 void UserLayer::printList(vector<CSPerson> list)
 {
     int sizeOfList = list.size();
-
     if(sizeOfList == 0)
     {
         cout << "List is empty." << endl;
         return; //á að hætta í forritinu hér?
     }
 
-    cout <<   "Year of birth = YOB , Year of death = YOD" << endl;
     cout <<   "#     NAME                            GENDER     YOB     YOD      AGE" << endl;
     cout <<   "------------------------------------------------------------------------------"<< endl;
     for(int i=0;i<sizeOfList;i++)
@@ -225,12 +223,12 @@ void UserLayer::printList(vector<CSPerson> list)
         }
         cout << endl;
     }
-    cout <<   "------------------------------------------------------------------------" << endl << endl;
+    cout <<   "------------------------------------------------------------------------" << endl;
+    cout <<   "Year of birth = YOB , Year of death = YOD" << endl << endl;
 
 }
 void UserLayer::printListMoreInfo(vector<CSPerson> list)
 {
-    system("CLS");//Clear screen
     int sizeOfList = list.size();
 
     if(sizeOfList == 0)
@@ -239,7 +237,6 @@ void UserLayer::printListMoreInfo(vector<CSPerson> list)
         return; //á að hætta í forritinu hér?
     }
 
-    cout <<   "Year of birth = YOB , Year of death = YOD" << endl;
     cout <<   "#     NAME                            GENDER     YOB     YOD      AGE" << endl;
     cout <<   "------------------------------------------------------------------------------"<< endl;
     for(int i=0;i<sizeOfList;i++)
@@ -275,6 +272,7 @@ void UserLayer::printListMoreInfo(vector<CSPerson> list)
         cout << info << endl;
     }
     cout <<   "------------------------------------------------------------------------" << endl << endl;
+    cout <<   "Year of birth = YOB , Year of death = YOD" << endl;
 }
 void UserLayer::printCompleteList()
 {
