@@ -24,6 +24,7 @@ void MenuInterface::invalidInput()
 
 void MenuInterface::welcomeBanner()
 {
+    system("CLS");//Clear screen
     cout << endl;
     cout << "       ********************************************" << endl;
     cout << "       *  WELCOME TO THE COMPUTER SCIENTIST LIST  *" << endl;
@@ -33,6 +34,7 @@ void MenuInterface::welcomeBanner()
 
 void MenuInterface::DisplayMenu()
 {
+    welcomeBanner();
     string choice;
     cout << endl;
     cout << "| 1 | Display the complete list" << endl;
@@ -61,6 +63,7 @@ void MenuInterface::DisplayMenu()
 
 void MenuInterface::processChoice(const string choice)
 {
+    welcomeBanner();
     string choiceSub;
     // Here the input from the main menu is processed
     if(choice == DISPLAY_LIST)
