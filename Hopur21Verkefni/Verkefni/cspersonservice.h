@@ -19,7 +19,7 @@ public:
     void setCompleteList();
     bool addNewPersonToList(const string name,const string gender, const string birthYear, const string deathYear,const string comment);
     bool removePersonFromList(const string id);
-    bool CSPersonService::editPersonFromList(const string oldID, CSPerson person);
+    bool editPersonFromList(const string oldID, CSPerson person);
     void sortByName();
     void sortByNameASC();
     void sortByGender();

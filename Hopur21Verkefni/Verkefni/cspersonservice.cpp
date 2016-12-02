@@ -63,7 +63,7 @@ bool CSPersonService::editPersonFromList(const string oldID, CSPerson person)
     size_t index = 0;
     try
     {
-        index = stoi(id);
+        index = stoi(oldID);
         index--; //Off by one
     }
     catch(int e)
@@ -73,8 +73,8 @@ bool CSPersonService::editPersonFromList(const string oldID, CSPerson person)
     if(index < _fileKeeper.size())
     {
         _fileKeeper[index] = person;
-        _data.writeToFile();
-        return true;//Return true that we successfully removed the person
+        _data.writeToFile(_fileKeeper);
+        return true;//Return true that we successfully edited the person
     }
     return false;
 }
