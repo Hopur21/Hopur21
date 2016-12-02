@@ -180,6 +180,7 @@ string UserLayer::deathYearValidation(string birthYear, string deathYear)
 
 void UserLayer::printList(vector<CSPerson> list)
 {
+    system("CLS");//Clear screen
     int sizeOfList = list.size();
 
     if(sizeOfList == 0)
