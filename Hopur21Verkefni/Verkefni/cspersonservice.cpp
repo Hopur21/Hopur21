@@ -25,7 +25,7 @@ bool CSPersonService::addNewPersonToList(const string name,const string gender, 
     int tempBirthYear = 0, tempDeathYear = 0;
     if(validNumber(birthYear)) //If number is valid
     {
-        //tempBirthYear = stoi(birthYear);
+        tempBirthYear = stoi(birthYear);
         //tempBirthYear = birthYear;
     }
     if(validNumber(deathYear))
