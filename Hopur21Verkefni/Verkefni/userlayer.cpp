@@ -91,7 +91,7 @@ void UserLayer::removePersonFromList()
     int personToRemove;
     cout << "Enter the number of the person that is to be removed: ";
     cin >> personToRemove;
-    _CSPServ.removePersonFromList(personToRemove);
+    _CSPServ.removePersonFromList(to_string(personToRemove));
 }
 
 void UserLayer::printGenderMenu()

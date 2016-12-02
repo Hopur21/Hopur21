@@ -1,10 +1,6 @@
 #include "cspersonservice.h"
 
-<<<<<<< HEAD
 //Bool variablers are used in sorting to decide the order of sorting, DESCending and ASCending
-=======
-
->>>>>>> 7ca110317992c3dc0c410c37dfd19f9a580830bd
 bool sortByNameDESC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getName() < rhs.getName(); }
 bool sortByNameASCC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getName() > rhs.getName(); }
 bool sortByGenderDESC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getGender() < rhs.getGender(); }
@@ -51,7 +47,7 @@ bool CSPersonService::addNewPersonToList(const string name,const string gender, 
     return true;//Return true that we made it
 }
 
-bool CSPersonService::removePersonFromList(const int name)
+bool CSPersonService::removePersonFromList(const string name)
 {
     /*int index = getIndexOfValueByName(name);
     if(index >= 0)//If name was found
