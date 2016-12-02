@@ -1,6 +1,10 @@
 #include "cspersonservice.h"
 
+<<<<<<< HEAD
+//Bool variablers are used in sorting to decide the order of sorting, DESCending and ASCending
+=======
 
+>>>>>>> 7ca110317992c3dc0c410c37dfd19f9a580830bd
 bool sortByNameDESC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getName() < rhs.getName(); }
 bool sortByNameASCC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getName() > rhs.getName(); }
 bool sortByGenderDESC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getGender() < rhs.getGender(); }
@@ -27,17 +31,19 @@ CSPersonService::CSPersonService()
     _fileKeeper = _data.readFromFile();
 }
 
-bool CSPersonService::addNewPersonToList(const string name,const string gender, const string birthYear, const string deathYear,const string comment)
+bool CSPersonService::addNewPersonToList(const string name,const string gender, string birthYear, string deathYear,const string comment)
 {
     //We will set years to 0 if they are not valid.
     int tempBirthYear = 0, tempDeathYear = 0;
     if(validNumber(birthYear)) //If number is valid
     {
-        tempBirthYear = stoi(birthYear);
+        //tempBirthYear = stoi(birthYear);
+        //tempBirthYear = birthYear;
     }
     if(validNumber(deathYear))
     {
         tempDeathYear = stoi(deathYear);
+        //tempDeathYear = deathYear;
     }
     //Save our new person in our vector
     _fileKeeper.push_back(CSPerson (name, gender, tempBirthYear, tempDeathYear, comment));

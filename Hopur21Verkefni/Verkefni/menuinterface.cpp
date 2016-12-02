@@ -59,6 +59,7 @@ void MenuInterface::processChoice(const string choice)
     // Here the input from the main menu is processed
     if(choice == DISPLAY_LIST)
     {
+        _uL.printCompleteList();
         cout << "| 1 | Sort computer scientists by alphabetical order" << endl;
         cout << "| 2 | Sort computer scientists by year of birth" << endl;
         cout << "| 3 | Sort computer scientists by year of death" << endl;

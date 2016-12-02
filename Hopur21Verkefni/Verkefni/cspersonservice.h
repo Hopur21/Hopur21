@@ -4,6 +4,7 @@
 #include "csperson.h"
 #include "datalayer.h"
 #include <iostream>
+#include<string>
 using namespace std;
 
 class CSPersonService
@@ -17,8 +18,13 @@ public:
 
     //Sets
     void setCompleteList();
+<<<<<<< HEAD
+    bool addNewPersonToList(const string name,const string gender, string birthYear, string deathYear,const string comment);
+    bool removePersonFromList(const string name);
+=======
     bool addNewPersonToList(const string name,const string gender, const string birthYear, const string deathYear,const string comment);
     bool removePersonFromList(const int name);
+>>>>>>> 9cfca5edb66708e3e2ac058a3b29f175474cc10c
     void sortByName();// TODO: Raða eftir miðnafni
     void sortByNameASC();
     void sortByGender();
