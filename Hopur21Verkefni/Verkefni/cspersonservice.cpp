@@ -58,6 +58,8 @@ bool CSPersonService::removePersonFromList(const string id)
     }
     return false;
 }
+
+// TODO
 bool CSPersonService::editPersonFromList(const string oldID, CSPerson person)
 {
     size_t index = 0;

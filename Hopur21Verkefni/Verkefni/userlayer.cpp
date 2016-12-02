@@ -15,8 +15,6 @@ const char SPACE = ' ';
 const int GO_BACK = 0;
 const string GO_BACKSTRING = "0";
 
-
-
 UserLayer::UserLayer()
 {
     CSPersonService test;

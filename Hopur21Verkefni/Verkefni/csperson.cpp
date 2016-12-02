@@ -8,6 +8,7 @@ CSPerson::CSPerson(string name, string gender, int birthYear, int passedAwayYear
    _passedAwayYear = passedAwayYear;
    _comment = comment;
 }
+
 int CSPerson::getCurrentYear()
 {
     time_t timeNow = time(0);
@@ -15,6 +16,7 @@ int CSPerson::getCurrentYear()
     int year = ltm->tm_year + 1900;
     return year;
 }
+
 int CSPerson::getAge()
 {
     const int ALIVE = 0;
