@@ -67,6 +67,10 @@ void MenuInterface::DisplayMenu()
         {
             processChoice(choice);
         }
+        if(choice == "Q" || choice == "q")
+        {
+            return;
+        }
         else
         {
             invalidInput();
