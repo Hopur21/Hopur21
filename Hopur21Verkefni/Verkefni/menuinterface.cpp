@@ -3,8 +3,8 @@
 using namespace std;
 
 const string DISPLAY_LIST = "1";
-const string ADD_PERSON = "3";
 const string SEARCH_PERSON = "2";
+const string ADD_PERSON = "3";
 const string REMOVE_PERSON = "4";
 const string EDIT_INFO = "5";
 
