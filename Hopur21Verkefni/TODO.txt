@@ -5,6 +5,7 @@ að þú haldist inn í display menu/sort eftir að þú hefur sortað
 edita fólk sem er í listanum
 velja fólk úr listanum til að sjá frekari upplýsingar, ekki bara í gegnum search
 
+//Done
 //Bæta við Press 0 to go back
 //Hafa add og remove person hlið við hlið í valmynd
 //Bæta við fleiri sorts
