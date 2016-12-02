@@ -13,6 +13,7 @@ class UserLayer
         bool checkNumberValidity(string userInput);
         string birthYearValidation(string birthYear);
         string deathYearValidation(string birthYear, string deathYear);
+        void adjustForSpaces(int i);
         void printGenderMenu();
 
     public:

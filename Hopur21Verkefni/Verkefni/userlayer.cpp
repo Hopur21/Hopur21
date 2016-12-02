@@ -189,7 +189,7 @@ void UserLayer::printList(vector<CSPerson> list)
     }
 
 
-    cout <<   "NAME                            GENDER    YEAR OF BIRTH    YEAR OF DEATH" << endl;
+    cout <<   "#     NAME                               GENDER    YEAR OF BIRTH    YEAR OF DEATH" << endl;
     cout <<   "------------------------------------------------------------------------"<< endl;
     for(int i=0;i<sizeOfList;i++)
     {
@@ -199,10 +199,9 @@ void UserLayer::printList(vector<CSPerson> list)
         string stringPassedAway = to_string(list.at(i).getPassedAwayYear());
         string info = list.at(i).getComments() ;
 
-        //cout << endl;
-        //cout <<   "NAME                            GENDER    YEAR OF BIRTH    YEAR OF DEATH" << endl;
-        //cout <<   "------------------------------------------------------------------------"<< endl;
-        //cout << endl;
+        // adjustForSpaces adjusts the spaces according to the size of the value i in the for loop
+        adjustForSpaces(i);
+
         cout << name.append(32 - name.length(), SPACE);
         cout << gender.append(10 - gender.length(), SPACE);
         cout << stringBirthYear.append(17 - stringBirthYear.length(), SPACE);
@@ -302,5 +301,28 @@ void UserLayer::searchForAPerson()
 void UserLayer::invalidInput()
 {
     cout << "Your input was invalid, please try again." << endl;
+}
+
+void UserLayer::adjustForSpaces(int i)
+{
+    i = i+1;
+    if(i < 10)
+    {
+        cout << i << ".    ";
+    }
+    else if(i>= 10 && i <100)
+    {
+        cout << i << ".   ";
+    }
+    else if(i>= 100 && i <1000)
+    {
+        cout << i << ".  ";
+    }
+    else if(i>= 1000 && i <10000)
+    {
+        cout << i << ". ";
+    }
+
+
 }
 

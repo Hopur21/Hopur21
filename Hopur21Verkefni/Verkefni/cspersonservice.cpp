@@ -161,7 +161,6 @@ bool CSPersonService::checkIfStringSameIgnoreUpper(string orginalString, string 
 }
 
 
-
 //Sorts
 
 void CSPersonService::sortByName()
