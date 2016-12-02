@@ -291,6 +291,11 @@ void UserLayer::sortListAlphabetically()
     _CSPServ.sortByName();
     printList(_CSPServ.getCompleteList());
 }
+void UserLayer::sortListAlphabeticallyASC()
+{
+    _CSPServ.sortByNameASC();
+    printList(_CSPServ.getCompleteList());
+}
 void UserLayer::sortListByGender()
 {
     _CSPServ.sortByGender();
@@ -306,6 +311,12 @@ void UserLayer::sortListByBirthYear()
     _CSPServ.sortByBirthYear();
     printList(_CSPServ.getCompleteList());
 }
+void UserLayer::sortListByBirthYearASC()
+{
+    _CSPServ.sortByBirthYearASC();
+    printList(_CSPServ.getCompleteList());
+}
+
 void UserLayer::sortListByAge()
 {
     _CSPServ.sortByAge();
