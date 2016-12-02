@@ -223,6 +223,51 @@ void UserLayer::printList(vector<CSPerson> list)
     cout <<   "------------------------------------------------------------------------" << endl << endl;
 
 }
+void UserLayer::printListMoreInfo(vector<CSPerson> list)
+{
+    int sizeOfList = list.size();
+
+    if(sizeOfList == 0)
+    {
+        cout << "List is empty." << endl;
+        return; //á að hætta í forritinu hér?
+    }
+
+    for(int i=0;i<sizeOfList;i++)
+    {
+        string name = list.at(i).getName();
+        string gender = list.at(i).getGender();
+        string stringBirthYear = to_string(list.at(i).getBirthYear());
+        string stringPassedAway = to_string(list.at(i).getPassedAwayYear());
+        string info = list.at(i).getComments() ;
+
+        cout << endl;
+        cout <<   "NAME                            GENDER    YEAR OF BIRTH    YEAR OF DEATH" << endl;
+        cout <<   "------------------------------------------------------------------------"<< endl;
+        cout << endl;
+        cout << name.append(32 - name.length(), SPACE);
+        cout << gender.append(10 - gender.length(), SPACE);
+        cout << stringBirthYear.append(17 - stringBirthYear.length(), SPACE);
+
+        if(stringPassedAway != ALIVE)
+        {
+            cout << stringPassedAway.append(17- stringPassedAway.length(), SPACE);
+        }
+        else
+        {
+            string alive = "Alive";
+            cout << alive.append(17 - alive.length(), SPACE);
+        }
+
+        cout << endl;
+        cout << endl;
+        cout << info << endl;
+        cout << endl;
+        cout <<   "------------------------------------------------------------------------"<< endl;
+        cout << endl;
+    }
+
+}
 void UserLayer::printCompleteList()
 {
     printList(_CSPServ.getCompleteList());
@@ -282,15 +327,15 @@ void UserLayer::searchForAPerson()
 
     if(userInput == SEARCH_BY_NAME)
     {
-        printList(_CSPServ.searchByName(searchString));
+        printListMoreInfo(_CSPServ.searchByName(searchString));
     }
     else if(userInput == SEARCH_BY_YEAR_OF_BIRTH)
     {
-        printList(_CSPServ.searchByYearOfBirth(searchString));
+        printListMoreInfo(_CSPServ.searchByYearOfBirth(searchString));
     }
     else if(userInput == SEARCH_BY_YEAR_OF_DEATH)
     {
-        printList(_CSPServ.searchByYearOfDeath(searchString));
+        printListMoreInfo(_CSPServ.searchByYearOfDeath(searchString));
     }
 }
 
