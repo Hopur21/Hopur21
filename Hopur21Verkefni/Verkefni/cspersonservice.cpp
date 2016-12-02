@@ -92,7 +92,7 @@ int CSPersonService::getIndexOfValueByName(const string name)
 }
 void CSPersonService::removeNodeFromList(const int index)
 {
-    _fileKeeper.erase(_fileKeeper.begin() + index +1); //+1 = off by one
+    _fileKeeper.erase(_fileKeeper.begin() + index);
     _data.writeToFile(_fileKeeper);
 }
 
