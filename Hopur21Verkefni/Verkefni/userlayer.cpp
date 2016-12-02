@@ -77,11 +77,21 @@ void UserLayer::addPerson()
     {
         cout << "This person has been added successfully." << endl;
         cout << endl;
+
     }
     else
     {
         cout << "Something went wrong." << endl;
     }
+
+}
+
+void UserLayer::removePersonFromList()
+{
+    int personToRemove;
+    cout << "Enter the number of the person that is to be removed: ";
+    cin >> personToRemove;
+    _CSPServ.removePersonFromList(personToRemove);
 }
 
 void UserLayer::printGenderMenu()

@@ -44,14 +44,15 @@ bool CSPersonService::addNewPersonToList(const string name,const string gender, 
     _data.writeToFile(_fileKeeper);// Write our updated vector to file
     return true;//Return true that we made it
 }
-bool CSPersonService::removePersonFromList(const string name)
+
+bool CSPersonService::removePersonFromList(const int name)
 {
-    int index = getIndexOfValueByName(name);
+    /*int index = getIndexOfValueByName(name);
     if(index >= 0)//If name was found
     {
         removeNodeFromList(index);
         return true;//Return true that we made it
-    }
+    }*/
     return false;
 }
 

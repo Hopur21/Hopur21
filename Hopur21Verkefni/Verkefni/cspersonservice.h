@@ -18,7 +18,7 @@ public:
     //Sets
     void setCompleteList();
     bool addNewPersonToList(const string name,const string gender, const string birthYear, const string deathYear,const string comment);
-    bool removePersonFromList(const string name);
+    bool removePersonFromList(const int name);
     void sortByName();// TODO: Raða eftir miðnafni
     void sortByNameASC();
     void sortByGender();

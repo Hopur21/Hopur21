@@ -18,6 +18,7 @@ class UserLayer
     public:
         UserLayer();
         void addPerson();
+        void removePersonFromList();
         void sortListAlphabetically();
         void sortListByGender();
         void sortListByDeathYear();
