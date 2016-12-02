@@ -210,8 +210,11 @@ void UserLayer::printList(vector<CSPerson> list)
         adjustForSpaces(i);
 
         cout << name.append(32 - name.length(), SPACE);
+<<<<<<< HEAD
         cout << gender.append(10 - gender.length(), SPACE);
         cout << stringBirthYear.append(17 - stringBirthYear.length(), SPACE);
+=======
+>>>>>>> 61a93fc30182ed6dd38ce093ed7d4c883bf90b2b
         cout << gender.append(11 - gender.length(), SPACE);
         cout << stringBirthYear;
         //cout << stringBirthYear.append(8 - stringBirthYear.length(), SPACE);
@@ -373,4 +376,3 @@ void UserLayer::adjustForSpaces(int i)
         cout << i << ". ";
     }
 }
-

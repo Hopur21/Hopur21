@@ -23,6 +23,10 @@ int CSPerson::getAge()
     {
         age = getCurrentYear() - _birthYear;
     }
+    else if(_passedAwayYear <= _birthYear)
+    {
+        return age;
+    }
     else
     {
         age = _passedAwayYear - _birthYear;
