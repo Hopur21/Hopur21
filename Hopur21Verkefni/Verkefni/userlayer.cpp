@@ -115,6 +115,7 @@ void UserLayer::birthYearValidation(string birthYear)
     bool birthYearValidation = true;
     while(birthYearValidation)
     {
+
         cout << "Enter the year of birth: ";
         cin >> birthYear;
         if(checkNumberValidity(birthYear))
