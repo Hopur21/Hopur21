@@ -8,9 +8,12 @@ const string SEARCH_PERSON = "2";
 const string REMOVE_PERSON = "4";
 
 const string SORT_ALPHABET = "1";
-const string SORT_BY_YEAR_OF_BIRTH = "2";
-const string SORT_BY_YEAR_OF_DEATH = "3";
-const string SORT_BY_AGE = "4";
+const string SORT_ASCENDING_ALPHABET = "2";
+const string SORT_BY_YEAR_OF_BIRTH = "3";
+const string SORT_BY_ASCENDING_YEAR_OF_BIRTH = "4";
+const string SORT_BY_YEAR_OF_DEATH = "5";
+const string SORT_BY_AGE = "6";
+const string SORT_BY_GENDER = "7";
 const string GO_BACK = "0";
 
 const int FIRST_TIME = 0;
@@ -83,9 +86,12 @@ void MenuInterface::processChoice(const string choice)
     {
         _uL.printCompleteList();
         cout << "| 1 | Sort computer scientists by alphabetical order" << endl;
-        cout << "| 2 | Sort computer scientists by year of birth" << endl;
-        cout << "| 3 | Sort computer scientists by year of death" << endl;
-        cout << "| 4 | Sort computer scientists by age" << endl;
+        cout << "| 2 | Sort computer scientists by ascending alphabetical order" << endl;
+        cout << "| 3 | Sort computer scientists by year of birth" << endl;
+        cout << "| 4 | Sort computer scientists by ascending year of birth" << endl;
+        cout << "| 5 | Sort computer scientists by year of death" << endl;
+        cout << "| 6 | Sort computer scientists by age" << endl;
+        cout << "| 7 | Sort computer scientists by gender" << endl;
         cout << "| 0 | Go back" << endl;
         cout << "Enter your choice here: ";
         cin >> choiceSub;
@@ -110,6 +116,21 @@ void MenuInterface::processChoice(const string choice)
         {
             banner();
             _uL.sortListByAge();
+        }
+        else if(choiceSub == SORT_ASCENDING_ALPHABET)
+        {
+            banner();
+            _uL.sortListAlphabeticallyASC();
+        }
+        else if(choiceSub == SORT_BY_ASCENDING_YEAR_OF_BIRTH)
+        {
+            banner();
+            _uL.sortListByBirthYearASC();
+        }
+        else if(choiceSub == SORT_BY_GENDER)
+        {
+            banner();
+            _uL.sortListByGender();
         }
         else if(choiceSub == GO_BACK)
         {
