@@ -196,39 +196,40 @@ void UserLayer::printList(vector<CSPerson> list)
         return; // HÆTTA EÐA ?
     }
 
-
-    cout <<   "#     NAME                               GENDER    YEAR OF BIRTH    YEAR OF DEATH" << endl;
-    cout <<   "------------------------------------------------------------------------"<< endl;
+    cout << "Year of birth = YOB , Year of death = YOD" << endl;
+    cout <<   "#     NAME                            GENDER     YOB     YOD      AGE" << endl;
+    cout <<   "------------------------------------------------------------------------------"<< endl;
     for(int i=0;i<sizeOfList;i++)
     {
         string name = list.at(i).getName();
         string gender = list.at(i).getGender();
         string stringBirthYear = to_string(list.at(i).getBirthYear());
         string stringPassedAway = to_string(list.at(i).getPassedAwayYear());
-        string info = list.at(i).getComments() ;
+        int age = list.at(i).getAge();
+
 
         // adjustForSpaces adjusts the spaces according to the size of the value i in the for loop
         adjustForSpaces(i);
 
+
         cout << name.append(32 - name.length(), SPACE);
-        cout << gender.append(10 - gender.length(), SPACE);
-        cout << stringBirthYear.append(17 - stringBirthYear.length(), SPACE);
+        cout << gender.append(11 - gender.length(), SPACE);
+        cout << stringBirthYear.append(8 - stringBirthYear.length(), SPACE);
 
         if(stringPassedAway != ALIVE)
         {
-            cout << stringPassedAway.append(17- stringPassedAway.length(), SPACE);
+            cout << stringPassedAway.append(9 - stringPassedAway.length(), SPACE);
+            cout << age;
         }
         else
         {
-            string alive = "Alive";
-            cout << alive.append(17 - alive.length(), SPACE);
+            cout << "Alive";
+            cout << "    " << age;
+
         }
 
-        //cout << endl;
-        //cout << endl;
-        //cout << info << endl;
-        //cout << endl;
-        //cout <<   "------------------------------------------------------------------------"<< endl;
+
+
         cout << endl;
     }
     cout <<   "------------------------------------------------------------------------" << endl << endl;
