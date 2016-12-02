@@ -29,6 +29,9 @@ CSPersonService::CSPersonService()
 
 bool CSPersonService::addNewPersonToList(const string name,const string gender, const string birthYear, const string deathYear,const string comment)
 {
+    cout << "BBBBBBBBB:" << birthYear << endl;
+    cout << "DDDDDDDDD:" << deathYear << endl;
+
     //We will set years to 0 if they are not valid.
     int tempBirthYear = 0, tempDeathYear = 0;
     if(validNumber(birthYear)) //If number is valid
