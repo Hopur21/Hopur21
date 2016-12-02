@@ -1,5 +1,6 @@
 #include "cspersonservice.h"
 
+
 bool sortByNameDESC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getName() < rhs.getName(); }
 bool sortByNameASCC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getName() > rhs.getName(); }
 bool sortByGenderDESC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getGender() < rhs.getGender(); }
@@ -26,7 +27,7 @@ CSPersonService::CSPersonService()
     _fileKeeper = _data.readFromFile();
 }
 
-bool CSPersonService::addNewPersonToList(const string name,const string gender,const string birthYear,const string deathYear,const string comment)
+bool CSPersonService::addNewPersonToList(const string name,const string gender, const string birthYear, const string deathYear,const string comment)
 {
     //We will set years to 0 if they are not valid.
     int tempBirthYear = 0, tempDeathYear = 0;

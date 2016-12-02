@@ -3,6 +3,8 @@
 #include <algorithm>
 #include "csperson.h"
 #include "datalayer.h"
+#include <iostream>
+using namespace std;
 
 class CSPersonService
 {
@@ -15,7 +17,7 @@ public:
 
     //Sets
     void setCompleteList();
-    bool addNewPersonToList(const string name,const string gender,const string birthYear,const string deathYear,const string comment);
+    bool addNewPersonToList(const string name,const string gender, const string birthYear, const string deathYear,const string comment);
     bool removePersonFromList(const string name);
     void sortByName();// TODO: Raða eftir miðnafni
     void sortByNameASC();

@@ -66,7 +66,8 @@ void UserLayer::addPerson()
     cout << "Enter the year this person died, (0 if this person is still alive): ";
     cin >> deathYear;
     cout << "What is this person's greatest achievement: ";
-    cin >> comment;
+    cin.ignore();
+    getline(cin, comment);
     cout << endl;
 
     if(_CSPServ.addNewPersonToList(name, gender, birthYear, deathYear, comment))
