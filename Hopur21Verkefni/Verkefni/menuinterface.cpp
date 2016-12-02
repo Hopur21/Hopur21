@@ -6,7 +6,7 @@ const string DISPLAY_LIST = "1";
 const string SEARCH_PERSON = "2";
 const string ADD_PERSON = "3";
 const string REMOVE_PERSON = "4";
-const string EDIT_INFO = "5";
+
 
 const string SORT_ALPHABET = "1";
 const string SORT_BY_YEAR_OF_BIRTH = "2";
@@ -53,7 +53,6 @@ void MenuInterface::DisplayMenu()
     cout << "| 2 | Search the list for a computer scientist" << endl;
     cout << "| 3 | Add a computer scientist to the list" << endl;
     cout << "| 4 | Remove a computer scientist from the list" << endl;
-    cout << "| 5 | Edit the info on a computer scientist in the list" << endl;
     cout << "| Q | Exit the program" << endl;
     cout << "Enter your choice here: ";
     cin >> choice;
@@ -148,9 +147,5 @@ void MenuInterface::processChoice(const string choice)
         banner();
         _uL.removePersonFromList();
         DisplayMenu();
-    }
-    else if(choice == EDIT_INFO)
-    {
-
     }
 }

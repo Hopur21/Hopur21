@@ -13,6 +13,8 @@ const string GENDER_OTHER = "3";
 const string ALIVE = "0";
 const char SPACE = ' ';
 const int GO_BACK = 0;
+const string GO_BACKSTRING = "0";
+
 
 
 UserLayer::UserLayer()
@@ -227,6 +229,8 @@ void UserLayer::printList(vector<CSPerson> list)
     cout <<   "Year of birth = YOB , Year of death = YOD" << endl << endl;
 
 }
+
+
 void UserLayer::printListMoreInfo(vector<CSPerson> list)
 {
     int sizeOfList = list.size();
@@ -314,10 +318,15 @@ void UserLayer::searchForAPerson()
         cout << "| 1 | Search by name" << endl;
         cout << "| 2 | Search by year of year of birth" << endl;
         cout << "| 3 | Search by year of year of death" << endl;
+        cout << "| 0 | Go back" << endl;
         cout << "Enter your choice here: ";
         //viljum við hafa Go Back option hérna til að hætta við leit?
 
         cin >> userInput;
+        if(userInput == GO_BACKSTRING)
+        {
+            return;
+        }
         if(userInput == SEARCH_BY_NAME || userInput == SEARCH_BY_YEAR_OF_BIRTH || userInput == SEARCH_BY_YEAR_OF_DEATH)
         {
             break;
@@ -344,7 +353,7 @@ void UserLayer::searchForAPerson()
     }
 }
 
-//Gefur villuskilaboð ef notandi slær inn tölu sem er ekki valmöguleiki
+//Gefur villuskilaboð ef notandi slær inn rangan valkost
 void UserLayer::invalidInput()
 {
     cout << "Your input was invalid, please try again." << endl;
