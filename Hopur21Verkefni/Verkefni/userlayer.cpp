@@ -95,7 +95,14 @@ void UserLayer::removePersonFromList()
     int personToRemove;
     cout << "Enter the number of the person that is to be removed: ";
     cin >> personToRemove;
-    _CSPServ.removePersonFromList(to_string(personToRemove));
+    if(_CSPServ.removePersonFromList(to_string(personToRemove)))
+    {
+        cout << "Person successfully removed from the list." << endl;
+    }
+    else
+    {
+        cout << "Error occurred." << endl;
+    }
 }
 
 void UserLayer::printGenderMenu()
@@ -186,7 +193,7 @@ void UserLayer::printList(vector<CSPerson> list)
     if(sizeOfList == 0)
     {
         cout << "List is empty." << endl;
-        return; //á að hætta í forritinu hér?
+        return; // HÆTTA EÐA ?
     }
 
 
@@ -200,18 +207,10 @@ void UserLayer::printList(vector<CSPerson> list)
         string stringPassedAway = to_string(list.at(i).getPassedAwayYear());
         string info = list.at(i).getComments() ;
 
-<<<<<<< HEAD
         // adjustForSpaces adjusts the spaces according to the size of the value i in the for loop
         adjustForSpaces(i);
 
         cout << name.append(32 - name.length(), SPACE);
-=======
-        //cout << endl;
-        //cout <<   "NAME                            GENDER    YEAR OF BIRTH    YEAR OF DEATH" << endl;
-        //cout <<   "------------------------------------------------------------------------"<< endl;
-        //cout << endl;
-        cout << i+1 << ". " << name.append(32 - name.length(), SPACE);
->>>>>>> 8927550a97d47d953b9538352968f311894dc87a
         cout << gender.append(10 - gender.length(), SPACE);
         cout << stringBirthYear.append(17 - stringBirthYear.length(), SPACE);
 
@@ -287,7 +286,6 @@ void UserLayer::printCompleteList()
 
 void UserLayer::sortListAlphabetically()
 {
-    //SORT
     _CSPServ.sortByName();
     printList(_CSPServ.getCompleteList());
 }
@@ -376,7 +374,5 @@ void UserLayer::adjustForSpaces(int i)
     {
         cout << i << ". ";
     }
-
-
 }
 

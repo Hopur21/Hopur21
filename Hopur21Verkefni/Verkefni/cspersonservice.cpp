@@ -49,7 +49,7 @@ bool CSPersonService::addNewPersonToList(const string name,const string gender, 
 //We take in id as a string to avoid strange letters/input
 bool CSPersonService::removePersonFromList(const string id)
 {
-    int index = 0;
+    size_t index = 0;
     try
     {
         index = stoi(id);
@@ -59,7 +59,7 @@ bool CSPersonService::removePersonFromList(const string id)
     {
         return false;
     }
-    if(index >= 0 && index <= _fileKeeper.size())
+    if(index < _fileKeeper.size())
     {
         removeNodeFromList(index);
         return true;
