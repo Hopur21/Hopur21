@@ -193,7 +193,7 @@ void UserLayer::printList(vector<CSPerson> list)
         return; //á að hætta í forritinu hér?
     }
 
-    cout << "Year of birth = YOB , Year of death = YOD" << endl;
+    cout <<   "Year of birth = YOB , Year of death = YOD" << endl;
     cout <<   "#     NAME                            GENDER     YOB     YOD      AGE" << endl;
     cout <<   "------------------------------------------------------------------------------"<< endl;
     for(int i=0;i<sizeOfList;i++)
@@ -208,12 +208,17 @@ void UserLayer::printList(vector<CSPerson> list)
         // adjustForSpaces adjusts the spaces according to the size of the value i in the for loop
         adjustForSpaces(i);
 
-
         cout << name.append(32 - name.length(), SPACE);
+<<<<<<< HEAD
+        cout << gender.append(10 - gender.length(), SPACE);
+        cout << stringBirthYear.append(17 - stringBirthYear.length(), SPACE);
+=======
+>>>>>>> 61a93fc30182ed6dd38ce093ed7d4c883bf90b2b
         cout << gender.append(11 - gender.length(), SPACE);
-        cout << stringBirthYear.append(8 - stringBirthYear.length(), SPACE);
+        cout << stringBirthYear;
+        //cout << stringBirthYear.append(8 - stringBirthYear.length(), SPACE);
 
-        if(stringPassedAway != ALIVE)
+        /*if(stringPassedAway != ALIVE)
         {
             cout << stringPassedAway.append(9 - stringPassedAway.length(), SPACE);
             cout << age;
@@ -223,10 +228,7 @@ void UserLayer::printList(vector<CSPerson> list)
             cout << "Alive";
             cout << "    " << age;
 
-        }
-
-
-
+        }*/
         cout << endl;
     }
     cout <<   "------------------------------------------------------------------------" << endl << endl;
@@ -284,7 +286,6 @@ void UserLayer::printCompleteList()
 
 void UserLayer::sortListAlphabetically()
 {
-    //SORT
     _CSPServ.sortByName();
     printList(_CSPServ.getCompleteList());
 }
@@ -373,6 +374,4 @@ void UserLayer::adjustForSpaces(int i)
     {
         cout << i << ". ";
     }
-
-
 }
