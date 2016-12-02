@@ -3,8 +3,8 @@
 using namespace std;
 
 const string DISPLAY_LIST = "1";
-const string ADD_PERSON = "2";
-const string SEARCH_PERSON = "3";
+const string ADD_PERSON = "3";
+const string SEARCH_PERSON = "2";
 const string REMOVE_PERSON = "4";
 const string EXIT = "5";
 
@@ -35,8 +35,8 @@ void MenuInterface::DisplayMenu()
     string choice;
     cout << endl;
     cout << "| 1 | Display the complete list" << endl;
-    cout << "| 2 | Add a computer scientist to the list" << endl;
-    cout << "| 3 | Search the list for a computer scientist" << endl;
+    cout << "| 2 | Search the list for a computer scientist" << endl;
+    cout << "| 3 | Add a computer scientist to the list" << endl;
     cout << "| 4 | Remove a computer scientist from the list" << endl;
     cout << "| 5 | Exit the program" << endl;
     cout << "Enter your choice here: ";
