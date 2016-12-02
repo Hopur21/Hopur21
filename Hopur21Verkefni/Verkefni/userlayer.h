@@ -10,6 +10,7 @@ class UserLayer
     private:
         CSPersonService _CSPServ;
         void printList(vector<CSPerson> list);
+        void printListMoreInfo(vector<CSPerson> list);
         bool checkNumberValidity(string userInput);
         string birthYearValidation(string birthYear);
         string deathYearValidation(string birthYear, string deathYear);
