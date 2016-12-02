@@ -200,18 +200,10 @@ void UserLayer::printList(vector<CSPerson> list)
         string stringPassedAway = to_string(list.at(i).getPassedAwayYear());
         string info = list.at(i).getComments() ;
 
-<<<<<<< HEAD
         // adjustForSpaces adjusts the spaces according to the size of the value i in the for loop
         adjustForSpaces(i);
 
         cout << name.append(32 - name.length(), SPACE);
-=======
-        //cout << endl;
-        //cout <<   "NAME                            GENDER    YEAR OF BIRTH    YEAR OF DEATH" << endl;
-        //cout <<   "------------------------------------------------------------------------"<< endl;
-        //cout << endl;
-        cout << i+1 << ". " << name.append(32 - name.length(), SPACE);
->>>>>>> 8927550a97d47d953b9538352968f311894dc87a
         cout << gender.append(10 - gender.length(), SPACE);
         cout << stringBirthYear.append(17 - stringBirthYear.length(), SPACE);
 
