@@ -48,34 +48,35 @@ void MenuInterface::banner()
 void MenuInterface::DisplayMenu()
 {
     string choice;
-    cout << endl;
-    cout << "| 1 | Display the complete list" << endl;
-    cout << "| 2 | Search the list for a computer scientist" << endl;
-    cout << "| 3 | Add a computer scientist to the list" << endl;
-    cout << "| 4 | Remove a computer scientist from the list" << endl;
-    cout << "| Q | Exit the program" << endl;
-    cout << "Enter your choice here: ";
-    cin >> choice;
-    cout << endl;
+    while(choice != "Q" || choice == "q")
+    {
+        cout << endl;
+        cout << "| 1 | Display the complete list" << endl;
+        cout << "| 2 | Search the list for a computer scientist" << endl;
+        cout << "| 3 | Add a computer scientist to the list" << endl;
+        cout << "| 4 | Remove a computer scientist from the list" << endl;
+        cout << "| Q | Exit the program" << endl;
+        cout << "Enter your choice here: ";
+        cin >> choice;
+        cout << endl;
 
-    if(choice == DISPLAY_LIST || choice == ADD_PERSON || choice == SEARCH_PERSON || choice ==REMOVE_PERSON)
-    {
-        processChoice(choice);
-    }
-    else if(choice == "Q" || choice == "q")
-    {
-        return;
-    }
-    else
-    {
-        invalidInput();
-        banner();
-        DisplayMenu();
+        if(choice == DISPLAY_LIST || choice == ADD_PERSON || choice == SEARCH_PERSON || choice ==REMOVE_PERSON)
+        {
+            processChoice(choice);
+        }
+        else
+        {
+            invalidInput();
+            banner();
+            DisplayMenu();
+        }
+
     }
 }
 
 void MenuInterface::processChoice(const string choice)
 {
+
     banner();
     string choiceSub;
     // Here the input from the main menu is processed
@@ -95,36 +96,30 @@ void MenuInterface::processChoice(const string choice)
         {
             banner();
             _uL.sortListAlphabetically();
-            DisplayMenu();
         }
         else if(choiceSub == SORT_BY_YEAR_OF_BIRTH)
         {
             banner();
             _uL.sortListByBirthYear();
-            DisplayMenu();
         }
         else if(choiceSub == SORT_BY_YEAR_OF_DEATH)
         {
             banner();
             _uL.sortListByDeathYear();
-            DisplayMenu();
         }
         else if(choiceSub == SORT_BY_AGE)
         {
             banner();
             _uL.sortListByAge();
-            DisplayMenu();
         }
         else if(choiceSub == GO_BACK)
         {
             banner();
-            DisplayMenu();
         }
         else
         {
             banner();
             invalidInput();
-            DisplayMenu();
         }
     }
 
@@ -132,20 +127,17 @@ void MenuInterface::processChoice(const string choice)
     {
         banner();
         _uL.addPerson();
-        DisplayMenu();
     }
 
     else if(choice == SEARCH_PERSON)
     {
         banner();
         _uL.searchForAPerson();
-        DisplayMenu();
     }
 
     else if(choice == REMOVE_PERSON)
     {
         banner();
         _uL.removePersonFromList();
-        DisplayMenu();
     }
 }

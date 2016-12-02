@@ -93,6 +93,7 @@ void UserLayer::addPerson()
 
 void UserLayer::removePersonFromList()
 {
+    printCompleteList();
     int personToRemove;
     cout << "Enter the number of the person that is to be removed or 0 to go back: ";
     cin >> personToRemove;

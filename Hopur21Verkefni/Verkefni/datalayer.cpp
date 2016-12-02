@@ -8,7 +8,7 @@ vector<CSPerson> DataLayer::readFromFile(string fileName)
     vector<CSPerson> vectPersons;
     ifstream myFile;
 
-    string personName, gender, comment, yearBorn, yearPassedAway;
+    string personName, gender, comment, yearBorn, yearPassedAway, sortChosen;
     try
     {
         myFile.open(fileName);
