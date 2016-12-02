@@ -77,11 +77,21 @@ void UserLayer::addPerson()
     {
         cout << "This person has been added successfully." << endl;
         cout << endl;
+
     }
     else
     {
         cout << "Something went wrong." << endl;
     }
+
+}
+
+void UserLayer::removePersonFromList()
+{
+    int personToRemove;
+    cout << "Enter the number of the person that is to be removed: ";
+    cin >> personToRemove;
+    _CSPServ.removePersonFromList(personToRemove);
 }
 
 void UserLayer::printGenderMenu()
@@ -174,6 +184,9 @@ void UserLayer::printList(vector<CSPerson> list)
         return; //á að hætta í forritinu hér?
     }
 
+
+    cout <<   "NAME                            GENDER    YEAR OF BIRTH    YEAR OF DEATH" << endl;
+    cout <<   "------------------------------------------------------------------------"<< endl;
     for(int i=0;i<sizeOfList;i++)
     {
         string name = list.at(i).getName();
@@ -182,10 +195,10 @@ void UserLayer::printList(vector<CSPerson> list)
         string stringPassedAway = to_string(list.at(i).getPassedAwayYear());
         string info = list.at(i).getComments() ;
 
-        cout << endl;
-        cout <<   "NAME                            GENDER    YEAR OF BIRTH    YEAR OF DEATH" << endl;
-        cout <<   "------------------------------------------------------------------------"<< endl;
-        cout << endl;
+        //cout << endl;
+        //cout <<   "NAME                            GENDER    YEAR OF BIRTH    YEAR OF DEATH" << endl;
+        //cout <<   "------------------------------------------------------------------------"<< endl;
+        //cout << endl;
         cout << name.append(32 - name.length(), SPACE);
         cout << gender.append(10 - gender.length(), SPACE);
         cout << stringBirthYear.append(17 - stringBirthYear.length(), SPACE);
@@ -200,13 +213,19 @@ void UserLayer::printList(vector<CSPerson> list)
             cout << alive.append(17 - alive.length(), SPACE);
         }
 
-        cout << endl;
-        cout << endl;
-        cout << info << endl;
-        cout << endl;
-        cout <<   "------------------------------------------------------------------------"<< endl;
+        //cout << endl;
+        //cout << endl;
+        //cout << info << endl;
+        //cout << endl;
+        //cout <<   "------------------------------------------------------------------------"<< endl;
         cout << endl;
     }
+    cout <<   "------------------------------------------------------------------------" << endl << endl;
+
+}
+void UserLayer::printCompleteList()
+{
+    printList(_CSPServ.getCompleteList());
 }
 
 void UserLayer::sortListAlphabetically()
