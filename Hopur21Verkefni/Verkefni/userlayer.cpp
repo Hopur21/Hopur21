@@ -61,23 +61,23 @@ void UserLayer::addPerson()
         error_counter++;
     }while(input != GENDER_MALE || input != GENDER_FEMALE || input != GENDER_OTHER);
 
-    // counter is reset for next iteration.
-    error_counter = 0;
-
     // Birth year validation
     birthYearValidation(birthYear);
-    cout << "Enter the year of death, 0 if this person is still alive: ";
+    cout << "Enter the year this person died, (0 if this person is still alive): ";
     cin >> deathYear;
     cout << "What is this person's greatest achievement: ";
     cin >> comment;
     cout << endl;
-    cout << "This person has now been added to your list." << endl;
-    cout << endl;
 
-    //CSPerson newPerson(name, gender, birthYear, deathYear, comment); TODO Lesa inn nýjan Person
-
-    //lA.addToList(newPerson);
-
+    if(_CSPServ.addNewPersonToList(name, gender, birthYear, deathYear, comment))
+    {
+        cout << "This person has been added successfully." << endl;
+        cout << endl;
+    }
+    else
+    {
+        cout << "Something went wrong." << endl;
+    }
 }
 
 void UserLayer::printGenderMenu()
