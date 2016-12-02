@@ -27,17 +27,19 @@ CSPersonService::CSPersonService()
     _fileKeeper = _data.readFromFile();
 }
 
-bool CSPersonService::addNewPersonToList(const string name,const string gender, const string birthYear, const string deathYear,const string comment)
+bool CSPersonService::addNewPersonToList(const string name,const string gender, string birthYear, string deathYear,const string comment)
 {
     //We will set years to 0 if they are not valid.
     int tempBirthYear = 0, tempDeathYear = 0;
     if(validNumber(birthYear)) //If number is valid
     {
-        tempBirthYear = stoi(birthYear);
+        //tempBirthYear = stoi(birthYear);
+        //tempBirthYear = birthYear;
     }
     if(validNumber(deathYear))
     {
         tempDeathYear = stoi(deathYear);
+        //tempDeathYear = deathYear;
     }
     //Save our new person in our vector
     _fileKeeper.push_back(CSPerson (name, gender, tempBirthYear, tempDeathYear, comment));
