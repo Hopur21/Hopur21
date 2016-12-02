@@ -186,7 +186,6 @@ string UserLayer::deathYearValidation(string birthYear, string deathYear)
 void UserLayer::printList(vector<CSPerson> list)
 {
     int sizeOfList = list.size();
-
     if(sizeOfList == 0)
     {
         cout << "List is empty." << endl;
@@ -230,7 +229,6 @@ void UserLayer::printList(vector<CSPerson> list)
 }
 void UserLayer::printListMoreInfo(vector<CSPerson> list)
 {
-    system("CLS");//Clear screen
     int sizeOfList = list.size();
 
     if(sizeOfList == 0)
