@@ -22,6 +22,7 @@ class UserLayer
         void sortListByBirthYear();
         void sortListByAge();
         void searchForAPerson();
+        void printCompleteList();
 };
 
 #endif // USERLAYER_H
