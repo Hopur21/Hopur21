@@ -95,14 +95,7 @@ void UserLayer::removePersonFromList()
     int personToRemove;
     cout << "Enter the number of the person that is to be removed: ";
     cin >> personToRemove;
-    if(_CSPServ.removePersonFromList(to_string(personToRemove)))
-    {
-        cout << "Person successfully removed from the list." << endl;
-    }
-    else
-    {
-        cout << "Error occurred." << endl;
-    }
+    _CSPServ.removePersonFromList(to_string(personToRemove));
 }
 
 void UserLayer::printGenderMenu()
@@ -193,7 +186,7 @@ void UserLayer::printList(vector<CSPerson> list)
     if(sizeOfList == 0)
     {
         cout << "List is empty." << endl;
-        return; // HÆTTA EÐA ?
+        return; //á að hætta í forritinu hér?
     }
 
 
@@ -286,6 +279,7 @@ void UserLayer::printCompleteList()
 
 void UserLayer::sortListAlphabetically()
 {
+    //SORT
     _CSPServ.sortByName();
     printList(_CSPServ.getCompleteList());
 }
@@ -374,5 +368,7 @@ void UserLayer::adjustForSpaces(int i)
     {
         cout << i << ". ";
     }
+
+
 }
 
