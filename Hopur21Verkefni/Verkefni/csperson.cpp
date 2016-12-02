@@ -19,13 +19,13 @@ int CSPerson::getAge()
 {
     const int ALIVE = 0;
     int age = 0;
-    if(_passedAwayYear <= _birthYear)
-    {
-        return age;
-    }
-    else if(_passedAwayYear == ALIVE)
+    if(_passedAwayYear == ALIVE)
     {
         age = getCurrentYear() - _birthYear;
+    }
+    else if(_passedAwayYear <= _birthYear)
+    {
+        return age;
     }
     else
     {
