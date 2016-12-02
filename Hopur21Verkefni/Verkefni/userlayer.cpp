@@ -13,7 +13,6 @@ const string GENDER_OTHER = "3";
 const string ALIVE = "0";
 const char SPACE = ' ';
 
-void invalidInput(); //Gefur villuskilaboð ef notandi slær inn tölu sem er ekki valmöguleiki
 
 UserLayer::UserLayer()
 {
@@ -64,9 +63,11 @@ void UserLayer::addPerson()
     // Birth year validation
     cout << "Enter the year of birth: ";
     cin >> birthYear;
-    birthYearValidation(birthYear);
+    birthYear = birthYearValidation(birthYear);
+    //birthYearValidation(birthYear);
     cout << "Enter the year this person died, (0 if this person is still alive): ";
     cin >> deathYear;
+    deathYear = deathYearValidation(birthYear, deathYear);
     cout << "What is this person's greatest achievement: ";
     cin.ignore();
     getline(cin, comment);
@@ -112,12 +113,17 @@ bool UserLayer::checkNumberValidity(string userInput)
     return false;
 }
 
-void UserLayer::birthYearValidation(string birthYear)
+string UserLayer::birthYearValidation(string birthYear)
 {
     bool birthYearValidation = true;
+    int error_counter = 0;
     while(birthYearValidation)
     {
-
+        if(error_counter > 0)
+        {
+            cout << "Enter the year of birth: ";
+            cin >> birthYear;
+        }
         if(checkNumberValidity(birthYear))
         {
             invalidInput();
@@ -125,8 +131,37 @@ void UserLayer::birthYearValidation(string birthYear)
         else
         {
             birthYearValidation = false;
+            return birthYear;
         }
+        error_counter++;
     }
+    return "ERROR";
+}
+
+string UserLayer::deathYearValidation(string birthYear, string deathYear)
+{
+    bool deathYearValidation = true;
+    int error_counter = 0;
+    while(deathYearValidation)
+    {
+        if(error_counter > 0)
+        {
+            cout << "Enter the year of death: ";
+            cin >> deathYear;
+        }
+        if(checkNumberValidity(deathYear) || birthYear >= deathYear)
+        {
+            invalidInput();
+        }
+
+        else
+        {
+            deathYearValidation = false;
+            return deathYear;
+        }
+        error_counter++;
+    }
+    return "ERROR";
 }
 
 void UserLayer::printList(vector<CSPerson> list)
@@ -239,3 +274,10 @@ void UserLayer::searchForAPerson()
         printList(_CSPServ.searchByYearOfDeath(searchString));
     }
 }
+
+//Gefur villuskilaboð ef notandi slær inn tölu sem er ekki valmöguleiki
+void UserLayer::invalidInput()
+{
+    cout << "Your input was invalid, please try again." << endl;
+}
+
