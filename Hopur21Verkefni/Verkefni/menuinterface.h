@@ -10,7 +10,9 @@ class MenuInterface
 
     public:
         void DisplayMenu();
+        void welcomeBanner();
         void processChoice(const string choice);
+        void invalidInput();
 };
 
 #endif // MENUINTERFACE_H
