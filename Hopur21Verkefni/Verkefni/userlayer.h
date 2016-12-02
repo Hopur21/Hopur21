@@ -22,9 +22,11 @@ class UserLayer
         void addPerson();
         void removePersonFromList();
         void sortListAlphabetically();
+        void sortListAlphabeticallyASC();
         void sortListByGender();
         void sortListByDeathYear();
         void sortListByBirthYear();
+        void sortListByBirthYearASC();
         void sortListByAge();
         void searchForAPerson();
         void printCompleteList();
