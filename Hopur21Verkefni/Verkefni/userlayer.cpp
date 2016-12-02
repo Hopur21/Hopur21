@@ -188,7 +188,7 @@ void UserLayer::printList(vector<CSPerson> list)
         cout << "List is empty." << endl;
         return; //á að hætta í forritinu hér?
     }
-
+            cout << endl << "MADE IT" << endl;
     cout << "Year of birth = YOB , Year of death = YOD" << endl;
     cout <<   "#     NAME                            GENDER     YOB     YOD      AGE" << endl;
     cout <<   "------------------------------------------------------------------------------"<< endl;
