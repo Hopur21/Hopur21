@@ -206,7 +206,6 @@ void UserLayer::printList(vector<CSPerson> list)
 
 
         cout << name.append(32 - name.length(), SPACE);
-<<<<<<< HEAD
         //cout << endl;
         //cout <<   "NAME                            GENDER    YEAR OF BIRTH    YEAR OF DEATH" << endl;
         //cout <<   "------------------------------------------------------------------------"<< endl;
@@ -214,10 +213,8 @@ void UserLayer::printList(vector<CSPerson> list)
         cout << i+1 << ". " << name.append(32 - name.length(), SPACE);
         cout << gender.append(10 - gender.length(), SPACE);
         cout << stringBirthYear.append(17 - stringBirthYear.length(), SPACE);
-=======
         cout << gender.append(11 - gender.length(), SPACE);
         cout << stringBirthYear.append(8 - stringBirthYear.length(), SPACE);
->>>>>>> e7ed2f353691cb233b4880359b2b8cc1568fc2de
 
         if(stringPassedAway != ALIVE)
         {
