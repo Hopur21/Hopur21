@@ -192,7 +192,6 @@ void UserLayer::printList(vector<CSPerson> list)
         return; //á að hætta í forritinu hér?
     }
 
-    cout <<   "Year of birth = YOB , Year of death = YOD" << endl;
     cout <<   "#     NAME                            GENDER     YOB     YOD      AGE" << endl;
     cout <<   "------------------------------------------------------------------------------"<< endl;
     for(int i=0;i<sizeOfList;i++)
@@ -224,7 +223,8 @@ void UserLayer::printList(vector<CSPerson> list)
         }
         cout << endl;
     }
-    cout <<   "------------------------------------------------------------------------" << endl << endl;
+    cout <<   "------------------------------------------------------------------------" << endl;
+    cout <<   "Year of birth = YOB , Year of death = YOD" << endl << endl;
 
 }
 void UserLayer::printListMoreInfo(vector<CSPerson> list)
@@ -237,7 +237,6 @@ void UserLayer::printListMoreInfo(vector<CSPerson> list)
         return; //á að hætta í forritinu hér?
     }
 
-    cout <<   "Year of birth = YOB , Year of death = YOD" << endl;
     cout <<   "#     NAME                            GENDER     YOB     YOD      AGE" << endl;
     cout <<   "------------------------------------------------------------------------------"<< endl;
     for(int i=0;i<sizeOfList;i++)
@@ -273,6 +272,7 @@ void UserLayer::printListMoreInfo(vector<CSPerson> list)
         cout << info << endl;
     }
     cout <<   "------------------------------------------------------------------------" << endl << endl;
+    cout <<   "Year of birth = YOB , Year of death = YOD" << endl;
 }
 void UserLayer::printCompleteList()
 {

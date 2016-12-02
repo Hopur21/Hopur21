@@ -14,7 +14,7 @@ const string SORT_BY_YEAR_OF_DEATH = "3";
 const string SORT_BY_AGE = "4";
 const string GO_BACK = "0";
 
-
+const int FIRST_TIME = 0;
 
 
 void MenuInterface::invalidInput()
@@ -22,14 +22,27 @@ void MenuInterface::invalidInput()
     cout << "Your input was invalid, please try again." << endl;
 }
 
-void MenuInterface::welcomeBanner()
+void MenuInterface::banner()
 {
-    system("CLS");//Clear screen
-    cout << endl;
-    cout << "       ********************************************" << endl;
-    cout << "       *  WELCOME TO THE COMPUTER SCIENTIST LIST  *" << endl;
-    cout << "       ********************************************" << endl;
-    cout << endl;
+    system("CLS");
+    if(firstTimeBooting == FIRST_TIME)
+    {
+        cout << endl;
+        cout << "       ********************************************" << endl;
+        cout << "       *  WELCOME TO THE COMPUTER SCIENTIST LIST  *" << endl;
+        cout << "       ********************************************" << endl;
+        cout << endl;
+        firstTimeBooting = 1;//just something else than 0
+    }
+    else
+    {
+        cout << endl;
+        cout << "       ********************************************" << endl;
+        cout << "       *          COMPUTER SCIENTIST LIST         *" << endl;
+        cout << "       ********************************************" << endl;
+        cout << endl;
+    }
+
 }
 
 void MenuInterface::DisplayMenu()
@@ -56,14 +69,14 @@ void MenuInterface::DisplayMenu()
     else
     {
         invalidInput();
+        banner();
         DisplayMenu();
     }
 }
 
 void MenuInterface::processChoice(const string choice)
 {
-
-    welcomeBanner();
+    banner();
     string choiceSub;
     // Here the input from the main menu is processed
     if(choice == DISPLAY_LIST)
@@ -80,30 +93,36 @@ void MenuInterface::processChoice(const string choice)
 
         if(choiceSub == SORT_ALPHABET)
         {
+            banner();
             _uL.sortListAlphabetically();
             DisplayMenu();
         }
         else if(choiceSub == SORT_BY_YEAR_OF_BIRTH)
         {
+            banner();
             _uL.sortListByBirthYear();
             DisplayMenu();
         }
         else if(choiceSub == SORT_BY_YEAR_OF_DEATH)
         {
+            banner();
             _uL.sortListByDeathYear();
             DisplayMenu();
         }
         else if(choiceSub == SORT_BY_AGE)
         {
+            banner();
             _uL.sortListByAge();
             DisplayMenu();
         }
         else if(choiceSub == GO_BACK)
         {
+            banner();
             DisplayMenu();
         }
         else
         {
+            banner();
             invalidInput();
             DisplayMenu();
         }
@@ -111,18 +130,21 @@ void MenuInterface::processChoice(const string choice)
 
     else if(choice == ADD_PERSON)
     {
+        banner();
         _uL.addPerson();
         DisplayMenu();
     }
 
     else if(choice == SEARCH_PERSON)
     {
+        banner();
         _uL.searchForAPerson();
         DisplayMenu();
     }
 
     else if(choice == REMOVE_PERSON)
     {
+        banner();
         _uL.removePersonFromList();
         DisplayMenu();
     }
