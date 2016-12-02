@@ -70,7 +70,6 @@ void MenuInterface::DisplayMenu()
             banner();
             DisplayMenu();
         }
-
     }
 }
 
