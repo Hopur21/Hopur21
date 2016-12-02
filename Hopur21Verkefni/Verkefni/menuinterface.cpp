@@ -14,7 +14,7 @@ const string SORT_BY_YEAR_OF_DEATH = "3";
 const string SORT_BY_AGE = "4";
 const string GO_BACK = "0";
 
-
+const int FIRST_TIME = 0;
 
 
 void MenuInterface::invalidInput()
@@ -32,9 +32,28 @@ void MenuInterface::welcomeBanner()
     cout << endl;
 }
 
+void MenuInterface::banner()
+{
+    system("CLS");//Clear screen
+    cout << endl;
+    cout << "       ********************************************" << endl;
+    cout << "       *          COMPUTER SCIENTIST LIST         *" << endl;
+    cout << "       ********************************************" << endl;
+    cout << endl;
+}
+
 void MenuInterface::DisplayMenu()
 {
-    welcomeBanner();
+    if(firstTimeBooting == FIRST_TIME)
+    {
+        welcomeBanner();
+        firstTimeBooting++;
+    }
+    else
+    {
+        banner();
+    }
+
     string choice;
     cout << endl;
     cout << "| 1 | Display the complete list" << endl;
@@ -63,7 +82,7 @@ void MenuInterface::DisplayMenu()
 
 void MenuInterface::processChoice(const string choice)
 {
-    welcomeBanner();
+    banner();
     string choiceSub;
     // Here the input from the main menu is processed
     if(choice == DISPLAY_LIST)
