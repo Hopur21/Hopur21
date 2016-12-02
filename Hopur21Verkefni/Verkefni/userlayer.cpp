@@ -203,7 +203,7 @@ void UserLayer::printList(vector<CSPerson> list)
         //cout <<   "NAME                            GENDER    YEAR OF BIRTH    YEAR OF DEATH" << endl;
         //cout <<   "------------------------------------------------------------------------"<< endl;
         //cout << endl;
-        cout << name.append(32 - name.length(), SPACE);
+        cout << i+1 << ". " << name.append(32 - name.length(), SPACE);
         cout << gender.append(10 - gender.length(), SPACE);
         cout << stringBirthYear.append(17 - stringBirthYear.length(), SPACE);
 
