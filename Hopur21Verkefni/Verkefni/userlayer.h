@@ -11,8 +11,10 @@ class UserLayer
         CSPersonService _CSPServ;
         void printList(vector<CSPerson> list);
         bool checkNumberValidity(string userInput);
-        void birthYearValidation(string birthYear);
+        string birthYearValidation(string birthYear);
+        string deathYearValidation(string birthYear, string deathYear);
         void printGenderMenu();
+
     public:
         UserLayer();
         void addPerson();
@@ -22,6 +24,7 @@ class UserLayer
         void sortListByBirthYear();
         void sortListByAge();
         void searchForAPerson();
+        void invalidInput();
 };
 
 #endif // USERLAYER_H

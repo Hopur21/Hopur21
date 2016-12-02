@@ -15,7 +15,7 @@ const string SORT_BY_AGE = "4";
 const string GO_BACK = "0";
 
 
-void invalidInput()
+void MenuInterface::invalidInput()
 {
     cout << "Your input was invalid, please try again." << endl;
 }
