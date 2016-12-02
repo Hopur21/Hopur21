@@ -16,6 +16,7 @@ const string GO_BACK = "0";
 
 
 
+
 void MenuInterface::invalidInput()
 {
     cout << "Your input was invalid, please try again." << endl;
@@ -38,7 +39,7 @@ void MenuInterface::DisplayMenu()
     cout << "| 2 | Search the list for a computer scientist" << endl;
     cout << "| 3 | Add a computer scientist to the list" << endl;
     cout << "| 4 | Remove a computer scientist from the list" << endl;
-    cout << "| 5 | Exit the program" << endl;
+    cout << "| Q | Exit the program" << endl;
     cout << "Enter your choice here: ";
     cin >> choice;
     cout << endl;
@@ -46,6 +47,10 @@ void MenuInterface::DisplayMenu()
     if(choice == DISPLAY_LIST || choice == ADD_PERSON || choice == SEARCH_PERSON || choice ==REMOVE_PERSON)
     {
         processChoice(choice);
+    }
+    else if(choice == "Q" || choice == "q")
+    {
+        return;
     }
     else
     {
