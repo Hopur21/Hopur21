@@ -4,17 +4,9 @@
 bool sortByNameDESC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getName() < rhs.getName(); }
 bool sortByNameASCC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getName() > rhs.getName(); }
 bool sortByGenderDESC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getGender() < rhs.getGender(); }
-bool sortByGenderASCC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getGender() > rhs.getGender(); }
-bool sortByDeathYearDESC(const CSPerson &lhs, const CSPerson &rhs) {return lhs.getPassedAwayYear() < rhs.getPassedAwayYear(); }
 bool sortByDeathYearASCC(const CSPerson &lhs, const CSPerson &rhs) {return lhs.getPassedAwayYear() > rhs.getPassedAwayYear(); }
 bool sortByBirthYearDESC(const CSPerson &lhs, const CSPerson &rhs) {return lhs.getBirthYear() < rhs.getBirthYear(); }
 bool sortByBirthYearASCC(const CSPerson &lhs, const CSPerson &rhs) {return lhs.getBirthYear() > rhs.getBirthYear(); }
-bool sortByAgeDESC(const CSPerson &lhs, const CSPerson &rhs)
-{
-    CSPerson tempLeft = lhs;//Copy our const into a temp variable, so we can work with our int value and get the age.
-    CSPerson tempRight = rhs;
-    return tempLeft.getAge() < tempRight.getAge();
-}
 bool sortByAgeASCC(const CSPerson &lhs, const CSPerson &rhs)
 {
     CSPerson tempLeft = lhs;//Copy our const into a temp variable, so we can work with our int value and get the age.
@@ -188,17 +180,7 @@ void CSPersonService::sortByGender()
     sort(_fileKeeper.begin(), _fileKeeper.end(), sortByGenderDESC);
     _data.writeToFile(_fileKeeper);
 }
-void CSPersonService::sortByGenderASC()
-{
-    sort(_fileKeeper.begin(), _fileKeeper.end(), sortByGenderASCC);
-    _data.writeToFile(_fileKeeper);
-}
 void CSPersonService::sortByDeathYear()
-{
-    sort(_fileKeeper.begin(), _fileKeeper.end(), sortByDeathYearDESC);
-    _data.writeToFile(_fileKeeper);
-}
-void CSPersonService::sortByDeathYearASC()
 {
     sort(_fileKeeper.begin(), _fileKeeper.end(), sortByDeathYearASCC);
     _data.writeToFile(_fileKeeper);
@@ -214,11 +196,6 @@ void CSPersonService::sortByBirthYearASC()
     _data.writeToFile(_fileKeeper);
 }
 void CSPersonService::sortByAge()
-{
-    sort(_fileKeeper.begin(), _fileKeeper.end(), sortByAgeDESC);
-    _data.writeToFile(_fileKeeper);
-}
-void CSPersonService::sortByAgeASC()
 {
     sort(_fileKeeper.begin(), _fileKeeper.end(), sortByAgeASCC);
     _data.writeToFile(_fileKeeper);
