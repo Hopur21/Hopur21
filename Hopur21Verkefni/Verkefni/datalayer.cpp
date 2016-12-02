@@ -18,7 +18,7 @@ vector<CSPerson> DataLayer::readFromFile(string fileName)
             getline(myFile, yearPassedAway, DELIMETER);
             getline(myFile, comment, DELIMETER);
 
-            //Erease newline infront of the string if there is one.
+            //Erase newline infront of the string if there is one.
             if(personName[0] == '\n')
             {
                 personName.erase(0,1);
