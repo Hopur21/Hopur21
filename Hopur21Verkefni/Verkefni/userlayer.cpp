@@ -64,10 +64,14 @@ void UserLayer::addPerson()
     cout << "Enter the year of birth: ";
     cin >> birthYear;
     birthYear = birthYearValidation(birthYear);
-    //birthYearValidation(birthYear);
     cout << "Enter the year this person died, (0 if this person is still alive): ";
     cin >> deathYear;
-    deathYear = deathYearValidation(birthYear, deathYear);
+
+    // No need to validate if person is still alive.
+    if(deathYear != ALIVE)
+    {
+        deathYear = deathYearValidation(birthYear, deathYear);
+    }
     cout << "What is this person's greatest achievement: ";
     cin.ignore();
     getline(cin, comment);

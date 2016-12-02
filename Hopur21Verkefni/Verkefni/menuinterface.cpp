@@ -32,8 +32,6 @@ void MenuInterface::welcomeBanner()
 void MenuInterface::DisplayMenu()
 {
     string choice;
-
-    welcomeBanner();
     cout << endl;
     cout << "| 1 | Display the complete list" << endl;
     cout << "| 2 | Add a computer scientist to the list" << endl;
