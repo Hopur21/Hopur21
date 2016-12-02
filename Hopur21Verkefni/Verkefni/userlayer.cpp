@@ -12,6 +12,7 @@ const string GENDER_FEMALE = "2";
 const string GENDER_OTHER = "3";
 const string ALIVE = "0";
 const char SPACE = ' ';
+const int GO_BACK = 0;
 
 
 UserLayer::UserLayer()
@@ -93,8 +94,12 @@ void UserLayer::addPerson()
 void UserLayer::removePersonFromList()
 {
     int personToRemove;
-    cout << "Enter the number of the person that is to be removed: ";
+    cout << "Enter the number of the person that is to be removed or 0 to go back: ";
     cin >> personToRemove;
+    if(personToRemove == GO_BACK)
+    {
+        return;
+    }
     _CSPServ.removePersonFromList(to_string(personToRemove));
 }
 
