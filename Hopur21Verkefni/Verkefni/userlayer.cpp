@@ -62,6 +62,8 @@ void UserLayer::addPerson()
     }while(input != GENDER_MALE || input != GENDER_FEMALE || input != GENDER_OTHER);
 
     // Birth year validation
+    cout << "Enter the year of birth: ";
+    cin >> birthYear;
     birthYearValidation(birthYear);
     cout << "Enter the year this person died, (0 if this person is still alive): ";
     cin >> deathYear;
@@ -115,7 +117,6 @@ void UserLayer::birthYearValidation(string birthYear)
     bool birthYearValidation = true;
     while(birthYearValidation)
     {
-
         cout << "Enter the year of birth: ";
         cin >> birthYear;
         if(checkNumberValidity(birthYear))
