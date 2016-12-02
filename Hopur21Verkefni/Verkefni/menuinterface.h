@@ -10,6 +10,7 @@ class MenuInterface
 
     public:
         void DisplayMenu();
+        void welcomeBanner();
         void processChoice(const string choice);
 };
 

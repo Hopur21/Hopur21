@@ -20,7 +20,7 @@ void invalidInput()
     cout << "Your input was invalid, please try again." << endl;
 }
 
-void welcomeBanner()
+void MenuInterface::welcomeBanner()
 {
     cout << endl;
     cout << "       ********************************************" << endl;
@@ -105,7 +105,7 @@ void MenuInterface::processChoice(const string choice)
 
     else if(choice == SEARCH_PERSON)
     {
-        _uL.searchForAPerson();  //HELLO
+        _uL.searchForAPerson();
     }
 
     else if(choice == REMOVE_PERSON)
