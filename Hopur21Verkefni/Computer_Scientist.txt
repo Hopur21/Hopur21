@@ -1,12 +1,12 @@
-Charles Babbage;male;1791;1871;He is best remembered for originating the concept of a programmable computer.;
+Charles Babbage;Male;1791;1871;He is best remembered for originating the concept of a programmable computer.;
 Ada Lovelace;
 Female;1815;1852;
 Was an analyst of Charles Babbage's analytical engine and considered by many the "first computer programmer";
 Blaise Pascal;
-male;1623;1662;
+Male;1623;1662;
 In 1642, while still a teenager, he started some pioneering work on calculating machines, called Pascal's calculators and later Pascalines.;
 Daniel Brandur Sigurgeirsson;
-male;1973;0;
+Male;1973;0;
 Teaches programming at Reykjavik University. Managed to run whole 10 km in 76:02 minutes in 2011. Some say he will be the guy to cure stomach ache permanently. Office workers are not so impressed with him after the release of the disputed program SitStretch that made them move. He is an enthusiastic environmentalist and manages the Icelandic facebook group Ahugahopur um endurvinnslu og endurnytingu, and is a supporter of the English football club Liverpool;
 Marissa Ann Mayer;
 Female;1975;0;
