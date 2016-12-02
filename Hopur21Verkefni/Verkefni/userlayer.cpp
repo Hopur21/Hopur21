@@ -192,7 +192,8 @@ void UserLayer::printList(vector<CSPerson> list)
     if(sizeOfList == 0)
     {
         cout << "List is empty." << endl;
-        return; //á að hætta í forritinu hér?
+        cout << endl;
+        return;
     }
 
     cout <<   "#     NAME                            GENDER     YOB     YOD      AGE" << endl;
@@ -206,7 +207,8 @@ void UserLayer::printList(vector<CSPerson> list)
         int age = list.at(i).getAge();
 
 
-        // adjustForSpaces adjusts the spaces according to the size of the value i in the for loop
+        // adjustForSpaces adjusts the spaces between the
+        // number and name of the scientist according to the size of the value i in the for loop
         adjustForSpaces(i);
 
         cout << name.append(32 - name.length(), SPACE);
