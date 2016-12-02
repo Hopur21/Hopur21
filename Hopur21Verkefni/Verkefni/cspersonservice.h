@@ -14,13 +14,13 @@ public:
     vector<CSPerson> getCompleteList(){return _fileKeeper;}
 
     // TODO bæta við lesa inn skrá frá notenda
-    // TODO Gera edit á user
 
     //Sets
     void setCompleteList();
     bool addNewPersonToList(const string name,const string gender, const string birthYear, const string deathYear,const string comment);
     bool removePersonFromList(const string id);
-    void sortByName();// TODO: Raða eftir miðnafni
+    bool CSPersonService::editPersonFromList(const string oldID, CSPerson person);
+    void sortByName();
     void sortByNameASC();
     void sortByGender();
     void sortByDeathYear();

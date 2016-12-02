@@ -54,7 +54,27 @@ bool CSPersonService::removePersonFromList(const string id)
     if(index < _fileKeeper.size())
     {
         removeNodeFromList(index);
-        return true;
+        return true;//Return true that we successfully removed the person
+    }
+    return false;
+}
+bool CSPersonService::editPersonFromList(const string oldID, CSPerson person)
+{
+    size_t index = 0;
+    try
+    {
+        index = stoi(id);
+        index--; //Off by one
+    }
+    catch(int e)
+    {
+        return false;
+    }
+    if(index < _fileKeeper.size())
+    {
+        _fileKeeper[index] = person;
+        _data.writeToFile();
+        return true;//Return true that we successfully removed the person
     }
     return false;
 }
