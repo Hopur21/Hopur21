@@ -18,8 +18,8 @@ const string GO_BACK = "0";
 
 const int FIRST_TIME = 0;
 
-const string COMPUTER_OPTION = "1";
-const string SCIENTIST_OPTION = "2";
+const string COMPUTER = "1";
+const string SCIENTIST = "2";
 
 
 void MenuInterface::invalidInput()
@@ -78,7 +78,7 @@ void MenuInterface::DisplayMenu()
 
         if(choice == DISPLAY_LIST || choice == ADD || choice == SEARCH || choice == REMOVE)
         {
-            subMenu(choice);
+            processChoice(choice);
         }
         else if(choice == "Q" || choice == "q")
         {
@@ -93,7 +93,7 @@ void MenuInterface::DisplayMenu()
     }
 }
 
-void MenuInterface::subMenu(string choice)
+string MenuInterface::subMenu()
 {
     string subMenuChoice;
     do
@@ -105,26 +105,82 @@ void MenuInterface::subMenu(string choice)
 
         cin >> subMenuChoice;
 
-        if(subMenuChoice != COMPUTER_OPTION || subMenuChoice != SCIENTIST_OPTION)
+        if(subMenuChoice == COMPUTER || subMenuChoice == SCIENTIST)
+        {
+            return subMenuChoice;
+        }
+        else
         {
             cout << endl;
             invalidInput();
             cout << endl;
         }
-    }while(subMenuChoice != COMPUTER_OPTION || subMenuChoice != SCIENTIST_OPTION);
+    }while(subMenuChoice != COMPUTER || subMenuChoice != SCIENTIST);
 
-    processChoice(choice, subMenuChoice);
+    return subMenuChoice;
 }
 
-void MenuInterface::processChoice(const string choice, const string subMenuChoice)
+void MenuInterface::processChoice(const string choice)
 {
+    string subMenuChoice = subMenu();
+    int choiceInt = stoi(choice);
+    cout << "| 1 | Display either a computer or a scientist" << endl;
+    cout << "| 2 | Search the list" << endl;
+    cout << "| 3 | Add to the list" << endl;
+    cout << "| 4 | Remove from the list" << endl;
 
-    // HÉR Á EFTIR AÐ LAGA HELLING!!!!
+
+    cout << "1) A computer " << endl;
+    cout << "2) A scientist " << endl;
 
     banner();
-    string choiceSub;
-    // Here the input from the main menu is processed
-    if(choice == DISPLAY_LIST)
+
+    // Computer operations
+    if(subMenuChoice == COMPUTER)
+    {
+        switch (choiceInt)
+        {
+        case 1:
+            //Display computer
+            break;
+        case 2:
+            // Search for a computer"
+            break;
+        case 3:
+               // Add a computer
+        break;
+        case 4:
+            // Remove a computer
+            break;
+        default:
+            invalidInput();
+            break;
+        }
+    }
+
+    // Scientist operations
+    else if(subMenuChoice == SCIENTIST)
+    {
+        switch (choiceInt)
+        {
+        case 1:
+            //Display scientists
+            break;
+        case 2:
+            // Search for a scientist"
+            break;
+        case 3:
+               // Add a scientist
+        break;
+        case 4:
+            // Remove a scientist
+            break;
+        default:
+            break;
+        }
+    }
+
+    /*if(choice == DISPLAY_LIST && )
     {
         _uL.printCompleteList();
         cout << "| 1 | Sort computer scientists by alphabetical order" << endl;
@@ -201,5 +257,7 @@ void MenuInterface::processChoice(const string choice, const string subMenuChoic
     {
         banner();
         _uL.removePersonFromList();
-    }
+    }*/
 }
+
+

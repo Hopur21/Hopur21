@@ -14,9 +14,9 @@ class MenuInterface
         void DisplayMenu();
         void welcomeBanner();
         void banner();
-        void processChoice(const string choice, const string subMenuChoice);
+        void processChoice(const string choice);
         void invalidInput();
-        void subMenu(string choice);
+        string subMenu();
 
 };
 
