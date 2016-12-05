@@ -17,6 +17,7 @@ class MenuInterface
         void processChoice(const string choice);
         void invalidInput();
         string subMenu();
+        void displayScientists();
 
 };
 

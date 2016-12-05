@@ -24,7 +24,9 @@ const string SCIENTIST = "2";
 
 void MenuInterface::invalidInput()
 {
+    cout << endl;
     cout << "Your input was invalid, please try again." << endl;
+    cout << endl;
 }
 
 void MenuInterface::banner()
@@ -164,100 +166,87 @@ void MenuInterface::processChoice(const string choice)
         switch (choiceInt)
         {
         case 1:
-            //Display scientists
+            displayScientists();
             break;
         case 2:
-            // Search for a scientist"
+            banner();
+            _uL.searchForAPerson();
             break;
         case 3:
-               // Add a scientist
+            banner();
+            _uL.addPerson();
         break;
         case 4:
-            // Remove a scientist
+            banner();
+            _uL.removePersonFromList();
             break;
         default:
+            invalidInput();
             break;
         }
     }
+}
 
-    /*if(choice == DISPLAY_LIST && )
-    {
-        _uL.printCompleteList();
-        cout << "| 1 | Sort computer scientists by alphabetical order" << endl;
-        cout << "| 2 | Sort computer scientists by ascending alphabetical order" << endl;
-        cout << "| 3 | Sort computer scientists by year of birth" << endl;
-        cout << "| 4 | Sort computer scientists by ascending year of birth" << endl;
-        cout << "| 5 | Sort computer scientists by year of death" << endl;
-        cout << "| 6 | Sort computer scientists by age" << endl;
-        cout << "| 7 | Sort computer scientists by gender" << endl;
-        cout << "| 0 | Go back" << endl;
-        cout << "Enter your choice here: ";
-        cin >> choiceSub;
-        cout << endl;
+void MenuInterface::displayScientists()
+{
+    string sortOption;
+    _uL.printCompleteList();
+    cout << "| 1 | Sort computer scientists by alphabetical order" << endl;
+    cout << "| 2 | Sort computer scientists by ascending alphabetical order" << endl;
+    cout << "| 3 | Sort computer scientists by year of birth" << endl;
+    cout << "| 4 | Sort computer scientists by ascending year of birth" << endl;
+    cout << "| 5 | Sort computer scientists by year of death" << endl;
+    cout << "| 6 | Sort computer scientists by age" << endl;
+    cout << "| 7 | Sort computer scientists by gender" << endl;
+    cout << "| 0 | Go back" << endl;
+    cout << "Enter your choice here: ";
+    cin >> sortOption;
+    cout << endl;
 
-        if(choiceSub == SORT_ALPHABET)
-        {
-            banner();
-            _uL.sortListAlphabetically();
-        }
-        else if(choiceSub == SORT_BY_YEAR_OF_BIRTH)
-        {
-            banner();
-            _uL.sortListByBirthYear();
-        }
-        else if(choiceSub == SORT_BY_YEAR_OF_DEATH)
-        {
-            banner();
-            _uL.sortListByDeathYear();
-        }
-        else if(choiceSub == SORT_BY_AGE)
-        {
-            banner();
-            _uL.sortListByAge();
-        }
-        else if(choiceSub == SORT_ASCENDING_ALPHABET)
-        {
-            banner();
-            _uL.sortListAlphabeticallyASC();
-        }
-        else if(choiceSub == SORT_BY_ASCENDING_YEAR_OF_BIRTH)
-        {
-            banner();
-            _uL.sortListByBirthYearASC();
-        }
-        else if(choiceSub == SORT_BY_GENDER)
-        {
-            banner();
-            _uL.sortListByGender();
-        }
-        else if(choiceSub == GO_BACK)
-        {
-            banner();
-        }
-        else
-        {
-            banner();
-            invalidInput();
-        }
-    }
-
-    else if(choice == ADD)
+    if(sortOption == SORT_ALPHABET)
     {
         banner();
-        _uL.addPerson();
+        _uL.sortListAlphabetically();
     }
-
-    else if(choice == SEARCH)
+    else if(sortOption == SORT_BY_YEAR_OF_BIRTH)
     {
         banner();
-        _uL.searchForAPerson();
+        _uL.sortListByBirthYear();
     }
-
-    else if(choice == REMOVE)
+    else if(sortOption == SORT_BY_YEAR_OF_DEATH)
     {
         banner();
-        _uL.removePersonFromList();
-    }*/
+        _uL.sortListByDeathYear();
+    }
+    else if(sortOption == SORT_BY_AGE)
+    {
+        banner();
+        _uL.sortListByAge();
+    }
+    else if(sortOption == SORT_ASCENDING_ALPHABET)
+    {
+        banner();
+        _uL.sortListAlphabeticallyASC();
+    }
+    else if(sortOption == SORT_BY_ASCENDING_YEAR_OF_BIRTH)
+    {
+        banner();
+        _uL.sortListByBirthYearASC();
+    }
+    else if(sortOption == SORT_BY_GENDER)
+    {
+        banner();
+        _uL.sortListByGender();
+    }
+    else if(sortOption == GO_BACK)
+    {
+        banner();
+    }
+    else
+    {
+        banner();
+        invalidInput();
+    }
 }
 
 
