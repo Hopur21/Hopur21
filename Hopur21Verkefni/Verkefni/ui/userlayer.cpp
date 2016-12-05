@@ -15,11 +15,6 @@ const char SPACE = ' ';
 const int GO_BACK = 0;
 const string GO_BACKSTRING = "0";
 
-UserLayer::UserLayer()
-{
-    CSPersonService test;
-}
-
 void UserLayer::addPerson()
 {
     string name, gender, comment, birthYear,deathYear, input;
@@ -78,7 +73,7 @@ void UserLayer::addPerson()
     getline(cin, comment);
     cout << endl;
 
-    if(_CSPServ.addNewPersonToList(name, gender, birthYear, deathYear, comment))
+    if(_service.addNewPersonToList(name, gender, birthYear, deathYear, comment))
     {
         cout << "This person has been added successfully." << endl;
         cout << endl;
@@ -101,7 +96,7 @@ void UserLayer::removePersonFromList()
     {
         return;
     }
-    _CSPServ.removePersonFromList(to_string(personToRemove));
+    _service.removePersonFromList(to_string(personToRemove));
 }
 
 void UserLayer::printGenderMenu()
@@ -281,44 +276,44 @@ void UserLayer::printListMoreInfo(vector<CSPerson> list)
 }
 void UserLayer::printCompleteList()
 {
-    printList(_CSPServ.getCompleteList());
+    printList(_service.getCompleteList());
 }
 
 void UserLayer::sortListAlphabetically()
 {
-    _CSPServ.sortByName();
-    printList(_CSPServ.getCompleteList());
+    _service.sortListAlphabetically();
+    printList(_service.getCompleteList());
 }
 void UserLayer::sortListAlphabeticallyASC()
 {
-    _CSPServ.sortByNameASC();
-    printList(_CSPServ.getCompleteList());
+    _service.sortListAlphabeticallyASC();
+    printList(_service.getCompleteList());
 }
 void UserLayer::sortListByGender()
 {
-    _CSPServ.sortByGender();
-    printList(_CSPServ.getCompleteList());
+    _service.sortListByGender();
+    printList(_service.getCompleteList());
 }
 void UserLayer::sortListByDeathYear()
 {
-    _CSPServ.sortByDeathYear();
-    printList(_CSPServ.getCompleteList());
+    _service.sortListByDeathYear();
+    printList(_service.getCompleteList());
 }
 void UserLayer::sortListByBirthYear()
 {
-    _CSPServ.sortByBirthYear();
-    printList(_CSPServ.getCompleteList());
+    _service.sortListByBirthYear();
+    printList(_service.getCompleteList());
 }
 void UserLayer::sortListByBirthYearASC()
 {
-    _CSPServ.sortByBirthYearASC();
-    printList(_CSPServ.getCompleteList());
+    _service.sortListByBirthYearASC();
+    printList(_service.getCompleteList());
 }
 
 void UserLayer::sortListByAge()
 {
-    _CSPServ.sortByAge();
-    printList(_CSPServ.getCompleteList());
+    _service.sortListByAge();
+    printList(_service.getCompleteList());
 }
 
 void UserLayer::searchForAPerson()
@@ -353,15 +348,15 @@ void UserLayer::searchForAPerson()
 
     if(userInput == SEARCH_BY_NAME)
     {
-        printListMoreInfo(_CSPServ.searchByName(searchString));
+        printListMoreInfo(_service.searchByName(searchString));
     }
     else if(userInput == SEARCH_BY_YEAR_OF_BIRTH)
     {
-        printListMoreInfo(_CSPServ.searchByYearOfBirth(searchString));
+        printListMoreInfo(_service.searchByYearOfBirth(searchString));
     }
     else if(userInput == SEARCH_BY_YEAR_OF_DEATH)
     {
-        printListMoreInfo(_CSPServ.searchByYearOfDeath(searchString));
+        printListMoreInfo(_service.searchByYearOfDeath(searchString));
     }
 }
 

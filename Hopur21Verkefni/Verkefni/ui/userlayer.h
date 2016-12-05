@@ -1,6 +1,6 @@
 #ifndef USERLAYER_H
 #define USERLAYER_H
-
+#include "services/service.h"
 #include "services/cspersonservice.h"
 #include <iostream>
 using namespace std;
@@ -8,7 +8,8 @@ using namespace std;
 class UserLayer
 {
     private:
-        CSPersonService _CSPServ;
+        //CSPersonService _CSPServ;
+        Service _service;
         void printList(vector<CSPerson> list);
         void printListMoreInfo(vector<CSPerson> list);
         bool checkNumberValidity(string userInput);
