@@ -3,7 +3,7 @@
 #include<fstream>
 #include<vector>
 #include<string>
-#include"csperson.h"
+#include"models/csperson.h"
 
 using namespace std;
 

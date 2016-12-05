@@ -1,4 +1,4 @@
-#include <csperson.h>
+#include <models/csperson.h>
 
 CSPerson::CSPerson(string name, string gender, int birthYear, int passedAwayYear, string comment)
 {

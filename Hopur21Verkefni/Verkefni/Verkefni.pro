@@ -10,18 +10,20 @@ CONFIG -= app_bundle
 TEMPLATE = app
 
 SOURCES += main.cpp \
-    csperson.cpp \
-    menuinterface.cpp \
-    userlayer.cpp \
-    datalayer.cpp \
-    cspersonservice.cpp
+    models/csperson.cpp \
+    ui/menuinterface.cpp \
+    ui/userlayer.cpp \
+    repositories/datalayer.cpp \
+    services/cspersonservice.cpp \
+    utilities/enums.cpp
 
 HEADERS += \
-    csperson.h \
-    menuinterface.h \
-    userlayer.h \
-    datalayer.h \
-    cspersonservice.h
+    models/csperson.h \
+    ui/menuinterface.h \
+    ui/userlayer.h \
+    repositories/datalayer.h \
+    services/cspersonservice.h \
+    utilities/enums.h
 
 static { # everything below takes effect with CONFIG ''= static
  CONFIG+= static
