@@ -8,7 +8,7 @@ Smella á phpmyadmin undir computer_scientist
 
 
 
-database: harlausniris_computer_Scientist
+database: harlausniris_computer_scientist
 port: 3306
 
 user: compTolva
