@@ -1,8 +1,8 @@
 #ifndef CSPERSONSERVICE_H
 #define CSPERSONSERVICE_H
 #include <algorithm>
-#include "csperson.h"
-#include "datalayer.h"
+#include "models/csperson.h"
+#include "repositories/datalayer.h"
 #include <iostream>
 #include<string>
 using namespace std;
