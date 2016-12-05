@@ -16,7 +16,9 @@ SOURCES += main.cpp \
     repositories/datalayer.cpp \
     services/cspersonservice.cpp \
     utilities/enums.cpp \
-    models/computer.cpp
+    models/computer.cpp \
+    services/service.cpp \
+    services/computerservice.cpp
 
 HEADERS += \
     models/csperson.h \
@@ -25,7 +27,9 @@ HEADERS += \
     repositories/datalayer.h \
     services/cspersonservice.h \
     utilities/enums.h \
-    models/computer.h
+    models/computer.h \
+    services/service.h \
+    services/computerservice.h
 
 static { # everything below takes effect with CONFIG ''= static
  CONFIG+= static
