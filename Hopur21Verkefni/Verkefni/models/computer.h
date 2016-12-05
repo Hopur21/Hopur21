@@ -10,7 +10,7 @@ class Computer
         string _name;
         int _designYear;
         int _buildYear;
-        int _typeID;
+        int _typeID; //Strengur
         bool _created;
 
     public:
