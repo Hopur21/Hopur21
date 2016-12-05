@@ -146,6 +146,7 @@ void MenuInterface::processChoice(const string choice)
             // Remove a computer
             break;
         default:
+            // This should never run
             invalidInput();
             break;
         }
@@ -157,6 +158,7 @@ void MenuInterface::processChoice(const string choice)
         switch (choiceInt)
         {
         case 1:
+            banner();
             displayScientists();
             break;
         case 2:
@@ -172,6 +174,7 @@ void MenuInterface::processChoice(const string choice)
             _uL.removePersonFromList();
             break;
         default:
+            // This should never run
             invalidInput();
             break;
         }
