@@ -13,8 +13,6 @@ public:
     CSPersonService();
     vector<CSPerson> getCompleteList(){return _fileKeeper;}
 
-    // TODO bæta við lesa inn skrá frá notenda
-
     //Sets
     void setCompleteList();
     bool addNewPersonToList(const string name,const string gender, const string birthYear, const string deathYear,const string comment);
