@@ -3,9 +3,9 @@
 using namespace std;
 
 const string DISPLAY_LIST = "1";
-const string ADD_PERSON = "3";
-const string SEARCH_PERSON = "2";
-const string REMOVE_PERSON = "4";
+const string ADD = "3";
+const string SEARCH = "2";
+const string REMOVE = "4";
 
 const string SORT_ALPHABET = "1";
 const string SORT_ASCENDING_ALPHABET = "2";
@@ -17,6 +17,9 @@ const string SORT_BY_GENDER = "7";
 const string GO_BACK = "0";
 
 const int FIRST_TIME = 0;
+
+const string COMPUTER_OPTION = "1";
+const string SCIENTIST_OPTION = "2";
 
 
 void MenuInterface::invalidInput()
@@ -53,7 +56,8 @@ void MenuInterface::DisplayMenu()
 
     while(choice != "Q" || choice != "q")
     {
-        cout << endl;
+        // GAMLA MENU-IÐ
+        /*cout << endl;
         cout << "| 1 | Display the complete list" << endl;
         cout << "| 2 | Search the list for a computer scientist" << endl;
         cout << "| 3 | Add a computer scientist to the list" << endl;
@@ -61,11 +65,20 @@ void MenuInterface::DisplayMenu()
         cout << "| Q | Exit the program" << endl;
         cout << "Enter your choice here: ";
         cin >> choice;
+        cout << endl;*/
+
+        cout << "| 1 | Display either a computer or a scientist" << endl;
+        cout << "| 2 | Search the list" << endl;
+        cout << "| 3 | Add to the list" << endl;
+        cout << "| 4 | Remove from the list" << endl;
+        cout << "| Q | Exit the program" << endl;
+        cout << "Enter your choice here: ";
+        cin >> choice;
         cout << endl;
 
-        if(choice == DISPLAY_LIST || choice == ADD_PERSON || choice == SEARCH_PERSON || choice ==REMOVE_PERSON)
+        if(choice == DISPLAY_LIST || choice == ADD || choice == SEARCH || choice == REMOVE)
         {
-            processChoice(choice);
+            subMenu(choice);
         }
         else if(choice == "Q" || choice == "q")
         {
@@ -80,8 +93,33 @@ void MenuInterface::DisplayMenu()
     }
 }
 
-void MenuInterface::processChoice(const string choice)
+void MenuInterface::subMenu(string choice)
 {
+    string subMenuChoice;
+    do
+    {
+        cout << endl;
+        cout << "Choose either:" << endl;
+        cout << "1) A computer " << endl;
+        cout << "2) A scientist " << endl;
+
+        cin >> subMenuChoice;
+
+        if(subMenuChoice != COMPUTER_OPTION || subMenuChoice != SCIENTIST_OPTION)
+        {
+            cout << endl;
+            invalidInput();
+            cout << endl;
+        }
+    }while(subMenuChoice != COMPUTER_OPTION || subMenuChoice != SCIENTIST_OPTION);
+
+    processChoice(choice, subMenuChoice);
+}
+
+void MenuInterface::processChoice(const string choice, const string subMenuChoice)
+{
+
+    // HÉR Á EFTIR AÐ LAGA HELLING!!!!
 
     banner();
     string choiceSub;
@@ -147,19 +185,19 @@ void MenuInterface::processChoice(const string choice)
         }
     }
 
-    else if(choice == ADD_PERSON)
+    else if(choice == ADD)
     {
         banner();
         _uL.addPerson();
     }
 
-    else if(choice == SEARCH_PERSON)
+    else if(choice == SEARCH)
     {
         banner();
         _uL.searchForAPerson();
     }
 
-    else if(choice == REMOVE_PERSON)
+    else if(choice == REMOVE)
     {
         banner();
         _uL.removePersonFromList();
