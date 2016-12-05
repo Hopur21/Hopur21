@@ -126,15 +126,6 @@ void MenuInterface::processChoice(const string choice)
 {
     string subMenuChoice = subMenu();
     int choiceInt = stoi(choice);
-    cout << "| 1 | Display either a computer or a scientist" << endl;
-    cout << "| 2 | Search the list" << endl;
-    cout << "| 3 | Add to the list" << endl;
-    cout << "| 4 | Remove from the list" << endl;
-
-
-    cout << "1) A computer " << endl;
-    cout << "2) A scientist " << endl;
-
     banner();
 
     // Computer operations
