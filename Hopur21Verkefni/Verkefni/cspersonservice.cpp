@@ -30,7 +30,10 @@ bool CSPersonService::addNewPersonToList(const string name,const string gender, 
     }
     if(validNumber(deathYear))
     {
-        tempDeathYear = stoi(deathYear);
+        if(stoi(deathYear) > tempBirthYear)
+        {
+            tempDeathYear = stoi(deathYear);
+        }
         //tempDeathYear = deathYear;
     }
     //Save our new person in our vector
