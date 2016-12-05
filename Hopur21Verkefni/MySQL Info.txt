@@ -1,0 +1,15 @@
+https://admin.tolvukerfi.is:8443/smb/database/list
+
+Stjórnborð:
+user: HRrjomi@harlausnir.is
+pass: HR.rjomi.2016
+
+Smella á phpmyadmin undir computer_scientist
+
+
+
+database: harlausniris_computer_Scientist
+port: 3306
+
+user: compTolva
+pass: HR.rjomi.2016
