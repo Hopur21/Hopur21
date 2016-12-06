@@ -1,5 +1,6 @@
 QT += core
 QT -= gui
+QT += core sql
 
 CONFIG += c++11
 
@@ -18,7 +19,8 @@ SOURCES += main.cpp \
     utilities/enums.cpp \
     models/computer.cpp \
     services/service.cpp \
-    services/computerservice.cpp
+    services/computerservice.cpp \
+    utilities/dbcon.cpp
 
 HEADERS += \
     models/csperson.h \
@@ -30,7 +32,8 @@ HEADERS += \
     models/computer.h \
     services/service.h \
     services/computerservice.h \
-    utilities/constants.h
+    utilities/constants.h \
+    utilities/dbcon.h
 
 static { # everything below takes effect with CONFIG ''= static
  CONFIG+= static

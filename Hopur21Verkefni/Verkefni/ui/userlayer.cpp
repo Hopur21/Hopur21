@@ -3,23 +3,6 @@
 
 using namespace std;
 
-<<<<<<< HEAD
-const string SEARCH_BY_NAME = "1";
-const string SEARCH_BY_YEAR_OF_BIRTH = "2";
-const string SEARCH_BY_YEAR_OF_DEATH = "3";
-
-const string GENDER_MALE = "1";
-const string GENDER_FEMALE = "2";
-const string GENDER_OTHER = "3";
-const string ALIVE = "0";
-const char SPACE = ' ';
-const int GO_BACK = 0;
-const string GO_BACKSTRING = "0";
-
-
-
-=======
->>>>>>> 64d8aaf1a583b991ba75f2f4515fff3d291d7a1d
 void UserLayer::addPerson()
 {
     string name, gender, comment, birthYear,deathYear, input;

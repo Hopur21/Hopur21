@@ -17,7 +17,7 @@ void MenuInterface::invalidInput()
 
 void MenuInterface::banner()
 {
-    system("CLS");
+    //system("CLS");
     if(_firstTimeBooting == constants::FIRST_TIME)
     {
         cout << endl;

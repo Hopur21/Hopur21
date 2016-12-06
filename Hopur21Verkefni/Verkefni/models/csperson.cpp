@@ -21,7 +21,7 @@ int CSPerson::getAge()
 {
 
     int age = 0;
-    if(_passedAwayYear == constants::ALIVE)
+    if(_passedAwayYear == stoi(constants::ALIVE))
     {
         age = getCurrentYear() - _birthYear;
     }
