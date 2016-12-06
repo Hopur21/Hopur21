@@ -1,0 +1,36 @@
+//Computer Scientists sort desc alphabetically
+SELECT * FROM computer_scientists cs
+ORDER BY cs.name DESC, name
+//Computer Scientists sort asc alphabetically
+SELECT * FROM computer_scientists cs
+ORDER BY cs.name ASC, name
+
+//Computer sort asc alphabetically
+SELECT * FROM computers c
+ORDER BY c.name ASC, name
+//Computer sort desc alphabetically
+SELECT * FROM computers c
+ORDER BY c.name DESC, name
+
+//Computer Scientists sort desc by birth_year
+SELECT * FROM computer_scientists cs
+ORDER BY cs.birth_year DESC, name
+//Computer Scientists sort asc by birth_year (from oldest to youngest)
+SELECT * FROM computer_scientists cs
+ORDER BY cs.birth_year ASC, name
+
+//Computer Scientists sort asc Sort computer scientists by gender
+SELECT * FROM computer_scientists cs
+ORDER BY cs.gender ASC, name
+
+//Computer Scientists sort by is_alive
+SELECT * FROM computer_scientists cs
+ORDER BY cs.is_alive DESC, name
+
+//List all female computer scientists in list
+SELECT * FROM computer_scientists cs
+WHERE cs.gender LIKE 'Female'
+
+//List all computer scientists that are still alive
+SELECT * FROM computer_scientists cs
+WHERE cs.is_alive LIKE '1'
