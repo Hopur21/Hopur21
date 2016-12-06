@@ -10,17 +10,18 @@ class Computer
         string _name;
         int _designYear;
         int _buildYear;
-        int _typeID; //Strengur
+        string _typeID; //Strengur
         bool _created;
 
     public:
-        Computer();
+        Computer(){}
+        Computer(string name, int designyear, int buildyear, string typeId, bool created);
 
         // Gets
         string getName()const {return _name;}
         int getDesignYear()const {return _designYear;}
         int getBuildYear()const {return _buildYear;}
-        int getTypeID()const {return _typeID;}
+        string getTypeID()const {return _typeID;}
         bool getCreated()const {return _created;}
 
         //Sets
