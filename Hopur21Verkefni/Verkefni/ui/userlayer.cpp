@@ -1,6 +1,6 @@
-#include "userlayer.h"
-#include <models/csperson.h>
 #include <iostream>
+#include "userlayer.h"
+
 using namespace std;
 
 const string SEARCH_BY_NAME = "1";
@@ -14,6 +14,7 @@ const string ALIVE = "0";
 const char SPACE = ' ';
 const int GO_BACK = 0;
 const string GO_BACKSTRING = "0";
+
 
 void UserLayer::addPerson()
 {

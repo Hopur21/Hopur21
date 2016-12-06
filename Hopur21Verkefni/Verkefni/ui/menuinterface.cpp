@@ -1,5 +1,6 @@
-#include "menuinterface.h"
 #include <iostream>
+#include "menuinterface.h"
+
 using namespace std;
 
 const string DISPLAY_LIST = "1";
@@ -21,6 +22,10 @@ const int FIRST_TIME = 0;
 const string COMPUTER = "1";
 const string SCIENTIST = "2";
 
+MenuInterface::MenuInterface()
+{
+    _firstTimeBooting = 0;
+}
 
 void MenuInterface::invalidInput()
 {
@@ -32,14 +37,14 @@ void MenuInterface::invalidInput()
 void MenuInterface::banner()
 {
     system("CLS");
-    if(firstTimeBooting == FIRST_TIME)
+    if(_firstTimeBooting == FIRST_TIME)
     {
         cout << endl;
         cout << "       ********************************************" << endl;
         cout << "       *  WELCOME TO THE COMPUTER SCIENTIST LIST  *" << endl;
         cout << "       ********************************************" << endl;
         cout << endl;
-        firstTimeBooting = 1;//just something else than 0
+        _firstTimeBooting = 1;//just something else than 0
     }
     else
     {

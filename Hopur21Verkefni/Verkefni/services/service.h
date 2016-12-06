@@ -1,12 +1,16 @@
 #ifndef SERVICE_H
 #define SERVICE_H
-#include "services/computerservice.h"
+#include <vector>
+//#include "services/computerservice.h" //Slökkva á meðan verið er að finna conflict vandamál
 #include "services/cspersonservice.h"
+#include "models/computer.h"
+#include "models/csperson.h"
+
 
 class Service
 {
     private:
-        ComputerService _computerService;
+        //ComputerService _computerService; //Tekið út á meðan verið er að laga villu
         CSPersonService _cSPersonService;
 
     public:
