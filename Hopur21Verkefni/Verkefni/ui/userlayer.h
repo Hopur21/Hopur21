@@ -1,14 +1,20 @@
 #ifndef USERLAYER_H
 #define USERLAYER_H
+
 #include "services/service.h"
-#include "services/cspersonservice.h"
-//#include <iostream>
-//using namespace std;
+#include <iostream>
+//#include "services/service.h" //Tekið úr sambandi til að finna villu
+#include "models/csperson.h"
+#include "models/computer.h"
+
 
 class UserLayer
 {
     private:
         //CSPersonService _CSPServ;
+
+    //Tekið úr sambandi til að finna villu
+
         Service _service;
         void printList(vector<CSPerson> list);
         void printListMoreInfo(vector<CSPerson> list);
@@ -18,8 +24,9 @@ class UserLayer
         void adjustForSpaces(int i);
         void printGenderMenu();
 
+
     public:
-        UserLayer();
+        UserLayer(){}
         void addPerson();
         void removePersonFromList();
         void sortListAlphabetically();

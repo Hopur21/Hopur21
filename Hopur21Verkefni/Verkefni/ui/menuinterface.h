@@ -1,16 +1,19 @@
 #ifndef MENUINTERFACE_H
 #define MENUINTERFACE_H
+
 #include <ui/userlayer.h>
 //#include <services/cspersonservice.h>
+
+
 
 class MenuInterface
 {
     private:
         UserLayer _uL;
-        int firstTimeBooting;
+        int _firstTimeBooting;
 
     public:
-        MenuInterface(){firstTimeBooting = 0;}
+        MenuInterface();
         void DisplayMenu();
         void welcomeBanner();
         void banner();

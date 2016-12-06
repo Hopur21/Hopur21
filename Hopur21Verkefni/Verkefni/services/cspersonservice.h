@@ -1,6 +1,7 @@
 #ifndef CSPERSONSERVICE_H
 #define CSPERSONSERVICE_H
 #include <algorithm>
+#include <vector>
 #include "models/csperson.h"
 #include "repositories/datalayer.h"
 
