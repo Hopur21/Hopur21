@@ -16,6 +16,7 @@ const int GO_BACK = 0;
 const string GO_BACKSTRING = "0";
 
 
+
 void UserLayer::addPerson()
 {
     string name, gender, comment, birthYear,deathYear, input;
@@ -85,6 +86,107 @@ void UserLayer::addPerson()
         cout << "Something went wrong." << endl;
     }
 
+}
+
+void UserLayer::addComputer()
+{
+    string name, type;
+    string designYear, buildYear;
+    int intDesignYear, intBuildYear;
+    bool created;
+    bool validity = false;
+    char yesOrNo;
+
+    cout << "What is the name of the computer: ";
+    do
+    {
+        cin.ignore();
+        getline(cin, name);
+        if(name == "")
+        {
+            invalidInput();
+        }
+    }while(name == "");
+
+    do
+    {
+        cout << "When was the computer designed? Enter a year: ";
+        cin >> designYear;
+
+        if(checkNumberValidity(designYear))
+        {
+            intDesignYear = stoi(designYear);
+            validity = true;
+        }
+        else
+        {
+            invalidInput();
+        }
+    }while(validity != true);
+
+    cout << "What is the computer type: ";
+    cin.ignore();
+    getline(cin, designYear);
+
+
+    cout << "When was the computer created? Enter a year: ";
+    cin >> buildYear;
+
+    do
+    {
+        if(checkNumberValidity(buildYear))
+        {
+            intBuildYear = stoi(buildYear);
+            validity = true;
+        }
+        else
+        {
+            invalidInput();
+        }
+    }while(validity != true);
+
+    cout << "What is the computer type: ";
+    // TODO DISPLAY A LIST OF POSSIBLE TYPES!!!
+    type = "mammathin";
+    cout << endl;
+
+    validity = false;
+
+    do
+    {
+        cout << "Was this computer created?" << endl;
+        cout << "Enter y for yes, n for no." << endl;
+        cin >> yesOrNo;
+
+        switch(yesOrNo)
+        {
+            case 'y':
+            case 'Y':
+                created = true;
+                validity = true;
+                break;
+            case 'n':
+            case 'N':
+                created = false;
+                validity = true;
+                break;
+            default:
+                invalidInput();
+                break;
+        }
+
+    }while(validity != true);
+
+
+    if(_service.addNewComputerToList(name, intDesignYear, intBuildYear, type, created))
+    {
+        cout << "Computer added successfully." << endl;
+        cout << endl;
+    }
+    else
+    {
+        cout << "Something went wrong." << endl;
+    }
 }
 
 void UserLayer::removePersonFromList()

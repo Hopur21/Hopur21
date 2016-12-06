@@ -28,6 +28,7 @@ class UserLayer
     public:
         UserLayer(){}
         void addPerson();
+        void addComputer();
         void removePersonFromList();
         void sortListAlphabetically();
         void sortListAlphabeticallyASC();

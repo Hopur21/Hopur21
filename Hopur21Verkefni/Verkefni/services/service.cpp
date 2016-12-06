@@ -14,6 +14,15 @@ bool Service::addNewPersonToList(const string name,const string gender, const st
     return false;
 }
 
+bool Service::addNewComputerToList(const string name,const int designyear, const int buildyear, const string type, const bool created)
+{
+    if(_computerService.addNewComputerToList(name, designyear, buildyear, type, created))
+    {
+        return true;
+    }
+    return false;
+}
+
 bool Service::removePersonFromList(const string id)
 {
     if (_cSPersonService.removePersonFromList(id))

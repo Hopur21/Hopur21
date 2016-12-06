@@ -136,7 +136,7 @@ void MenuInterface::processChoice(const string choice)
             // Search for a computer"
             break;
         case 3:
-            // Add a computer
+            _uL.addComputer();
         break;
         case 4:
             // Remove a computer

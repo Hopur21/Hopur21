@@ -1,5 +1,6 @@
 #include "computerservice.h"
-
+#include <iostream> // temp
+using namespace std;    //temp
 ComputerService::ComputerService()
 {
 
@@ -10,9 +11,9 @@ void ComputerService::setCompleteList()
     //TODO
 }
 
-bool ComputerService::addNewComputerToList(const string name,const int designyear, const int buildyear, const int typeId ,const bool created)
+bool ComputerService::addNewComputerToList(const string name,const int designyear, const int buildyear, const string type ,const bool created)
 {
-    // TODO
+    cout << "HELLO FROM ADDNEWCOMPUTERTOLIST!";
     return false;
 }
 bool ComputerService::removeComputerFromList(const string id)
