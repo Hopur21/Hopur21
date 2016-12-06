@@ -44,16 +44,7 @@ void MenuInterface::DisplayMenu()
 
     while(choice != "Q" || choice != "q")
     {
-        // GAMLA MENU-IÐ
-        /*cout << endl;
-        cout << "| 1 | Display the complete list" << endl;
-        cout << "| 2 | Search the list for a computer scientist" << endl;
-        cout << "| 3 | Add a computer scientist to the list" << endl;
-        cout << "| 4 | Remove a computer scientist from the list" << endl;
-        cout << "| Q | Exit the program" << endl;
-        cout << "Enter your choice here: ";
-        cin >> choice;
-        cout << endl;*/
+
 
         cout << "| 1 | Display either a computer or a scientist" << endl;
         cout << "| 2 | Search the list" << endl;
@@ -126,7 +117,7 @@ void MenuInterface::processChoice(const string choice)
             // Search for a computer"
             break;
         case 3:
-               // Add a computer
+            // Add a computer
         break;
         case 4:
             // Remove a computer

@@ -1,11 +1,12 @@
 #ifndef USERLAYER_H
 #define USERLAYER_H
+
+#include "services/service.h"
 #include <iostream>
 #include "services/service.h"
 #include "models/csperson.h"
 #include "models/computer.h"
 
-using namespace std;
 
 class UserLayer
 {

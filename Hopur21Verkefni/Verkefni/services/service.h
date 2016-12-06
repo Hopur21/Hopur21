@@ -16,13 +16,15 @@ class Service
     public:
         Service();
         bool addNewPersonToList(const string name,const string gender, const string birthYear, const string deathYear,const string comment);
+
+        bool addNewComputerToList();
+
         bool removePersonFromList(const string id);
         vector<CSPerson> getCompleteList();
 
         vector<CSPerson> searchByName(const string searchString);
         vector<CSPerson> searchByYearOfBirth(const string searchString);
         vector<CSPerson> searchByYearOfDeath(const string searchString);
-
 
         void sortListAlphabetically();
         void sortListAlphabeticallyASC();

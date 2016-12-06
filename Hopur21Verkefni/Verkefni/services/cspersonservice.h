@@ -5,8 +5,6 @@
 #include "models/csperson.h"
 #include "repositories/datalayer.h"
 
-using namespace std;
-
 class CSPersonService
 {
 public:
