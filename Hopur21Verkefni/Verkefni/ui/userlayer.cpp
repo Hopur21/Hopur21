@@ -15,6 +15,7 @@ const char SPACE = ' ';
 const int GO_BACK = 0;
 const string GO_BACKSTRING = "0";
 
+
 void UserLayer::addPerson()
 {
     string name, gender, comment, birthYear,deathYear, input;

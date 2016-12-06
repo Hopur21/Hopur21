@@ -1,7 +1,7 @@
 #ifndef USERLAYER_H
 #define USERLAYER_H
 #include <iostream>
-//#include "services/service.h" //Tekið úr sambandi til að finna villu
+#include "services/service.h"
 #include "models/csperson.h"
 #include "models/computer.h"
 
@@ -25,7 +25,7 @@ class UserLayer
 
 
     public:
-        UserLayer();
+        UserLayer(){}
         void addPerson();
         void removePersonFromList();
         void sortListAlphabetically();
