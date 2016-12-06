@@ -1,0 +1,40 @@
+The difference engine - Charles Babbage - Joseph Clement - began in 1822, never completed - He and Babbage fell out over costs around 1831.
+Mechanical calculator
+His design was finally constructed in 1989–1991, 
+using his plans and 19th century manufacturing tolerances. It performed its first calculation at the Science Museum, London, 
+returning results to 31 digits.
+
+Analytical Engine. - C. G. Jarvis - Charles Babbage - Ada Lovelace -  mechanical computer
+Analytical Engine - first described in 1837. Babbage was never able to complete construction of any of his machines due to 
+conflicts with his chief engineer and inadequate funding. 
+The work on the design of the Analytical Engine started in 1835.
+In 1991, the London Science Museum built a complete and working specimen of Babbage's Difference Engine No. 2
+
+Pascaline - Blaise Pascal started 1642. He built twenty of these machines (called Pascal's calculator or Pascaline) in the following ten years - Mechanical calculator
+
+The Thomas Arithmometer -  Charles Xavier Thomas de Colmar - 1820 - Mechanical calculator
+
+Drift Sight - developed by Harry Wimperis in 1916 - mechanical device
+
+Z1 - Konrad Zuse - designed by Konrad Zuse from 1935 to 1936 and built by him from 1936 to 1938 -
+binary electrically driven mechanical calculator with limited programmability, reading instructions from punched celluloid film.
+
+Z2 - Konrad Zuse - created in 1939 - electromechanical relay computer
+
+Z3 - Konrad Zuse - 1941 - electromechanical programmable, fully automatic digital computer
+
+Atanasoff–Berry Computer (ABC) in 1942 -  John Vincent Atanasoff and Clifford E. Berry of Iowa State University -  
+first electronic digital calculating device. was never built, did not really work
+
+Colossus - Tommy Flowers - Sidney Broadhurst - William Chandler - from early February 1943 designing and building the first Colossus - finished 1945 -  
+world's first electronic digital programmable computer - Special-purpose electronic digital programmable computer
+
+Colossus Mark 2 - 1944 - Tommy Flowers - Sidney Broadhurst - William Chandler - Allen Coombs
+
+ENIAC - first electronic programmable computer built in the US - Turing-complete - John Mauchly and J. Presper Eckert
+ENIAC's development and construction lasted from 1943 to full operation at the end of 1945
+
+Enigma - electro-mechanical rotor cipher machines - Arthur Scherbius - 1918
+
+Manchester "baby" - stored-program computer -  Frederic C. Williams, Tom Kilburn and Geoff Tootill - ran its first program on 21 June 1948
+
