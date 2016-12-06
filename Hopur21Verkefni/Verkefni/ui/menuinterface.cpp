@@ -44,8 +44,6 @@ void MenuInterface::DisplayMenu()
 
     while(choice != "Q" || choice != "q")
     {
-
-
         cout << "| 1 | Display either a computer or a scientist" << endl;
         cout << "| 2 | Search the list" << endl;
         cout << "| 3 | Add to the list" << endl;
@@ -117,6 +115,7 @@ void MenuInterface::processChoice(const string choice)
             // Search for a computer"
             break;
         case 3:
+            banner();
             _uL.addComputer();
         break;
         case 4:
