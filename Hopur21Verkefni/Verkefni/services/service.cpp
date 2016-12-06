@@ -7,17 +7,26 @@ Service::Service()
 
 bool Service::addNewPersonToList(const string name,const string gender, const string birthYear, const string deathYear,const string comment)
 {
-    return _cSPersonService.addNewPersonToList(name, gender,birthYear, deathYear, comment);
+    if(_cSPersonService.addNewPersonToList(name, gender,birthYear, deathYear, comment))
+    {
+        return true;
+    }
+    return false;
 }
 
 bool Service::removePersonFromList(const string id)
 {
-    return _cSPersonService.removePersonFromList(id);
+    if (_cSPersonService.removePersonFromList(id))
+    {
+        return true;
+    }
+    return false;
 }
 
 vector<CSPerson> Service::getCompleteList()
 {
-    return _cSPersonService.getCompleteList();
+    vector <CSPerson> completeList = _cSPersonService.getCompleteList();
+    return completeList;
 }
 
 void Service::sortListAlphabetically()
@@ -57,17 +66,20 @@ void Service::sortListByAge()
 
 vector<CSPerson> Service::searchByName(const string searchString)
 {
-    _cSPersonService.searchByName(searchString);
+    vector <CSPerson> searchByName = _cSPersonService.searchByName(searchString);
+    return searchByName;
 }
 
 vector<CSPerson> Service::searchByYearOfBirth(const string searchString)
 {
-    _cSPersonService.searchByYearOfBirth(searchString);
+    vector <CSPerson> searchByYOB = _cSPersonService.searchByYearOfBirth(searchString);
+    return searchByYOB;
 }
 
 vector<CSPerson> Service::searchByYearOfDeath(const string searchString)
 {
-    _cSPersonService.searchByYearOfDeath(searchString);
+    vector <CSPerson> searchByYOD = _cSPersonService.searchByYearOfDeath(searchString);
+    return searchByYOD;
 }
 
 
