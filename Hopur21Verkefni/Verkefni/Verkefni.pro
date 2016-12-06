@@ -29,7 +29,8 @@ HEADERS += \
     utilities/enums.h \
     models/computer.h \
     services/service.h \
-    services/computerservice.h
+    services/computerservice.h \
+    utilities/constants.h
 
 static { # everything below takes effect with CONFIG ''= static
  CONFIG+= static

@@ -3,25 +3,6 @@
 
 using namespace std;
 
-const string DISPLAY_LIST = "1";
-const string ADD = "3";
-const string SEARCH = "2";
-const string REMOVE = "4";
-
-const string SORT_ALPHABET = "1";
-const string SORT_ASCENDING_ALPHABET = "2";
-const string SORT_BY_YEAR_OF_BIRTH = "3";
-const string SORT_BY_ASCENDING_YEAR_OF_BIRTH = "4";
-const string SORT_BY_YEAR_OF_DEATH = "5";
-const string SORT_BY_AGE = "6";
-const string SORT_BY_GENDER = "7";
-const string GO_BACK = "0";
-
-const int FIRST_TIME = 0;
-
-const string COMPUTER = "1";
-const string SCIENTIST = "2";
-
 MenuInterface::MenuInterface()
 {
     _firstTimeBooting = 0;
@@ -37,7 +18,7 @@ void MenuInterface::invalidInput()
 void MenuInterface::banner()
 {
     system("CLS");
-    if(_firstTimeBooting == FIRST_TIME)
+    if(_firstTimeBooting == constants::FIRST_TIME)
     {
         cout << endl;
         cout << "       ********************************************" << endl;
@@ -74,7 +55,7 @@ void MenuInterface::DisplayMenu()
         cin >> choice;
         cout << endl;
 
-        if(choice == DISPLAY_LIST || choice == ADD || choice == SEARCH || choice == REMOVE)
+        if(choice == constants::DISPLAY_LIST || choice == constants::ADD || choice == constants::SEARCH || choice == constants::REMOVE)
         {
             processChoice(choice);
         }
@@ -103,7 +84,7 @@ string MenuInterface::subMenu()
 
         cin >> subMenuChoice;
 
-        if(subMenuChoice == COMPUTER || subMenuChoice == SCIENTIST)
+        if(subMenuChoice == constants::COMPUTER || subMenuChoice == constants::SCIENTIST)
         {
             return subMenuChoice;
         }
@@ -113,7 +94,7 @@ string MenuInterface::subMenu()
             invalidInput();
             cout << endl;
         }
-    }while(subMenuChoice != COMPUTER || subMenuChoice != SCIENTIST);
+    }while(subMenuChoice != constants::COMPUTER || subMenuChoice != constants::SCIENTIST);
 
     return subMenuChoice;
 }
@@ -125,7 +106,7 @@ void MenuInterface::processChoice(const string choice)
     banner();
 
     // Computer operations
-    if(subMenuChoice == COMPUTER)
+    if(subMenuChoice == constants::COMPUTER)
     {
         switch (choiceInt)
         {
@@ -149,7 +130,7 @@ void MenuInterface::processChoice(const string choice)
     }
 
     // Scientist operations
-    else if(subMenuChoice == SCIENTIST)
+    else if(subMenuChoice == constants::SCIENTIST)
     {
         switch (choiceInt)
         {
@@ -193,42 +174,42 @@ void MenuInterface::displayScientists()
     cin >> sortOption;
     cout << endl;
 
-    if(sortOption == SORT_ALPHABET)
+    if(sortOption == constants::SORT_ALPHABET)
     {
         banner();
         _uL.sortListAlphabetically();
     }
-    else if(sortOption == SORT_BY_YEAR_OF_BIRTH)
+    else if(sortOption == constants::SORT_BY_YEAR_OF_BIRTH)
     {
         banner();
         _uL.sortListByBirthYear();
     }
-    else if(sortOption == SORT_BY_YEAR_OF_DEATH)
+    else if(sortOption == constants::SORT_BY_YEAR_OF_DEATH)
     {
         banner();
         _uL.sortListByDeathYear();
     }
-    else if(sortOption == SORT_BY_AGE)
+    else if(sortOption == constants::SORT_BY_AGE)
     {
         banner();
         _uL.sortListByAge();
     }
-    else if(sortOption == SORT_ASCENDING_ALPHABET)
+    else if(sortOption == constants::SORT_ASCENDING_ALPHABET)
     {
         banner();
         _uL.sortListAlphabeticallyASC();
     }
-    else if(sortOption == SORT_BY_ASCENDING_YEAR_OF_BIRTH)
+    else if(sortOption == constants::SORT_BY_ASCENDING_YEAR_OF_BIRTH)
     {
         banner();
         _uL.sortListByBirthYearASC();
     }
-    else if(sortOption == SORT_BY_GENDER)
+    else if(sortOption == constants::SORT_BY_GENDER)
     {
         banner();
         _uL.sortListByGender();
     }
-    else if(sortOption == GO_BACK)
+    else if(sortOption == constants::GO_BACK)
     {
         banner();
     }
@@ -238,5 +219,3 @@ void MenuInterface::displayScientists()
         invalidInput();
     }
 }
-
-

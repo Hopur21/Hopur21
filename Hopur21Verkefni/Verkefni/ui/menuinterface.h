@@ -1,9 +1,7 @@
 #ifndef MENUINTERFACE_H
 #define MENUINTERFACE_H
-
-#include <ui/userlayer.h>
-//#include <services/cspersonservice.h>
-
+#include "utilities/constants.h"
+#include "ui/userlayer.h"
 
 
 class MenuInterface

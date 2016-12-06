@@ -3,6 +3,7 @@
 
 using namespace std;
 
+<<<<<<< HEAD
 const string SEARCH_BY_NAME = "1";
 const string SEARCH_BY_YEAR_OF_BIRTH = "2";
 const string SEARCH_BY_YEAR_OF_DEATH = "3";
@@ -17,6 +18,8 @@ const string GO_BACKSTRING = "0";
 
 
 
+=======
+>>>>>>> 64d8aaf1a583b991ba75f2f4515fff3d291d7a1d
 void UserLayer::addPerson()
 {
     string name, gender, comment, birthYear,deathYear, input;
@@ -40,23 +43,23 @@ void UserLayer::addPerson()
         printGenderMenu();
 
         cin >> input;
-        if(input == GENDER_MALE)
+        if(input == constants::GENDER_MALE)
         {
             gender = "Male";
             break; //Þarf þessi breaks?
         }
-        else if(input == GENDER_FEMALE)
+        else if(input == constants::GENDER_FEMALE)
         {
             gender = "Female";
             break;
         }
-        else if(input == GENDER_OTHER)
+        else if(input == constants::GENDER_OTHER)
         {
             gender = "Other";
             break;
         }
         error_counter++;
-    }while(input != GENDER_MALE || input != GENDER_FEMALE || input != GENDER_OTHER);
+    }while(input != constants::GENDER_MALE || input != constants::GENDER_FEMALE || input != constants::GENDER_OTHER);
 
     // Birth year validation
     cout << "Enter the year of birth: ";
@@ -66,7 +69,7 @@ void UserLayer::addPerson()
     cin >> deathYear;
 
     // No need to validate if person is still alive.
-    if(deathYear != ALIVE)
+    if(deathYear != constants::ALIVE)
     {
         deathYear = deathYearValidation(birthYear, deathYear);
     }
@@ -192,14 +195,14 @@ void UserLayer::addComputer()
 void UserLayer::removePersonFromList()
 {
     printCompleteList();
-    int personToRemove;
+    string personToRemove;
     cout << "Enter the number of the person that is to be removed or 0 to go back: ";
     cin >> personToRemove;
-    if(personToRemove == GO_BACK)
+    if(personToRemove == constants::GO_BACK)
     {
         return;
     }
-    _service.removePersonFromList(to_string(personToRemove));
+    _service.removePersonFromList(personToRemove);
 }
 
 void UserLayer::printGenderMenu()
@@ -307,13 +310,13 @@ void UserLayer::printList(vector<CSPerson> list)
         // number and name of the scientist according to the size of the value i in the for loop
         adjustForSpaces(i);
 
-        cout << name.append(32 - name.length(), SPACE);
-        cout << gender.append(11 - gender.length(), SPACE);
-        cout << stringBirthYear.append(8 - stringBirthYear.length(), SPACE);
+        cout << name.append(32 - name.length(), constants::SPACE);
+        cout << gender.append(11 - gender.length(), constants::SPACE);
+        cout << stringBirthYear.append(8 - stringBirthYear.length(), constants::SPACE);
 
-        if(stringPassedAway != ALIVE)
+        if(stringPassedAway != constants::ALIVE)
         {
-            cout << stringPassedAway.append(9 - stringPassedAway.length(), SPACE);
+            cout << stringPassedAway.append(9 - stringPassedAway.length(), constants::SPACE);
             cout << age;
         }
         else
@@ -355,13 +358,13 @@ void UserLayer::printListMoreInfo(vector<CSPerson> list)
         // adjustForSpaces adjusts the spaces according to the size of the value i in the for loop
         adjustForSpaces(i);
 
-        cout << name.append(32 - name.length(), SPACE);
-        cout << gender.append(11 - gender.length(), SPACE);
-        cout << stringBirthYear.append(8 - stringBirthYear.length(), SPACE);
+        cout << name.append(32 - name.length(), constants::SPACE);
+        cout << gender.append(11 - gender.length(), constants::SPACE);
+        cout << stringBirthYear.append(8 - stringBirthYear.length(), constants::SPACE);
 
-        if(stringPassedAway != ALIVE)
+        if(stringPassedAway != constants::ALIVE)
         {
-            cout << stringPassedAway.append(9 - stringPassedAway.length(), SPACE);
+            cout << stringPassedAway.append(9 - stringPassedAway.length(), constants::SPACE);
             cout << age;
         }
         else
@@ -439,31 +442,31 @@ void UserLayer::searchForAPerson()
         //viljum við hafa Go Back option hérna til að hætta við leit?
 
         cin >> userInput;
-        if(userInput == GO_BACKSTRING)
+        if(userInput == constants::GO_BACKSTRING)
         {
             return;
         }
-        if(userInput == SEARCH_BY_NAME || userInput == SEARCH_BY_YEAR_OF_BIRTH || userInput == SEARCH_BY_YEAR_OF_DEATH)
+        if(userInput == constants::SEARCH_BY_NAME || userInput == constants::SEARCH_BY_YEAR_OF_BIRTH || userInput == constants::SEARCH_BY_YEAR_OF_DEATH)
         {
             break;
         }
         invalidInput();
 
-    }while(userInput != SEARCH_BY_NAME || userInput != SEARCH_BY_YEAR_OF_BIRTH || userInput != SEARCH_BY_YEAR_OF_DEATH);
+    }while(userInput != constants::SEARCH_BY_NAME || userInput != constants::SEARCH_BY_YEAR_OF_BIRTH || userInput != constants::SEARCH_BY_YEAR_OF_DEATH);
 
     cout << "Who are we searching for : ";
     cin.ignore();
     getline(cin, searchString);
 
-    if(userInput == SEARCH_BY_NAME)
+    if(userInput == constants::SEARCH_BY_NAME)
     {
         printListMoreInfo(_service.searchByName(searchString));
     }
-    else if(userInput == SEARCH_BY_YEAR_OF_BIRTH)
+    else if(userInput == constants::SEARCH_BY_YEAR_OF_BIRTH)
     {
         printListMoreInfo(_service.searchByYearOfBirth(searchString));
     }
-    else if(userInput == SEARCH_BY_YEAR_OF_DEATH)
+    else if(userInput == constants::SEARCH_BY_YEAR_OF_DEATH)
     {
         printListMoreInfo(_service.searchByYearOfDeath(searchString));
     }

@@ -11,10 +11,6 @@
 class UserLayer
 {
     private:
-        //CSPersonService _CSPServ;
-
-    //Tekið úr sambandi til að finna villu
-
         Service _service;
         void printList(vector<CSPerson> list);
         void printListMoreInfo(vector<CSPerson> list);
@@ -23,7 +19,6 @@ class UserLayer
         string deathYearValidation(string birthYear, string deathYear);
         void adjustForSpaces(int i);
         void printGenderMenu();
-
 
     public:
         UserLayer(){}
