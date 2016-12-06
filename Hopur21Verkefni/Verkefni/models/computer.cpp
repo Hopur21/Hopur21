@@ -1,4 +1,4 @@
-#include <models/computer.h>
+#include "models/computer.h"
 
 Computer::Computer()
 {

@@ -1,7 +1,8 @@
 #ifndef COMPUTERSERVICE_H
 #define COMPUTERSERVICE_H
-#include "models/computer.h"
 #include <vector>
+#include "models/computer.h"
+#include "repositories/datalayer.h"
 
 class ComputerService
 {

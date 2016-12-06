@@ -1,4 +1,3 @@
-
 #include "datalayer.h"
 const char DELIMETER = ';';
 
