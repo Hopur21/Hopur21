@@ -1,5 +1,5 @@
 #include "datalayer.h"
-const char DELIMETER = ';';
+
 
 //Filename is set in Header file if no name is given.
 vector<CSPerson> DataLayer::readFromFile(string fileName)
@@ -11,12 +11,12 @@ vector<CSPerson> DataLayer::readFromFile(string fileName)
     try
     {
         myFile.open(fileName);
-        while(getline(myFile, personName,DELIMETER))
+        while(getline(myFile, personName,constants::DELIMETER))
         {
-            getline(myFile, gender, DELIMETER);
-            getline(myFile, yearBorn, DELIMETER);
-            getline(myFile, yearPassedAway, DELIMETER);
-            getline(myFile, comment, DELIMETER);
+            getline(myFile, gender, constants::DELIMETER);
+            getline(myFile, yearBorn, constants::DELIMETER);
+            getline(myFile, yearPassedAway, constants::DELIMETER);
+            getline(myFile, comment, constants::DELIMETER);
 
             //Erase newline infront of the string if there is one.
             if(personName[0] == '\n')
@@ -57,11 +57,11 @@ void DataLayer::writeToFile(const vector<CSPerson>& vectPersons, const string fi
     {
         for(size_t i = 0; i < vectPersons.size(); i++)
         {
-            myFile << vectPersons[i].getName() << DELIMETER;
-            myFile << vectPersons[i].getGender() << DELIMETER;
-            myFile << vectPersons[i].getBirthYear() << DELIMETER;
-            myFile << vectPersons[i].getPassedAwayYear() << DELIMETER;
-            myFile << vectPersons[i].getComments() << DELIMETER;
+            myFile << vectPersons[i].getName() << constants::DELIMETER;
+            myFile << vectPersons[i].getGender() << constants::DELIMETER;
+            myFile << vectPersons[i].getBirthYear() << constants::DELIMETER;
+            myFile << vectPersons[i].getPassedAwayYear() << constants::DELIMETER;
+            myFile << vectPersons[i].getComments() << constants::DELIMETER;
         }
         myFile.close();
     }

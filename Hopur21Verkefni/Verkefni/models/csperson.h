@@ -2,6 +2,7 @@
 #define CSPERSON_H
 #include<string>
 #include <ctime>
+#include "utilities/constants.h"
 
 using namespace std;
 

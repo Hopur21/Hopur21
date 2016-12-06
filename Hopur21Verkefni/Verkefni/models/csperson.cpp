@@ -19,9 +19,9 @@ int CSPerson::getCurrentYear()
 
 int CSPerson::getAge()
 {
-    const int ALIVE = 0;
+
     int age = 0;
-    if(_passedAwayYear == ALIVE)
+    if(_passedAwayYear == constants::ALIVE)
     {
         age = getCurrentYear() - _birthYear;
     }

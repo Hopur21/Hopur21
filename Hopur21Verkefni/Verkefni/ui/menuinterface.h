@@ -1,5 +1,6 @@
 #ifndef MENUINTERFACE_H
 #define MENUINTERFACE_H
+#include "utilities/constants.h"
 #include "ui/userlayer.h"
 
 class MenuInterface
