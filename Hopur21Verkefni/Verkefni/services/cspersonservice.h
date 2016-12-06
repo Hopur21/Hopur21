@@ -4,6 +4,7 @@
 #include <vector>
 #include "models/csperson.h"
 #include "repositories/datalayer.h"
+#include "repositories/dbcon.h"
 
 class CSPersonService
 {

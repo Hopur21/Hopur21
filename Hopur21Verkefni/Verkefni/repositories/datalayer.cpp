@@ -1,10 +1,8 @@
 #include "datalayer.h"
 
-
 //Filename is set in Header file if no name is given.
 vector<CSPerson> DataLayer::readFromFile(string fileName)
 {
-    test();
     vector<CSPerson> vectPersons;
     ifstream myFile;
 
@@ -70,26 +68,4 @@ void DataLayer::writeToFile(const vector<CSPerson>& vectPersons, const string fi
     {
 
     }
-}
-
-
-
-
-/* Standard C++ includes */
-#include <iostream>
-
-#include <QSqlDatabase>
-
-void DataLayer::test()
-{
-    //QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
-    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setHostName("localhost");
-    db.setDatabaseName("my_database");
-    db.setUserName("username");
-    db.setPassword("password");
-    if(!db.open())
-        cout << "not made it";
-    else
-        cout << "made it";
 }

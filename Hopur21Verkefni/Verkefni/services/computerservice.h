@@ -3,6 +3,7 @@
 #include <vector>
 #include "models/computer.h"
 #include "repositories/datalayer.h"
+#include "repositories/dbcon.h"
 
 class ComputerService
 {

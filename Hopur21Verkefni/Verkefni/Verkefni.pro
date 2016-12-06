@@ -1,6 +1,5 @@
-QT += core
-QT -= gui
 QT += core sql
+QT -= gui
 
 CONFIG += c++11
 
@@ -12,28 +11,31 @@ TEMPLATE = app
 
 SOURCES += main.cpp \
     models/csperson.cpp \
+    models/computer.cpp \
     ui/menuinterface.cpp \
     ui/userlayer.cpp \
-    repositories/datalayer.cpp \
-    services/cspersonservice.cpp \
     utilities/enums.cpp \
-    models/computer.cpp \
+    repositories/datalayer.cpp \
+    repositories/dbcon.cpp \
+    services/cspersonservice.cpp \
     services/service.cpp \
-    services/computerservice.cpp \
-    utilities/dbcon.cpp
+    services/computerservice.cpp
+
 
 HEADERS += \
     models/csperson.h \
+    models/computer.h \
     ui/menuinterface.h \
     ui/userlayer.h \
-    repositories/datalayer.h \
-    services/cspersonservice.h \
-    utilities/enums.h \
-    models/computer.h \
-    services/service.h \
-    services/computerservice.h \
     utilities/constants.h \
-    utilities/dbcon.h
+    utilities/enums.h \
+    repositories/datalayer.h \
+    repositories/dbcon.h \
+    services/cspersonservice.h \
+    services/service.h \
+    services/computerservice.h
+
+
 
 static { # everything below takes effect with CONFIG ''= static
  CONFIG+= static
