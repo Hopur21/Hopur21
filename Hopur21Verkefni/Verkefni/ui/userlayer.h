@@ -3,7 +3,7 @@
 
 #include "services/service.h"
 #include <iostream>
-//#include "services/service.h" //Tekið úr sambandi til að finna villu
+#include "services/service.h"
 #include "models/csperson.h"
 #include "models/computer.h"
 
