@@ -1,5 +1,23 @@
 #include "cspersonservice.h"
 
+
+CSPersonService::CSPersonService()
+{
+    _dbCon.getComputerScientists(_fileKeeper);
+}
+
+
+
+
+
+
+
+
+
+
+//Þau föll sem er ekki búið að fara yfir fyrir (aðlaga) Viku2
+
+
 //Bool variablers are used in sorting to decide the order of sorting, DESCending and ASCending
 bool sortByNameDESC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getName() < rhs.getName(); }
 bool sortByNameASCC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getName() > rhs.getName(); }
@@ -12,11 +30,6 @@ bool sortByAgeASCC(const CSPerson &lhs, const CSPerson &rhs)
     CSPerson tempLeft = lhs;//Copy our const into a temp variable, so we can work with our int value and get the age.
     CSPerson tempRight = rhs;
     return tempLeft.getAge() > tempRight.getAge();
-}
-
-CSPersonService::CSPersonService()
-{
-    _fileKeeper = _data.readFromFile();
 }
 
 bool CSPersonService::addNewPersonToList(const string name,const string gender, string birthYear, string deathYear,const string comment)
@@ -37,7 +50,7 @@ bool CSPersonService::addNewPersonToList(const string name,const string gender, 
         //tempDeathYear = deathYear;
     }
     //Save our new person in our vector
-    _fileKeeper.push_back(CSPerson (name, gender, tempBirthYear, tempDeathYear, comment));
+    //_fileKeeper.push_back(CSPerson (name, gender, tempBirthYear, tempDeathYear, comment)); -- Removed
     _data.writeToFile(_fileKeeper);// Write our updated vector to file
     return true;//Return true that we made it
 }

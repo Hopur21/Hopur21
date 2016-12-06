@@ -1,0 +1,2 @@
+Gagnagrunnur er miðlægur (external server)
+Vector-ar eru geymdir í services og sendir með call by reference.

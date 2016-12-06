@@ -38,7 +38,7 @@ vector<CSPerson> DataLayer::readFromFile(string fileName)
             {
                 comment.erase(0,1);
             }
-            vectPersons.push_back(CSPerson(personName, gender, stoi(yearBorn), stoi(yearPassedAway), comment));
+            //vectPersons.push_back(CSPerson(personName, gender, stoi(yearBorn), stoi(yearPassedAway), comment));
         }
         myFile.close();
         return vectPersons;

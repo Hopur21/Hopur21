@@ -6,6 +6,22 @@ ComputerService::ComputerService()
 
 }
 
+
+
+
+
+
+
+
+
+
+
+//Þau föll sem er ekki búið að fara yfir fyrir (aðlaga) Viku2
+
+
+
+
+
 void ComputerService::setCompleteList()
 {
     //TODO

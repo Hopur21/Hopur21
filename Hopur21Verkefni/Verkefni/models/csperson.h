@@ -9,24 +9,27 @@ using namespace std;
 class CSPerson
 {
     private:
+        bool _isAlive;
         string _name;
         string _gender;
+        string _comment;
+        int _id;
         int _birthYear;
         int _passedAwayYear;
-        string _comment;
         int getCurrentYear();
 
     public:
         CSPerson(){}
-
-        CSPerson(const string name, const string gender, const int birthYear, const int deathYear, const string comment);
+        CSPerson(const int id, const string name, const string gender, const int birthYear, const int passedAwayYear, const string comment, const bool isAlive);
 
         //Gets
         string getName()const {return _name;}
         string getGender()const {return _gender;}
         int getBirthYear()const {return _birthYear;}
         int getPassedAwayYear()const {return _passedAwayYear;}
+        int getID(){return _id;}
         int getAge();
+        bool getIsAlive(){return _isAlive;}
 
         string getComments()const {return _comment;}
 
@@ -36,6 +39,8 @@ class CSPerson
         void setBirthYear(const int birthyear){_birthYear = birthyear;}
         void setPassedAwayYear(const int year){_passedAwayYear = year;}
         void setComment(const string comment){_comment = comment;}
+        void setID(const int ID){_id = ID;}
+        void setIsAlive(const bool isAlive){_isAlive = isAlive;}
 };
 
 #endif // CSPERSON_H

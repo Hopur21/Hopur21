@@ -10,7 +10,7 @@ class CSPersonService
 {
 public:
     CSPersonService();
-    vector<CSPerson> getCompleteList(){return _fileKeeper;}
+    void getCompleteList(vector<CSPerson>& storage){storage = _fileKeeper;}
 
     //Sets
     void setCompleteList();
@@ -32,7 +32,8 @@ public:
 
 private:
     vector<CSPerson> _fileKeeper;
-    DataLayer _data;
+    DbCon _dbCon;
+    DataLayer _data; //TODO að fjarlægja!
 
     //Sets
     void removeNodeFromList(const int index);
@@ -41,8 +42,6 @@ private:
     int getIndexOfValueByName(const string name);
     bool validNumber(string number);
     bool checkIfStringSameIgnoreUpper(string orginalString, string searchFor);
-
-    //Sorts
 
 };
 

@@ -14,7 +14,6 @@ SOURCES += main.cpp \
     models/computer.cpp \
     ui/menuinterface.cpp \
     ui/userlayer.cpp \
-    utilities/enums.cpp \
     repositories/datalayer.cpp \
     repositories/dbcon.cpp \
     services/cspersonservice.cpp \

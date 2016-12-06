@@ -34,9 +34,20 @@ bool Service::removePersonFromList(const string id)
 
 vector<CSPerson> Service::getCompleteList()
 {
-    vector <CSPerson> completeList = _cSPersonService.getCompleteList();
-    return completeList;
+    _cSPersonService.getCompleteList(_fileKeeper);
+    return _fileKeeper;
 }
+
+
+
+
+
+
+
+
+//Þau föll sem er ekki búið að fara yfir fyrir (aðlaga) Viku2
+
+
 
 void Service::sortListAlphabetically()
 {
@@ -90,8 +101,3 @@ vector<CSPerson> Service::searchByYearOfDeath(const string searchString)
     vector <CSPerson> searchByYOD = _cSPersonService.searchByYearOfDeath(searchString);
     return searchByYOD;
 }
-
-
-
-
-

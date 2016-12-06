@@ -10,6 +10,7 @@
 class Service
 {
     private:
+        vector<CSPerson> _fileKeeper;
         ComputerService _computerService;
         CSPersonService _cSPersonService;
 
