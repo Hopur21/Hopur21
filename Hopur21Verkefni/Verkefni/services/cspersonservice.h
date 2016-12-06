@@ -3,9 +3,6 @@
 #include <algorithm>
 #include "models/csperson.h"
 #include "repositories/datalayer.h"
-#include <iostream>
-#include<string>
-using namespace std;
 
 class CSPersonService
 {

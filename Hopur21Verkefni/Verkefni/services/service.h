@@ -19,7 +19,6 @@ class Service
         vector<CSPerson> searchByYearOfBirth(const string searchString);
         vector<CSPerson> searchByYearOfDeath(const string searchString);
 
-
         void sortListAlphabetically();
         void sortListAlphabeticallyASC();
         void sortListByGender();

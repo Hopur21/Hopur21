@@ -274,6 +274,7 @@ void UserLayer::printListMoreInfo(vector<CSPerson> list)
     cout <<   "------------------------------------------------------------------------" << endl << endl;
     cout <<   "Year of birth = YOB , Year of death = YOD" << endl;
 }
+
 void UserLayer::printCompleteList()
 {
     printList(_service.getCompleteList());
@@ -284,26 +285,31 @@ void UserLayer::sortListAlphabetically()
     _service.sortListAlphabetically();
     printList(_service.getCompleteList());
 }
+
 void UserLayer::sortListAlphabeticallyASC()
 {
     _service.sortListAlphabeticallyASC();
     printList(_service.getCompleteList());
 }
+
 void UserLayer::sortListByGender()
 {
     _service.sortListByGender();
     printList(_service.getCompleteList());
 }
+
 void UserLayer::sortListByDeathYear()
 {
     _service.sortListByDeathYear();
     printList(_service.getCompleteList());
 }
+
 void UserLayer::sortListByBirthYear()
 {
     _service.sortListByBirthYear();
     printList(_service.getCompleteList());
 }
+
 void UserLayer::sortListByBirthYearASC()
 {
     _service.sortListByBirthYearASC();

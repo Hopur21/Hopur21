@@ -2,8 +2,8 @@
 #define USERLAYER_H
 #include "services/service.h"
 #include "services/cspersonservice.h"
-#include <iostream>
-using namespace std;
+//#include <iostream>
+//using namespace std;
 
 class UserLayer
 {
