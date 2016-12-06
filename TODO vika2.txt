@@ -1,0 +1,41 @@
+TODO:
+
+1. Ath nafn á persónu/tölvu þarf að vera að lengd 1
+2. 
+
+Sorts:
+Computer Scientists alpabetically
+Computer Scientists alpabetically desc
+Computer Scientists by birth_year
+Computer Scientists by birth_year desc
+Computer Scientists by death_year
+Computer Scientists by age //þarf að láta sql reikna aldurinn
+Computer Scientists by gender
+Computer Scientists by is_alive
+
+Computers alpabetically
+Computers alpabetically desc
+Computers by design year
+Computers by build year
+Computers by build year desc
+Computers by was_built
+Computers by type 
+
+Searches:
+For computer name
+For computer build_year
+For computer design_year
+For computer by maker
+For computer by type
+
+For computer scientist name
+For computer scientist birth_year
+For computer scientist death_year
+
+Adds:
+Computer
+Computer scientist
+
+Removes:
+Computer
+Computer scientist
