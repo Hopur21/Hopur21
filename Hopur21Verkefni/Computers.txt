@@ -4,7 +4,7 @@ His design was finally constructed in 1989–1991,
 using his plans and 19th century manufacturing tolerances. It performed its first calculation at the Science Museum, London, 
 returning results to 31 digits.
 
-Analytical Engine. - C. G. Jarvis - Charles Babbage - Ada Lovelace -  mechanical computer
+Analytical Engine. - C. G. Jarvis - Charles Babbage - Ada Lovelace -  Mechanical computer
 Analytical Engine - first described in 1837. Babbage was never able to complete construction of any of his machines due to 
 conflicts with his chief engineer and inadequate funding. 
 The work on the design of the Analytical Engine started in 1835.
