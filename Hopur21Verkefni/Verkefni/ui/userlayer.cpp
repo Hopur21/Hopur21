@@ -3,23 +3,6 @@
 
 using namespace std;
 
-<<<<<<< HEAD
-const string SEARCH_BY_NAME = "1";
-const string SEARCH_BY_YEAR_OF_BIRTH = "2";
-const string SEARCH_BY_YEAR_OF_DEATH = "3";
-
-const string GENDER_MALE = "1";
-const string GENDER_FEMALE = "2";
-const string GENDER_OTHER = "3";
-const string ALIVE = "0";
-const char SPACE = ' ';
-const int GO_BACK = 0;
-const string GO_BACKSTRING = "0";
-
-
-
-=======
->>>>>>> 64d8aaf1a583b991ba75f2f4515fff3d291d7a1d
 void UserLayer::addPerson()
 {
     string name, gender, comment, birthYear,deathYear, input;
@@ -46,7 +29,7 @@ void UserLayer::addPerson()
         if(input == constants::GENDER_MALE)
         {
             gender = "Male";
-            break; //Þarf þessi breaks?
+            break;
         }
         else if(input == constants::GENDER_FEMALE)
         {
@@ -80,7 +63,7 @@ void UserLayer::addPerson()
 
     if(_service.addNewPersonToList(name, gender, birthYear, deathYear, comment))
     {
-        cout << "This person has been added successfully." << endl;
+        cout << "The person has been added successfully." << endl;
         cout << endl;
 
     }
@@ -96,7 +79,7 @@ void UserLayer::addComputer()
     string name, type;
     string designYear, buildYear;
     int intDesignYear, intBuildYear;
-    bool created;
+    bool created = false;
     bool validity = false;
     char yesOrNo;
 
@@ -116,10 +99,11 @@ void UserLayer::addComputer()
         cout << "When was the computer designed? Enter a year: ";
         cin >> designYear;
 
-        if(checkNumberValidity(designYear))
+        if(!checkNumberValidity(designYear))
         {
             intDesignYear = stoi(designYear);
             validity = true;
+            break;
         }
         else
         {
@@ -130,23 +114,6 @@ void UserLayer::addComputer()
     cout << "What is the computer type: ";
     cin.ignore();
     getline(cin, designYear);
-
-
-    cout << "When was the computer created? Enter a year: ";
-    cin >> buildYear;
-
-    do
-    {
-        if(checkNumberValidity(buildYear))
-        {
-            intBuildYear = stoi(buildYear);
-            validity = true;
-        }
-        else
-        {
-            invalidInput();
-        }
-    }while(validity != true);
 
     cout << "What is the computer type: ";
     // TODO DISPLAY A LIST OF POSSIBLE TYPES!!!
@@ -179,6 +146,29 @@ void UserLayer::addComputer()
         }
 
     }while(validity != true);
+
+    if(created == true)
+    {
+        cout << "When was the computer created? Enter a year: ";
+        cin >> buildYear;
+        validity = false;
+        do
+        {
+            if(!checkNumberValidity(buildYear))
+            {
+                intBuildYear = stoi(buildYear);
+                validity = true;
+            }
+            else
+            {
+                invalidInput();
+            }
+        }while(validity != true);
+    }
+    else
+    {
+        intBuildYear = 0;
+    }
 
 
     if(_service.addNewComputerToList(name, intDesignYear, intBuildYear, type, created))
