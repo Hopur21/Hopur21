@@ -5,14 +5,21 @@ using namespace std;
 
 void UserLayer::addPerson()
 {
-    string name, gender, comment, birthYear,deathYear, input;
+    string gender, comment, birthYear,deathYear, input;
+    string name = "";
     int error_counter = 0;
 
-    cout << "Enter name: ";
-    cin.ignore();
-    getline(cin, name);
+    do
+    {
+        cout << "Enter name: ";
+        cin.ignore();
+        getline(cin, name);
+        if(name == "")
+        {
+            invalidInput();
+        }
+    }while(name == "");
 
-    // TODO :IF PERSON EXISTS DISPLAY ERROR MESSAGE
     do
     {
         input = "";

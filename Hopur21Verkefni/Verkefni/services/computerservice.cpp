@@ -1,26 +1,12 @@
 #include "computerservice.h"
-#include <iostream> // temp
-using namespace std;    //temp
+#include <iostream> // má henda
+using namespace std;    // má henda
 ComputerService::ComputerService()
 {
 
 }
 
-
-
-
-
-
-
-
-
-
-
 //Þau föll sem er ekki búið að fara yfir fyrir (aðlaga) Viku2
-
-
-
-
 
 void ComputerService::setCompleteList()
 {
