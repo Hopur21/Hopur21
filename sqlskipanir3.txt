@@ -1,0 +1,80 @@
+SELECT ID, name, YEAR(birth_year) AS birth_year, YEAR(death_year) AS death_year, gender, comment, is_alive FROM computer_scientists ORDER BY name
+
+-- SORTS PERSONS
+-- SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs ORDER BY cs.name ASC, name
+-- SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs ORDER BY cs.name DESC, name
+-- SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs ORDER BY cs.birth_year ASC, name
+-- SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs ORDER BY cs.birth_year DESC, name
+-- SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs ORDER BY cs.death_year ASC, name
+-- SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs ORDER BY cs.death_year DESC, name
+-- SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs ORDER BY cs.gender ASC, name
+-- SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs ORDER BY cs.is_alive ASC, name
+
+-- SORTS COMPUTERS
+-- SELECT name, build_year, design_year, type_ID, is_created, comment FROM computers c ORDER BY c.name ASC, name
+-- SELECT name, build_year, design_year, type_ID, is_created, comment FROM computers c ORDER BY c.name DESC, name
+-- SELECT name, build_year, design_year, type_ID, is_created, comment FROM computers c ORDER BY c.build_year ASC, name
+-- SELECT name, build_year, design_year, type_ID, is_created, comment FROM computers c ORDER BY c.build_year DESC, name
+-- SELECT name, build_year, design_year, type_ID, is_created, comment FROM computers c ORDER BY c.design_year ASC, name
+-- SELECT name, build_year, design_year, type_ID, is_created, comment FROM computers c ORDER BY c.is_created DESC, name
+-- SELECT name, build_year, design_year, type_ID, is_created, comment FROM computers c ORDER BY c.type_ID DESC, name
+
+SEARCH COMPUTER SCIENTISTS
+-- SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs WHERE cs.name LIKE '%(insertSearchHere)%'
+-- SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs WHERE cs.name LIKE '%(insertSearchHere)%'
+-- SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs WHERE cs.birth_year LIKE '%(insertSearchHere)%'
+-- SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs WHERE cs.death_year LIKE '%(insertSearchHere)%'
+
+SEARCH COMPUTERS
+-- SELECT name, build_year, design_year, type_ID, is_created FROM computers c WHERE c.name LIKE '%(insertSearchHere)%'
+-- SELECT name, build_year, design_year, type_ID, is_created FROM computers c WHERE c.build_year LIKE '%(insertSearchHere)%'
+-- SELECT name, build_year, design_year, type_ID, is_created FROM computers c WHERE c.design_year LIKE '%(insertSearchHere)%'
+
+
+
+
+//Computer Scientists sort desc alphabetically
+SELECT * FROM computer_scientists cs
+ORDER BY cs.name DESC, name
+//Computer Scientists sort asc alphabetically
+SELECT * FROM computer_scientists cs
+ORDER BY cs.name ASC, name
+
+//Computer sort asc alphabetically
+SELECT * FROM computers c
+ORDER BY c.name ASC, name
+//Computer sort desc alphabetically
+SELECT * FROM computers c
+ORDER BY c.name DESC, name
+
+//Computer Scientists sort desc by birth_year
+SELECT * FROM computer_scientists cs
+ORDER BY cs.birth_year DESC, name
+//Computer Scientists sort asc by birth_year (from oldest to youngest)
+SELECT * FROM computer_scientists cs
+ORDER BY cs.birth_year ASC, name
+
+//Computer Scientists sort asc Sort computer scientists by gender
+SELECT * FROM computer_scientists cs
+ORDER BY cs.gender ASC, name
+
+//Computer Scientists sort by is_alive
+SELECT * FROM computer_scientists cs
+ORDER BY cs.is_alive DESC, name
+
+//List all female computer scientists in list
+SELECT * FROM computer_scientists cs
+WHERE cs.gender LIKE 'Female'
+
+//List all computer scientists that are still alive
+SELECT * FROM computer_scientists cs
+WHERE cs.is_alive LIKE '1'
+
+-- SEARCH FOR COMPUTERS BY COMPUTER_SCIENTIST ID
+SELECT DISTINCT C.name
+FROM computers C, computer_scientists CS, computer_scientists_computers CSC 
+WHERE CSC.computer_ID = C.ID AND CSC.computer_scientist_ID = CS.ID
+
+-- FINDING ID FROM NAME TO USE IN ABOVE
+SELECT CS.ID FROM computer_scientists CS
+WHERE CS.name = 'Ada Lovelace'
