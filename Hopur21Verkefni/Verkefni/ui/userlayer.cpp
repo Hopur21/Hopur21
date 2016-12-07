@@ -9,16 +9,17 @@ void UserLayer::addPerson()
     string name = "";
     int error_counter = 0;
 
+    // If user inputs no input an error message occurs
     do
     {
         cout << "Enter name: ";
         cin.ignore();
         getline(cin, name);
-        if(name == "")
+        if(name == constants::EMPTY_STRING)
         {
             invalidInput();
         }
-    }while(name == "");
+    }while(name == constants::EMPTY_STRING);
 
     do
     {
