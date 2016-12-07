@@ -1,7 +1,12 @@
 TODO:
 
 1. Ath nafn á persónu/tölvu þarf að vera að lengd 1
-2. 
+2.  Ekki er hægt að setja inn 0 í dánarár ef dánarár var gert vitlaust fyrst. Dæmi:
+- Fæðingarár: 1912
+- Dánarár: 1911 -- kemur villa
+- Dánarár: 0 -- kemur villa
+3.  Kóðinn skal vera lesanlegur, vel formaður, vel skjalaður, og viðhaldanlegur.
+-- Skjölun ætti að vera einungis á annaðhvort íslensku eða ensku (helst ensku) -1
 
 Sorts:
 Computer Scientists alpabetically
