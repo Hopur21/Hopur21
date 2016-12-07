@@ -1,3 +1,6 @@
+#Exclude
+!libmysql.dll
+
 # C++ objects and libs
 
 *.slo
