@@ -149,11 +149,13 @@ void UserLayer::addComputer()
 
     if(created == true)
     {
-        cout << "When was the computer created? Enter a year: ";
-        cin >> buildYear;
+
         validity = false;
         do
         {
+            cout << "When was the computer created? Enter a year: ";
+            cin >> buildYear;
+
             if(!checkNumberValidity(buildYear))
             {
                 intBuildYear = stoi(buildYear);
@@ -171,7 +173,7 @@ void UserLayer::addComputer()
     }
 
 
-    if(_service.addNewComputerToList(name, intDesignYear, intBuildYear, type, created))
+    if(!(_service.addNewComputerToList(name, intDesignYear, intBuildYear, type, created)))
     {
         cout << "Computer added successfully." << endl;
         cout << endl;
