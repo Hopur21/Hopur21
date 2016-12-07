@@ -1,9 +1,9 @@
 #ifndef DBCON_H
 #define DBCON_H
 #include <QSqlDatabase>
-#include<QtSql>
-#include"models/csperson.h"
-#include"models/computer.h"
+#include <QtSql>
+#include "models/csperson.h"
+#include "models/computer.h"
 
 using namespace std;
 class DbCon
