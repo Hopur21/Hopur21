@@ -21,6 +21,7 @@ private:
     //Sets
     void setDataInPersonVector(vector<CSPerson>& computerScientists, const int id, const string name, const string gender, const int birthYear, const int passedAwayYear, const string comment, const bool isAlive);
     //Gets
+    QString getDateFormat(const string& year);
 
 public:
     DbCon();//Constructors to set our own hostname and such.
@@ -29,9 +30,16 @@ public:
 
     //Gets
     bool connectionSuccessful(){return _connectionSuccess;}
-    bool addPerson(const QString& name); //Test
-
+    bool testFunction(const QString& name); //Test
+    //Select
     void getComputerScientists(vector<CSPerson>& computerScientists);
+    bool computerScientistExist(const int& id);
+    //Insert
+    bool addComputerScientist(const string& name, const int& birthYear, const int& deathYear, const bool isAlive, const string& gender, const string& comment);
+    //Update
+    bool updateComputerScientist(const int& id, const string& name, const int& birthYear, const int& deathYear, const bool isAlive, const string& gender, const string& comment);
+    //Delete
+    bool removeComputerScientist(const int& scientistID);
 };
 
 
