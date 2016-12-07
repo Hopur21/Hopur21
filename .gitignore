@@ -1,6 +1,3 @@
-#Exclude
-!libmysql.dll
-
 # C++ objects and libs
 
 *.slo
@@ -38,3 +35,6 @@ Makefile*
 
 # QtCtreator CMake
 CMakeLists.txt.user*
+
+#Exclude
+!libmysql.dll
