@@ -23,7 +23,15 @@ void ComputerService::setCompleteList()
 
 bool ComputerService::addNewComputerToList(const string name,const int designyear, const int buildyear, const string type ,const bool created)
 {
-    cout << "HELLO FROM ADDNEWCOMPUTERTOLIST!";
+    Computer newComputer;
+    newComputer.setName(name);
+    newComputer.setDesignYear(designyear);
+    newComputer.setBuildYear(buildyear);
+    newComputer.setType(type);
+    newComputer.setCreated(created);
+
+    // TODO Save newComputer to database
+
     return false;
 }
 bool ComputerService::removeComputerFromList(const string id)
