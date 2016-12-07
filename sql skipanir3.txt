@@ -1,37 +1,46 @@
 SELECT ID, name, YEAR(birth_year) AS birth_year, YEAR(death_year) AS death_year, gender, comment, is_alive FROM computer_scientists ORDER BY name
 
 -- SORTS PERSONS
--- SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs ORDER BY cs.name ASC, name
--- SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs ORDER BY cs.name DESC, name
--- SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs ORDER BY cs.birth_year ASC, name
--- SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs ORDER BY cs.birth_year DESC, name
--- SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs ORDER BY cs.death_year ASC, name
--- SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs ORDER BY cs.death_year DESC, name
--- SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs ORDER BY cs.gender ASC, name
--- SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs ORDER BY cs.is_alive ASC, name
+SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs ORDER BY cs.name ASC, name
+SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs ORDER BY cs.name DESC, name
+SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs ORDER BY cs.birth_year ASC, name
+SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs ORDER BY cs.birth_year DESC, name
+SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs ORDER BY cs.death_year ASC, name
+SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs ORDER BY cs.death_year DESC, name
+SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs ORDER BY cs.gender ASC, name
+SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs ORDER BY cs.is_alive ASC, name
 
 -- SORTS COMPUTERS
--- SELECT name, build_year, design_year, type_ID, is_created, comment FROM computers c ORDER BY c.name ASC, name
--- SELECT name, build_year, design_year, type_ID, is_created, comment FROM computers c ORDER BY c.name DESC, name
--- SELECT name, build_year, design_year, type_ID, is_created, comment FROM computers c ORDER BY c.build_year ASC, name
--- SELECT name, build_year, design_year, type_ID, is_created, comment FROM computers c ORDER BY c.build_year DESC, name
--- SELECT name, build_year, design_year, type_ID, is_created, comment FROM computers c ORDER BY c.design_year ASC, name
--- SELECT name, build_year, design_year, type_ID, is_created, comment FROM computers c ORDER BY c.is_created DESC, name
--- SELECT name, build_year, design_year, type_ID, is_created, comment FROM computers c ORDER BY c.type_ID DESC, name
+SELECT name, build_year, design_year, type_ID, is_created, comment FROM computers c ORDER BY c.name ASC, name
+SELECT name, build_year, design_year, type_ID, is_created, comment FROM computers c ORDER BY c.name DESC, name
+SELECT name, build_year, design_year, type_ID, is_created, comment FROM computers c ORDER BY c.build_year ASC, name
+SELECT name, build_year, design_year, type_ID, is_created, comment FROM computers c ORDER BY c.build_year DESC, name
+SELECT name, build_year, design_year, type_ID, is_created, comment FROM computers c ORDER BY c.design_year ASC, name
+SELECT name, build_year, design_year, type_ID, is_created, comment FROM computers c ORDER BY c.is_created DESC, name
+SELECT name, build_year, design_year, type_ID, is_created, comment FROM computers c ORDER BY c.type_ID DESC, name
 
-SEARCH COMPUTER SCIENTISTS
--- SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs WHERE cs.name LIKE '%(insertSearchHere)%'
--- SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs WHERE cs.name LIKE '%(insertSearchHere)%'
--- SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs WHERE cs.birth_year LIKE '%(insertSearchHere)%'
--- SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs WHERE cs.death_year LIKE '%(insertSearchHere)%'
+-- SEARCH COMPUTER SCIENTISTS
+SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs WHERE cs.name LIKE '%(insertSearchHere)%'
+SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs WHERE cs.name LIKE '%(insertSearchHere)%'
+SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs WHERE cs.birth_year LIKE '%(insertSearchHere)%'
+SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs WHERE cs.death_year LIKE '%(insertSearchHere)%'
 
-SEARCH COMPUTERS
--- SELECT name, build_year, design_year, type_ID, is_created FROM computers c WHERE c.name LIKE '%(insertSearchHere)%'
--- SELECT name, build_year, design_year, type_ID, is_created FROM computers c WHERE c.build_year LIKE '%(insertSearchHere)%'
--- SELECT name, build_year, design_year, type_ID, is_created FROM computers c WHERE c.design_year LIKE '%(insertSearchHere)%'
+-- SEARCH COMPUTERS
+SELECT name, build_year, design_year, type_ID, is_created FROM computers c WHERE c.name LIKE '%(insertSearchHere)%'
+SELECT name, build_year, design_year, type_ID, is_created FROM computers c WHERE c.build_year LIKE '%(insertSearchHere)%'
+SELECT name, build_year, design_year, type_ID, is_created FROM computers c WHERE c.design_year LIKE '%(insertSearchHere)%'
 
+-- ADD COMPUTER SCIENTIST
+INSERT INTO computer_scientist(name, birth_year, death_year, is_alive, gender, comment)
+       VALUES ('name', 'birth_year', 'death_year', 'is_alive', 'gender', 'comment')
 
+-- ADD COMPUTER	   
+INSERT INTO computers(name, build_year, design_year, is_created, type_ID)
+       VALUES ('name', 'build_year', 'design_year', 'is_created', 'type_ID')
 
+-- ADD TYPE OF COMPUTER	   
+INSERT INTO type(name)
+       VALUES ('name of computer type')
 
 //Computer Scientists sort desc alphabetically
 SELECT * FROM computer_scientists cs
