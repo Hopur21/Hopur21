@@ -1,3 +1,12 @@
 Afrita libmysql.dll inn í bin möppuna á build QT
 Dæmi:
 C:\Qt\5.7\mingw53_32\bin
+
+
+
+Fyrir makka:
+1) Install mysql -- Hægt að nota brew eða installa sjálfur
+	Installa brew ( http://brew.sh/ )
+	brew install mysql
+2) Breyta QT library location:
+	install_name_tool -change /opt/local/lib/mysql55/mysql/libmysqlclient.18.dylib /usr/local/Cellar/mysql/5.7.16/lib/libmysqlclient.dylib libqsqlmysql.dylib

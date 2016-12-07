@@ -4,7 +4,7 @@ Stjórnborð:
 user: HRrjomi@harlausnir.is
 pass: HR.rjomi.2016
 
-Smella á phpmyadmin undir computer_scientist
+Smella á phpmyadmin undir computer_scientist (neðri gagnagrunnurinn)
 
 
 
