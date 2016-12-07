@@ -17,8 +17,6 @@ class Service
     public:
         Service();
         bool addNewPersonToList(const string name,const string gender, const string birthYear, const string deathYear,const string comment);
-
-        // WORKING ON DIS
         bool addNewComputerToList(const string name,const int designyear, const int buildyear, const string type, const bool created);
 
         bool removePersonFromList(const string id);

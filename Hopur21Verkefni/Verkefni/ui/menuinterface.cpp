@@ -134,19 +134,15 @@ void MenuInterface::processChoice(const string choice)
         switch (choiceInt)
         {
         case 1:
-            banner();
             displayScientists();
             break;
         case 2:
-            banner();
             _uL.searchForAPerson();
             break;
         case 3:
-            banner();
             _uL.addPerson();
         break;
         case 4:
-            banner();
             _uL.removePersonFromList();
             break;
         default:
@@ -154,6 +150,11 @@ void MenuInterface::processChoice(const string choice)
             invalidInput();
             break;
         }
+    }
+    else
+    {
+        // This should never run
+        cout << "Something went wrong" << endl;
     }
 }
 
