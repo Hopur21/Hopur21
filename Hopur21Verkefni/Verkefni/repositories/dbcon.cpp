@@ -98,7 +98,10 @@ bool DbCon::addComputer(const Computer value)
     query.bindValue(":type", QString::fromStdString(value.getTypeID()));
     success = query.exec();//Returns true/false if we made it
     if(!success){qDebug() << "addComputerScientist error:  " << query.lastError();}
-    return success;
+    int stuff = 0;
+    //stuff = query.lastInsertId;
+    //stuff
+    return true;
 }
 
 //Update Querys
@@ -187,17 +190,16 @@ void DbCon::getComputers(vector<Computer>& computers)
        }
        if(!success){qDebug() << "addComputer error:  " << query.lastError();}
 }
-bool DbCon::computerScientistExist(const int& id)
+bool DbCon::computerScientistExist(const string& name)
 {
     bool foundValdo = false;
     QSqlQuery query;
-    query.prepare("SELECT name FROM computer_scientists WHERE ID = (:id)");
-    query.bindValue(":id", id);
+    query.prepare("SELECT name FROM computer_scientists WHERE name = (:name)");
+    query.bindValue(":name", QString::fromStdString(name));
     if (query.exec())
     {
        if (query.next())
        {
-           qDebug() << "made it.";
            foundValdo = true;
        }
     }
