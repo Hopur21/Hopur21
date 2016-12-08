@@ -122,7 +122,6 @@ void MenuInterface::processChoice(const string choice)
             // Remove a computer
             break;
         default:
-            // This should never run
             invalidInput();
             break;
         }

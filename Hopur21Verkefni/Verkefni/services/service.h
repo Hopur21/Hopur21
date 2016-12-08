@@ -20,6 +20,8 @@ class Service
         bool addNewComputerToList(const string name,const int designyear, const int buildyear, const string type, const bool created);
 
         bool removePersonFromList(const string id);
+
+
         vector<CSPerson> getCompleteList();
 
         vector<CSPerson> searchByName(const string searchString);
