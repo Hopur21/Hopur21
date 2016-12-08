@@ -74,6 +74,29 @@ bool DbCon::removeComputer(const int& computerID)
     return success;
 }
 //Insert Querys
+bool DbCon::addCStoComputer(const int cSID,const int compID)
+{
+    bool success = false;
+    QSqlQuery query;
+    try
+    {
+        if(!isdigit(cSID) || !isdigit(compID))
+        {
+            return success;
+        }
+        query.prepare("INSERT INTO computer_scientists_computers(computer_scientist_ID,computer_ID) VALUES (:cSID, :compID)");
+
+        query.bindValue(":cSID", cSID);
+        query.bindValue(":compID", compID);
+        success = query.exec();
+    }
+    catch(int e)
+    {
+        {qDebug() << "addCStoComputer error:  " << query.lastError();}
+    }
+    return success;
+}
+
 int DbCon::addComputerScientist(const CSPerson value)
 {
     //TODO - validate input.
@@ -143,11 +166,53 @@ bool DbCon::updateComputer(const int& id, const string& name, const int& designY
     return success;
 }
 //Select Querys
-void getComputersConnectedToSC(vector<Computer>& compuerList,const int scientistID)
+void DbCon::getComputersConnectedToCS(vector<Computer>& compuerList,const int scientistID)
 {
+    bool success = false;
     QSqlQuery query;
     query.prepare("SELECT c.ID, c.name, YEAR(c.design_year) AS design_year, YEAR(c.build_year) AS build_year, c.type_ID,(SELECT name FROM type WHERE ID = type_ID) AS type, c.is_created FROM computer_scientists_computers csc JOIN computers c ON (csc.computer_ID=c.ID) WHERE csc.computer_scientist_ID = (:scientistID);");
     query.bindValue(":scientistID", scientistID);
+    while (query.next())
+    {
+        if(success == false)//If we made it here the query was a success, no need to set it to true for every single loop
+        {
+            success = true;
+        }
+        //Get the index of the column we are going to find and save our current data into the variable.
+       QString id = query.value(query.record().indexOf("ID")).toString();
+       QString name = query.value(query.record().indexOf("name")).toString();
+       QString designYear = query.value(query.record().indexOf("design_year")).toString();
+       QString buildYear = query.value(query.record().indexOf("build_year")).toString();
+       QString type = query.value(query.record().indexOf("type")).toString();
+       QString typeID = query.value(query.record().indexOf("type_ID")).toString();
+       QString isCreated = query.value(query.record().indexOf("is_created")).toString();
+       compuerList.clear();
+       setDataInComputerVector(compuerList, id.toInt(), name.toStdString(), designYear.toInt(), buildYear.toInt(), type.toStdString(),typeID.toStdString(), isCreated.toInt());
+    }
+    if(!success){qDebug() << "getComputersConnectedToSC error:  " << query.lastError();}
+}
+void DbCon::getCSConntedToComputer(vector<CSPerson>& CSList,const int computerID)
+{
+    bool success = false;
+    QSqlQuery query;
+    query.prepare("SELECT cs.ID, cs.name, YEAR(cs.birth_year) AS birth_year, YEAR(cs.death_year) AS death_year, cs.gender, cs.comment, cs.is_alive FROM computer_scientists_computers csc JOIN computer_scientists cs ON (csc.computer_scientist_ID=cs.ID) WHERE csc.computer_ID = (:computerID);");
+    query.bindValue(":scientistID", computerID);
+    while (query.next())
+    {
+        if(success == false)
+        {
+            success = true;
+        }
+       QString id = query.value(query.record().indexOf("ID")).toString();
+       QString name = query.value(query.record().indexOf("name")).toString();
+       QString birthYear = query.value(query.record().indexOf("birth_year")).toString();
+       QString deathYear = query.value(query.record().indexOf("death_year")).toString();
+       QString gender = query.value(query.record().indexOf("gender")).toString();
+       QString comment = query.value(query.record().indexOf("comment")).toString();
+       QString isAlive = query.value(query.record().indexOf("is_alive")).toString();
+       setDataInPersonVector(CSList, id.toInt(), name.toStdString(), gender.toStdString(), birthYear.toInt(), deathYear.toInt(), comment.toStdString(), isAlive.toInt());
+    }
+    if(!success){qDebug() << "addComputerScientist error:  " << query.lastError();}
 }
 
 void DbCon::getComputerScientists(vector<CSPerson>& computerScientists)

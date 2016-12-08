@@ -34,12 +34,14 @@ public:
     bool connectionSuccessful(){return _connectionSuccess;}
     bool testFunction(const QString& name); //Test
     //Select
-    void getComputersConnectedToSC(vector<Computer>& compuerList,const int scientistID);
+    void getComputersConnectedToCS(vector<Computer>& compuerList,const int scientistID);
+    void getCSConntedToComputer(vector<CSPerson>& CSList,const int computerID);
     void getComputerScientists(vector<CSPerson>& computerScientists);
     void getComputers(vector<Computer>& computers);
     //void getType(vector<Computer>& computers);
     bool computerScientistExist(const string& name);
     //Insert
+    bool addCStoComputer(const int cSID,const int compID);
     int addComputerScientist(const CSPerson value);
     int addComputer(const Computer value);
     //Update
