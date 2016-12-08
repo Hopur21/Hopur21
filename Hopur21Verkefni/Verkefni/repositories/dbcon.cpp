@@ -61,7 +61,13 @@ bool DbCon::removeComputerScientist(const int& scientistID)
     //if(!success){qDebug() << "removeComputerScientist error:  " << query.lastError();}
     return success;
 }
+bool DbCon::removeComputer(const int& computerID)
+{
+    bool success = false;
 
+    //if(!success){qDebug() << "removeComputerScientist error:  " << query.lastError();}
+    return success;
+}
 //Insert Querys
 bool DbCon::addComputerScientist(const string& name, const int& birthYear, const int& deathYear, const bool isAlive, const string& gender, const string& comment)
 {
@@ -81,9 +87,10 @@ bool DbCon::addComputerScientist(const string& name, const int& birthYear, const
 }
 bool DbCon::addComputer(const string& name, const int& designYear, const int& buildYear, const string& type, const bool isCreated)
 {
+    //TODO - validate input.
     bool success = false;
     QSqlQuery query;
-    query.prepare("INSERT INTO computers(name, design_year, build_year, is_created, type) VALUES (:name, :designYear, :buildYear, :isCreated, :type)");
+    query.prepare("INSERT INTO computers(name, design_year, build_year, is_created, type_ID) VALUES (:name, :designYear, :buildYear, :isCreated, :type)");
     query.bindValue(":name", QString::fromStdString(name));
     query.bindValue(":designYear", getDateFormat(to_string(designYear)));
     query.bindValue(":buildYear", getDateFormat(to_string(buildYear)));
@@ -107,6 +114,22 @@ bool DbCon::updateComputerScientist(const int& id, const string& name, const int
     query.bindValue(":isAlive", isAlive);
     query.bindValue(":gender", QString::fromStdString(gender));
     query.bindValue(":comment", QString::fromStdString(comment));
+    query.bindValue(":id", QString::fromStdString(to_string(id)));
+    success = query.exec();
+    if(!success){qDebug() << "updateComputerScientist error:  " << query.lastError();}
+    return success;
+}
+bool DbCon::updateComputer(const int& id, const string& name, const int& designYear, const int& buildYear, const string& type, const bool isCreated)
+{
+    //TODO: Validation
+    bool success = false;
+    QSqlQuery query;
+    query.prepare("UPDATE computer_scientists SET name=(:name), design_year=(:designYear), build_year=(:buildYear), type_ID=(:type), is_created=(:isCreated) WHERE ID=(:id)");
+    query.bindValue(":name", QString::fromStdString(name));
+    query.bindValue(":designYear", getDateFormat(to_string(designYear)));
+    query.bindValue(":buildYear", getDateFormat(to_string(buildYear)));
+    query.bindValue(":isCreated", isCreated);
+    query.bindValue(":type", QString::fromStdString(type));
     query.bindValue(":id", QString::fromStdString(to_string(id)));
     success = query.exec();
     if(!success){qDebug() << "updateComputerScientist error:  " << query.lastError();}
@@ -142,7 +165,7 @@ void DbCon::getComputerScientists(vector<CSPerson>& computerScientists)
 void DbCon::getComputers(vector<Computer>& computers)
 {
     bool success = false;
-       QSqlQuery query("SELECT ID, name, YEAR(design_year) AS design_year, YEAR(build_year) AS build_yea, is_created FROM computers ORDER BY name");
+       QSqlQuery query("SELECT ID, name, YEAR(design_year) AS design_year, YEAR(build_year) AS build_year, is_created FROM computers ORDER BY name");
        //int idName = query.record().indexOf("name");
        while (query.next())
        {
@@ -155,7 +178,7 @@ void DbCon::getComputers(vector<Computer>& computers)
           QString name = query.value(query.record().indexOf("name")).toString();
           QString designYear = query.value(query.record().indexOf("design_year")).toString();
           QString buildYear = query.value(query.record().indexOf("build_year")).toString();
-          QString type = query.value(query.record().indexOf("type")).toString();
+          QString type = query.value(query.record().indexOf("type")).toString();            // type_ID needs to be added/fixed
           QString isCreated = query.value(query.record().indexOf("is_created")).toString();
           //cout << name.toStdString() << endl;
           //cout << idName << endl;
