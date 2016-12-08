@@ -5,12 +5,13 @@
 #include "services/cspersonservice.h"
 #include "models/computer.h"
 #include "models/csperson.h"
-
+#include <string>
 
 class Service
 {
     private:
         vector<CSPerson> _fileKeeper;
+
         ComputerService _computerService;
         CSPersonService _cSPersonService;
 
@@ -21,6 +22,7 @@ class Service
 
         bool removePersonFromList(const string id);
 
+        vector <string> getListOfComputers();
 
         vector<CSPerson> getCompleteList();
 

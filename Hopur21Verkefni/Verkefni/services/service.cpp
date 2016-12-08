@@ -101,3 +101,10 @@ vector<CSPerson> Service::searchByYearOfDeath(const string searchString)
     vector <CSPerson> searchByYOD = _cSPersonService.searchByYearOfDeath(searchString);
     return searchByYOD;
 }
+
+vector <string> Service::getListOfComputers()
+{
+    // Not finished
+    vector <string> completeListOfComputers;
+    return completeListOfComputers;
+}

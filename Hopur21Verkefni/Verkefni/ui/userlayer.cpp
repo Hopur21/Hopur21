@@ -477,6 +477,8 @@ void UserLayer::searchForAPerson()
     }
 }
 
+
+
 //Gefur villuskilaboð ef notandi slær inn rangan valkost
 void UserLayer::invalidInput()
 {
