@@ -159,12 +159,12 @@ void UserLayer::addPerson()
                     else if(number == 0)
                     {
                         validity = true;
+                        break;
                     }
                     else if(!isdigit(number))
                     {
 
                         string selection = computerList.at(number -1).getName();
-                        cout << "PB selection--->" << selection << endl;
                         userSelection.push_back(selection);
                     }
 
@@ -174,24 +174,21 @@ void UserLayer::addPerson()
         }
     }
 
-    /*string computerName;
     int realID;
-    for(unsigned i = 0; i< computerList.size();i++)
+    for(unsigned i = 0; i< userSelection.size() ;i++)
     {
-        computerName = computerList.at(i).getName();
-        if(computerName == userSelection.at(i))
+        for(unsigned int j = 0; j< computerList.size(); j++)
         {
-            realID = computerList.at(i).getID();
-            cout << "REALID   ----------> " << realID << endl;
+            if(userSelection.at(i) == computerList.at(j).getName())
+            {
+                realID = computerList.at(j).getID();
+                realComputerID.push_back(realID);
+            }
         }
-    }*/
-
-    //for(unsigned int j = 0; j<)
+    }
 
 
-
-
-   /* if(_service.addNewPersonToList(name, gender, birthYear, deathYear, comment))
+    if(_service.addNewPersonToList(name, gender, birthYear, deathYear, comment, realComputerID))
     {
         cout << "The person has been added successfully." << endl;
         cout << endl;
@@ -199,7 +196,7 @@ void UserLayer::addPerson()
     else
     {
         cout << "Something went wrong." << endl;
-    }*/
+    }
 
 }
 

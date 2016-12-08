@@ -31,7 +31,7 @@ bool sortByAgeASCC(const CSPerson &lhs, const CSPerson &rhs)
     return tempLeft.getAge() > tempRight.getAge();
 }
 
-bool CSPersonService::addNewPersonToList(const string name,const string gender, string birthYear, string deathYear,const string comment)
+bool CSPersonService::addNewPersonToList(const string name,const string gender, string birthYear, string deathYear,const string comment, const vector<int>computerConnectionID)
 {
     //We will set years to 0 if they are not valid.
     int tempBirthYear = 0, tempDeathYear = 0;
@@ -80,7 +80,7 @@ bool CSPersonService::validNumber(string number)
     int inputNumber = 0;
     try
     {
-        inputNumber = atoi(number.c_str());//Try to convert string to int
+        inputNumber = stoi(number.c_str());//Try to convert string to int
     }
     catch(int e)
     {

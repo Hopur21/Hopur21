@@ -11,7 +11,7 @@ class CSPersonService
 
         //Sets
         void setCompleteList();
-        bool addNewPersonToList(const string name,const string gender, const string birthYear, const string deathYear,const string comment);
+        bool addNewPersonToList(const string name,const string gender, const string birthYear, const string deathYear,const string comment, const vector<int> computerConnectionID);
         bool removePersonFromList(const string id);
         bool editPersonFromList(const string oldID, CSPerson person);
         void sortByName();
