@@ -1,13 +1,17 @@
 #include "computerservice.h"
-#include <iostream> // má henda
-using namespace std;    // má henda
+//Bool variablers are used in sorting to decide the order of sorting, DESCending and ASCending
+bool sortByNameDESCC(const Computer &lhs, const Computer &rhs) { return lhs.getName() < rhs.getName(); }
+bool sortByNameASCC(const Computer &lhs, const Computer &rhs) { return lhs.getName() > rhs.getName(); }
+bool sortByDesignYearASC(const Computer &lhs, const Computer &rhs) {return lhs.getDesignYear() < rhs.getDesignYear(); }
+bool sortByBuiltYearASC(const Computer &lhs, const Computer &rhs) {return lhs.getBuildYear() > rhs.getBuildYear(); }
+bool sortByTypeASC(const Computer &lhs, const Computer &rhs) { return lhs.getType() < rhs.getType(); }
+bool sortByWasBuiltASC(const Computer &lhs, const Computer &rhs) {return lhs.getIsCreated() > rhs.getIsCreated(); }
+
 ComputerService::ComputerService()
 {
 }
 bool ComputerService::addNewComputerToList(Computer& newComputer, const string name,const int designyear, const int buildyear, const string type ,const bool created)
 {
-    //TODO - Validation (which will return false)
-    //TODO - Save to database
     newComputer.setName(name);
     newComputer.setDesignYear(designyear);
     newComputer.setBuildYear(buildyear);
@@ -16,6 +20,32 @@ bool ComputerService::addNewComputerToList(Computer& newComputer, const string n
     return true;
 }
 
+
+//Sorts
+void ComputerService::sortByName(vector<Computer>& computerList)
+{
+    sort(computerList.begin(), computerList.end(), sortByNameASCC);
+}
+void ComputerService::sortByNameDESC(vector<Computer>& computerList)
+{
+    sort(computerList.begin(), computerList.end(), sortByNameDESCC);
+}
+void ComputerService::sortByDesignYear(vector<Computer>& computerList)
+{
+    sort(computerList.begin(), computerList.end(), sortByDesignYearASC);
+}
+void ComputerService::sortByBuildYear(vector<Computer>& computerList)
+{
+    sort(computerList.begin(), computerList.end(), sortByBuiltYearASC);
+}
+void ComputerService::sortByType(vector<Computer>& computerList)
+{
+    sort(computerList.begin(), computerList.end(), sortByTypeASC);
+}
+void ComputerService::sortWasBuilt(vector<Computer>& computerList)
+{
+    sort(computerList.begin(), computerList.end(), sortByWasBuiltASC);
+}
 
 
 //Þau föll sem er ekki búið að fara yfir fyrir (aðlaga) Viku2
@@ -43,30 +73,7 @@ bool ComputerService::removeComputerFromList(const string id)
 //bool editComputerFromList(const string oldID, Computer computer);
 // Viljum við útfæra þetta?
 
-void ComputerService::sortByName()
-{
-    // TODO
-}
 
-void ComputerService::sortByNameDESC()
-{
-    // TODO
-}
-
-void ComputerService::sortByDesignYear()
-{
-    // TODO
-}
-
-void ComputerService::sortByBuildYear()
-{
-    // TODO
-}
-
-void ComputerService::sortByCreatedYear()
-{
-    // TODO
-}
 
 //Gets
 vector<Computer> ComputerService::searchByName(const string searchString)

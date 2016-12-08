@@ -8,7 +8,6 @@ class MenuInterface
 {
     private:
         UserLayer _uL;
-        ComputerService _cS;
         int _firstTimeBooting;
 
     public:

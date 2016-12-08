@@ -12,18 +12,19 @@ public:
     void setCompleteList();
     bool addNewComputerToList(Computer& newComputer, const string name,const int designyear, const int buildyear, const string type ,const bool created);
     bool removeComputerFromList(const string id);
-    //bool editComputerFromList(const string oldID, Computer computer);
-    void sortByName();
-    void sortByNameDESC();
-    void sortByDesignYear();
-    void sortByBuildYear();
-    void sortByCreatedYear();
 
     //Gets
     vector<Computer> searchByName(const string searchString);
     vector<Computer> searchByYear(const string searchString);
     vector<Computer> searchByType(const string searchString);
 
+    //Sorts
+    void sortByName(vector<Computer>& computerList);
+    void sortByNameDESC(vector<Computer>& computerList);
+    void sortByDesignYear(vector<Computer>& computerList);
+    void sortByBuildYear(vector<Computer>& computerList);
+    void sortByType(vector<Computer>& computerList);
+    void sortWasBuilt(vector<Computer>& computerList);
 
 private:
     //Sets

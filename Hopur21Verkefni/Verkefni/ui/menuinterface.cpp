@@ -189,6 +189,7 @@ void MenuInterface::displayComputers()
     if(sortOption == constants::SORT_ALPHABET)
     {
        // banner();
+
         _cS.sortByName();
     }
     else if(sortOption == constants::SORT_ASCENDING_ALPHABET)
