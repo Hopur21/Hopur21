@@ -25,8 +25,8 @@ class Service
         Service();
 
         //Sets
-        bool addNewPersonToList(const string name,const string gender, const string birthYear, const string deathYear,const string comment, const vector<int> computerConnectionID);
-        bool addNewComputerToList(const string name,const int designyear, const int buildyear, const string type, const bool created);
+        bool addNewPersonToList(const vector<int> computerConnectionID, const string name,const string gender, const string birthYear, const string deathYear,const string comment);
+        bool addNewComputerToList(const vector<int> scientistConnectionID,const string name,const int designyear, const int buildyear, const string type, const bool created);
         bool removePersonFromList(const string id);
 
         //Gets

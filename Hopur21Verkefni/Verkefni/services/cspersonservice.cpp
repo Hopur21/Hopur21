@@ -31,7 +31,7 @@ bool sortByAgeASCC(const CSPerson &lhs, const CSPerson &rhs)
     return tempLeft.getAge() > tempRight.getAge();
 }
 
-bool CSPersonService::addNewPersonToList(const string name,const string gender, string birthYear, string deathYear,const string comment, const vector<int>computerConnectionID)
+bool CSPersonService::addNewPersonToList(const string name,const string gender, string birthYear, string deathYear,const string comment)
 {
     //We will set years to 0 if they are not valid.
     int tempBirthYear = 0, tempDeathYear = 0;
@@ -48,9 +48,7 @@ bool CSPersonService::addNewPersonToList(const string name,const string gender, 
         }
         //tempDeathYear = deathYear;
     }
-    //Save our new person in our vector
-    //_fileKeeper.push_back(CSPerson (name, gender, tempBirthYear, tempDeathYear, comment)); -- Removed
-    //_data.writeToFile(_fileKeeper);// Write our updated vector to file
+
     return true;//Return true that we made it
 }
 

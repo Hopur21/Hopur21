@@ -5,21 +5,22 @@ Service::Service()
 
 }
 
-bool Service::addNewPersonToList(const string name,const string gender, const string birthYear, const string deathYear,const string comment, const vector<int> computerConnectionID)
+bool Service::addNewPersonToList(const vector<int> computerConnectionID,const string name,const string gender, const string birthYear, const string deathYear,const string comment)
 {
-    if(_cSPersonService.addNewPersonToList(name, gender,birthYear, deathYear, comment, computerConnectionID))
+    if(_cSPersonService.addNewPersonToList(name, gender,birthYear, deathYear, comment))
     {
         return true;
     }
     return false;
 }
 
-bool Service::addNewComputerToList(const string name,const int designYear, const int buildYear, const string type, const bool created)
+bool Service::addNewComputerToList(const vector<int> scientistConnectionID,const string name,const int designYear, const int buildYear, const string type, const bool created)
 {
     Computer newComputer;
+    int computerID = 0;
     if(_computerService.addNewComputerToList(newComputer, name, designYear, buildYear, type, created))
     {
-        _dbCon.addComputer(newComputer);
+        computerID = _dbCon.addComputer(newComputer);
         return true;
     }
     return false;
