@@ -123,6 +123,7 @@ void MenuInterface::processChoice(const string choice)
         {
         case 1:
             //Display computer
+            displayComputers();
             break;
         case 2:
             // Search for a computer"
@@ -167,6 +168,56 @@ void MenuInterface::processChoice(const string choice)
     {
         // This should never run
         cout << "Something went wrong" << endl;
+    }
+}
+void MenuInterface::displayComputers()
+{
+    string sortOption;
+    _uL.printCompleteList();
+
+    cout << "| 1 | Sort computers by alphabetical order" << endl;
+    cout << "| 2 | Sort by ascending alphabetical order" << endl;
+    cout << "| 3 | Sort by year of build" << endl;
+    cout << "| 4 | Sort by year of design" << endl;
+    cout << "| 5 | Sort by type of computer" << endl;
+    cout << "| 0 | Go back" << endl;
+    cout << "Enter your choice here: ";
+    cin >> sortOption;
+    cout << endl;
+
+    if(sortOption == constants::SORT_ALPHABET)
+    {
+       // banner();
+        _cS.sortByName();
+    }
+    else if(sortOption == constants::SORT_ASCENDING_ALPHABET)
+    {
+       // banner();
+        _cS.sortByNameDESC();
+    }
+    else if(sortOption == constants::SORT_BY_BUILDYEAR)
+    {
+       // banner();
+        _cS.sortByBuildYear();
+    }
+    else if(sortOption == constants::SORT_BY_DESIGNYEAR)
+    {
+       // banner();
+        _cS.sortByDesignYear();
+    }
+    else if(sortOption == constants::SORT_BY_TYPE)
+    {
+       // banner();
+        //_cS.sortByType();
+    }
+    else if(sortOption == constants::GO_BACK)
+    {
+        banner();
+    }
+    else
+    {
+        banner();
+        invalidInput();
     }
 }
 

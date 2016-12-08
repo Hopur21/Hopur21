@@ -38,6 +38,9 @@ namespace constants {
     const std::string GO_BACK = "0";
     const std::string COMPUTER = "1";
     const std::string SCIENTIST = "2";
+    const std::string SORT_BY_BUILDYEAR = "3";
+    const std::string SORT_BY_DESIGNYEAR = "4";
+    const std::string SORT_BY_TYPE = "5";
 
 }
 

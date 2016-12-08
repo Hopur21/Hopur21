@@ -404,8 +404,10 @@ string UserLayer::deathYearValidation(string birthYear, string deathYear)
     return "ERROR";
 }
 
+//void UserLayer::printComputers(vector<Computer> list)
 void UserLayer::printListOfComputers(vector<Computer> list)
 {
+    cout << "Morons." << endl;
     // TODO gera svipað og fyrir neðan   :D
     int sizeOfList = list.size();
     if(sizeOfList == 0)

@@ -8,6 +8,7 @@ class MenuInterface
 {
     private:
         UserLayer _uL;
+        ComputerService _cS;
         int _firstTimeBooting;
 
     public:
@@ -19,6 +20,7 @@ class MenuInterface
         void invalidInput();
         string subMenu();
         void displayScientists();
+        void displayComputers();
 
 };
 
