@@ -1,5 +1,10 @@
 #include <iostream>
 #include "userlayer.h"
+//
+#include <iterator>
+#include <sstream>
+//
+
 
 using namespace std;
 
@@ -109,18 +114,34 @@ void UserLayer::addPerson()
     // Prints the options of computers the user can associate with a scientist
     if(userInput == 'y')
     {
-        if(list.size() == 0)
+        /*if(list.size() == 0)
         {
             cout << "List of computers is empty." << endl;
         }
         else
-        {
-
+        {*/
             for(unsigned int i=0; i<list.size(); i++)
             {
-                  cout << i << "  " << list.at(i).getName();
+                  cout << i << "  " << list.at(i).getName() << endl;
             }
-        }
+
+
+            vector<int> vectorOfInts;
+            validity = false;
+            int sizeOfList = list.size();
+
+            do
+            {
+                cout << "Enter one or more numbers with spaces between them: " << endl;
+
+                //while()
+
+
+
+            }while(validity == false);
+
+            //}
+        //}
     }
 
 
