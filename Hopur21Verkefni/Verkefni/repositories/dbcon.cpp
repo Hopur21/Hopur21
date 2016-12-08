@@ -7,8 +7,6 @@ DbCon::DbCon()
     _username = "compTolva";
     _password = "HR.rjomi.2016";
     _connectionSuccess = makeConnection();
-
-    //testFunction("Ada Lovelace");
 }
 DbCon::DbCon(const QString& hostname, const QString& database, const QString& username, const QString& password)
 {
@@ -56,20 +54,37 @@ QString DbCon::getDateFormat(const string& year)
 {
     return QString::fromStdString(year + "-00-00");
 }
-
 //Remove Querys
 bool DbCon::removeComputerScientist(const int& scientistID)
 {
     bool success = false;
-
-    //if(!success){qDebug() << "removeComputerScientist error:  " << query.lastError();}
+    QSqlQuery query;
+    try
+    {
+        query.prepare("UPDATE computer_scientists SET removed='1' WHERE ID=(:scientistID)");
+        query.bindValue(":scientistID", scientistID);
+        success = query.exec();
+    }
+    catch(int e)
+    {
+        {qDebug() << "removeComputerScientist error:  " << query.lastError();}
+    }
     return success;
 }
 bool DbCon::removeComputer(const int& computerID)
 {
     bool success = false;
-
-    //if(!success){qDebug() << "removeComputerScientist error:  " << query.lastError();}
+    QSqlQuery query;
+    try
+    {
+        query.prepare("UPDATE computers SET removed ='1' WHERE ID =(:computerID)");
+        query.bindValue(":computerID", computerID);
+        success = query.exec();
+    }
+    catch(int e)
+    {
+        {qDebug() << "removeComputerScientist error:  " << query.lastError();}
+    }
     return success;
 }
 //Insert Querys
@@ -132,7 +147,6 @@ int DbCon::addComputerScientist(const CSPerson value)
 }
 int DbCon::addComputer(const Computer value)
 {
-    //TODO - validate input.
     bool success = false;
     QSqlQuery query;
     query.prepare("INSERT INTO computers(name, design_year, build_year, is_created, type_ID) VALUES (:name, :designYear, :buildYear, :isCreated, :type)");
@@ -142,43 +156,41 @@ int DbCon::addComputer(const Computer value)
     query.bindValue(":isCreated", value.getIsCreated());
     query.bindValue(":type", QString::fromStdString(value.getTypeID()));
     success = query.exec();//Returns true/false if we made it
-    if(!success){qDebug() << "addComputerScientist error:  " << query.lastError();}
+    if(!success){qDebug() << "addComputer error:  " << query.lastError();}
     QVariant returnID = query.lastInsertId();
     return returnID.toInt();
 }
 
 //Update Querys
-bool DbCon::updateComputerScientist(const int& id, const string& name, const int& birthYear, const int& deathYear, const bool isAlive, const string& gender, const string& comment)
+bool DbCon::updateComputerScientist(CSPerson& computerScientist)
 {
-    //TODO: Validation
     bool success = false;
     QSqlQuery query;
     query.prepare("UPDATE computer_scientists SET name=(:name), birth_year=(:birthYear), death_year=(:deathYear), gender=(:gender), comment=(:comment), is_alive=(:isAlive) WHERE ID=(:id)");
-    query.bindValue(":name", QString::fromStdString(name));
-    query.bindValue(":birthYear", getDateFormat(to_string(birthYear)));
-    query.bindValue(":deathYear", getDateFormat(to_string(deathYear)));
-    query.bindValue(":isAlive", isAlive);
-    query.bindValue(":gender", QString::fromStdString(gender));
-    query.bindValue(":comment", QString::fromStdString(comment));
-    query.bindValue(":id", QString::fromStdString(to_string(id)));
+    query.bindValue(":name", QString::fromStdString(computerScientist.getName()));
+    query.bindValue(":birthYear", getDateFormat(to_string(computerScientist.getBirthYear())));
+    query.bindValue(":deathYear", getDateFormat(to_string(computerScientist.getPassedAwayYear())));
+    query.bindValue(":isAlive", computerScientist.getIsAlive());
+    query.bindValue(":gender", QString::fromStdString(computerScientist.getGender()));
+    query.bindValue(":comment", QString::fromStdString(computerScientist.getComments()));
+    query.bindValue(":id", QString::fromStdString(to_string(computerScientist.getID())));
     success = query.exec();
     if(!success){qDebug() << "updateComputerScientist error:  " << query.lastError();}
     return success;
 }
-bool DbCon::updateComputer(const int& id, const string& name, const int& designYear, const int& buildYear, const string& type, const bool isCreated)
+bool DbCon::updateComputer(Computer& computer)
 {
-    //TODO: Validation
     bool success = false;
     QSqlQuery query;
     query.prepare("UPDATE computer_scientists SET name=(:name), design_year=(:designYear), build_year=(:buildYear), type_ID=(:type), is_created=(:isCreated) WHERE ID=(:id)");
-    query.bindValue(":name", QString::fromStdString(name));
-    query.bindValue(":designYear", getDateFormat(to_string(designYear)));
-    query.bindValue(":buildYear", getDateFormat(to_string(buildYear)));
-    query.bindValue(":isCreated", isCreated);
-    query.bindValue(":type", QString::fromStdString(type));
-    query.bindValue(":id", QString::fromStdString(to_string(id)));
+    query.bindValue(":name", QString::fromStdString(computer.getName()));
+    query.bindValue(":designYear", getDateFormat(to_string(computer.getDesignYear())));
+    query.bindValue(":buildYear", getDateFormat(to_string(computer.getBuildYear())));
+    query.bindValue(":isCreated", computer.getIsCreated());
+    query.bindValue(":type", QString::fromStdString(computer.getType()));
+    query.bindValue(":id", QString::fromStdString(to_string(computer.getID())));
     success = query.exec();
-    if(!success){qDebug() << "updateComputerScientist error:  " << query.lastError();}
+    if(!success){qDebug() << "updateComputer error:  " << query.lastError();}
     return success;
 }
 //Select Querys
@@ -228,7 +240,7 @@ void DbCon::getCSConntedToComputer(vector<CSPerson>& CSList,const int computerID
        QString isAlive = query.value(query.record().indexOf("is_alive")).toString();
        setDataInPersonVector(CSList, id.toInt(), name.toStdString(), gender.toStdString(), birthYear.toInt(), deathYear.toInt(), comment.toStdString(), isAlive.toInt());
     }
-    if(!success){qDebug() << "addComputerScientist error:  " << query.lastError();}
+    if(!success){qDebug() << "getCSConntedToComputer error:  " << query.lastError();}
 }
 
 void DbCon::getComputerScientists(vector<CSPerson>& computerScientists)
@@ -252,7 +264,7 @@ void DbCon::getComputerScientists(vector<CSPerson>& computerScientists)
        QString isAlive = query.value(query.record().indexOf("is_alive")).toString();
        setDataInPersonVector(computerScientists, id.toInt(), name.toStdString(), gender.toStdString(), birthYear.toInt(), deathYear.toInt(), comment.toStdString(), isAlive.toInt());
     }
-    if(!success){qDebug() << "addComputerScientist error:  " << query.lastError();}
+    if(!success){qDebug() << "getComputerScientists error:  " << query.lastError();}
 }
 void DbCon::getComputers(vector<Computer>& computers)
 {
@@ -275,7 +287,7 @@ void DbCon::getComputers(vector<Computer>& computers)
           QString isCreated = query.value(query.record().indexOf("is_created")).toString();
           setDataInComputerVector(computers, id.toInt(), name.toStdString(), designYear.toInt(), buildYear.toInt(), type.toStdString(),typeID.toStdString(), isCreated.toInt());
        }
-       if(!success){qDebug() << "addComputer error:  " << query.lastError();}
+       if(!success){qDebug() << "getComputers error:  " << query.lastError();}
 }
 void DbCon::getComputerTypes(vector<string>& computerTypes)
 {
@@ -308,21 +320,4 @@ bool DbCon::computerScientistExist(const string& name)
        }
     }
     return foundValdo;
-}
-bool DbCon::testFunction(const QString& name)
-{
-   // you should check if args are ok first...
-    QSqlQuery query("SELECT * FROM computer_scientists");
-    int idName = query.record().indexOf("birth_year");
-    //query.record();
-    //query.exec();
-    while (query.next())
-    {
-       QString name = query.value(1).toString();
-       //cout << name.toStdString() << endl;
-       //cout << idName << endl;
-       //qDebug() << name;
-    }
-
-   return query.exec();//Returns bool if we were successful.
 }

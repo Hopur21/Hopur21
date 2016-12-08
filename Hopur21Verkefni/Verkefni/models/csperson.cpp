@@ -2,13 +2,13 @@
 
 CSPerson::CSPerson(const int id, const string name, const string gender, const int birthYear, const int passedAwayYear, const string comment, const bool isAlive)
 {
-   _id = id;
-   _name = name;
-   _gender = gender;
-   _birthYear = birthYear;
-   _passedAwayYear = passedAwayYear;
-   _comment = comment;
-   _isAlive = isAlive;
+    _id = id;
+    _name = name;
+    _gender = gender;
+    _birthYear = birthYear;
+    _passedAwayYear = passedAwayYear;
+    _comment = comment;
+    _isAlive = isAlive;
 }
 
 int CSPerson::getCurrentYear()

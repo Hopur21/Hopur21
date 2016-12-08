@@ -21,8 +21,7 @@ public:
 
     //Gets
     vector<Computer> searchByName(const string searchString);
-    vector<Computer> searchByDesignYear(const string searchString);
-    vector<Computer> searchByBuildYear(const string searchString);
+    vector<Computer> searchByYear(const string searchString);
     vector<Computer> searchByType(const string searchString);
 
 
