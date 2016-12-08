@@ -405,8 +405,6 @@ string UserLayer::deathYearValidation(string birthYear, string deathYear)
 
 void UserLayer::printListOfComputers(vector<Computer> list)
 {
-    cout << "WAZUP G?" << endl;
-    // TODO gera svipað og fyrir neðan   :D
     int sizeOfList = list.size();
     if(sizeOfList == 0)
     {
@@ -414,14 +412,13 @@ void UserLayer::printListOfComputers(vector<Computer> list)
         cout << endl;
         return;
     }
-
     cout <<   "#     NAME                            TYPE           BUILD YEAR    DESIGN YEAR" << endl;
     cout <<   "------------------------------------------------------------------------------" << endl;
 
     for(int i=0;i<sizeOfList;i++)
     {
         string name = list.at(i).getName();
-        string type = list.at(i).getTypeID();
+        string type = list.at(i).getType();
         string stringBuildYear = to_string(list.at(i).getBuildYear()); //á eftir að útfæra?
         string stringDesignYear = to_string(list.at(i).getDesignYear()); //á eftir að útfæra?
 
@@ -433,17 +430,6 @@ void UserLayer::printListOfComputers(vector<Computer> list)
         cout << type.append(11 - type.length(), constants::SPACE);
         cout << stringBuildYear.append(8 - stringDesignYear.length(), constants::SPACE);
 
-/*        if(stringPassedAway != constants::ALIVE)
-        {
-            cout << stringPassedAway.append(9 - stringPassedAway.length(), constants::SPACE);
-            cout << age;
-        }
-        else
-        {
-            cout << "Alive";
-            cout << "    " << age;
-
-        }*/
         cout << endl;
     }
     cout <<   "------------------------------------------------------------------------" << endl;
@@ -549,7 +535,6 @@ void UserLayer::printListMoreInfo(vector<CSPerson> list)
 
 void UserLayer::printCompleteListOfComputers()
 {
-    cout << "HELLO FROM USERLAYER";
     printListOfComputers(_service.getComputerList());
 }
 

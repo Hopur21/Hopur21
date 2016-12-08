@@ -95,7 +95,7 @@ bool DbCon::addComputer(const Computer value)
     query.bindValue(":designYear", getDateFormat(to_string(value.getDesignYear())));
     query.bindValue(":buildYear", getDateFormat(to_string(value.getBuildYear())));
     query.bindValue(":isCreated", value.getIsCreated());
-    query.bindValue(":type", QString::fromStdString(value.getTypeID()));
+    query.bindValue(":type", QString::fromStdString(value.getType()));
     success = query.exec();//Returns true/false if we made it
     if(!success){qDebug() << "addComputerScientist error:  " << query.lastError();}
     int stuff = 0;
