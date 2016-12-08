@@ -91,7 +91,7 @@ void UserLayer::addComputer()
     bool validity = false;
     char yesOrNo;
 
-    cout << "What is the name of the computer: ";
+    cout << "Enter the name of the computer: ";
     do
     {
         cin.ignore();
@@ -104,7 +104,7 @@ void UserLayer::addComputer()
 
     do
     {
-        cout << "When was the computer designed? Enter a year: ";
+        cout << "Enter the design year of the computer: ";
         cin >> designYear;
 
         if(!checkNumberValidity(designYear))
@@ -119,12 +119,14 @@ void UserLayer::addComputer()
         }
     }while(validity != true);
 
-    cout << "What is the computer type: ";
+/*    cout << "What is the computer type: ";
     cin.ignore();
-    getline(cin, designYear);
+    getline(cin, designYear);*/ //remove
 
-    cout << "What is the computer type: ";
+    cout << "Select the computer type: ";
     // TODO DISPLAY A LIST OF POSSIBLE TYPES!!!
+    int inputComputerType;
+    cin >> inputComputerType;
     type = "mammathin";
     cout << endl;
 
@@ -132,7 +134,7 @@ void UserLayer::addComputer()
 
     do
     {
-        cout << "Was this computer created?" << endl;
+        cout << "Was this computer ever built?" << endl;
         cout << "Enter y for yes, n for no." << endl;
         cin >> yesOrNo;
 
@@ -161,7 +163,7 @@ void UserLayer::addComputer()
         validity = false;
         do
         {
-            cout << "When was the computer created? Enter a year: ";
+            cout << "Enter the year the computer was built: ";
             cin >> buildYear;
 
             if(!checkNumberValidity(buildYear))
@@ -183,7 +185,7 @@ void UserLayer::addComputer()
 
     if(!(_service.addNewComputerToList(name, intDesignYear, intBuildYear, type, created)))
     {
-        cout << "Computer added successfully." << endl;
+        cout << "The computer has been added successfully." << endl;
         cout << endl;
     }
     else
@@ -274,7 +276,6 @@ string UserLayer::deathYearValidation(string birthYear, string deathYear)
         {
             invalidInput();
         }
-
         else
         {
             deathYearValidation = false;
@@ -288,6 +289,46 @@ string UserLayer::deathYearValidation(string birthYear, string deathYear)
 void UserLayer::printListOfComputers(vector<Computer> list)
 {
     // TODO gera svipað og fyrir neðan   :D
+    int sizeOfList = list.size();
+    if(sizeOfList == 0)
+    {
+        cout << "List of computers is empty." << endl;
+        cout << endl;
+        return;
+    }
+
+    cout <<   "#     NAME                            TYPE           BUILD YEAR    DESIGN YEAR" << endl;
+    cout <<   "------------------------------------------------------------------------------"<< endl;
+
+    for(int i=0;i<sizeOfList;i++)
+    {
+        string name = list.at(i).getName();
+        string type = list.at(i).getTypeID(); //er þetta fall til?
+        string stringBuildYear = to_string(list.at(i).getBuildYear()); //á eftir að útfæra?
+        string stringDesignYear = to_string(list.at(i).getDesignYear()); //á eftir að útfæra?
+
+        // adjustForSpaces adjusts the spaces between the
+        // number and name of the computer according to the size of the value i in the for loop
+        adjustForSpaces(i);
+
+        cout << name.append(32 - name.length(), constants::SPACE);
+        cout << type.append(11 - type.length(), constants::SPACE);
+        cout << stringBuildYear.append(8 - stringDesignYear.length(), constants::SPACE);
+
+/*        if(stringPassedAway != constants::ALIVE)
+        {
+            cout << stringPassedAway.append(9 - stringPassedAway.length(), constants::SPACE);
+            cout << age;
+        }
+        else
+        {
+            cout << "Alive";
+            cout << "    " << age;
+
+        }*/
+        cout << endl;
+    }
+    cout <<   "------------------------------------------------------------------------" << endl;
 }
 
 void UserLayer::printListOfScientists(vector<CSPerson> list)
@@ -295,7 +336,7 @@ void UserLayer::printListOfScientists(vector<CSPerson> list)
     int sizeOfList = list.size();
     if(sizeOfList == 0)
     {
-        cout << "List is empty." << endl;
+        cout << "List of computer scientists is empty." << endl;
         cout << endl;
         return;
     }

@@ -77,8 +77,8 @@ string MenuInterface::subMenu()
     {
         cout << endl;
         cout << "Choose either:" << endl;
-        cout << "1) A computer " << endl;
-        cout << "2) A scientist " << endl;
+        cout << "| 1 | A computer " << endl;
+        cout << "| 2 | A scientist " << endl;
 
         cin >> subMenuChoice;
 
