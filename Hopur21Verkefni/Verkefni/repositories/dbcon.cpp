@@ -190,10 +190,10 @@ void DbCon::getComputers(vector<Computer>& computers)
        }
        if(!success){qDebug() << "addComputer error:  " << query.lastError();}
 }
-void DbCon::getType(vector<Computers>& computers)
+/*void DbCon::getType(vector<Computers>& computers)
 {
     bool success = false;
-    QSqlQuery query("SELECT ID, name FROM computers ORDER BY name);
+    QSqlQuery query("SELECT ID, name FROM computers ORDER BY name");
         if(success == false)
         {
             success = true;
@@ -201,7 +201,7 @@ void DbCon::getType(vector<Computers>& computers)
         QString id = query.value(query.record()þindexOF("ID")).toString();
         QString name = query.value(query.record()þindexOF("name")).toString();
         setDatainTypeVector(computers, id.toInt(), name.toStdString());
-}
+}*/
 
 bool DbCon::computerScientistExist(const string& name)
 {
