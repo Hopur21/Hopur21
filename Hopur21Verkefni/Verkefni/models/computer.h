@@ -15,7 +15,7 @@ class Computer
 
     public:
         Computer(){}
-        Computer(string name, int designyear, int buildyear, string type, bool created);
+        Computer(const string name,const int designyear,const int buildyear,const string type,const bool created);
 
         // Gets
         string getName()const {return _name;}
