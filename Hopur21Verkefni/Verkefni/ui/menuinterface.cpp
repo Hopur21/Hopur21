@@ -180,6 +180,7 @@ void MenuInterface::displayComputers()
     cout << "| 3 | Sort by year of build" << endl;
     cout << "| 4 | Sort by year of design" << endl;
     cout << "| 5 | Sort by type of computer" << endl;
+    cout << "| 6 | To view more info on a computer" << endl;
     cout << "| 0 | Go back" << endl;
     cout << "Enter your choice here: ";
     cin >> sortOption;
@@ -210,6 +211,11 @@ void MenuInterface::displayComputers()
        // banner();
         //_cS.sortByType();
     }
+    else if(sortOption == constants::MORE_INFO)
+    {
+        _uL.printListMoreInfoComputer();
+    }
+
     else if(sortOption == constants::GO_BACK)
     {
         banner();

@@ -405,6 +405,8 @@ string UserLayer::deathYearValidation(string birthYear, string deathYear)
 
 void UserLayer::printListOfComputers(vector<Computer> list)
 {
+    string name, type;
+
     int sizeOfList = list.size();
     if(sizeOfList == 0)
     {
@@ -412,15 +414,13 @@ void UserLayer::printListOfComputers(vector<Computer> list)
         cout << endl;
         return;
     }
-    cout <<   "#     NAME                            TYPE           BUILD YEAR    DESIGN YEAR" << endl;
+    cout <<   "#     NAME                            TYPE                                    " << endl;
     cout <<   "------------------------------------------------------------------------------" << endl;
 
     for(int i=0;i<sizeOfList;i++)
     {
-        string name = list.at(i).getName();
-        string type = list.at(i).getType();
-        string stringBuildYear = to_string(list.at(i).getBuildYear()); //á eftir að útfæra?
-        string stringDesignYear = to_string(list.at(i).getDesignYear()); //á eftir að útfæra?
+        name = list.at(i).getName();
+        type = list.at(i).getType();
 
         // adjustForSpaces adjusts the spaces between the
         // number and name of the computer according to the size of the value i in the for loop
@@ -428,11 +428,46 @@ void UserLayer::printListOfComputers(vector<Computer> list)
 
         cout << name.append(32 - name.length(), constants::SPACE);
         cout << type.append(11 - type.length(), constants::SPACE);
-        cout << stringBuildYear.append(8 - stringDesignYear.length(), constants::SPACE);
-
         cout << endl;
     }
     cout <<   "------------------------------------------------------------------------" << endl;
+}
+
+void UserLayer::printListMoreInfoComputer()
+{
+    vector <Computer> computerList = _service.getComputerList();
+    int id;
+    string buildYear, designYear;
+    bool valid = false;
+    cout << "Enter the id of the computer you want info on: ";
+    cin >> id;
+
+    do
+    {
+        if(id < 0 || id >= computerList.size() || isdigit(id))
+        {
+            invalidInput();
+            cout << "Enter the id of the computer you want info on: ";
+            cin >> id;
+        }
+        else
+        {
+            valid = true;
+        }
+    }while(valid == false);
+
+    buildYear = to_string(computerList.at(id-1).getBuildYear());
+    designYear = to_string(computerList.at(id-1).getDesignYear());
+
+
+    cout << "BUILD YEAR:" << buildYear << "               DESIGN YEAR:" << designYear << endl;
+    cout << "------------------------------------------------------------------------------" << endl;
+    for(int i=0;i<6;i++)
+    {
+        cout << endl;
+    }
+    cout <<   "------------------------------------------------------------------------------" << endl;
+
 }
 
 void UserLayer::printListOfScientists(vector<CSPerson> list)
@@ -481,6 +516,8 @@ void UserLayer::printListOfScientists(vector<CSPerson> list)
     cout <<   "Year of birth = YOB , Year of death = YOD" << endl << endl;
 
 }
+
+
 
 
 void UserLayer::printListMoreInfo(vector<CSPerson> list)

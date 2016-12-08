@@ -35,6 +35,7 @@ class UserLayer
         void sortListByAge();
         void searchForAPerson();
         void printCompleteList();
+        void printListMoreInfoComputer();
         void printCompleteListOfComputers();
 
 
