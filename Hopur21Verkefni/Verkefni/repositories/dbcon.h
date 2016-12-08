@@ -41,6 +41,7 @@ public:
     void getComputerTypes(vector<string>& computerTypes);
     bool computerScientistExist(const string& name);
     //Insert
+    bool addComputerType(const string computerName);
     bool addCStoComputer(const int cSID,const int compID);
     int addComputerScientist(const CSPerson value);
     int addComputer(const Computer value);

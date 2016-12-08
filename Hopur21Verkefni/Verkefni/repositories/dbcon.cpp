@@ -73,6 +73,23 @@ bool DbCon::removeComputer(const int& computerID)
     return success;
 }
 //Insert Querys
+bool DbCon::addComputerType(const string computerName)
+{
+    bool success = false;
+    QSqlQuery query;
+    try
+    {
+        query.prepare("INSERT INTO type(name) VALUES (:computerName)");
+        query.bindValue(":computerName", QString::fromStdString(computerName));
+        success = query.exec();
+    }
+    catch(int e)
+    {
+        {qDebug() << "addCStoComputer error:  " << query.lastError();}
+    }
+    return success;
+}
+
 bool DbCon::addCStoComputer(const int cSID,const int compID)
 {
     bool success = false;
@@ -274,7 +291,7 @@ void DbCon::getComputerTypes(vector<string>& computerTypes)
 
        setDataInTypeVector(computerTypes, name.toStdString());
     }
-    if(!success){qDebug() << "addComputer error:  " << query.lastError();}
+    if(!success){qDebug() << "getComputerTypes error:  " << query.lastError();}
 
 }
 bool DbCon::computerScientistExist(const string& name)
