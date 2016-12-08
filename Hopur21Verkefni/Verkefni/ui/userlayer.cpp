@@ -1,5 +1,6 @@
 #include <iostream>
 #include "userlayer.h"
+#include <windows.h>
 
 using namespace std;
 
@@ -231,8 +232,7 @@ void UserLayer::addComputer()
 
     cout << "Select the computer type: ";
 
-
-    for(unsigned int i = 0;i<listOfComputerTypes.size();i++)
+    for(unsigned int i = 0; i < listOfComputerTypes.size(); i++)
     {
         // This should print a list of computer types
         cout << listOfComputerTypes.at(i);
@@ -240,8 +240,6 @@ void UserLayer::addComputer()
     // Validation needed
     int inputComputerType;
     cin >> inputComputerType;
-
-
     cout << endl;
 
     validity = false;
@@ -312,7 +310,7 @@ void UserLayer::addComputer()
 
     do
     {
-        cout << "Do you want to connect a person/s to the making of this computer? " << endl;
+        cout << "Do you want to connect a person or persons to the making of this computer? " << endl;
         cout << "Enter y for yes, n for no." << endl;
         cin >> yesOrNo;
 
@@ -320,7 +318,6 @@ void UserLayer::addComputer()
         {
             case 'y':
             case 'Y':
-
                 validity = true;
                 break;
             case 'n':
@@ -529,7 +526,15 @@ void UserLayer::printListOfComputers(vector<Computer> list)
         // number and name of the computer according to the size of the value i in the for loop
         adjustForSpaces(i);
 
+        // sets font in console to RED
+        HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+        SetConsoleTextAttribute(hConsole, 9);
+
         cout << name.append(32 - name.length(), constants::SPACE);
+
+        SetConsoleTextAttribute(hConsole, 15); //set back to black background and white text
+
+
         cout << type;
         cout << endl;
     }
