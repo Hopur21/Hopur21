@@ -41,6 +41,7 @@ public:
     //void getType(vector<Computer>& computers);
     bool computerScientistExist(const string& name);
     //Insert
+    bool addCStoComputer(const int cSID,const int compID);
     int addComputerScientist(const CSPerson value);
     int addComputer(const Computer value);
     //Update
