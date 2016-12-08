@@ -29,7 +29,7 @@ class CSPerson
         int getPassedAwayYear()const {return _passedAwayYear;}
         int getID(){return _id;}
         int getAge();
-        bool getIsAlive(){return _isAlive;}
+        bool getIsAlive()const {return _isAlive;}
 
         string getComments()const {return _comment;}
 
