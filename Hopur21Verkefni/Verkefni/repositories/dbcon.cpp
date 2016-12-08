@@ -180,7 +180,7 @@ void DbCon::getComputers(vector<Computer>& computers)
           QString name = query.value(query.record().indexOf("name")).toString();
           QString designYear = query.value(query.record().indexOf("design_year")).toString();
           QString buildYear = query.value(query.record().indexOf("build_year")).toString();
-          QString type = query.value(query.record().indexOf("type_ID")).toString();            // type_ID needs to be added/fixed
+          QString type = query.value(query.record().indexOf("type_ID")).toString();
           QString isCreated = query.value(query.record().indexOf("is_created")).toString();
           //cout << name.toStdString() << endl;
           //cout << idName << endl;
@@ -189,6 +189,19 @@ void DbCon::getComputers(vector<Computer>& computers)
        }
        if(!success){qDebug() << "addComputer error:  " << query.lastError();}
 }
+void DbCon::getType(vector<Computers>& computers)
+{
+    bool success = false;
+    QSqlQuery query("SELECT ID, name FROM computers ORDER BY name);
+        if(success == false)
+        {
+            success = true;
+        }
+        QString id = query.value(query.record()þindexOF("ID")).toString();
+        QString name = query.value(query.record()þindexOF("name")).toString();
+        setDatainTypeVector(computers, id.toInt(), name.toStdString());
+}
+
 bool DbCon::computerScientistExist(const string& name)
 {
     bool foundValdo = false;
