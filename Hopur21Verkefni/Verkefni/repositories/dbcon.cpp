@@ -147,7 +147,6 @@ int DbCon::addComputerScientist(const CSPerson value)
 }
 int DbCon::addComputer(const Computer value)
 {
-    //TODO - validate input.
     bool success = false;
     QSqlQuery query;
     query.prepare("INSERT INTO computers(name, design_year, build_year, is_created, type_ID) VALUES (:name, :designYear, :buildYear, :isCreated, :type)");
@@ -157,7 +156,7 @@ int DbCon::addComputer(const Computer value)
     query.bindValue(":isCreated", value.getIsCreated());
     query.bindValue(":type", QString::fromStdString(value.getTypeID()));
     success = query.exec();//Returns true/false if we made it
-    if(!success){qDebug() << "addComputerScientist error:  " << query.lastError();}
+    if(!success){qDebug() << "addComputer error:  " << query.lastError();}
     QVariant returnID = query.lastInsertId();
     return returnID.toInt();
 }
@@ -165,7 +164,6 @@ int DbCon::addComputer(const Computer value)
 //Update Querys
 bool DbCon::updateComputerScientist(CSPerson& computerScientist)
 {
-    //TODO: Validation
     bool success = false;
     QSqlQuery query;
     query.prepare("UPDATE computer_scientists SET name=(:name), birth_year=(:birthYear), death_year=(:deathYear), gender=(:gender), comment=(:comment), is_alive=(:isAlive) WHERE ID=(:id)");
@@ -175,24 +173,24 @@ bool DbCon::updateComputerScientist(CSPerson& computerScientist)
     query.bindValue(":isAlive", computerScientist.getIsAlive());
     query.bindValue(":gender", QString::fromStdString(computerScientist.getGender()));
     query.bindValue(":comment", QString::fromStdString(computerScientist.getComments()));
+    query.bindValue(":id", QString::fromStdString(to_string(computerScientist.getID())));
     success = query.exec();
     if(!success){qDebug() << "updateComputerScientist error:  " << query.lastError();}
     return success;
 }
-bool DbCon::updateComputer(const int& id, const string& name, const int& designYear, const int& buildYear, const string& type, const bool isCreated)
+bool DbCon::updateComputer(Computer& computer)
 {
-    //TODO: Validation
     bool success = false;
     QSqlQuery query;
     query.prepare("UPDATE computer_scientists SET name=(:name), design_year=(:designYear), build_year=(:buildYear), type_ID=(:type), is_created=(:isCreated) WHERE ID=(:id)");
-    query.bindValue(":name", QString::fromStdString(name));
-    query.bindValue(":designYear", getDateFormat(to_string(designYear)));
-    query.bindValue(":buildYear", getDateFormat(to_string(buildYear)));
-    query.bindValue(":isCreated", isCreated);
-    query.bindValue(":type", QString::fromStdString(type));
-    query.bindValue(":id", QString::fromStdString(to_string(id)));
+    query.bindValue(":name", QString::fromStdString(computer.getName()));
+    query.bindValue(":designYear", getDateFormat(to_string(computer.getDesignYear())));
+    query.bindValue(":buildYear", getDateFormat(to_string(computer.getBuildYear())));
+    query.bindValue(":isCreated", computer.getIsCreated());
+    query.bindValue(":type", QString::fromStdString(computer.getType()));
+    query.bindValue(":id", QString::fromStdString(to_string(computer.getID())));
     success = query.exec();
-    if(!success){qDebug() << "updateComputerScientist error:  " << query.lastError();}
+    if(!success){qDebug() << "updateComputer error:  " << query.lastError();}
     return success;
 }
 //Select Querys

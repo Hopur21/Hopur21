@@ -47,7 +47,7 @@ public:
     int addComputer(const Computer value);
     //Update
     bool updateComputerScientist(CSPerson& computerScientist);
-    bool updateComputer(const int& id, const string& name, const int& designYear, const int& buildYear, const string& type, const bool isCreated);
+    bool updateComputer(Computer& computer);
     //Delete
     bool removeComputerScientist(const int& scientistID);
     bool removeComputer(const int& computerID);
