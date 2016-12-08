@@ -3,7 +3,7 @@
 using namespace std;    // má henda
 ComputerService::ComputerService()
 {
-
+    _dbCon.getComputers(_fileKeeper);
 }
 
 //Þau föll sem er ekki búið að fara yfir fyrir (aðlaga) Viku2
