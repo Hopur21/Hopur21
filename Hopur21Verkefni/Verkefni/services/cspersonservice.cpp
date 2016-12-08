@@ -3,7 +3,6 @@
 
 CSPersonService::CSPersonService()
 {
-    _dbCon.getComputerScientists(_fileKeeper);
 }
 
 
@@ -51,72 +50,19 @@ bool CSPersonService::addNewPersonToList(const string name,const string gender, 
     }
     //Save our new person in our vector
     //_fileKeeper.push_back(CSPerson (name, gender, tempBirthYear, tempDeathYear, comment)); -- Removed
-    _data.writeToFile(_fileKeeper);// Write our updated vector to file
+    //_data.writeToFile(_fileKeeper);// Write our updated vector to file
     return true;//Return true that we made it
 }
-//We take in id as a string to avoid strange letters/input
-bool CSPersonService::removePersonFromList(const string id)
-{
-    size_t index = 0;
-    try
-    {
-        index = stoi(id);
-        index--; //Off by one
-    }
-    catch(int e)
-    {
-        return false;
-    }
-    if(index < _fileKeeper.size())
-    {
-        removeNodeFromList(index);
-        return true;//Return true that we successfully removed the person
-    }
-    return false;
-}
+
 
 // TODO
-bool CSPersonService::editPersonFromList(const string oldID, CSPerson person)
-{
-    size_t index = 0;
-    try
-    {
-        index = stoi(oldID);
-        index--; //Off by one
-    }
-    catch(int e)
-    {
-        return false;
-    }
-    if(index < _fileKeeper.size())
-    {
-        _fileKeeper[index] = person;
-        _data.writeToFile(_fileKeeper);
-        return true;//Return true that we successfully edited the person
-    }
-    return false;
-}
 
-int CSPersonService::getIndexOfValueByName(const string name)
-{
-    for(size_t i = 0; i < _fileKeeper.size(); i++)
-    {
-        if(name == _fileKeeper[i].getName())
-        {
-            return i;
-        }
-    }
-    return -1;//Return value less then 0
-}
-void CSPersonService::removeNodeFromList(const int index)
-{
-    _fileKeeper.erase(_fileKeeper.begin() + index);
-    _data.writeToFile(_fileKeeper);
-}
+
 
 //Search by name, find every value that we find and return all of those values in a vector
 vector<CSPerson> CSPersonService::searchByName(const string searchString)
 {
+    /*
     vector<CSPerson> tempVector;
     for(size_t i = 0; i < _fileKeeper.size(); i++)
     {
@@ -126,6 +72,7 @@ vector<CSPerson> CSPersonService::searchByName(const string searchString)
         }
     }
     return tempVector;
+    */
 }
 
 bool CSPersonService::validNumber(string number)
@@ -152,6 +99,7 @@ bool CSPersonService::validNumber(string number)
 vector<CSPerson> CSPersonService::searchByYearOfBirth(const string searchString)
 {
     vector<CSPerson> tempVector;
+    /*
     if(validNumber(searchString))
     {
         for(size_t i = 0; i < _fileKeeper.size(); i++)
@@ -163,12 +111,14 @@ vector<CSPerson> CSPersonService::searchByYearOfBirth(const string searchString)
             }
         }
     }
+    */
     return tempVector;
 }
 
 vector<CSPerson> CSPersonService::searchByYearOfDeath(const string searchString)
 {
     vector<CSPerson> tempVector;
+    /*
     if(validNumber(searchString))
     {
         for(size_t i = 0; i < _fileKeeper.size(); i++)
@@ -180,6 +130,7 @@ vector<CSPerson> CSPersonService::searchByYearOfDeath(const string searchString)
             }
         }
     }
+    */
     return tempVector;
 }
 
@@ -197,43 +148,4 @@ bool CSPersonService::checkIfStringSameIgnoreUpper(string orginalString, string 
     {
         return false;
     }
-}
-
-
-//Sorts
-
-void CSPersonService::sortByName()
-{
-    sort(_fileKeeper.begin(), _fileKeeper.end(), sortByNameDESC);
-    _data.writeToFile(_fileKeeper);//Write our change to the file
-}
-void CSPersonService::sortByNameASC()
-{
-    sort(_fileKeeper.begin(), _fileKeeper.end(), sortByNameASCC);
-    _data.writeToFile(_fileKeeper);
-}
-void CSPersonService::sortByGender()
-{
-    sort(_fileKeeper.begin(), _fileKeeper.end(), sortByGenderDESC);
-    _data.writeToFile(_fileKeeper);
-}
-void CSPersonService::sortByDeathYear()
-{
-    sort(_fileKeeper.begin(), _fileKeeper.end(), sortByDeathYearASCC);
-    _data.writeToFile(_fileKeeper);
-}
-void CSPersonService::sortByBirthYear()
-{
-    sort(_fileKeeper.begin(), _fileKeeper.end(), sortByBirthYearDESC);
-    _data.writeToFile(_fileKeeper);
-}
-void CSPersonService::sortByBirthYearASC()
-{
-    sort(_fileKeeper.begin(), _fileKeeper.end(), sortByBirthYearASCC);
-    _data.writeToFile(_fileKeeper);
-}
-void CSPersonService::sortByAge()
-{
-    sort(_fileKeeper.begin(), _fileKeeper.end(), sortByAgeASCC);
-    _data.writeToFile(_fileKeeper);
 }

@@ -4,13 +4,11 @@
 #include <vector>
 #include "models/csperson.h"
 #include "repositories/datalayer.h"
-#include "repositories/dbcon.h"
 
 class CSPersonService
 {
     public:
         CSPersonService();
-        void getCompleteList(vector<CSPerson>& storage){storage = _fileKeeper;}
 
         //Sets
         void setCompleteList();
@@ -31,10 +29,7 @@ class CSPersonService
         vector<CSPerson> searchByYearOfDeath(const string searchString);
 
     private:
-        vector<CSPerson> _fileKeeper;
-        DbCon _dbCon;
         DataLayer _data; //TODO að fjarlægja!
-
         //Sets
         void removeNodeFromList(const int index);
 
