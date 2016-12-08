@@ -10,7 +10,7 @@ using namespace std;
 
 void UserLayer::addPerson()
 {
-    string gender, comment, birthYear,deathYear, input;
+    string gender, comment, birthYear, deathYear, input;
     string name = "";
     char userInput;
     int error_counter = 0;
@@ -126,7 +126,7 @@ void UserLayer::addPerson()
             cout << "Choose one or more computers" << endl;
             cout << endl;
 
-            for(unsigned int i=0; i<computerList.size(); i++)
+            for(unsigned int i=0; i < computerList.size(); i++)
             {
                   cout << i+1 << "  " << computerList.at(i).getName() << endl;
             }
@@ -139,7 +139,7 @@ void UserLayer::addPerson()
             do
             {
                 cout << "Enter one or more numbers with spaces between them: " << endl;
-                cout << "End with a zero." << endl;
+                cout << "End with a zero. " << endl;
                 while(number != 0)
                 {
                     try
@@ -163,21 +163,18 @@ void UserLayer::addPerson()
                     }
                     else if(!isdigit(number))
                     {
-
                         string selection = computerList.at(number -1).getName();
                         userSelection.push_back(selection);
                     }
-
-
                 }
             }while(validity == false);
         }
     }
 
     int realID;
-    for(unsigned i = 0; i< userSelection.size() ;i++)
+    for(unsigned i = 0; i < userSelection.size() ;i++)
     {
-        for(unsigned int j = 0; j< computerList.size(); j++)
+        for(unsigned int j = 0; j < computerList.size(); j++)
         {
             if(userSelection.at(i) == computerList.at(j).getName())
             {
@@ -196,7 +193,6 @@ void UserLayer::addPerson()
     {
         cout << "Something went wrong." << endl;
     }
-
 }
 
 void UserLayer::addComputer()

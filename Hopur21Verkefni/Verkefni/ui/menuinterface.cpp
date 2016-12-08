@@ -90,8 +90,8 @@ string MenuInterface::subMenu()
     {
         cout << endl;
         cout << "Choose either:" << endl;
-        cout << "| 1 | A computer " << endl;
-        cout << "| 2 | A scientist " << endl;
+        cout << "| 1 | Computer " << endl;
+        cout << "| 2 | Scientist " << endl;
 
         cin >> subMenuChoice;
 
@@ -128,9 +128,10 @@ void MenuInterface::processChoice(const string choice)
             _uL.searchForAComputer();
             break;
         case 3:
-            banner();
+            // banner();
+            // hér gæti verið val um að bæta við tegund?
             _uL.addComputer();
-        break;
+            break;
         case 4:
             // Remove a computer
             break;
@@ -153,7 +154,7 @@ void MenuInterface::processChoice(const string choice)
             break;
         case 3:
             _uL.addPerson();
-        break;
+            break;
         case 4:
             _uL.removePersonFromList();
             break;
