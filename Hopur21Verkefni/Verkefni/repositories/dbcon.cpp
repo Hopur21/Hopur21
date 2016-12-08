@@ -143,11 +143,30 @@ bool DbCon::updateComputer(const int& id, const string& name, const int& designY
     return success;
 }
 //Select Querys
-void getComputersConnectedToSC(vector<Computer>& compuerList,const int scientistID)
+void DbCon::getComputersConnectedToSC(vector<Computer>& compuerList,const int scientistID)
 {
+    bool success = false;
     QSqlQuery query;
     query.prepare("SELECT c.ID, c.name, YEAR(c.design_year) AS design_year, YEAR(c.build_year) AS build_year, c.type_ID,(SELECT name FROM type WHERE ID = type_ID) AS type, c.is_created FROM computer_scientists_computers csc JOIN computers c ON (csc.computer_ID=c.ID) WHERE csc.computer_scientist_ID = (:scientistID);");
     query.bindValue(":scientistID", scientistID);
+    while (query.next())
+    {
+        if(success == false)//If we made it here the query was a success, no need to set it to true for every single loop
+        {
+            success = true;
+        }
+        //Get the index of the column we are going to find and save our current data into the variable.
+       QString id = query.value(query.record().indexOf("ID")).toString();
+       QString name = query.value(query.record().indexOf("name")).toString();
+       QString designYear = query.value(query.record().indexOf("design_year")).toString();
+       QString buildYear = query.value(query.record().indexOf("build_year")).toString();
+       QString type = query.value(query.record().indexOf("type")).toString();
+       QString typeID = query.value(query.record().indexOf("type_ID")).toString();
+       QString isCreated = query.value(query.record().indexOf("is_created")).toString();
+       compuerList.clear();
+       setDataInComputerVector(compuerList, id.toInt(), name.toStdString(), designYear.toInt(), buildYear.toInt(), type.toStdString(),typeID.toStdString(), isCreated.toInt());
+    }
+    if(!success){qDebug() << "getComputersConnectedToSC error:  " << query.lastError();}
 }
 
 void DbCon::getComputerScientists(vector<CSPerson>& computerScientists)
