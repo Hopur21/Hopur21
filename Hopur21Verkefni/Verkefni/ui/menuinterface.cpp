@@ -125,7 +125,7 @@ void MenuInterface::processChoice(const string choice)
             displayComputers();
             break;
         case 2:
-            // Search for a computer"
+            _uL.searchForAComputer();
             break;
         case 3:
             banner();
