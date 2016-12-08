@@ -353,12 +353,12 @@ void UserLayer::printListOfComputers(vector<Computer> list)
     }
 
     cout <<   "#     NAME                            TYPE           BUILD YEAR    DESIGN YEAR" << endl;
-    cout <<   "------------------------------------------------------------------------------"<< endl;
+    cout <<   "------------------------------------------------------------------------------" << endl;
 
     for(int i=0;i<sizeOfList;i++)
     {
         string name = list.at(i).getName();
-        string type = list.at(i).getTypeID(); //er þetta fall til?
+        string type = list.at(i).getTypeID();
         string stringBuildYear = to_string(list.at(i).getBuildYear()); //á eftir að útfæra?
         string stringDesignYear = to_string(list.at(i).getDesignYear()); //á eftir að útfæra?
 
