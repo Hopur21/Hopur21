@@ -98,7 +98,10 @@ bool DbCon::addComputer(const Computer value)
     query.bindValue(":type", QString::fromStdString(value.getTypeID()));
     success = query.exec();//Returns true/false if we made it
     if(!success){qDebug() << "addComputerScientist error:  " << query.lastError();}
-    return success;
+    int stuff = 0;
+    //stuff = query.lastInsertId;
+    //stuff
+    return true;
 }
 
 //Update Querys
