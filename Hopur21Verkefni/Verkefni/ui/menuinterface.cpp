@@ -59,7 +59,19 @@ void MenuInterface::DisplayMenu()
         }
         else if(choice == "Q" || choice == "q")
         {
-            return;
+            char choice;
+            cout << "Are you sure you want to quit the program?" << endl;
+            cout << "Enter y for yes, and n for no: ";
+            cin >> choice;
+            if(choice != 'y' && choice != 'Y')
+            {
+                cout << endl;
+                DisplayMenu();
+            }
+            else
+            {
+                return;
+            }
         }
         else
         {
