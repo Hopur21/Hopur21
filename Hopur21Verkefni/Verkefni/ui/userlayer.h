@@ -15,24 +15,32 @@ class UserLayer
         void printListOfScientists(vector<CSPerson> list);
         void printListOfComputers(vector<Computer> list);
         void printListMoreInfo(vector<CSPerson> list);
+        void adjustForSpaces(int i);
+        void printGenderMenu();
         bool checkNumberValidity(string userInput);
         string birthYearValidation(string birthYear);
         string deathYearValidation(string birthYear, string deathYear);
-        void adjustForSpaces(int i);
-        void printGenderMenu();
 
     public:
         UserLayer(){}
         void addPerson();
         void addComputer();
         void removePersonFromList();
-        void sortListAlphabetically();
-        void sortListAlphabeticallyASC();
-        void sortListByGender();
-        void sortListByDeathYear();
-        void sortListByBirthYear();
-        void sortListByBirthYearASC();
-        void sortListByAge();
+        //Scientist Sorts
+        void sortScientistListAlphabetically();
+        void sortScientistListAlphabeticallyDESC();
+        void sortScientistListByGender();
+        void sortScientistListByDeathYear();
+        void sortScientistListByBirthYear();
+        void sortScientistListByBirthYearASC();
+        void sortScientistListByAge();
+        //TODO Computer Sorts
+        void sortComputerListAlphabetically();
+        void sortComputerListAlphabeticallyDESC();
+        void sortComputerListByDesignYear();
+        void sortComputerListByType();
+        void sortComputerListByWasBuilt();
+        void sortComputerListByBuildYear();
         void searchForAPerson();
         void searchForAComputer();
         void printCompleteList();

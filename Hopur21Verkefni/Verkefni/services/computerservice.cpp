@@ -1,7 +1,7 @@
 #include "computerservice.h"
 //Bool variablers are used in sorting to decide the order of sorting, DESCending and ASCending
-bool sortByNameDESCC(const Computer &lhs, const Computer &rhs) { return lhs.getName() < rhs.getName(); }
-bool sortByNameASCC(const Computer &lhs, const Computer &rhs) { return lhs.getName() > rhs.getName(); }
+bool sortByNameDESCC(const Computer &lhs, const Computer &rhs) { return lhs.getName() > rhs.getName(); }
+bool sortByNameASCC(const Computer &lhs, const Computer &rhs) { return lhs.getName() < rhs.getName(); }
 bool sortByDesignYearASC(const Computer &lhs, const Computer &rhs) {return lhs.getDesignYear() < rhs.getDesignYear(); }
 bool sortByBuiltYearASC(const Computer &lhs, const Computer &rhs) {return lhs.getBuildYear() > rhs.getBuildYear(); }
 bool sortByTypeASC(const Computer &lhs, const Computer &rhs) { return lhs.getType() < rhs.getType(); }

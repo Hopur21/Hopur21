@@ -686,49 +686,85 @@ void UserLayer::printCompleteList()
 {
     printListOfScientists(_service.getComputerScientistList());
 }
-
-void UserLayer::sortListAlphabetically()
+//Scientist Sorts
+void UserLayer::sortScientistListAlphabetically()
 {
-    _service.sortListAlphabetically();
+    _service.sortScientistListAlphabetically();
     printListOfScientists(_service.getComputerScientistList());
 }
 
-void UserLayer::sortListAlphabeticallyASC()
+void UserLayer::sortScientistListAlphabeticallyDESC()
 {
-    _service.sortListAlphabeticallyASC();
+    _service.sortScientistListAlphabeticallyDESC();
     printListOfScientists(_service.getComputerScientistList());
 }
 
-void UserLayer::sortListByGender()
+void UserLayer::sortScientistListByGender()
 {
-    _service.sortListByGender();
+    _service.sortScientistListByGender();
     printListOfScientists(_service.getComputerScientistList());
 }
 
-void UserLayer::sortListByDeathYear()
+void UserLayer::sortScientistListByDeathYear()
 {
-    _service.sortListByDeathYear();
+    _service.sortScientistListByDeathYear();
     printListOfScientists(_service.getComputerScientistList());
 }
 
-void UserLayer::sortListByBirthYear()
+void UserLayer::sortScientistListByBirthYear()
 {
-    _service.sortListByBirthYear();
+    _service.sortScientistListByBirthYear();
     printListOfScientists(_service.getComputerScientistList());
 }
 
-void UserLayer::sortListByBirthYearASC()
+void UserLayer::sortScientistListByBirthYearASC()
 {
-    _service.sortListByBirthYearASC();
+    _service.sortScientistListByBirthYearASC();
     printListOfScientists(_service.getComputerScientistList());
 }
 
-void UserLayer::sortListByAge()
+void UserLayer::sortScientistListByAge()
 {
-    _service.sortListByAge();
+    _service.sortScientistListByAge();
     printListOfScientists(_service.getComputerScientistList());
 }
+//TODO Computer Sorts
+void UserLayer::sortComputerListAlphabetically()
+{
+    _service.sortComputerListAlphabetically();
+    printListOfComputers(_service.getComputerList());
+}
 
+void UserLayer::sortComputerListAlphabeticallyDESC()
+{
+    _service.sortComputerListAlphabeticallyDESC();
+    printListOfComputers(_service.getComputerList());
+}
+
+void UserLayer::sortComputerListByDesignYear()
+{
+    _service.sortComputerListByDesignYear();
+    printListOfComputers(_service.getComputerList());
+}
+
+void UserLayer::sortComputerListByType()
+{
+    _service.sortComputerListByType();
+    printListOfComputers(_service.getComputerList());
+}
+
+void UserLayer::sortComputerListByWasBuilt()
+{
+    _service.sortComputerListWasBuilt();
+    printListOfComputers(_service.getComputerList());
+}
+
+void UserLayer::sortComputerListByBuildYear()
+{
+    _service.sortComputertListByBuildYear();
+    printListOfComputers(_service.getComputerList());
+}
+//Searches
 void UserLayer::searchForAPerson()
 {
     string userInput, searchString;

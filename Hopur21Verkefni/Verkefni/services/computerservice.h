@@ -1,6 +1,7 @@
 #ifndef COMPUTERSERVICE_H
 #define COMPUTERSERVICE_H
 #include <vector>
+#include <algorithm>//Used for sort
 #include "models/computer.h"
 
 class ComputerService
