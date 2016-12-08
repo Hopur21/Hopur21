@@ -123,20 +123,20 @@ vector<CSPerson> Service::searchByYearOfDeath(const string searchString)
     return searchByYOD;
 }
 
-vector<Computer> searchComputerByName(const string searchString)
+vector<Computer> Service::searchComputerByName(const string searchString)
 {
     // TODO
     vector <Computer> searchByName;
     return searchByName;
 }
 
-vector<Computer> searchComputerByType(const string searchString)
+vector<Computer> Service::searchComputerByType(const string searchString)
 {
     // TODO
     vector <Computer> searchByType;
     return searchByType;
 }
-vector<Computer> searchComputerByYear(const string searchString)
+vector<Computer> Service::searchComputerByYear(const string searchString)
 {
     // TODO
     vector <Computer> searchByYear;
