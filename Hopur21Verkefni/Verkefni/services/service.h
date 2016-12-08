@@ -39,6 +39,11 @@ class Service
         vector<CSPerson> searchByYearOfBirth(const string searchString);
         vector<CSPerson> searchByYearOfDeath(const string searchString);
 
+        vector<Computer> searchComputerByName(const string searchString);
+        vector<Computer> searchComputerByType(const string searchString);
+        vector<Computer> searchComputerByYear(const string searchString);
+
+
         void sortListAlphabetically();
         void sortListAlphabeticallyASC();
         void sortListByGender();

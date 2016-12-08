@@ -472,7 +472,6 @@ void UserLayer::printListMoreInfoComputer()
         cout << "TODO PRENTA UPPLÝSINGAR UM HÖNNUÐI OG SVOLEIÐIS!" << endl;
     }
     cout <<   "------------------------------------------------------------------------------" << endl;
-
 }
 
 void UserLayer::printListOfScientists(vector<CSPerson> list)
@@ -636,7 +635,6 @@ void UserLayer::searchForAPerson()
         cout << "| 3 | Search by year of death" << endl;
         cout << "| 0 | Go back" << endl;
         cout << "Enter your choice here: ";
-        //viljum við hafa Go Back option hérna til að hætta við leit?
 
         cin >> userInput;
         if(userInput == constants::GO_BACKSTRING)
@@ -669,7 +667,49 @@ void UserLayer::searchForAPerson()
     }
 }
 
-//Gefur villuskilaboð ef notandi slær inn rangan valkost
+void UserLayer::searchForAComputer()
+{
+    string userInput, searchString;
+
+    do
+    {
+        cout << "| 1 | Search by name" << endl;
+        cout << "| 2 | Search by type" << endl;
+        cout << "| 3 | Search by year" << endl;
+        cout << "| 0 | Go back" << endl;
+        cout << "Enter your choice here: ";
+
+        cin >> userInput;
+        if(userInput == constants::GO_BACKSTRING)
+        {
+            return;
+        }
+        if(userInput == constants::SEARCH_BY_NAME || userInput == constants::SEARCH_BY_TYPE || userInput == constants::SEARCH_BY_YEAR)
+        {
+            break;
+        }
+        invalidInput();
+
+    }while(userInput != constants::SEARCH_BY_NAME || userInput != constants::SEARCH_BY_TYPE || userInput != constants::SEARCH_BY_YEAR);
+
+    cout << "Please enter either: Name, type or year : ";
+    cin.ignore();
+    getline(cin, searchString);
+
+    if(userInput == constants::SEARCH_BY_NAME)
+    {
+        _service.searchComputerByName(searchString);
+    }
+    else if(userInput == constants::SEARCH_BY_TYPE)
+    {
+        _service.searchComputerByType(searchString);
+    }
+    else if(userInput == constants::SEARCH_BY_YEAR)
+    {
+        _service.searchComputerByYear(searchString);
+    }
+}
+
 void UserLayer::invalidInput()
 {
     cout << "Your input was invalid, please try again." << endl;
