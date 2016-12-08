@@ -70,6 +70,7 @@ void MenuInterface::DisplayMenu()
             }
             else
             {
+                cout << endl;
                 return;
             }
         }
