@@ -6,6 +6,6 @@ Computer::Computer(int id, string name, int designyear, int buildyear, string ty
     _designYear = designyear;
     _buildYear = buildyear;
     _type = type;
-    _created = created;
+    _isCreated = created;
     _id = id;
 }
