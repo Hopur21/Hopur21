@@ -133,29 +133,7 @@ bool DbCon::computerScientistExist(const int& id)
 }
 void DbCon::getComputers(vector<Computer>& computers)
 {
-    bool success = false;
-    QSqlQuery query("SELECT ID, name, YEAR(birth_year) AS birth_year, YEAR(death_year) AS death_year, gender, comment, is_alive FROM computer_scientists ORDER BY name");
-    //int idName = query.record().indexOf("name");
-    while (query.next())
-    {
-        if(success == false)//If we made it here the query was a success, no need to set it to true for every single loop
-        {
-            success = true;
-        }
-        //Get the index of the column we are going to find and save our current data into the variable.
-       QString id = query.value(query.record().indexOf("ID")).toString();
-       QString name = query.value(query.record().indexOf("name")).toString();
-       QString birthYear = query.value(query.record().indexOf("birth_year")).toString();
-       QString deathYear = query.value(query.record().indexOf("death_year")).toString();
-       QString gender = query.value(query.record().indexOf("gender")).toString();
-       QString comment = query.value(query.record().indexOf("comment")).toString();
-       QString isAlive = query.value(query.record().indexOf("is_alive")).toString();
-       //cout << name.toStdString() << endl;
-       //cout << idName << endl;
-       //qDebug() << name;
-       setDataInPersonVector(computerScientists, id.toInt(), name.toStdString(), gender.toStdString(), birthYear.toInt(), deathYear.toInt(), comment.toStdString(), isAlive.toInt());
-    }
-    if(!success){qDebug() << "addComputerScientist error:  " << query.lastError();}
+
 }
 
 bool DbCon::testFunction(const QString& name)
