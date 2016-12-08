@@ -1,10 +1,10 @@
 #ifndef SERVICE_H
 #define SERVICE_H
 #include <vector>
-#include "services/computerservice.h"
-#include "services/cspersonservice.h"
 #include "models/computer.h"
 #include "models/csperson.h"
+#include "services/computerservice.h"
+#include "services/cspersonservice.h"
 #include "repositories/dbcon.h"
 #include <string>
 

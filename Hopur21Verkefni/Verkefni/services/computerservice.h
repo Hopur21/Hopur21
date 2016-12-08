@@ -2,7 +2,6 @@
 #define COMPUTERSERVICE_H
 #include <vector>
 #include "models/computer.h"
-#include "repositories/datalayer.h"
 
 class ComputerService
 {
@@ -28,7 +27,6 @@ public:
 
 
 private:
-
     //Sets
     void removeNodeFromList(const int index);
 

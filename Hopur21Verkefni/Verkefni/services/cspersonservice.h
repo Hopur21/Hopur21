@@ -3,7 +3,6 @@
 #include <algorithm>
 #include <vector>
 #include "models/csperson.h"
-#include "repositories/datalayer.h"
 
 class CSPersonService
 {
@@ -29,7 +28,6 @@ class CSPersonService
         vector<CSPerson> searchByYearOfDeath(const string searchString);
 
     private:
-        DataLayer _data; //TODO að fjarlægja!
         //Sets
         void removeNodeFromList(const int index);
 
