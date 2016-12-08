@@ -14,11 +14,12 @@ bool Service::addNewPersonToList(const string name,const string gender, const st
     return false;
 }
 
-bool Service::addNewComputerToList(const string name,const int designyear, const int buildyear, const string type, const bool created)
+bool Service::addNewComputerToList(const string name,const int designYear, const int buildYear, const string type, const bool created)
 {
-
-    if(_computerService.addNewComputerToList(name, designyear, buildyear, type, created))
+    Computer newComputer;
+    if(_computerService.addNewComputerToList(newComputer, name, designYear, buildYear, type, created))
     {
+        _dbCon.addComputer(newComputer);
         return true;
     }
     return false;
@@ -47,10 +48,13 @@ vector <string> Service::getComputerTypesList()
 }
 vector<Computer> Service::getComputerList()
 {
-    _dbCon.getComputers(_computerList);
+    updateComputerList();
     return _computerList;
 }
-
+void Service::updateComputerList()
+{
+    _dbCon.getComputers(_computerList);
+}
 
 
 

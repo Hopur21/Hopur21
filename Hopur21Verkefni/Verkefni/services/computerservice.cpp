@@ -4,6 +4,18 @@ using namespace std;    // má henda
 ComputerService::ComputerService()
 {
 }
+bool ComputerService::addNewComputerToList(Computer& newComputer, const string name,const int designyear, const int buildyear, const string type ,const bool created)
+{
+    //TODO - Validation (which will return false)
+    newComputer.setName(name);
+    newComputer.setDesignYear(designyear);
+    newComputer.setBuildYear(buildyear);
+    newComputer.setType(type);
+    newComputer.setCreated(created);
+    return true;
+}
+
+
 
 //Þau föll sem er ekki búið að fara yfir fyrir (aðlaga) Viku2
 
@@ -20,19 +32,7 @@ void ComputerService::setCompleteList()
     //TODO
 }
 
-bool ComputerService::addNewComputerToList(const string name,const int designyear, const int buildyear, const string type ,const bool created)
-{
-    Computer newComputer;
-    newComputer.setName(name);
-    newComputer.setDesignYear(designyear);
-    newComputer.setBuildYear(buildyear);
-    newComputer.setType(type);
-    newComputer.setCreated(created);
 
-    // TODO Save newComputer to database
-
-    return false;
-}
 bool ComputerService::removeComputerFromList(const string id)
 {
     // TODO
