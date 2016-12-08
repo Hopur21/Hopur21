@@ -8,11 +8,11 @@ class Computer
 {
     private:
         string _name;
-        int _designYear;
-        int _buildYear;
         string _type;
         bool _created;
         int _id;
+        int _designYear;
+        int _buildYear;
 
     public:
         Computer(){}
