@@ -536,8 +536,8 @@ void UserLayer::searchForAPerson()
     do
     {
         cout << "| 1 | Search by name" << endl;
-        cout << "| 2 | Search by year of year of birth" << endl;
-        cout << "| 3 | Search by year of year of death" << endl;
+        cout << "| 2 | Search by year of birth" << endl;
+        cout << "| 3 | Search by year of death" << endl;
         cout << "| 0 | Go back" << endl;
         cout << "Enter your choice here: ";
         //viljum við hafa Go Back option hérna til að hætta við leit?
