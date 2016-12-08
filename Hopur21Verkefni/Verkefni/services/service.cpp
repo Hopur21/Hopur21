@@ -5,9 +5,9 @@ Service::Service()
 
 }
 
-bool Service::addNewPersonToList(const string name,const string gender, const string birthYear, const string deathYear,const string comment)
+bool Service::addNewPersonToList(const string name,const string gender, const string birthYear, const string deathYear,const string comment, const vector<int> computerConnectionID)
 {
-    if(_cSPersonService.addNewPersonToList(name, gender,birthYear, deathYear, comment))
+    if(_cSPersonService.addNewPersonToList(name, gender,birthYear, deathYear, comment, computerConnectionID))
     {
         return true;
     }
