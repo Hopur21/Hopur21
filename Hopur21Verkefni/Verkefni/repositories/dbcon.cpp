@@ -187,17 +187,16 @@ void DbCon::getComputers(vector<Computer>& computers)
        }
        if(!success){qDebug() << "addComputer error:  " << query.lastError();}
 }
-bool DbCon::computerScientistExist(const int& id)
+bool DbCon::computerScientistExist(const string& name)
 {
     bool foundValdo = false;
     QSqlQuery query;
-    query.prepare("SELECT name FROM computer_scientists WHERE ID = (:id)");
-    query.bindValue(":id", id);
+    query.prepare("SELECT name FROM computer_scientists WHERE name = (:name)");
+    query.bindValue(":name", QString::fromStdString(name));
     if (query.exec())
     {
        if (query.next())
        {
-           qDebug() << "made it.";
            foundValdo = true;
        }
     }

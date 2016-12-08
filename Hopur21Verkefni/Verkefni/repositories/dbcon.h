@@ -35,7 +35,7 @@ public:
     //Select
     void getComputerScientists(vector<CSPerson>& computerScientists);
     void getComputers(vector<Computer>& computers);
-    bool computerScientistExist(const int& id);
+    bool computerScientistExist(const string& name);
     //Insert
     bool addComputerScientist(const CSPerson value);
     bool addComputer(const Computer value);
