@@ -69,18 +69,18 @@ bool DbCon::removeComputer(const int& computerID)
     return success;
 }
 //Insert Querys
-bool DbCon::addComputerScientist(const string& name, const int& birthYear, const int& deathYear, const bool isAlive, const string& gender, const string& comment)
+bool DbCon::addComputerScientist(const CSPerson value)
 {
     //TODO - validate input.
     bool success = false;
     QSqlQuery query;
     query.prepare("INSERT INTO computer_scientists(name, birth_year, death_year, is_alive, gender, comment) VALUES (:name, :birthYear, :deathYear, :isAlive, :gender, :comment)");
-    query.bindValue(":name", QString::fromStdString(name));
-    query.bindValue(":birthYear", getDateFormat(to_string(birthYear)));
-    query.bindValue(":deathYear", getDateFormat(to_string(deathYear)));
-    query.bindValue(":isAlive", isAlive);
-    query.bindValue(":gender", QString::fromStdString(gender));
-    query.bindValue(":comment", QString::fromStdString(comment));
+    query.bindValue(":name", QString::fromStdString(value.getName()));
+    query.bindValue(":birthYear", getDateFormat(to_string(value.getBirthYear())));
+    query.bindValue(":deathYear", getDateFormat(to_string(value.getPassedAwayYear())));
+    query.bindValue(":isAlive", value.getIsAlive());
+    query.bindValue(":gender", QString::fromStdString(value.getGender()));
+    query.bindValue(":comment", QString::fromStdString(value.getComments()));
     success = query.exec();//Returns true/false if we made it
     if(!success){qDebug() << "addComputerScientist error:  " << query.lastError();}
     return success;
