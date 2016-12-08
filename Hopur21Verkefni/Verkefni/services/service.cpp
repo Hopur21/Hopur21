@@ -126,14 +126,14 @@ vector<CSPerson> Service::searchByYearOfDeath(const string searchString)
 vector<Computer> Service::searchComputerByName(const string searchString)
 {
     // TODO
-    vector <Computer> searchByName;
+    vector <Computer> searchByName; // = _computerService.searchByName;
     return searchByName;
 }
 
 vector<Computer> Service::searchComputerByType(const string searchString)
 {
     // TODO
-    vector <Computer> searchByType;
+    vector <Computer> searchByType; // = _computerService.searchByType
     return searchByType;
 }
 vector<Computer> Service::searchComputerByYear(const string searchString)

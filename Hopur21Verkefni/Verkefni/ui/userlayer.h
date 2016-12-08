@@ -39,9 +39,6 @@ class UserLayer
         void printListMoreInfoComputer();
         void printCompleteListOfComputers();
 
-
-
-
         void invalidInput();
 };
 

@@ -1,10 +1,5 @@
 #include <iostream>
 #include "userlayer.h"
-//
-#include <iterator>
-#include <sstream>
-//
-
 
 using namespace std;
 
@@ -168,7 +163,6 @@ void UserLayer::addPerson()
                         userSelection.push_back(selection);
                     }
 
-
                 }
             }while(validity == false);
         }
@@ -207,6 +201,7 @@ void UserLayer::addComputer()
     int intDesignYear, intBuildYear;
     bool created = false;
     bool validity = false;
+    bool connectPersons = false;
     char yesOrNo;
 
     cout << "Enter the name of the computer: ";
@@ -242,8 +237,10 @@ void UserLayer::addComputer()
 
     for(unsigned int i = 0;i<listOfComputerTypes.size();i++)
     {
+        // This should print a list of computer types
         cout << listOfComputerTypes.at(i);
     }
+    // Validation needed
     int inputComputerType;
     cin >> inputComputerType;
 
@@ -252,9 +249,73 @@ void UserLayer::addComputer()
 
     validity = false;
 
+    // VILLA Í þessu
+/*
     do
     {
         cout << "Was this computer ever built?" << endl;
+        cout << "Enter y for yes, n for no." << endl;
+
+        cin >> yesOrNo;
+
+        switch(yesOrNo)
+        {
+            case 'y':
+            case 'Y':
+            cout << "EHAHEA";
+                created = true;
+                validity = true;
+                break;
+            case 'n':
+            case 'N':
+                created = false;
+                validity = true;
+                break;
+            default:
+                invalidInput();
+                break;
+        }
+
+    }while(validity == false);
+
+
+
+
+    if(created == true)
+    {
+
+        validity = false;
+        do
+        {
+
+            buildYear = "";
+            cin >> buildYear;
+
+            if(!checkNumberValidity(buildYear))
+            {
+                intBuildYear = stoi(buildYear);
+                validity = true;
+            }
+            else
+            {
+                invalidInput();
+            }
+            cout << "Enter the year the computer was built: ";
+
+        }while(validity == false);
+    }
+    else
+    {
+        intBuildYear = 0;
+    }
+
+
+    validity = false;
+*/
+
+    do
+    {
+        cout << "Do you want to connect a person/s to the making of this computer? " << endl;
         cout << "Enter y for yes, n for no." << endl;
         cin >> yesOrNo;
 
@@ -262,7 +323,7 @@ void UserLayer::addComputer()
         {
             case 'y':
             case 'Y':
-                created = true;
+
                 validity = true;
                 break;
             case 'n':
@@ -277,29 +338,71 @@ void UserLayer::addComputer()
 
     }while(validity != true);
 
-    if(created == true)
+    vector<int> realScientistID;
+    vector<CSPerson> computerScientistList = _service.getComputerScientistList();
+    vector<string> userSelection;
+    int sizeOfList = computerScientistList.size();
+
+    if(connectPersons == true)
     {
 
+        for(int i=0; i<sizeOfList; i++)
+        {
+              cout << i+1 << "  " << computerScientistList.at(i).getName() << endl;
+        }
+
+        int number = 1;
         validity = false;
+
         do
         {
-            cout << "Enter the year the computer was built: ";
-            cin >> buildYear;
+            cout << "Enter one or more numbers with spaces between them: " << endl;
+            cout << "End with a zero." << endl;
+            while(number != 0)
+            {
+                try
+                {
+                    cin >> number;
+                }
+                catch(int e)
+                {
+                    invalidInput();
+                }
 
-            if(!checkNumberValidity(buildYear))
-            {
-                intBuildYear = stoi(buildYear);
-                validity = true;
+                if(number < 0 || number >= sizeOfList)
+                {
+                    invalidInput();
+                }
+                else if(number == 0)
+                {
+                    validity = true;
+                    break;
+                }
+                else if(!isdigit(number))
+                {
+
+                    string selection = computerScientistList.at(number -1).getName();
+                    userSelection.push_back(selection);
+                }
+
             }
-            else
+        }while(validity == false);
+
+        int realID;
+
+        for(unsigned i = 0; i< userSelection.size() ;i++)
+        {
+            for(unsigned int j = 0; j< computerScientistList.size(); j++)
             {
-                invalidInput();
+                if(userSelection.at(i) == computerScientistList.at(j).getName())
+                {
+                    realID = computerScientistList.at(j).getID();
+                    cout << "-------> " << realID << endl;
+                    realScientistID.push_back(realID);
+                }
             }
-        }while(validity != true);
-    }
-    else
-    {
-        intBuildYear = 0;
+        }
+
     }
 
     vector<int> tempvectorToIgnoreError;

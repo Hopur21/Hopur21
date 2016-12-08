@@ -7,6 +7,7 @@ ComputerService::ComputerService()
 bool ComputerService::addNewComputerToList(Computer& newComputer, const string name,const int designyear, const int buildyear, const string type ,const bool created)
 {
     //TODO - Validation (which will return false)
+    //TODO - Save to database
     newComputer.setName(name);
     newComputer.setDesignYear(designyear);
     newComputer.setBuildYear(buildyear);
@@ -75,19 +76,14 @@ vector<Computer> ComputerService::searchByName(const string searchString)
     return newComputerService;
 }
 
-vector<Computer> ComputerService::searchByDesignYear(const string searchString)
+
+vector<Computer> ComputerService::searchByYear(const string searchString)
 {
     // TODO
     vector <Computer> newComputerService;
     return newComputerService;
 }
 
-vector<Computer> ComputerService::searchByBuildYear(const string searchString)
-{
-    // TODO
-    vector <Computer> newComputerService;
-    return newComputerService;
-}
 vector<Computer> ComputerService::searchByType(const string searchString)
 {
     // TODO
