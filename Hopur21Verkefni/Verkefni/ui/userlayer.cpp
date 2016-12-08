@@ -7,7 +7,11 @@ void UserLayer::addPerson()
 {
     string gender, comment, birthYear,deathYear, input;
     string name = "";
+    char userInput;
     int error_counter = 0;
+    bool validity = false;
+    // A list of all computers the scientist might have had something to do with
+    vector<Computer> list = _service.getComputerList();
 
     // If user inputs no input an error message occurs
     do
@@ -68,6 +72,57 @@ void UserLayer::addPerson()
     cin.ignore();
     getline(cin, comment);
     cout << endl;
+
+    error_counter = 0;
+    do
+    {
+        if(error_counter == 0)
+        {
+            cout << "Did this person contribute to designing or creating a computer?" << endl;
+            cout << "Enter y for yes, n for no." << endl;
+        }
+        else
+        {
+            invalidInput();
+            cout << "Enter y for yes, n for no." << endl;
+        }
+        cin >> userInput;
+
+        switch(userInput)
+        {
+            case 'y':
+            case 'Y':
+                userInput = 'y';
+                validity = true;
+                break;
+            case 'n':
+            case 'N':
+                validity = true;
+                break;
+            default:
+                invalidInput();
+                break;
+        }
+
+    }while(validity != true);
+
+    // Prints the options of computers the user can associate with a scientist
+    if(userInput == 'y')
+    {
+        if(list.size() == 0)
+        {
+            cout << "List of computers is empty." << endl;
+        }
+        else
+        {
+
+            for(unsigned int i=0; i<list.size(); i++)
+            {
+                  cout << i << "  " << list.at(i).getName();
+            }
+        }
+    }
+
 
     if(_service.addNewPersonToList(name, gender, birthYear, deathYear, comment))
     {
@@ -429,49 +484,49 @@ void UserLayer::printListMoreInfo(vector<CSPerson> list)
 
 void UserLayer::printCompleteList()
 {
-    printListOfScientists(_service.getCompleteList());
+    printListOfScientists(_service.getComputerScientistList());
 }
 
 void UserLayer::sortListAlphabetically()
 {
     _service.sortListAlphabetically();
-    printListOfScientists(_service.getCompleteList());
+    printListOfScientists(_service.getComputerScientistList());
 }
 
 void UserLayer::sortListAlphabeticallyASC()
 {
     _service.sortListAlphabeticallyASC();
-    printListOfScientists(_service.getCompleteList());
+    printListOfScientists(_service.getComputerScientistList());
 }
 
 void UserLayer::sortListByGender()
 {
     _service.sortListByGender();
-    printListOfScientists(_service.getCompleteList());
+    printListOfScientists(_service.getComputerScientistList());
 }
 
 void UserLayer::sortListByDeathYear()
 {
     _service.sortListByDeathYear();
-    printListOfScientists(_service.getCompleteList());
+    printListOfScientists(_service.getComputerScientistList());
 }
 
 void UserLayer::sortListByBirthYear()
 {
     _service.sortListByBirthYear();
-    printListOfScientists(_service.getCompleteList());
+    printListOfScientists(_service.getComputerScientistList());
 }
 
 void UserLayer::sortListByBirthYearASC()
 {
     _service.sortListByBirthYearASC();
-    printListOfScientists(_service.getCompleteList());
+    printListOfScientists(_service.getComputerScientistList());
 }
 
 void UserLayer::sortListByAge()
 {
     _service.sortListByAge();
-    printListOfScientists(_service.getCompleteList());
+    printListOfScientists(_service.getComputerScientistList());
 }
 
 void UserLayer::searchForAPerson()
@@ -517,6 +572,8 @@ void UserLayer::searchForAPerson()
         printListMoreInfo(_service.searchByYearOfDeath(searchString));
     }
 }
+
+
 
 //Gefur villuskilaboð ef notandi slær inn rangan valkost
 void UserLayer::invalidInput()

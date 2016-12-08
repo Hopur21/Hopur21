@@ -5,24 +5,30 @@
 #include "services/cspersonservice.h"
 #include "models/computer.h"
 #include "models/csperson.h"
-
+#include <string>
 
 class Service
 {
     private:
         vector<CSPerson> _fileKeeper;
+        vector<Computer> _computerList;
+        vector <string> _computerTypes;
+
         ComputerService _computerService;
         CSPersonService _cSPersonService;
 
     public:
         Service();
+
+        //Sets
         bool addNewPersonToList(const string name,const string gender, const string birthYear, const string deathYear,const string comment);
         bool addNewComputerToList(const string name,const int designyear, const int buildyear, const string type, const bool created);
-
         bool removePersonFromList(const string id);
 
-
-        vector<CSPerson> getCompleteList();
+        //Gets
+        vector <string> getComputerTypesList();
+        vector<CSPerson> getComputerScientistList();
+        vector<Computer> getComputerList();
 
         vector<CSPerson> searchByName(const string searchString);
         vector<CSPerson> searchByYearOfBirth(const string searchString);
