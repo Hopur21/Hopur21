@@ -20,7 +20,7 @@ private:
 
     //Sets
     void setDataInPersonVector(vector<CSPerson>& computerScientists, const int id, const string name, const string gender, const int birthYear, const int passedAwayYear, const string comment, const bool isAlive);
-    void setDataInComputerVector(vector<Computer>& computers, const int id, const string name, const int designyYear, const int buildYear, const string type, const bool created);
+    void setDataInComputerVector(vector<Computer>& computers, const int id, const string name, const int designyYear, const int buildYear, const string type, const bool isCreated);
     //Gets
     QString getDateFormat(const string& year);
 

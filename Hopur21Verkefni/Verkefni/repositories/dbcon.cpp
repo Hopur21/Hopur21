@@ -135,11 +135,38 @@ bool DbCon::computerScientistExist(const int& id)
     }
     return foundValdo;
 }
+void DbCon::setDataInComputerVector(vector<Computer>& computers, const int id, const string name, const int designYear, const int buildYear, const string type, const bool isCreated)
+{
+    Computer computer(id, name, designYear, buildYear, type, isCreated);
+    computers.push_back(computer);
+}
 void DbCon::getComputers(vector<Computer>& computers)
 {
-
+    bool success = false;
+       QSqlQuery query("SELECT ID, name, YEAR(design_year) AS design_year, YEAR(build_year) AS build_yea, is_created FROM computers ORDER BY name");
+       //int idName = query.record().indexOf("name");
+       while (query.next())
+       {
+           if(success == false)//If we made it here the query was a success, no need to set it to true for every single loop
+           {
+               success = true;
+           }
+           //Get the index of the column we are going to find and save our current data into the variable.
+           //int id, string name, int designyYear, int buildYear, string type, bool created
+          QString id = query.value(query.record().indexOf("ID")).toString();
+          QString name = query.value(query.record().indexOf("name")).toString();
+          QString designYear = query.value(query.record().indexOf("design_year")).toString();
+          QString buildYear = query.value(query.record().indexOf("build_year")).toString();
+          QString type = query.value(query.record().indexOf("type")).toString();
+          QString isCreated = query.value(query.record().indexOf("is_created")).toString();
+          //cout << name.toStdString() << endl;
+          //cout << idName << endl;
+          //qDebug() << name;
+          setDataInComputerVector(computers, id.toInt(), name.toStdString(), designYear.toInt(), buildYear.toInt(), type.toStdString(), isCreated.toInt());
+        //setDataInComputerVector(vector<Computer>& computers, const int id, const string name, const int designyYear, const int buildYear, const string type, const bool isCreated);
+       }
+       if(!success){qDebug() << "addComputer error:  " << query.lastError();}
 }
-
 bool DbCon::testFunction(const QString& name)
 {
    // you should check if args are ok first...

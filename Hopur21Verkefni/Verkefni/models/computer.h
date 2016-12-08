@@ -9,7 +9,7 @@ class Computer
     private:
         string _name;
         string _type;
-        bool _created;
+        bool _isCreated;
         int _id;
         int _designYear;
         int _buildYear;
@@ -23,7 +23,7 @@ class Computer
         int getDesignYear()const {return _designYear;}
         int getBuildYear()const {return _buildYear;}
         string getTypeID()const {return _type;}
-        bool getCreated()const {return _created;}
+        bool getIsCreated()const {return _isCreated;}
         int getID()const {return _id;}
 
         //Sets
@@ -31,7 +31,7 @@ class Computer
         void setDesignYear(const int designYear){_designYear = designYear;}
         void setBuildYear(const int buildYear){_buildYear = buildYear;}
         void setType(const string type){_type = type;}
-        void setCreated(const bool created){_created = created;}
+        void setCreated(const bool isCreated){_isCreated = isCreated;}
         void setID(const int ID) {_id = ID;}
 };
 
