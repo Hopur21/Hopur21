@@ -79,6 +79,21 @@ bool DbCon::addComputerScientist(const string& name, const int& birthYear, const
     if(!success){qDebug() << "addComputerScientist error:  " << query.lastError();}
     return success;
 }
+bool DbCon::addComputer(const string& name, const int& designYear, const int& buildYear, const string& type, const bool isCreated)
+{
+    bool success = false;
+    QSqlQuery query;
+    query.prepare("INSERT INTO computers(name, design_year, build_year, is_created, type) VALUES (:name, :designYear, :buildYear, :isCreated, :type)");
+    query.bindValue(":name", QString::fromStdString(name));
+    query.bindValue(":designYear", getDateFormat(to_string(designYear)));
+    query.bindValue(":buildYear", getDateFormat(to_string(buildYear)));
+    query.bindValue(":isCreated", isCreated);
+    query.bindValue(":type", QString::fromStdString(type));
+    success = query.exec();//Returns true/false if we made it
+    if(!success){qDebug() << "addComputerScientist error:  " << query.lastError();}
+    return success;
+}
+
 //Update Querys
 bool DbCon::updateComputerScientist(const int& id, const string& name, const int& birthYear, const int& deathYear, const bool isAlive, const string& gender, const string& comment)
 {
