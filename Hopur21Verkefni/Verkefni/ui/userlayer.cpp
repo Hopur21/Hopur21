@@ -187,8 +187,7 @@ void UserLayer::addPerson()
         }
     }
 
-
-    if(_service.addNewPersonToList(name, gender, birthYear, deathYear, comment, realComputerID))
+    if(_service.addNewPersonToList(realComputerID, name, gender, birthYear, deathYear, comment))
     {
         cout << "The person has been added successfully." << endl;
         cout << endl;
@@ -300,8 +299,8 @@ void UserLayer::addComputer()
         intBuildYear = 0;
     }
 
-
-    if(!(_service.addNewComputerToList(name, intDesignYear, intBuildYear, type, created)))
+    vector<int> tempvectorToIgnoreError;
+    if(!(_service.addNewComputerToList(tempvectorToIgnoreError, name, intDesignYear, intBuildYear, type, created)))
     {
         cout << "The computer has been added successfully." << endl;
         cout << endl;
