@@ -16,7 +16,9 @@ void UserLayer::addPerson()
     int error_counter = 0;
     bool validity = false;
     // A list of all computers the scientist might have had something to do with
-    vector<Computer> list = _service.getComputerList();
+    vector <Computer> computerList = _service.getComputerList();
+    vector <string> userSelection;
+    vector <int> realComputerID;
 
     // If user inputs no input an error message occurs
     do
@@ -114,47 +116,90 @@ void UserLayer::addPerson()
     // Prints the options of computers the user can associate with a scientist
     if(userInput == 'y')
     {
-        /*if(list.size() == 0)
+        if(computerList.size() == 0)
         {
             cout << "List of computers is empty." << endl;
         }
         else
-        {*/
-            for(unsigned int i=0; i<list.size(); i++)
+        {
+            cout << endl;
+            cout << "Choose one or more computers" << endl;
+            cout << endl;
+
+            for(unsigned int i=0; i<computerList.size(); i++)
             {
-                  cout << i << "  " << list.at(i).getName() << endl;
+                  cout << i+1 << "  " << computerList.at(i).getName() << endl;
             }
 
-
-            vector<int> vectorOfInts;
+            int number = 1;
             validity = false;
-            int sizeOfList = list.size();
+            int sizeOfList = computerList.size();
+            error_counter = 0;
 
             do
             {
                 cout << "Enter one or more numbers with spaces between them: " << endl;
+                cout << "End with a zero." << endl;
+                while(number != 0)
+                {
+                    try
+                    {
+                        cin >> number;
+                    }
+                    catch(int e)
+                    {
+                        invalidInput();
+                    }
 
-                //while()
+                    if(number < 0 || number >= sizeOfList)
+                    {
+                        invalidInput();
+                        error_counter = 1;
+                    }
+                    else if(number == 0)
+                    {
+                        validity = true;
+                    }
+                    else if(!isdigit(number))
+                    {
+
+                        string selection = computerList.at(number -1).getName();
+                        cout << "PB selection--->" << selection << endl;
+                        userSelection.push_back(selection);
+                    }
 
 
-
+                }
             }while(validity == false);
-
-            //}
-        //}
+        }
     }
 
+    /*string computerName;
+    int realID;
+    for(unsigned i = 0; i< computerList.size();i++)
+    {
+        computerName = computerList.at(i).getName();
+        if(computerName == userSelection.at(i))
+        {
+            realID = computerList.at(i).getID();
+            cout << "REALID   ----------> " << realID << endl;
+        }
+    }*/
 
-    if(_service.addNewPersonToList(name, gender, birthYear, deathYear, comment))
+    //for(unsigned int j = 0; j<)
+
+
+
+
+   /* if(_service.addNewPersonToList(name, gender, birthYear, deathYear, comment))
     {
         cout << "The person has been added successfully." << endl;
         cout << endl;
-
     }
     else
     {
         cout << "Something went wrong." << endl;
-    }
+    }*/
 
 }
 

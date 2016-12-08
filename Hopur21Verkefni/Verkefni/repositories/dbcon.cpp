@@ -85,17 +85,17 @@ bool DbCon::addComputerScientist(const string& name, const int& birthYear, const
     if(!success){qDebug() << "addComputerScientist error:  " << query.lastError();}
     return success;
 }
-bool DbCon::addComputer(const string& name, const int& designYear, const int& buildYear, const string& type, const bool isCreated)
+bool DbCon::addComputer(const Computer value)
 {
     //TODO - validate input.
     bool success = false;
     QSqlQuery query;
     query.prepare("INSERT INTO computers(name, design_year, build_year, is_created, type_ID) VALUES (:name, :designYear, :buildYear, :isCreated, :type)");
-    query.bindValue(":name", QString::fromStdString(name));
-    query.bindValue(":designYear", getDateFormat(to_string(designYear)));
-    query.bindValue(":buildYear", getDateFormat(to_string(buildYear)));
-    query.bindValue(":isCreated", isCreated);
-    query.bindValue(":type", QString::fromStdString(type));
+    query.bindValue(":name", QString::fromStdString(value.getName()));
+    query.bindValue(":designYear", getDateFormat(to_string(value.getDesignYear())));
+    query.bindValue(":buildYear", getDateFormat(to_string(value.getBuildYear())));
+    query.bindValue(":isCreated", value.getIsCreated());
+    query.bindValue(":type", QString::fromStdString(value.getTypeID()));
     success = query.exec();//Returns true/false if we made it
     if(!success){qDebug() << "addComputerScientist error:  " << query.lastError();}
     return success;
@@ -165,7 +165,7 @@ void DbCon::getComputerScientists(vector<CSPerson>& computerScientists)
 void DbCon::getComputers(vector<Computer>& computers)
 {
     bool success = false;
-       QSqlQuery query("SELECT ID, name, YEAR(design_year) AS design_year, YEAR(build_year) AS build_year, is_created FROM computers ORDER BY name");
+       QSqlQuery query("SELECT ID, name, YEAR(design_year) AS design_year, YEAR(build_year) AS build_year, is_created, type_ID FROM computers ORDER BY name");
        //int idName = query.record().indexOf("name");
        while (query.next())
        {
@@ -178,7 +178,7 @@ void DbCon::getComputers(vector<Computer>& computers)
           QString name = query.value(query.record().indexOf("name")).toString();
           QString designYear = query.value(query.record().indexOf("design_year")).toString();
           QString buildYear = query.value(query.record().indexOf("build_year")).toString();
-          QString type = query.value(query.record().indexOf("type")).toString();            // type_ID needs to be added/fixed
+          QString type = query.value(query.record().indexOf("type_ID")).toString();            // type_ID needs to be added/fixed
           QString isCreated = query.value(query.record().indexOf("is_created")).toString();
           //cout << name.toStdString() << endl;
           //cout << idName << endl;
