@@ -285,7 +285,12 @@ string UserLayer::deathYearValidation(string birthYear, string deathYear)
     return "ERROR";
 }
 
-void UserLayer::printList(vector<CSPerson> list)
+void UserLayer::printListOfComputers(vector<Computer> list)
+{
+    // TODO gera svipað og fyrir neðan   :D
+}
+
+void UserLayer::printListOfScientists(vector<CSPerson> list)
 {
     int sizeOfList = list.size();
     if(sizeOfList == 0)
@@ -383,49 +388,49 @@ void UserLayer::printListMoreInfo(vector<CSPerson> list)
 
 void UserLayer::printCompleteList()
 {
-    printList(_service.getCompleteList());
+    printListOfScientists(_service.getCompleteList());
 }
 
 void UserLayer::sortListAlphabetically()
 {
     _service.sortListAlphabetically();
-    printList(_service.getCompleteList());
+    printListOfScientists(_service.getCompleteList());
 }
 
 void UserLayer::sortListAlphabeticallyASC()
 {
     _service.sortListAlphabeticallyASC();
-    printList(_service.getCompleteList());
+    printListOfScientists(_service.getCompleteList());
 }
 
 void UserLayer::sortListByGender()
 {
     _service.sortListByGender();
-    printList(_service.getCompleteList());
+    printListOfScientists(_service.getCompleteList());
 }
 
 void UserLayer::sortListByDeathYear()
 {
     _service.sortListByDeathYear();
-    printList(_service.getCompleteList());
+    printListOfScientists(_service.getCompleteList());
 }
 
 void UserLayer::sortListByBirthYear()
 {
     _service.sortListByBirthYear();
-    printList(_service.getCompleteList());
+    printListOfScientists(_service.getCompleteList());
 }
 
 void UserLayer::sortListByBirthYearASC()
 {
     _service.sortListByBirthYearASC();
-    printList(_service.getCompleteList());
+    printListOfScientists(_service.getCompleteList());
 }
 
 void UserLayer::sortListByAge()
 {
     _service.sortListByAge();
-    printList(_service.getCompleteList());
+    printListOfScientists(_service.getCompleteList());
 }
 
 void UserLayer::searchForAPerson()

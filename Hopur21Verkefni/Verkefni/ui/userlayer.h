@@ -12,7 +12,8 @@ class UserLayer
 {
     private:
         Service _service;
-        void printList(vector<CSPerson> list);
+        void printListOfScientists(vector<CSPerson> list);
+        void printListOfComputers(vector<Computer> list);
         void printListMoreInfo(vector<CSPerson> list);
         bool checkNumberValidity(string userInput);
         string birthYearValidation(string birthYear);
