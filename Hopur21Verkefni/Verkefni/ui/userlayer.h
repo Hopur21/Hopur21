@@ -35,9 +35,8 @@ class UserLayer
         void sortListByAge();
         void searchForAPerson();
         void printCompleteList();
-        void printComputers();
-        void printComputers(vector<Computer> list);
-//       void printListOfComputers(vector<Computer> list);
+        void printCompleteListOfComputers();
+
 
 
 
