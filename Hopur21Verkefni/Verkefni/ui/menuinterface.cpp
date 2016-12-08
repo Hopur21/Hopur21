@@ -122,7 +122,6 @@ void MenuInterface::processChoice(const string choice)
         switch (choiceInt)
         {
         case 1:
-            //Display computer
             displayComputers();
             break;
         case 2:
