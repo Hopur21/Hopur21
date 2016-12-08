@@ -131,6 +131,11 @@ bool DbCon::computerScientistExist(const int& id)
     }
     return foundValdo;
 }
+void DbCon::getComputers(vector<Computer>& computers)
+{
+
+}
+
 bool DbCon::testFunction(const QString& name)
 {
    // you should check if args are ok first...

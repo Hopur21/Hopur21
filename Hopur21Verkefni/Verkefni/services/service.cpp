@@ -46,7 +46,7 @@ vector <string> Service::getComputerTypesList()
 }
 vector<Computer> Service::getComputerList()
 {
-    //TODO - Get list
+    _computerService.getCompleteList(_computerList);
     return _computerList;
 }
 

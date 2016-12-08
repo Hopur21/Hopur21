@@ -9,7 +9,7 @@ class ComputerService
 {
 public:
     ComputerService();
-    vector<Computer> getCompleteList(){return _fileKeeper;}
+    void getCompleteList(vector<Computer>& storage){storage = _fileKeeper;}
 
     //Sets
     void setCompleteList();
@@ -31,7 +31,7 @@ public:
 
 private:
     vector<Computer> _fileKeeper;
-    //DataLayer _data;
+    DbCon _dbCon;
 
     //Sets
     void removeNodeFromList(const int index);

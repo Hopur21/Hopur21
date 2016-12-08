@@ -20,6 +20,7 @@ private:
 
     //Sets
     void setDataInPersonVector(vector<CSPerson>& computerScientists, const int id, const string name, const string gender, const int birthYear, const int passedAwayYear, const string comment, const bool isAlive);
+    void setDataInComputerVector(vector<Computer>& computers, string name, int designyYear, int buildYear, string type, bool created);
     //Gets
     QString getDateFormat(const string& year);
 
@@ -33,6 +34,7 @@ public:
     bool testFunction(const QString& name); //Test
     //Select
     void getComputerScientists(vector<CSPerson>& computerScientists);
+    void getComputers(vector<Computer>& computers);
     bool computerScientistExist(const int& id);
     //Insert
     bool addComputerScientist(const string& name, const int& birthYear, const int& deathYear, const bool isAlive, const string& gender, const string& comment);
