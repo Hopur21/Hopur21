@@ -32,12 +32,23 @@ bool Service::removePersonFromList(const string id)
     return false;
 }
 
-vector<CSPerson> Service::getCompleteList()
+vector<CSPerson> Service::getComputerScientistList()
 {
     _cSPersonService.getCompleteList(_fileKeeper);
     return _fileKeeper;
 }
+vector <string> Service::getComputerTypesList()
+{
+    // Not finished
+    //Get list from DB
 
+    return _computerTypes;
+}
+vector<Computer> Service::getComputerList()
+{
+    //TODO - Get list
+    return _computerList;
+}
 
 
 
@@ -101,3 +112,5 @@ vector<CSPerson> Service::searchByYearOfDeath(const string searchString)
     vector <CSPerson> searchByYOD = _cSPersonService.searchByYearOfDeath(searchString);
     return searchByYOD;
 }
+
+
