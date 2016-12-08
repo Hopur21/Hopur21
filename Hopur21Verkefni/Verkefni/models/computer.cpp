@@ -1,11 +1,12 @@
 #include "models/computer.h"
 
-Computer::Computer(int id, string name, int designyear, int buildyear, string type, bool created)
+Computer::Computer(const int id, const string name,const int designYear,const int buildYear,const string type, const string typeID,const bool created)
 {
     _name = name;
-    _designYear = designyear;
-    _buildYear = buildyear;
+    _designYear = designYear;
+    _buildYear = buildYear;
     _type = type;
+    _typeID = typeID;
     _isCreated = created;
     _id = id;
 }

@@ -20,6 +20,7 @@ class Service
         CSPersonService _cSPersonService;
 
         void updateComputerList();
+        void updateComputerScientistList();
 
     public:
         Service();
