@@ -403,10 +403,9 @@ string UserLayer::deathYearValidation(string birthYear, string deathYear)
     return "ERROR";
 }
 
-//void UserLayer::printComputers(vector<Computer> list)
 void UserLayer::printListOfComputers(vector<Computer> list)
 {
-    cout << "Morons." << endl;
+    cout << "WAZUP G?" << endl;
     // TODO gera svipað og fyrir neðan   :D
     int sizeOfList = list.size();
     if(sizeOfList == 0)
@@ -546,6 +545,16 @@ void UserLayer::printListMoreInfo(vector<CSPerson> list)
     cout <<   "Year of birth = YOB , Year of death = YOD" << endl;
 }
 
+// COMPUTER CALLS
+
+void UserLayer::printCompleteListOfComputers()
+{
+    cout << "HELLO FROM USERLAYER";
+    printListOfComputers(_service.getComputerList());
+}
+
+// SCIENTIST CALLS
+
 void UserLayer::printCompleteList()
 {
     printListOfScientists(_service.getComputerScientistList());
@@ -636,8 +645,6 @@ void UserLayer::searchForAPerson()
         printListMoreInfo(_service.searchByYearOfDeath(searchString));
     }
 }
-
-
 
 //Gefur villuskilaboð ef notandi slær inn rangan valkost
 void UserLayer::invalidInput()
