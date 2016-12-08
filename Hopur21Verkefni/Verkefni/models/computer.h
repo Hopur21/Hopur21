@@ -17,7 +17,7 @@ class Computer
 
     public:
         Computer(){}
-        Computer(const int id, const string name,const int designYear,const int buildYear,const string type,const bool created);
+        Computer(const int id, const string name,const int designYear,const int buildYear,const string type, const string typeID,const bool created);
 
         // Gets
         string getName()const {return _name;}

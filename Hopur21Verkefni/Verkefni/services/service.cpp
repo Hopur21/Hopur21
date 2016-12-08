@@ -37,7 +37,7 @@ bool Service::removePersonFromList(const string id)
 
 vector<CSPerson> Service::getComputerScientistList()
 {
-    _dbCon.getComputerScientists(_computerScientists);
+    updateComputerScientistList();
     return _computerScientists;
 }
 vector <string> Service::getComputerTypesList()
@@ -55,6 +55,10 @@ vector<Computer> Service::getComputerList()
 void Service::updateComputerList()
 {
     _dbCon.getComputers(_computerList);
+}
+void Service::updateComputerScientistList()
+{
+    _dbCon.getComputerScientists(_computerScientists);
 }
 
 

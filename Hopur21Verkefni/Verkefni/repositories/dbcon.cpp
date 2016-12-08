@@ -43,9 +43,9 @@ void DbCon::setDataInPersonVector(vector<CSPerson>& computerScientists, const in
     CSPerson scientist(id,name,gender,birthYear,passedAwayYear,comment, isAlive);
     computerScientists.push_back(scientist);
 }
-void DbCon::setDataInComputerVector(vector<Computer>& computers, const int id, const string name, const int designYear, const int buildYear, const string type, const bool isCreated)
+void DbCon::setDataInComputerVector(vector<Computer>& computers, const int id, const string name, const int designYear, const int buildYear, const string type,const string typeID, const bool isCreated)
 {
-    Computer computer(id, name, designYear, buildYear, type, isCreated);
+    Computer computer(id, name, designYear, buildYear, type, typeID, isCreated);
     computers.push_back(computer);
 }
 QString DbCon::getDateFormat(const string& year)
@@ -167,7 +167,7 @@ void DbCon::getComputerScientists(vector<CSPerson>& computerScientists)
 void DbCon::getComputers(vector<Computer>& computers)
 {
     bool success = false;
-       QSqlQuery query("SELECT ID, name, YEAR(design_year) AS design_year, YEAR(build_year) AS build_year, is_created, type_ID FROM computers ORDER BY name");
+       QSqlQuery query("SELECT ID, name, YEAR(design_year) AS design_year, YEAR(build_year) AS build_year, is_created, (SELECT name FROM type WHERE ID = type_ID) AS type, type_ID FROM computers ORDER BY name;");
        //int idName = query.record().indexOf("name");
        while (query.next())
        {
@@ -180,12 +180,13 @@ void DbCon::getComputers(vector<Computer>& computers)
           QString name = query.value(query.record().indexOf("name")).toString();
           QString designYear = query.value(query.record().indexOf("design_year")).toString();
           QString buildYear = query.value(query.record().indexOf("build_year")).toString();
-          QString type = query.value(query.record().indexOf("type_ID")).toString();            // type_ID needs to be added/fixed
+          QString type = query.value(query.record().indexOf("type")).toString();
+          QString typeID = query.value(query.record().indexOf("type_ID")).toString();
           QString isCreated = query.value(query.record().indexOf("is_created")).toString();
           //cout << name.toStdString() << endl;
           //cout << idName << endl;
           //qDebug() << name;
-          setDataInComputerVector(computers, id.toInt(), name.toStdString(), designYear.toInt(), buildYear.toInt(), type.toStdString(), isCreated.toInt());
+          setDataInComputerVector(computers, id.toInt(), name.toStdString(), designYear.toInt(), buildYear.toInt(), type.toStdString(),typeID.toStdString(), isCreated.toInt());
        }
        if(!success){qDebug() << "addComputer error:  " << query.lastError();}
 }
