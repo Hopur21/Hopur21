@@ -203,6 +203,7 @@ void UserLayer::addComputer()
 {
     string name, type;
     string designYear, buildYear;
+    vector<string> listOfComputerTypes = _service.getComputerTypesList();
     int intDesignYear, intBuildYear;
     bool created = false;
     bool validity = false;
@@ -236,15 +237,17 @@ void UserLayer::addComputer()
         }
     }while(validity != true);
 
-/*    cout << "What is the computer type: ";
-    cin.ignore();
-    getline(cin, designYear);*/ //remove
-
     cout << "Select the computer type: ";
-    // TODO DISPLAY A LIST OF POSSIBLE TYPES!!!
+
+
+    for(unsigned int i = 0;i<listOfComputerTypes.size();i++)
+    {
+        cout << listOfComputerTypes.at(i);
+    }
     int inputComputerType;
     cin >> inputComputerType;
-    type = "mammathin";
+
+
     cout << endl;
 
     validity = false;
@@ -427,7 +430,7 @@ void UserLayer::printListOfComputers(vector<Computer> list)
         adjustForSpaces(i);
 
         cout << name.append(32 - name.length(), constants::SPACE);
-        cout << type.append(11 - type.length(), constants::SPACE);
+        cout << type;
         cout << endl;
     }
     cout <<   "------------------------------------------------------------------------" << endl;
@@ -437,17 +440,19 @@ void UserLayer::printListMoreInfoComputer()
 {
     vector <Computer> computerList = _service.getComputerList();
     int id;
-    string buildYear, designYear;
+    string buildYear, designYear, name;
     bool valid = false;
+    int listSize = computerList.size();
     cout << "Enter the id of the computer you want info on: ";
     cin >> id;
 
     do
     {
-        if(id < 0 || id >= computerList.size() || isdigit(id))
+        if(id < 0 || id >= listSize || isdigit(id))
         {
             invalidInput();
             cout << "Enter the id of the computer you want info on: ";
+            cout << endl;
             cin >> id;
         }
         else
@@ -458,13 +463,13 @@ void UserLayer::printListMoreInfoComputer()
 
     buildYear = to_string(computerList.at(id-1).getBuildYear());
     designYear = to_string(computerList.at(id-1).getDesignYear());
+    name = computerList.at(id-1).getName();
 
-
-    cout << "BUILD YEAR:" << buildYear << "               DESIGN YEAR:" << designYear << endl;
+    cout << "BUILD YEAR:" << buildYear << "          "<< name <<  "         DESIGN YEAR:" << designYear << endl;
     cout << "------------------------------------------------------------------------------" << endl;
     for(int i=0;i<6;i++)
     {
-        cout << endl;
+        cout << "TODO PRENTA UPPLÝSINGAR UM HÖNNUÐI OG SVOLEIÐIS!" << endl;
     }
     cout <<   "------------------------------------------------------------------------------" << endl;
 
@@ -489,7 +494,6 @@ void UserLayer::printListOfScientists(vector<CSPerson> list)
         string stringBirthYear = to_string(list.at(i).getBirthYear());
         string stringPassedAway = to_string(list.at(i).getPassedAwayYear());
         int age = list.at(i).getAge();
-
 
         // adjustForSpaces adjusts the spaces between the
         // number and name of the scientist according to the size of the value i in the for loop
@@ -516,9 +520,6 @@ void UserLayer::printListOfScientists(vector<CSPerson> list)
     cout <<   "Year of birth = YOB , Year of death = YOD" << endl << endl;
 
 }
-
-
-
 
 void UserLayer::printListMoreInfo(vector<CSPerson> list)
 {
