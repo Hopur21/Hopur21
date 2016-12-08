@@ -1,19 +1,21 @@
 #ifndef SERVICE_H
 #define SERVICE_H
 #include <vector>
-#include "services/computerservice.h"
-#include "services/cspersonservice.h"
 #include "models/computer.h"
 #include "models/csperson.h"
+#include "services/computerservice.h"
+#include "services/cspersonservice.h"
+#include "repositories/dbcon.h"
 #include <string>
 
 class Service
 {
     private:
-        vector<CSPerson> _fileKeeper;
+        vector<CSPerson> _computerScientists;
         vector<Computer> _computerList;
         vector <string> _computerTypes;
 
+        DbCon _dbCon;
         ComputerService _computerService;
         CSPersonService _cSPersonService;
 

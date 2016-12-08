@@ -2,14 +2,11 @@
 #define COMPUTERSERVICE_H
 #include <vector>
 #include "models/computer.h"
-#include "repositories/datalayer.h"
-#include "repositories/dbcon.h"
 
 class ComputerService
 {
 public:
     ComputerService();
-    void getCompleteList(vector<Computer>& storage){storage = _fileKeeper;}
 
     //Sets
     void setCompleteList();
@@ -30,9 +27,6 @@ public:
 
 
 private:
-    vector<Computer> _fileKeeper;
-    DbCon _dbCon;
-
     //Sets
     void removeNodeFromList(const int index);
 

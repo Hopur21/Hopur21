@@ -11,16 +11,15 @@ SELECT ID, name, YEAR(birth_year) AS birth_year, YEAR(death_year) AS death_year,
 -- SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs ORDER BY cs.is_alive ASC, name
 
 -- SORTS COMPUTERS
--- SELECT name, build_year, design_year, type_ID, is_created, comment FROM computers c ORDER BY c.name ASC, name
--- SELECT name, build_year, design_year, type_ID, is_created, comment FROM computers c ORDER BY c.name DESC, name
--- SELECT name, build_year, design_year, type_ID, is_created, comment FROM computers c ORDER BY c.build_year ASC, name
--- SELECT name, build_year, design_year, type_ID, is_created, comment FROM computers c ORDER BY c.build_year DESC, name
--- SELECT name, build_year, design_year, type_ID, is_created, comment FROM computers c ORDER BY c.design_year ASC, name
--- SELECT name, build_year, design_year, type_ID, is_created, comment FROM computers c ORDER BY c.is_created DESC, name
--- SELECT name, build_year, design_year, type_ID, is_created, comment FROM computers c ORDER BY c.type_ID DESC, name
+-- SELECT name, build_year, design_year, type_ID, is_created FROM computers c ORDER BY c.name ASC, name
+-- SELECT name, build_year, design_year, type_ID, is_created FROM computers c ORDER BY c.name DESC, name
+-- SELECT name, build_year, design_year, type_ID, is_created FROM computers c ORDER BY c.build_year ASC, name
+-- SELECT name, build_year, design_year, type_ID, is_created FROM computers c ORDER BY c.build_year DESC, name
+-- SELECT name, build_year, design_year, type_ID, is_created FROM computers c ORDER BY c.design_year ASC, name
+-- SELECT name, build_year, design_year, type_ID, is_created FROM computers c ORDER BY c.is_created DESC, name
+-- SELECT name, build_year, design_year, type_ID, is_created FROM computers c ORDER BY c.type_ID DESC, name
 
 SEARCH COMPUTER SCIENTISTS
--- SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs WHERE cs.name LIKE '%(insertSearchHere)%'
 -- SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs WHERE cs.name LIKE '%(insertSearchHere)%'
 -- SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs WHERE cs.birth_year LIKE '%(insertSearchHere)%'
 -- SELECT name, birth_year, death_year, gender, is_alive, comment FROM computer_scientists cs WHERE cs.death_year LIKE '%(insertSearchHere)%'

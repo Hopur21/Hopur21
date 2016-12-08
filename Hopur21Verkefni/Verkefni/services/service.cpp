@@ -26,17 +26,17 @@ bool Service::addNewComputerToList(const string name,const int designyear, const
 
 bool Service::removePersonFromList(const string id)
 {
-    if (_cSPersonService.removePersonFromList(id))
+    /*if (_cSPersonService.removePersonFromList(id))
     {
         return true;
-    }
+    }*/
     return false;
 }
 
 vector<CSPerson> Service::getComputerScientistList()
 {
-    _cSPersonService.getCompleteList(_fileKeeper);
-    return _fileKeeper;
+    _dbCon.getComputerScientists(_computerScientists);
+    return _computerScientists;
 }
 vector <string> Service::getComputerTypesList()
 {
@@ -47,7 +47,7 @@ vector <string> Service::getComputerTypesList()
 }
 vector<Computer> Service::getComputerList()
 {
-    _computerService.getCompleteList(_computerList);
+    _dbCon.getComputers(_computerList);
     return _computerList;
 }
 
@@ -63,54 +63,54 @@ vector<Computer> Service::getComputerList()
 
 void Service::sortListAlphabetically()
 {
-    _cSPersonService.sortByName();
+    //_cSPersonService.sortByName();
 }
 
 void Service::sortListAlphabeticallyASC()
 {
-    _cSPersonService.sortByNameASC();
+    //_cSPersonService.sortByNameASC();
 }
 
 void Service::sortListByGender()
 {
-    _cSPersonService.sortByGender();
+    //_cSPersonService.sortByGender();
 }
 
 void Service::sortListByDeathYear()
 {
-    _cSPersonService.sortByDeathYear();
+    //_cSPersonService.sortByDeathYear();
 }
 
 void Service::sortListByBirthYear()
 {
-    _cSPersonService.sortByBirthYear();
+    //_cSPersonService.sortByBirthYear();
 }
 
 void Service::sortListByBirthYearASC()
 {
-    _cSPersonService.sortByBirthYearASC();
+    //_cSPersonService.sortByBirthYearASC();
 }
 
 void Service::sortListByAge()
 {
-    _cSPersonService.sortByAge();
+    //_cSPersonService.sortByAge();
 }
 
 vector<CSPerson> Service::searchByName(const string searchString)
 {
-    vector <CSPerson> searchByName = _cSPersonService.searchByName(searchString);
+    vector <CSPerson> searchByName;// = _cSPersonService.searchByName(searchString);
     return searchByName;
 }
 
 vector<CSPerson> Service::searchByYearOfBirth(const string searchString)
 {
-    vector <CSPerson> searchByYOB = _cSPersonService.searchByYearOfBirth(searchString);
+    vector <CSPerson> searchByYOB;// = _cSPersonService.searchByYearOfBirth(searchString);
     return searchByYOB;
 }
 
 vector<CSPerson> Service::searchByYearOfDeath(const string searchString)
 {
-    vector <CSPerson> searchByYOD = _cSPersonService.searchByYearOfDeath(searchString);
+    vector <CSPerson> searchByYOD;// = _cSPersonService.searchByYearOfDeath(searchString);
     return searchByYOD;
 }
 

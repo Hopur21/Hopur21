@@ -20,7 +20,7 @@ private:
 
     //Sets
     void setDataInPersonVector(vector<CSPerson>& computerScientists, const int id, const string name, const string gender, const int birthYear, const int passedAwayYear, const string comment, const bool isAlive);
-    void setDataInComputerVector(vector<Computer>& computers, const int id, const string name, const int designyYear, const int buildYear, const string type, const bool isCreated);
+    void setDataInComputerVector(vector<Computer>& computers, const int id, const string name, const int designYear, const int buildYear, const string type, const bool isCreated);
     //Gets
     QString getDateFormat(const string& year);
 
@@ -38,10 +38,13 @@ public:
     bool computerScientistExist(const int& id);
     //Insert
     bool addComputerScientist(const string& name, const int& birthYear, const int& deathYear, const bool isAlive, const string& gender, const string& comment);
+    bool addComputer(const Computer value);
     //Update
     bool updateComputerScientist(const int& id, const string& name, const int& birthYear, const int& deathYear, const bool isAlive, const string& gender, const string& comment);
+    bool updateComputer(const int& id, const string& name, const int& designYear, const int& buildYear, const string& type, const bool isCreated);
     //Delete
     bool removeComputerScientist(const int& scientistID);
+    bool removeComputer(const int& scientistID);
 };
 
 
