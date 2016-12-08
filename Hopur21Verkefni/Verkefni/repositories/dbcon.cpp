@@ -197,6 +197,7 @@ bool DbCon::updateComputer(Computer& computer)
 void DbCon::getComputersConnectedToCS(vector<Computer>& compuerList,const int scientistID)
 {
     bool success = false;
+    compuerList.clear();
     QSqlQuery query;
     query.prepare("SELECT c.ID, c.name, YEAR(c.design_year) AS design_year, YEAR(c.build_year) AS build_year, c.type_ID,(SELECT name FROM type WHERE ID = type_ID) AS type, c.is_created FROM computer_scientists_computers csc JOIN computers c ON (csc.computer_ID=c.ID) WHERE csc.computer_scientist_ID = (:scientistID);");
     query.bindValue(":scientistID", scientistID);
@@ -214,7 +215,6 @@ void DbCon::getComputersConnectedToCS(vector<Computer>& compuerList,const int sc
        QString type = query.value(query.record().indexOf("type")).toString();
        QString typeID = query.value(query.record().indexOf("type_ID")).toString();
        QString isCreated = query.value(query.record().indexOf("is_created")).toString();
-       compuerList.clear();
        setDataInComputerVector(compuerList, id.toInt(), name.toStdString(), designYear.toInt(), buildYear.toInt(), type.toStdString(),typeID.toStdString(), isCreated.toInt());
     }
     if(!success){qDebug() << "getComputersConnectedToSC error:  " << query.lastError();}
@@ -222,6 +222,7 @@ void DbCon::getComputersConnectedToCS(vector<Computer>& compuerList,const int sc
 void DbCon::getCSConntedToComputer(vector<CSPerson>& CSList,const int computerID)
 {
     bool success = false;
+    CSList.clear();
     QSqlQuery query;
     query.prepare("SELECT cs.ID, cs.name, YEAR(cs.birth_year) AS birth_year, YEAR(cs.death_year) AS death_year, cs.gender, cs.comment, cs.is_alive FROM computer_scientists_computers csc JOIN computer_scientists cs ON (csc.computer_scientist_ID=cs.ID) WHERE csc.computer_ID = (:computerID);");
     query.bindValue(":scientistID", computerID);
@@ -246,6 +247,7 @@ void DbCon::getCSConntedToComputer(vector<CSPerson>& CSList,const int computerID
 void DbCon::getComputerScientists(vector<CSPerson>& computerScientists)
 {
     bool success = false;
+    computerScientists.clear();//Clear the vector
     QSqlQuery query("SELECT ID, name, YEAR(birth_year) AS birth_year, YEAR(death_year) AS death_year, gender, comment, is_alive FROM computer_scientists ORDER BY name");
     //int idName = query.record().indexOf("name");
     while (query.next())
@@ -268,6 +270,7 @@ void DbCon::getComputerScientists(vector<CSPerson>& computerScientists)
 }
 void DbCon::getComputers(vector<Computer>& computers)
 {
+    computers.clear();
     bool success = false;
        QSqlQuery query("SELECT ID, name, YEAR(design_year) AS design_year, YEAR(build_year) AS build_year, is_created, (SELECT name FROM type WHERE ID = type_ID) AS type, type_ID FROM computers ORDER BY name;");
        //int idName = query.record().indexOf("name");
@@ -291,6 +294,7 @@ void DbCon::getComputers(vector<Computer>& computers)
 }
 void DbCon::getComputerTypes(vector<string>& computerTypes)
 {
+    computerTypes.clear();
     bool success = false;
     QSqlQuery query("SELECT name FROM type ORDER BY name");
     while (query.next())
@@ -300,11 +304,9 @@ void DbCon::getComputerTypes(vector<string>& computerTypes)
            success = true;
        }
        QString name = query.value(query.record().indexOf("name")).toString();
-
        setDataInTypeVector(computerTypes, name.toStdString());
     }
     if(!success){qDebug() << "getComputerTypes error:  " << query.lastError();}
-
 }
 bool DbCon::computerScientistExist(const string& name)
 {

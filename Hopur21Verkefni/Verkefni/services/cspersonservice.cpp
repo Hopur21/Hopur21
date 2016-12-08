@@ -1,24 +1,6 @@
 #include "cspersonservice.h"
-
-
-CSPersonService::CSPersonService()
-{
-}
-
-
-
-
-
-
-
-
-
-
-//Þau föll sem er ekki búið að fara yfir fyrir (aðlaga) Viku2
-
-
 //Bool variablers are used in sorting to decide the order of sorting, DESCending and ASCending
-bool sortByNameDESC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getName() < rhs.getName(); }
+bool sortByNameDESCC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getName() < rhs.getName(); }
 bool sortByNameASCC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getName() > rhs.getName(); }
 bool sortByGenderDESC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getGender() < rhs.getGender(); }
 bool sortByDeathYearASCC(const CSPerson &lhs, const CSPerson &rhs) {return lhs.getPassedAwayYear() > rhs.getPassedAwayYear(); }
@@ -30,6 +12,46 @@ bool sortByAgeASCC(const CSPerson &lhs, const CSPerson &rhs)
     CSPerson tempRight = rhs;
     return tempLeft.getAge() > tempRight.getAge();
 }
+CSPersonService::CSPersonService()
+{
+}
+
+//Sorts
+void CSPersonService::sortByName(vector<CSPerson>& computerScientists)
+{
+    sort(computerScientists.begin(), computerScientists.end(), sortByNameASCC);
+}
+void CSPersonService::sortByNameDESC(vector<CSPerson>& computerScientists)
+{
+    sort(computerScientists.begin(), computerScientists.end(), sortByNameDESCC);
+}
+void CSPersonService::sortByGender(vector<CSPerson>& computerScientists)
+{
+    sort(computerScientists.begin(), computerScientists.end(), sortByGenderDESC);
+}
+void CSPersonService::sortByDeathYear(vector<CSPerson>& computerScientists)
+{
+    sort(computerScientists.begin(), computerScientists.end(), sortByDeathYearASCC);
+}
+void CSPersonService::sortByBirthYear(vector<CSPerson>& computerScientists)
+{
+    sort(computerScientists.begin(), computerScientists.end(), sortByBirthYearDESC);
+}
+void CSPersonService::sortByBirthYearASC(vector<CSPerson>& computerScientists)
+{
+    sort(computerScientists.begin(), computerScientists.end(), sortByBirthYearASCC);
+}
+void CSPersonService::sortByAge(vector<CSPerson>& computerScientists)
+{
+    sort(computerScientists.begin(), computerScientists.end(), sortByAgeASCC);
+}
+
+
+
+//Þau föll sem er ekki búið að fara yfir fyrir (aðlaga) Viku2
+
+
+
 
 bool CSPersonService::addNewPersonToList(const string name,const string gender, string birthYear, string deathYear,const string comment)
 {
