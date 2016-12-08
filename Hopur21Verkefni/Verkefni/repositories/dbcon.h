@@ -21,6 +21,7 @@ private:
     //Sets
     void setDataInPersonVector(vector<CSPerson>& computerScientists, const int id, const string name, const string gender, const int birthYear, const int passedAwayYear, const string comment, const bool isAlive);
     void setDataInComputerVector(vector<Computer>& computers, const int id, const string name, const int designYear, const int buildYear, const string type,const string typeID, const bool isCreated);
+    //void setDatainTypeVector(vector<Computer>& computers, const string name);
     //Gets
     QString getDateFormat(const string& year);
 
@@ -36,6 +37,7 @@ public:
     vector<Computer>& compuerList,const int scientistID;
     void getComputerScientists(vector<CSPerson>& computerScientists);
     void getComputers(vector<Computer>& computers);
+    //void getType(vector<Computer>& computers);
     bool computerScientistExist(const string& name);
     //Insert
     int addComputerScientist(const CSPerson value);
