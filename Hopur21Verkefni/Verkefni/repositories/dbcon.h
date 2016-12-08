@@ -37,7 +37,7 @@ public:
     void getComputers(vector<Computer>& computers);
     bool computerScientistExist(const string& name);
     //Insert
-    bool addComputerScientist(const CSPerson value);
+    int addComputerScientist(const CSPerson value);
     int addComputer(const Computer value);
     //Update
     bool updateComputerScientist(const int& id, const string& name, const int& birthYear, const int& deathYear, const bool isAlive, const string& gender, const string& comment);

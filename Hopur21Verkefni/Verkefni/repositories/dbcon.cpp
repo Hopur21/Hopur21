@@ -69,7 +69,7 @@ bool DbCon::removeComputer(const int& computerID)
     return success;
 }
 //Insert Querys
-bool DbCon::addComputerScientist(const CSPerson value)
+int DbCon::addComputerScientist(const CSPerson value)
 {
     //TODO - validate input.
     bool success = false;
@@ -83,7 +83,8 @@ bool DbCon::addComputerScientist(const CSPerson value)
     query.bindValue(":comment", QString::fromStdString(value.getComments()));
     success = query.exec();//Returns true/false if we made it
     if(!success){qDebug() << "addComputerScientist error:  " << query.lastError();}
-    return success;
+    QVariant returnID = query.lastInsertId();
+    return returnID.toInt();
 }
 int DbCon::addComputer(const Computer value)
 {
