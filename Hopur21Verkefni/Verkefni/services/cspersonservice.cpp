@@ -48,9 +48,7 @@ bool CSPersonService::addNewPersonToList(const string name,const string gender, 
         }
         //tempDeathYear = deathYear;
     }
-    //Save our new person in our vector
-    //_fileKeeper.push_back(CSPerson (name, gender, tempBirthYear, tempDeathYear, comment)); -- Removed
-    //_data.writeToFile(_fileKeeper);// Write our updated vector to file
+
     return true;//Return true that we made it
 }
 
@@ -80,7 +78,7 @@ bool CSPersonService::validNumber(string number)
     int inputNumber = 0;
     try
     {
-        inputNumber = atoi(number.c_str());//Try to convert string to int
+        inputNumber = stoi(number.c_str());//Try to convert string to int
     }
     catch(int e)
     {

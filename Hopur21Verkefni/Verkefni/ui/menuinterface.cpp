@@ -122,11 +122,10 @@ void MenuInterface::processChoice(const string choice)
         switch (choiceInt)
         {
         case 1:
-            //Display computer
             displayComputers();
             break;
         case 2:
-            // Search for a computer"
+            _uL.searchForAComputer();
             break;
         case 3:
             banner();
@@ -170,16 +169,18 @@ void MenuInterface::processChoice(const string choice)
         cout << "Something went wrong" << endl;
     }
 }
+
 void MenuInterface::displayComputers()
 {
     string sortOption;
-    _uL.printCompleteList();
+    _uL.printCompleteListOfComputers();
 
     cout << "| 1 | Sort computers by alphabetical order" << endl;
-    cout << "| 2 | Sort by ascending alphabetical order" << endl;
+    cout << "| 2 | Sort computers by descending alphabetical order" << endl;
     cout << "| 3 | Sort by year of build" << endl;
     cout << "| 4 | Sort by year of design" << endl;
     cout << "| 5 | Sort by type of computer" << endl;
+    cout << "| 6 | To view more info on a computer" << endl;
     cout << "| 0 | Go back" << endl;
     cout << "Enter your choice here: ";
     cin >> sortOption;
@@ -210,6 +211,11 @@ void MenuInterface::displayComputers()
        // banner();
         //_cS.sortByType();
     }
+    else if(sortOption == constants::MORE_INFO)
+    {
+        _uL.printListMoreInfoComputer();
+    }
+
     else if(sortOption == constants::GO_BACK)
     {
         banner();

@@ -41,6 +41,9 @@ namespace constants {
     const std::string SORT_BY_BUILDYEAR = "3";
     const std::string SORT_BY_DESIGNYEAR = "4";
     const std::string SORT_BY_TYPE = "5";
+    const std::string MORE_INFO = "6";
+    const std::string SEARCH_BY_TYPE = "1";
+    const std::string SEARCH_BY_YEAR = "2";
 
 }
 

@@ -159,12 +159,12 @@ void UserLayer::addPerson()
                     else if(number == 0)
                     {
                         validity = true;
+                        break;
                     }
                     else if(!isdigit(number))
                     {
 
                         string selection = computerList.at(number -1).getName();
-                        cout << "PB selection--->" << selection << endl;
                         userSelection.push_back(selection);
                     }
 
@@ -174,24 +174,20 @@ void UserLayer::addPerson()
         }
     }
 
-    /*string computerName;
     int realID;
-    for(unsigned i = 0; i< computerList.size();i++)
+    for(unsigned i = 0; i< userSelection.size() ;i++)
     {
-        computerName = computerList.at(i).getName();
-        if(computerName == userSelection.at(i))
+        for(unsigned int j = 0; j< computerList.size(); j++)
         {
-            realID = computerList.at(i).getID();
-            cout << "REALID   ----------> " << realID << endl;
+            if(userSelection.at(i) == computerList.at(j).getName())
+            {
+                realID = computerList.at(j).getID();
+                realComputerID.push_back(realID);
+            }
         }
-    }*/
+    }
 
-    //for(unsigned int j = 0; j<)
-
-
-
-
-   /* if(_service.addNewPersonToList(name, gender, birthYear, deathYear, comment))
+    if(_service.addNewPersonToList(realComputerID, name, gender, birthYear, deathYear, comment))
     {
         cout << "The person has been added successfully." << endl;
         cout << endl;
@@ -199,7 +195,7 @@ void UserLayer::addPerson()
     else
     {
         cout << "Something went wrong." << endl;
-    }*/
+    }
 
 }
 
@@ -207,6 +203,7 @@ void UserLayer::addComputer()
 {
     string name, type;
     string designYear, buildYear;
+    vector<string> listOfComputerTypes = _service.getComputerTypesList();
     int intDesignYear, intBuildYear;
     bool created = false;
     bool validity = false;
@@ -240,15 +237,17 @@ void UserLayer::addComputer()
         }
     }while(validity != true);
 
-/*    cout << "What is the computer type: ";
-    cin.ignore();
-    getline(cin, designYear);*/ //remove
-
     cout << "Select the computer type: ";
-    // TODO DISPLAY A LIST OF POSSIBLE TYPES!!!
+
+
+    for(unsigned int i = 0;i<listOfComputerTypes.size();i++)
+    {
+        cout << listOfComputerTypes.at(i);
+    }
     int inputComputerType;
     cin >> inputComputerType;
-    type = "mammathin";
+
+
     cout << endl;
 
     validity = false;
@@ -303,8 +302,8 @@ void UserLayer::addComputer()
         intBuildYear = 0;
     }
 
-
-    if(!(_service.addNewComputerToList(name, intDesignYear, intBuildYear, type, created)))
+    vector<int> tempvectorToIgnoreError;
+    if(!(_service.addNewComputerToList(tempvectorToIgnoreError, name, intDesignYear, intBuildYear, type, created)))
     {
         cout << "The computer has been added successfully." << endl;
         cout << endl;
@@ -409,8 +408,8 @@ string UserLayer::deathYearValidation(string birthYear, string deathYear)
 
 void UserLayer::printListOfComputers(vector<Computer> list)
 {
-    cout << "Morons." << endl;
-    // TODO gera svipað og fyrir neðan   :D
+    string name, type;
+
     int sizeOfList = list.size();
     if(sizeOfList == 0)
     {
@@ -418,39 +417,61 @@ void UserLayer::printListOfComputers(vector<Computer> list)
         cout << endl;
         return;
     }
-
-    cout <<   "#     NAME                            TYPE           BUILD YEAR    DESIGN YEAR" << endl;
+    cout <<   "#     NAME                            TYPE                                    " << endl;
     cout <<   "------------------------------------------------------------------------------" << endl;
 
     for(int i=0;i<sizeOfList;i++)
     {
-        string name = list.at(i).getName();
-        string type = list.at(i).getTypeID();
-        string stringBuildYear = to_string(list.at(i).getBuildYear()); //á eftir að útfæra?
-        string stringDesignYear = to_string(list.at(i).getDesignYear()); //á eftir að útfæra?
+        name = list.at(i).getName();
+        type = list.at(i).getType();
 
         // adjustForSpaces adjusts the spaces between the
         // number and name of the computer according to the size of the value i in the for loop
         adjustForSpaces(i);
 
         cout << name.append(32 - name.length(), constants::SPACE);
-        cout << type.append(11 - type.length(), constants::SPACE);
-        cout << stringBuildYear.append(8 - stringDesignYear.length(), constants::SPACE);
-
-/*        if(stringPassedAway != constants::ALIVE)
-        {
-            cout << stringPassedAway.append(9 - stringPassedAway.length(), constants::SPACE);
-            cout << age;
-        }
-        else
-        {
-            cout << "Alive";
-            cout << "    " << age;
-
-        }*/
+        cout << type;
         cout << endl;
     }
     cout <<   "------------------------------------------------------------------------" << endl;
+}
+
+void UserLayer::printListMoreInfoComputer()
+{
+    vector <Computer> computerList = _service.getComputerList();
+    int id;
+    string buildYear, designYear, name;
+    bool valid = false;
+    int listSize = computerList.size();
+    cout << "Enter the id of the computer you want info on: ";
+    cin >> id;
+
+    do
+    {
+        if(id < 0 || id >= listSize || isdigit(id))
+        {
+            invalidInput();
+            cout << "Enter the id of the computer you want info on: ";
+            cout << endl;
+            cin >> id;
+        }
+        else
+        {
+            valid = true;
+        }
+    }while(valid == false);
+
+    buildYear = to_string(computerList.at(id-1).getBuildYear());
+    designYear = to_string(computerList.at(id-1).getDesignYear());
+    name = computerList.at(id-1).getName();
+
+    cout << "BUILD YEAR:" << buildYear << "          "<< name <<  "         DESIGN YEAR:" << designYear << endl;
+    cout << "------------------------------------------------------------------------------" << endl;
+    for(int i=0;i<6;i++)
+    {
+        cout << "TODO PRENTA UPPLÝSINGAR UM HÖNNUÐI OG SVOLEIÐIS!" << endl;
+    }
+    cout <<   "------------------------------------------------------------------------------" << endl;
 }
 
 void UserLayer::printListOfScientists(vector<CSPerson> list)
@@ -472,7 +493,6 @@ void UserLayer::printListOfScientists(vector<CSPerson> list)
         string stringBirthYear = to_string(list.at(i).getBirthYear());
         string stringPassedAway = to_string(list.at(i).getPassedAwayYear());
         int age = list.at(i).getAge();
-
 
         // adjustForSpaces adjusts the spaces between the
         // number and name of the scientist according to the size of the value i in the for loop
@@ -499,7 +519,6 @@ void UserLayer::printListOfScientists(vector<CSPerson> list)
     cout <<   "Year of birth = YOB , Year of death = YOD" << endl << endl;
 
 }
-
 
 void UserLayer::printListMoreInfo(vector<CSPerson> list)
 {
@@ -548,6 +567,15 @@ void UserLayer::printListMoreInfo(vector<CSPerson> list)
     cout <<   "------------------------------------------------------------------------" << endl << endl;
     cout <<   "Year of birth = YOB , Year of death = YOD" << endl;
 }
+
+// COMPUTER CALLS
+
+void UserLayer::printCompleteListOfComputers()
+{
+    printListOfComputers(_service.getComputerList());
+}
+
+// SCIENTIST CALLS
 
 void UserLayer::printCompleteList()
 {
@@ -607,7 +635,6 @@ void UserLayer::searchForAPerson()
         cout << "| 3 | Search by year of death" << endl;
         cout << "| 0 | Go back" << endl;
         cout << "Enter your choice here: ";
-        //viljum við hafa Go Back option hérna til að hætta við leit?
 
         cin >> userInput;
         if(userInput == constants::GO_BACKSTRING)
@@ -640,9 +667,49 @@ void UserLayer::searchForAPerson()
     }
 }
 
+void UserLayer::searchForAComputer()
+{
+    string userInput, searchString;
 
+    do
+    {
+        cout << "| 1 | Search by name" << endl;
+        cout << "| 2 | Search by type" << endl;
+        cout << "| 3 | Search by year" << endl;
+        cout << "| 0 | Go back" << endl;
+        cout << "Enter your choice here: ";
 
-//Gefur villuskilaboð ef notandi slær inn rangan valkost
+        cin >> userInput;
+        if(userInput == constants::GO_BACKSTRING)
+        {
+            return;
+        }
+        if(userInput == constants::SEARCH_BY_NAME || userInput == constants::SEARCH_BY_TYPE || userInput == constants::SEARCH_BY_YEAR)
+        {
+            break;
+        }
+        invalidInput();
+
+    }while(userInput != constants::SEARCH_BY_NAME || userInput != constants::SEARCH_BY_TYPE || userInput != constants::SEARCH_BY_YEAR);
+
+    cout << "Please enter either: Name, type or year : ";
+    cin.ignore();
+    getline(cin, searchString);
+
+    if(userInput == constants::SEARCH_BY_NAME)
+    {
+        _service.searchComputerByName(searchString);
+    }
+    else if(userInput == constants::SEARCH_BY_TYPE)
+    {
+        _service.searchComputerByType(searchString);
+    }
+    else if(userInput == constants::SEARCH_BY_YEAR)
+    {
+        _service.searchComputerByYear(searchString);
+    }
+}
+
 void UserLayer::invalidInput()
 {
     cout << "Your input was invalid, please try again." << endl;

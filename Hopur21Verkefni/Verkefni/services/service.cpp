@@ -5,7 +5,7 @@ Service::Service()
 
 }
 
-bool Service::addNewPersonToList(const string name,const string gender, const string birthYear, const string deathYear,const string comment)
+bool Service::addNewPersonToList(const vector<int> computerConnectionID,const string name,const string gender, const string birthYear, const string deathYear,const string comment)
 {
     if(_cSPersonService.addNewPersonToList(name, gender,birthYear, deathYear, comment))
     {
@@ -14,11 +14,13 @@ bool Service::addNewPersonToList(const string name,const string gender, const st
     return false;
 }
 
-bool Service::addNewComputerToList(const string name,const int designyear, const int buildyear, const string type, const bool created)
+bool Service::addNewComputerToList(const vector<int> scientistConnectionID,const string name,const int designYear, const int buildYear, const string type, const bool created)
 {
-
-    if(_computerService.addNewComputerToList(name, designyear, buildyear, type, created))
+    Computer newComputer;
+    int computerID = 0;
+    if(_computerService.addNewComputerToList(newComputer, name, designYear, buildYear, type, created))
     {
+        computerID = _dbCon.addComputer(newComputer);
         return true;
     }
     return false;
@@ -35,7 +37,7 @@ bool Service::removePersonFromList(const string id)
 
 vector<CSPerson> Service::getComputerScientistList()
 {
-    _dbCon.getComputerScientists(_computerScientists);
+    updateComputerScientistList();
     return _computerScientists;
 }
 vector <string> Service::getComputerTypesList()
@@ -47,10 +49,17 @@ vector <string> Service::getComputerTypesList()
 }
 vector<Computer> Service::getComputerList()
 {
-    _dbCon.getComputers(_computerList);
+    updateComputerList();
     return _computerList;
 }
-
+void Service::updateComputerList()
+{
+    _dbCon.getComputers(_computerList);
+}
+void Service::updateComputerScientistList()
+{
+    _dbCon.getComputerScientists(_computerScientists);
+}
 
 
 
@@ -113,5 +122,26 @@ vector<CSPerson> Service::searchByYearOfDeath(const string searchString)
     vector <CSPerson> searchByYOD;// = _cSPersonService.searchByYearOfDeath(searchString);
     return searchByYOD;
 }
+
+vector<Computer> Service::searchComputerByName(const string searchString)
+{
+    // TODO
+    vector <Computer> searchByName;
+    return searchByName;
+}
+
+vector<Computer> Service::searchComputerByType(const string searchString)
+{
+    // TODO
+    vector <Computer> searchByType;
+    return searchByType;
+}
+vector<Computer> Service::searchComputerByYear(const string searchString)
+{
+    // TODO
+    vector <Computer> searchByYear;
+    return searchByYear;
+}
+
 
 

@@ -19,12 +19,15 @@ class Service
         ComputerService _computerService;
         CSPersonService _cSPersonService;
 
+        void updateComputerList();
+        void updateComputerScientistList();
+
     public:
         Service();
 
         //Sets
-        bool addNewPersonToList(const string name,const string gender, const string birthYear, const string deathYear,const string comment);
-        bool addNewComputerToList(const string name,const int designyear, const int buildyear, const string type, const bool created);
+        bool addNewPersonToList(const vector<int> computerConnectionID, const string name,const string gender, const string birthYear, const string deathYear,const string comment);
+        bool addNewComputerToList(const vector<int> scientistConnectionID,const string name,const int designyear, const int buildyear, const string type, const bool created);
         bool removePersonFromList(const string id);
 
         //Gets
@@ -35,6 +38,11 @@ class Service
         vector<CSPerson> searchByName(const string searchString);
         vector<CSPerson> searchByYearOfBirth(const string searchString);
         vector<CSPerson> searchByYearOfDeath(const string searchString);
+
+        vector<Computer> searchComputerByName(const string searchString);
+        vector<Computer> searchComputerByType(const string searchString);
+        vector<Computer> searchComputerByYear(const string searchString);
+
 
         void sortListAlphabetically();
         void sortListAlphabeticallyASC();

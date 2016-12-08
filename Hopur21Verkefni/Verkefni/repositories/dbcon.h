@@ -20,7 +20,8 @@ private:
 
     //Sets
     void setDataInPersonVector(vector<CSPerson>& computerScientists, const int id, const string name, const string gender, const int birthYear, const int passedAwayYear, const string comment, const bool isAlive);
-    void setDataInComputerVector(vector<Computer>& computers, const int id, const string name, const int designYear, const int buildYear, const string type, const bool isCreated);
+    void setDataInComputerVector(vector<Computer>& computers, const int id, const string name, const int designYear, const int buildYear, const string type,const string typeID, const bool isCreated);
+    //void setDatainTypeVector(vector<Computer>& computers, const string name);
     //Gets
     QString getDateFormat(const string& year);
 
@@ -33,12 +34,14 @@ public:
     bool connectionSuccessful(){return _connectionSuccess;}
     bool testFunction(const QString& name); //Test
     //Select
+    void getComputersConnectedToSC(vector<Computer>& compuerList,const int scientistID);
     void getComputerScientists(vector<CSPerson>& computerScientists);
     void getComputers(vector<Computer>& computers);
-    bool computerScientistExist(const int& id);
+    //void getType(vector<Computer>& computers);
+    bool computerScientistExist(const string& name);
     //Insert
-    bool addComputerScientist(const CSPerson value);
-    bool addComputer(const Computer value);
+    int addComputerScientist(const CSPerson value);
+    int addComputer(const Computer value);
     //Update
     bool updateComputerScientist(const int& id, const string& name, const int& birthYear, const int& deathYear, const bool isAlive, const string& gender, const string& comment);
     bool updateComputer(const int& id, const string& name, const int& designYear, const int& buildYear, const string& type, const bool isCreated);
