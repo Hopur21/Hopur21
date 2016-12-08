@@ -1,11 +1,12 @@
 #include <iostream>
 #include "userlayer.h"
+#include <windows.h>
 
 using namespace std;
 
 void UserLayer::addPerson()
 {
-    string gender, comment, birthYear,deathYear, input;
+    string gender, comment, birthYear, deathYear, input;
     string name = "";
     char userInput;
     int error_counter = 0;
@@ -121,7 +122,7 @@ void UserLayer::addPerson()
             cout << "Choose one or more computers" << endl;
             cout << endl;
 
-            for(unsigned int i=0; i<computerList.size(); i++)
+            for(unsigned int i=0; i < computerList.size(); i++)
             {
                   cout << i+1 << "  " << computerList.at(i).getName() << endl;
             }
@@ -134,7 +135,7 @@ void UserLayer::addPerson()
             do
             {
                 cout << "Enter one or more numbers with spaces between them: " << endl;
-                cout << "End with a zero." << endl;
+                cout << "End with a zero. " << endl;
                 while(number != 0)
                 {
                     try
@@ -158,20 +159,18 @@ void UserLayer::addPerson()
                     }
                     else if(!isdigit(number))
                     {
-
                         string selection = computerList.at(number -1).getName();
                         userSelection.push_back(selection);
                     }
-
                 }
             }while(validity == false);
         }
     }
 
     int realID;
-    for(unsigned i = 0; i< userSelection.size() ;i++)
+    for(unsigned i = 0; i < userSelection.size() ;i++)
     {
-        for(unsigned int j = 0; j< computerList.size(); j++)
+        for(unsigned int j = 0; j < computerList.size(); j++)
         {
             if(userSelection.at(i) == computerList.at(j).getName())
             {
@@ -190,7 +189,6 @@ void UserLayer::addPerson()
     {
         cout << "Something went wrong." << endl;
     }
-
 }
 
 void UserLayer::addComputer()
@@ -234,8 +232,7 @@ void UserLayer::addComputer()
 
     cout << "Select the computer type: ";
 
-
-    for(unsigned int i = 0;i<listOfComputerTypes.size();i++)
+    for(unsigned int i = 0; i < listOfComputerTypes.size(); i++)
     {
         // This should print a list of computer types
         cout << listOfComputerTypes.at(i);
@@ -243,8 +240,6 @@ void UserLayer::addComputer()
     // Validation needed
     int inputComputerType;
     cin >> inputComputerType;
-
-
     cout << endl;
 
     validity = false;
@@ -315,7 +310,7 @@ void UserLayer::addComputer()
 
     do
     {
-        cout << "Do you want to connect a person/s to the making of this computer? " << endl;
+        cout << "Do you want to connect a person or persons to the making of this computer? " << endl;
         cout << "Enter y for yes, n for no." << endl;
         cin >> yesOrNo;
 
@@ -323,7 +318,6 @@ void UserLayer::addComputer()
         {
             case 'y':
             case 'Y':
-
                 validity = true;
                 break;
             case 'n':
@@ -532,7 +526,15 @@ void UserLayer::printListOfComputers(vector<Computer> list)
         // number and name of the computer according to the size of the value i in the for loop
         adjustForSpaces(i);
 
+        // sets font in console to RED
+        HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+        SetConsoleTextAttribute(hConsole, 9);
+
         cout << name.append(32 - name.length(), constants::SPACE);
+
+        SetConsoleTextAttribute(hConsole, 15); //set back to black background and white text
+
+
         cout << type;
         cout << endl;
     }

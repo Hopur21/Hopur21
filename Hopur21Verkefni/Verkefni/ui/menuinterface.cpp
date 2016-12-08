@@ -1,5 +1,6 @@
 #include <iostream>
 #include "menuinterface.h"
+#include <windows.h>
 
 using namespace std;
 
@@ -20,20 +21,33 @@ void MenuInterface::banner()
     //system("CLS");
     if(_firstTimeBooting == constants::FIRST_TIME)
     {
+        // sets font in console to RED
+        HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+        SetConsoleTextAttribute(hConsole, 14);
+
         cout << endl;
         cout << "       ********************************************" << endl;
-        cout << "       *  WELCOME TO THE COMPUTER SCIENTIST LIST  *" << endl;
+        cout << "       *   WELCOME TO THE COMPUTER SCIENCE LIST   *" << endl;
         cout << "       ********************************************" << endl;
         cout << endl;
-        _firstTimeBooting = 1;//just something else than 0
+        _firstTimeBooting = 1; //just something else than 0
+
+        SetConsoleTextAttribute(hConsole, 15); //set back to black background and white text
     }
     else
     {
+        // sets font in console to RED
+        HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+        SetConsoleTextAttribute(hConsole, 14);
+
         cout << endl;
         cout << "       ********************************************" << endl;
-        cout << "       *          COMPUTER SCIENTIST LIST         *" << endl;
+        cout << "       *           COMPUTER SCIENCE LIST          *" << endl;
         cout << "       ********************************************" << endl;
         cout << endl;
+
+        SetConsoleTextAttribute(hConsole, 15); //set back to black background and white text
+
     }
 
 }
@@ -90,8 +104,8 @@ string MenuInterface::subMenu()
     {
         cout << endl;
         cout << "Choose either:" << endl;
-        cout << "| 1 | A computer " << endl;
-        cout << "| 2 | A scientist " << endl;
+        cout << "| 1 | Computer " << endl;
+        cout << "| 2 | Scientist " << endl;
 
         cin >> subMenuChoice;
 
@@ -128,9 +142,10 @@ void MenuInterface::processChoice(const string choice)
             _uL.searchForAComputer();
             break;
         case 3:
-            banner();
+            // banner();
+            // here could be the choice to add type of computer?
             _uL.addComputer();
-        break;
+            break;
         case 4:
             // Remove a computer
             break;
@@ -153,7 +168,7 @@ void MenuInterface::processChoice(const string choice)
             break;
         case 3:
             _uL.addPerson();
-        break;
+            break;
         case 4:
             _uL.removePersonFromList();
             break;
