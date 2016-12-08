@@ -143,6 +143,13 @@ bool DbCon::updateComputer(const int& id, const string& name, const int& designY
     return success;
 }
 //Select Querys
+void getComputersConnectedToSC(vector<Computer>& compuerList,const int scientistID)
+{
+    QSqlQuery query;
+    query.prepare("SELECT c.ID, c.name, YEAR(c.design_year) AS design_year, YEAR(c.build_year) AS build_year, c.type_ID,(SELECT name FROM type WHERE ID = type_ID) AS type, c.is_created FROM computer_scientists_computers csc JOIN computers c ON (csc.computer_ID=c.ID) WHERE csc.computer_scientist_ID = (:scientistID);");
+    query.bindValue(":scientistID", scientistID);
+}
+
 void DbCon::getComputerScientists(vector<CSPerson>& computerScientists)
 {
     bool success = false;

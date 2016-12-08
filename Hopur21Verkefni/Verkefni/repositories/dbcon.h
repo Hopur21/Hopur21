@@ -34,7 +34,7 @@ public:
     bool connectionSuccessful(){return _connectionSuccess;}
     bool testFunction(const QString& name); //Test
     //Select
-    vector<Computer>& compuerList,const int scientistID;
+    void getComputersConnectedToSC(vector<Computer>& compuerList,const int scientistID);
     void getComputerScientists(vector<CSPerson>& computerScientists);
     void getComputers(vector<Computer>& computers);
     //void getType(vector<Computer>& computers);
