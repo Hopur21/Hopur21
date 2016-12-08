@@ -38,7 +38,7 @@ public:
     bool computerScientistExist(const string& name);
     //Insert
     bool addComputerScientist(const CSPerson value);
-    bool addComputer(const Computer value);
+    int addComputer(const Computer value);
     //Update
     bool updateComputerScientist(const int& id, const string& name, const int& birthYear, const int& deathYear, const bool isAlive, const string& gender, const string& comment);
     bool updateComputer(const int& id, const string& name, const int& designYear, const int& buildYear, const string& type, const bool isCreated);
