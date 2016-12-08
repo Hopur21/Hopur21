@@ -22,7 +22,7 @@ class Computer
         string getName()const {return _name;}
         int getDesignYear()const {return _designYear;}
         int getBuildYear()const {return _buildYear;}
-        string getTypeID()const {return _type;}
+        string getType()const {return _type;}
         bool getIsCreated()const {return _isCreated;}
         int getID()const {return _id;}
 
