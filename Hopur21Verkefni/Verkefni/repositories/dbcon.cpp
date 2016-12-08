@@ -20,7 +20,11 @@ DbCon::DbCon(const QString& hostname, const QString& database, const QString& us
 }
 DbCon::~DbCon()
 {
+    QString connection;
+    connection = _db.connectionName();
     _db.close();
+    _db = QSqlDatabase();
+    _db.removeDatabase(connection);
 }
 bool DbCon::makeConnection()
 {
