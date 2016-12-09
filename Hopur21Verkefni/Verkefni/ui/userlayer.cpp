@@ -480,9 +480,9 @@ void UserLayer::removePersonFromList()
         }
         else
         {
-            invalidInput();
+            //invalidInput();
+            break;
         }
-
 
     }while(valid == constants::INVALID);
 
@@ -498,15 +498,16 @@ void UserLayer::removePersonFromList()
         }
     }
 
-    if(_service.removeComputerFromList(to_string(realID)))
+    if(_service.removePersonFromList(to_string(realID)))
     {
-        cout << "Computer removed successfully" << endl;
+        cout << "Computer scientist removed successfully" << endl;
+        cout << endl;
+        printCompleteList();
     }
     else
     {
         cout << "Something went wrong" << endl;
     }
-
 }
 
 void UserLayer::removeComputerFromList()
@@ -561,6 +562,8 @@ void UserLayer::removeComputerFromList()
     if(_service.removeComputerFromList(to_string(realID)))
     {
         cout << "Computer removed successfully" << endl;
+        cout << endl;
+        printCompleteListOfComputers();
     }
     else
     {
@@ -953,7 +956,7 @@ void UserLayer::searchForAPerson()
 {
     string searchString;
 
-    cout << "Who are we searching for : ";
+    cout << "Who are we searching for: ";
     cin.ignore();
     getline(cin, searchString);
 }
