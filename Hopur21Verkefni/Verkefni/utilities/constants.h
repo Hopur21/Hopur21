@@ -18,6 +18,8 @@ namespace constants {
     const int VALID = 1;
     const int INVALID = 0;
     const int EMPTY_LIST = 0;
+    const int INT_COMPUTER = 1;
+    const int INT_SCIENTIST = 2;
     const std::string EMPTY_STRING = "";
     const std::string SEARCH_BY_NAME = "1";
     const std::string SEARCH_BY_YEAR_OF_BIRTH = "2";
