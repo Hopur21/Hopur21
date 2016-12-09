@@ -37,8 +37,8 @@ void MenuInterface::banner()
     else
     {
         // sets font in console to RED
-        HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-        SetConsoleTextAttribute(hConsole, 14);
+        //HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+        //SetConsoleTextAttribute(hConsole, 14);
 
         cout << endl;
         cout << "       ********************************************" << endl;
@@ -46,7 +46,7 @@ void MenuInterface::banner()
         cout << "       ********************************************" << endl;
         cout << endl;
 
-        SetConsoleTextAttribute(hConsole, 15); //set back to black background and white text
+        //SetConsoleTextAttribute(hConsole, 15); //set back to black background and white text
 
     }
 
