@@ -197,7 +197,7 @@ void UserLayer::addComputer()
     string designYear, buildYear, chosenComputer;
     vector<string> listOfComputerTypes = _service.getComputerTypesList();
     vector<Computer> listOfAllComputers = _service.getComputerList();
-    int intDesignYear, intBuildYear, inputComputerType, computerTypeID;
+    int intDesignYear, intBuildYear, inputComputerType;
     string computerTypeRealID;
     unsigned int sizeOfTypesList = listOfComputerTypes.size();
     int valid; // Sometimes the bool validity didn't work, therefore int valid was also used
@@ -442,9 +442,9 @@ void UserLayer::addComputer()
 
     //computerTypeRealID is the id of the type of computer the user selected
     //realScientistID is a vector of ints
-    vector<int> tempvectorToIgnoreError;
+    //vector<int> tempvectorToIgnoreError; **remove in final product**
 
-    if(!(_service.addNewComputerToList(tempvectorToIgnoreError, name, intDesignYear, intBuildYear, computerTypeRealID, created)))
+    if(!(_service.addNewComputerToList(realScientistID, name, intDesignYear, intBuildYear, computerTypeRealID, created)))
     {
         cout << "The computer has been added successfully." << endl;
         cout << endl;
