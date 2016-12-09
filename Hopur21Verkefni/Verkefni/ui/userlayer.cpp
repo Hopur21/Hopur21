@@ -568,7 +568,7 @@ void UserLayer::displayListOfComputersScientistContributedTo()
     {
         for(int i=0; i< listSize; i++)
         {
-              cout << i+1 << "  " << listOfPersons.at(i).getName() << endl;
+              cout << i+1 << ".  " << listOfPersons.at(i).getName() << endl;
         }
     }
     do
@@ -604,7 +604,6 @@ void UserLayer::displayListOfComputersScientistContributedTo()
 
     for(unsigned int i=0; i<listSize; i++)
     {
-
         if(nameOfPerson == listOfPersons.at(i).getName())
         {
             realID = listOfPersons.at(i).getID();
@@ -615,11 +614,12 @@ void UserLayer::displayListOfComputersScientistContributedTo()
     int sizeOfComputers = allComputers.size();
     if(sizeOfComputers == constants::EMPTY_LIST)
     {
-        cout << "This scientist did not create nor design a computer" << endl;
+        cout << nameOfPerson << " did not create nor design a computer" << endl;
+        cout << endl;
     }
     else
     {
-        cout << nameOfPerson << " contributed to the making of the following machines" << endl;
+        cout << nameOfPerson << " contributed to the making of the following machines: " << endl;
         cout << endl;
         for(unsigned j = 0; j < sizeOfComputers; j++)
         {
