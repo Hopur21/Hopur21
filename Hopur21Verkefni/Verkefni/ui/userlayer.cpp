@@ -17,7 +17,7 @@ void UserLayer::addPerson()
     // If user inputs no input an error message occurs
     do
     {
-        cout << "Enter name(0 to go back): ";
+        cout << "Enter name (0 to go back): ";
         cin.ignore();
         getline(cin, name);
         if(name == constants::EMPTY_STRING)
@@ -67,7 +67,7 @@ void UserLayer::addPerson()
     }while(input != constants::GENDER_MALE || input != constants::GENDER_FEMALE || input != constants::GENDER_OTHER);
 
     // Birth year validation
-    cout << "Enter the year of birth(0 to go back): ";
+    cout << "Enter the year of birth (0 to go back): ";
     cin >> birthYear;
     if(birthYear == constants::GO_BACK)
     {
@@ -82,7 +82,7 @@ void UserLayer::addPerson()
     {
         deathYear = deathYearValidation(birthYear, deathYear);
     }
-    cout << "What is this person's greatest achievement(0 to go back): ";
+    cout << "What is this person's greatest achievement (0 to go back): ";
     cin.ignore();
     getline(cin, comment);
     cout << endl;
