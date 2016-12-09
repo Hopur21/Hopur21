@@ -145,16 +145,16 @@ void MenuInterface::processChoice(const string choice)
         cout << "| 2 | Scientist " << endl;
         cin >> subMenuChoice;
 
+        if(subMenuChoice == "1")
+            cout << "hommz" << endl;
+
         if(subMenuChoice != "1" || subMenuChoice != "2")
         {
             invalidInput();
         }
-        else
-        {
-            cout << "HALLO FROM OKOKOK";
-        }
-    }
 
+    }
+    cout << "out of the loop"<< endl;
     int subMenuInt = stoi(subMenuChoice);
     int choiceInt = stoi(choice);
     banner();
