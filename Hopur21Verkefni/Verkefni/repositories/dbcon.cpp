@@ -88,14 +88,14 @@ bool DbCon::removeComputer(const int& computerID)
     return success;
 }
 //Insert Querys
-bool DbCon::addComputerType(const string computerName)
+bool DbCon::addComputerType(const string typeName)
 {
     bool success = false;
     QSqlQuery query;
     try
     {
-        query.prepare("INSERT INTO type(name) VALUES (:computerName)");
-        query.bindValue(":computerName", QString::fromStdString(computerName));
+        query.prepare("INSERT INTO type(name) VALUES (:typeName)");
+        query.bindValue(":typeName", QString::fromStdString(typeName));
         success = query.exec();
     }
     catch(int e)

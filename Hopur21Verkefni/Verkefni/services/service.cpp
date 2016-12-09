@@ -117,7 +117,10 @@ bool Service::validNumber(string number)
         return false;
     }
 }
-
+bool Service::addComputerType(const string typeName)
+{
+    return _dbCon.addComputerType(typeName);
+}
 
 //Computer scientist Sorts
 void Service::sortScientistListAlphabetically()

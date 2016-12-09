@@ -202,8 +202,46 @@ void UserLayer::addPerson()
     }
 }
 
+void UserLayer::computerChoice()
+{
+    bool valid = false;
+    string subMenuChoice;
+    while(valid == false)
+    {
+        cout << endl;
+        cout << "Do you want to add:" << endl;
+        cout << "| 1 | Computer " << endl;
+        cout << "| 2 | Computer type" << endl;
+        cin >> subMenuChoice;
+
+        if(subMenuChoice == "1" || subMenuChoice == "2")
+        {
+            valid = true;
+        }
+        else
+        {
+            invalidInput();
+        }
+    }
+
+    if(subMenuChoice == "1")
+    {
+        addComputerType();
+    }
+    else if(subMenuChoice == "2")
+    {
+        addComputer();
+    }
+}
+
+void UserLayer::addComputerType()
+{
+
+}
+
 void UserLayer::addComputer()
 {
+
     string name, type;
     string designYear, buildYear, chosenComputer;
     vector<string> listOfComputerTypes = _service.getComputerTypesList();
@@ -716,7 +754,6 @@ void UserLayer::printListMoreInfoComputer()
     cin >> id;
     cout << endl;
 
-
     do
     {
         if(id < 0 || id > listSize || isdigit(id))
@@ -737,8 +774,6 @@ void UserLayer::printListMoreInfoComputer()
     designYear = to_string(computerList.at(id-1).getDesignYear());
     name = computerList.at(id-1).getName();
     type = computerList.at(id-1).getType();
-    //computerScientist = computerList.at(id-1).getCSConntedToComputer(); //how to find the scientist that made the computer???
-
 
     cout << "------------------------------------------------------------------------------" << endl;
     cout << "BUILD YEAR:" << buildYear << "          " << name <<  "         DESIGN YEAR:" << designYear << endl;
@@ -969,7 +1004,6 @@ void UserLayer::sortComputerListByBuildYear()
 void UserLayer::searchForAPerson()
 {
     string searchString;
-
     cout << "Who are we searching for: ";
     cin.ignore();
     getline(cin, searchString);
@@ -982,8 +1016,6 @@ void UserLayer::searchForAPerson()
     {
         printListOfScientists(listOfPersons);
     }
-
-
 }
 
 void UserLayer::searchForAComputer()
@@ -1002,8 +1034,6 @@ void UserLayer::searchForAComputer()
     {
         printListOfComputers(listOfComputers);
     }
-
-
 }
 
 void UserLayer::invalidInput()
