@@ -172,7 +172,7 @@ void MenuInterface::processChoice(const string choice)
             _userLayer.searchForAComputer();
             break;
         case 3:
-            // banner();
+            banner();
             // here could be the choice to add type of computer?
             _userLayer.addComputer();
             break;
@@ -233,27 +233,27 @@ void MenuInterface::displayComputers()
 
     if(sortOption == constants::SORT_ALPHABET)
     {
-       // banner();
+        banner();
         _userLayer.sortComputerListAlphabetically();
     }
     else if(sortOption == constants::SORT_DESCENDING_ALPHABET)
     {
-       // banner();
+        banner();
         _userLayer.sortComputerListAlphabeticallyDESC();
     }
     else if(sortOption == constants::SORT_BY_BUILDYEAR)
     {
-       // banner();
+        banner();
         _userLayer.sortComputerListByBuildYear();
     }
     else if(sortOption == constants::SORT_BY_DESIGNYEAR)
     {
-       // banner();
+        banner();
         _userLayer.sortComputerListByDesignYear();
     }
     else if(sortOption == constants::SORT_BY_TYPE)
     {
-       // banner();
+       banner();
        _userLayer.sortComputerListByType();
     }
     else if(sortOption == constants::MORE_INFO)

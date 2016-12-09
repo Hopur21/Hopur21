@@ -27,7 +27,6 @@ HEADERS += \
     ui/menuinterface.h \
     ui/userlayer.h \
     utilities/constants.h \
-    utilities/enums.h \
     repositories/datalayer.h \
     repositories/dbcon.h \
     services/cspersonservice.h \
