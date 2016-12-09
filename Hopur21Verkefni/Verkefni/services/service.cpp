@@ -24,6 +24,7 @@ bool Service::addNewPersonToList(const vector<int> computerConnectionID,const st
     {
         _dbCon.addCStoComputer(newPersonID,computerConnectionID[i]);
     }
+    updateComputerScientistList();
     return true;
 }
 
@@ -43,6 +44,7 @@ bool Service::addNewComputerToList(const vector<int> scientistConnectionID, cons
     {
         _dbCon.addCStoComputer(scientistConnectionID[i],newComputerID);
     }
+    updateComputerList();
     return true;
 }
 
