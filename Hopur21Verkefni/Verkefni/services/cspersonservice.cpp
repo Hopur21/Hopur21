@@ -15,7 +15,6 @@ bool sortByAgeASCC(const CSPerson &lhs, const CSPerson &rhs)
 CSPersonService::CSPersonService()
 {
 }
-
 //Sorts
 void CSPersonService::sortByName(vector<CSPerson>& computerScientists)
 {
@@ -48,53 +47,6 @@ void CSPersonService::sortByAge(vector<CSPerson>& computerScientists)
 
 
 
-//Þau föll sem er ekki búið að fara yfir fyrir (aðlaga) Viku2
-
-
-
-
-bool CSPersonService::addNewPersonToList(const string name,const string gender, string birthYear, string deathYear,const string comment)
-{
-    //We will set years to 0 if they are not valid.
-    int tempBirthYear = 0, tempDeathYear = 0;
-    if(validNumber(birthYear)) //If number is valid
-    {
-        tempBirthYear = stoi(birthYear);
-        //tempBirthYear = birthYear;
-    }
-    if(validNumber(deathYear))
-    {
-        if(stoi(deathYear) > tempBirthYear)
-        {
-            tempDeathYear = stoi(deathYear);
-        }
-        //tempDeathYear = deathYear;
-    }
-
-    return true;//Return true that we made it
-}
-
-
-// TODO
-
-
-
-//Search by name, find every value that we find and return all of those values in a vector
-vector<CSPerson> CSPersonService::searchByName(const string searchString)
-{
-    /*
-    vector<CSPerson> tempVector;
-    for(size_t i = 0; i < _fileKeeper.size(); i++)
-    {
-        if(checkIfStringSameIgnoreUpper(_fileKeeper[i].getName(), searchString))
-        {
-            tempVector.push_back(_fileKeeper[i]);
-        }
-    }
-    return tempVector;
-    */
-}
-
 bool CSPersonService::validNumber(string number)
 {
     int inputNumber = 0;
@@ -115,45 +67,6 @@ bool CSPersonService::validNumber(string number)
         return false;
     }
 }
-
-vector<CSPerson> CSPersonService::searchByYearOfBirth(const string searchString)
-{
-    vector<CSPerson> tempVector;
-    /*
-    if(validNumber(searchString))
-    {
-        for(size_t i = 0; i < _fileKeeper.size(); i++)
-        {
-            string temp = to_string(_fileKeeper[i].getBirthYear());
-            if(checkIfStringSameIgnoreUpper(temp, searchString))
-            {
-                tempVector.push_back(_fileKeeper[i]);
-            }
-        }
-    }
-    */
-    return tempVector;
-}
-
-vector<CSPerson> CSPersonService::searchByYearOfDeath(const string searchString)
-{
-    vector<CSPerson> tempVector;
-    /*
-    if(validNumber(searchString))
-    {
-        for(size_t i = 0; i < _fileKeeper.size(); i++)
-        {
-            string temp = to_string(_fileKeeper[i].getPassedAwayYear());
-            if(checkIfStringSameIgnoreUpper(temp, searchString))
-            {
-                tempVector.push_back(_fileKeeper[i]);
-            }
-        }
-    }
-    */
-    return tempVector;
-}
-
 //Returns true if string2 is a part of string1, no matter upper or lower case.
 bool CSPersonService::checkIfStringSameIgnoreUpper(string orginalString, string searchFor)
 {
