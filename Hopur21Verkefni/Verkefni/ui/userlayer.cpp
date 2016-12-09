@@ -249,7 +249,7 @@ void UserLayer::addComputer()
 
     validity = false;
 
-    // VILLA Í þessu
+    // VILLA Í þessu (þetta loopar veit ekki af hverju cin ætti að stoppa loopuna en gerir það ekki)
 /*
     do
     {
