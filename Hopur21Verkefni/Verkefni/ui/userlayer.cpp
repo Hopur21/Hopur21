@@ -122,7 +122,7 @@ void UserLayer::addPerson()
 
             for(unsigned int i=0; i < computerList.size(); i++)
             {
-                  cout << i+1 << "  " << computerList.at(i).getName() << endl;
+                  cout << i+1 << ". " << computerList.at(i).getName() << endl;
             }
 
             int number = 1;
