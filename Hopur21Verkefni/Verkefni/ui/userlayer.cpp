@@ -488,7 +488,13 @@ string UserLayer::deathYearValidation(string birthYear, string deathYear)
         {
             cout << "Enter the year of death: ";
             cin >> deathYear;
-        }
+            if (deathYear == constants::ALIVE)
+            {
+                deathYearValidation = false;
+                return deathYear;
+            }
+        }  
+        // catches inputs if they are not numbers and if input is lower than birthyear
         if(checkNumberValidity(deathYear) || birthYear >= deathYear)
         {
             invalidInput();
