@@ -944,88 +944,21 @@ void UserLayer::sortComputerListByBuildYear()
 //Searches
 void UserLayer::searchForAPerson()
 {
-    string userInput, searchString;
-
-    do
-    {
-        cout << "| 1 | Search by name" << endl;
-        cout << "| 2 | Search by year of birth" << endl;
-        cout << "| 3 | Search by year of death" << endl;
-        cout << "| 0 | Go back" << endl;
-        cout << "Enter your choice here: ";
-
-        cin >> userInput;
-        if(userInput == constants::GO_BACKSTRING)
-        {
-            return;
-        }
-        if(userInput == constants::SEARCH_BY_NAME || userInput == constants::SEARCH_BY_YEAR_OF_BIRTH || userInput == constants::SEARCH_BY_YEAR_OF_DEATH)
-        {
-            break;
-        }
-        invalidInput();
-
-    }while(userInput != constants::SEARCH_BY_NAME || userInput != constants::SEARCH_BY_YEAR_OF_BIRTH || userInput != constants::SEARCH_BY_YEAR_OF_DEATH);
+    string searchString;
 
     cout << "Who are we searching for : ";
     cin.ignore();
     getline(cin, searchString);
-
-    if(userInput == constants::SEARCH_BY_NAME)
-    {
-        printListMoreInfo(_service.searchByName(searchString));
-    }
-    else if(userInput == constants::SEARCH_BY_YEAR_OF_BIRTH)
-    {
-        printListMoreInfo(_service.searchByYearOfBirth(searchString));
-    }
-    else if(userInput == constants::SEARCH_BY_YEAR_OF_DEATH)
-    {
-        printListMoreInfo(_service.searchByYearOfDeath(searchString));
-    }
 }
 
 void UserLayer::searchForAComputer()
 {
-    string userInput, searchString;
-
-    do
-    {
-        cout << "| 1 | Search by name" << endl;
-        cout << "| 2 | Search by type" << endl;
-        cout << "| 3 | Search by year" << endl;
-        cout << "| 0 | Go back" << endl;
-        cout << "Enter your choice here: ";
-
-        cin >> userInput;
-        if(userInput == constants::GO_BACKSTRING)
-        {
-            return;
-        }
-        if(userInput == constants::SEARCH_BY_NAME || userInput == constants::SEARCH_BY_TYPE || userInput == constants::SEARCH_BY_YEAR)
-        {
-            break;
-        }
-        invalidInput();
-
-    }while(userInput != constants::SEARCH_BY_NAME || userInput != constants::SEARCH_BY_TYPE || userInput != constants::SEARCH_BY_YEAR);
+    string searchString;
 
     cout << "Please enter either: Name, type or year : ";
     cin.ignore();
     getline(cin, searchString);
 
-    if(userInput == constants::SEARCH_BY_NAME)
-    {
-        _service.searchComputerByName(searchString);
-    }
-    else if(userInput == constants::SEARCH_BY_TYPE)
-    {
-        _service.searchComputerByType(searchString);
-    }
-    else if(userInput == constants::SEARCH_BY_YEAR)
-    {
-        _service.searchComputerByYear(searchString);
-    }
 }
 
 void UserLayer::invalidInput()
