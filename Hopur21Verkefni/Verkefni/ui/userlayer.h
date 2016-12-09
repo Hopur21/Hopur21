@@ -25,6 +25,8 @@ class UserLayer
         UserLayer(){}
         void addPerson();
         void addComputer();
+        void addComputerType();
+        void computerChoice();
         void removePersonFromList();
         void removeComputerFromList();
         //Scientist Sorts
