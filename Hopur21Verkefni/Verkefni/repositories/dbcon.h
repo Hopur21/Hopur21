@@ -40,8 +40,8 @@ public:
     void getComputerScientists(vector<CSPerson>& computerScientists);
     void getComputers(vector<Computer>& computers);
     void getComputerTypes(vector<string>& computerTypes);
-    vector<CSPerson> getComputerScientistsTrashCan(vector<CSPerson>& computerScientistTrashCan);
-    vector<Computer> getComputerTrashCan(vector<Computer>& computerTrashCan);
+    vector<CSPerson> getComputerScientistsTrashCan();
+    vector<Computer> getComputerTrashCan();
     bool computerScientistExist(const string& name);
     void searchScientist(vector<CSPerson>& scientist, const string searchFor);
     void searchComputer(vector<Computer>& computer, const string searchFor);
