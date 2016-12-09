@@ -940,7 +940,7 @@ void UserLayer::searchForAPerson()
 {
     string searchString;
 
-    cout << "Who are we searching for : ";
+    cout << "Who are we searching for: ";
     cin.ignore();
     getline(cin, searchString);
 }
