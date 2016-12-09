@@ -24,10 +24,9 @@ bool Service::addNewPersonToList(const vector<int> computerConnectionID,const st
     {
         _dbCon.addCStoComputer(newPersonID,computerConnectionID[i]);
     }
+    updateComputerScientistList();
     return true;
 }
-
-
 bool Service::addNewComputerToList(const vector<int> scientistConnectionID, const string name, const int designYear, const int buildYear, const string typeRealID, const bool created)
 {
     Computer newComputer;
@@ -43,9 +42,9 @@ bool Service::addNewComputerToList(const vector<int> scientistConnectionID, cons
     {
         _dbCon.addCStoComputer(scientistConnectionID[i],newComputerID);
     }
+    updateComputerList();
     return true;
 }
-
 bool Service::removePersonFromList(const string id)
 {
     if(!validNumber(id))
@@ -54,7 +53,6 @@ bool Service::removePersonFromList(const string id)
     }
     return _dbCon.removeComputerScientist(stoi(id));
 }
-
 bool Service::removeComputerFromList(const string id)
 {
     if(!validNumber(id))
@@ -63,6 +61,13 @@ bool Service::removeComputerFromList(const string id)
     }
     return _dbCon.removeComputer(stoi(id));
 }
+/*
+vector<CSPerson> getComputerScientistTrash()
+{
+    return
+}*/
+
+vector<Computer> getComputerTrash();
 vector<CSPerson> Service::getScientistConntedToComputers(const int computerID)
 {
     return _dbCon.getCSConntedToComputer(computerID);
