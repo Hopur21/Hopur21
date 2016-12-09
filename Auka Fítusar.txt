@@ -1,24 +1,6 @@
 Gagnagrunnur er miðlægur (external server)
 Vector-ar eru geymdir í services og sendir með call by reference.
+Hægt er að fjarlægja tölvunarfræðing og tölvu og svo birta þá sem búið er að henda.
+Leitin leitar eftir öllum flokkum þegar leitarstrengur er kominn inn
 
-
-Prenta út lista af deleted ?
-
-
-
-
-
-
-
-
-
-
-
-
-----
-Valmöguleikar úr dbcon:
-Computer: CRUD
-Comp Scien: CRUD
-Type: Select, Add
-Comp to CS: select, add
 
