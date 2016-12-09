@@ -10,6 +10,7 @@ bool sortByWasBuiltASC(const Computer &lhs, const Computer &rhs) {return lhs.get
 ComputerService::ComputerService()
 {
 }
+
 bool ComputerService::addNewComputerToList(Computer& newComputer, const string name,const int designyear, const int buildyear, const string typeID, const bool created)
 {
     // VISTA Í GAGNAGRUNNI

@@ -50,12 +50,6 @@ void MenuInterface::banner()
         cout << endl;
 
         SetConsoleTextAttribute(hConsole, 15); //set back to black background and white text
-/*
-        cout << endl;
-        cout << "       ********************************************" << endl;
-        cout << "       *   WELCOME TO THE COMPUTER SCIENCE LIST   *" << endl;
-        cout << "       ********************************************" << endl;
-        cout << endl; */
         _firstTimeBooting = 1; //just something else than 0
     }
     else
@@ -67,6 +61,27 @@ void MenuInterface::banner()
         cout << endl;
 
         SetConsoleTextAttribute(hConsole, 15); //set back to black background and white text
+    }
+
+    //if program is run on Apple the banner displays white as normal
+    #else
+    //system("CLS");
+    if(_firstTimeBooting == constants::FIRST_TIME)
+    {
+        cout << endl;
+        cout << "       ********************************************" << endl;
+        cout << "       *   WELCOME TO THE COMPUTER SCIENCE LIST   *" << endl;
+        cout << "       ********************************************" << endl;
+        cout << endl;
+        _firstTimeBooting = 1; //just something else than 0
+    }
+    else
+    {
+        cout << endl;
+        cout << "       ********************************************" << endl;
+        cout << "       *           COMPUTER SCIENCE LIST          *" << endl;
+        cout << "       ********************************************" << endl;
+        cout << endl;
     }
     #endif
 }
@@ -166,7 +181,7 @@ void MenuInterface::processChoice(const string choice)
             _userLayer.addComputer();
             break;
         case 4:
-            // Remove a computer
+            _userLayer.removeComputerFromList();
             break;
         default:
             invalidInput();

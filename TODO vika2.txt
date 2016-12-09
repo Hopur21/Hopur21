@@ -7,7 +7,6 @@
 3.  Kóðinn skal vera lesanlegur, vel formaður, vel skjalaður, og viðhaldanlegur.
   - Skjölun ætti að vera einungis á annaðhvort íslensku eða ensku (helst ensku) -1
 
-
 Searches:
 For computer name
 For computer build_year
@@ -27,7 +26,16 @@ Removes:
 Computer
 Computer scientist
 
-
-Tengja tölvu við persónu
+Menu:
+Tengja tölvu við persónu - prufa
+Tengja persónu við tölvu - prufa
 hætta í miðju addi
 birta deleted items
+tengja console clear þegar allt er komið
+print more info þegar tölva er valin
+
+Service:
+Búa til remove
+Eftir add/remove - kalla í update
+
+Database:
