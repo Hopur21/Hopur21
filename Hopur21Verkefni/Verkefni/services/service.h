@@ -38,6 +38,8 @@ class Service
         vector <string> getComputerTypesList(){return _computerTypes;}
         vector<CSPerson> getComputerScientistList(){return _computerScientists;}
         vector<Computer> getComputerList(){return _computerList;}
+        vector<CSPerson> getScientistConntedToComputers(const int computerID);
+        vector<Computer> getComputersConntedToCS(const int computerScientistID);
 
         vector<CSPerson> searchByName(const string searchString);
         vector<CSPerson> searchByYearOfBirth(const string searchString);
