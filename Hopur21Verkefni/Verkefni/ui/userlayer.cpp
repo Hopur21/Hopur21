@@ -247,9 +247,13 @@ void UserLayer::addComputerType()
 
     do
     {
-        cout << "Enter the name of the computer type: ";
+        cout << "Enter the name of the computer type(0 to go back): ";
         cin.ignore();
         getline(cin, computerType);
+        if(computerType == constants::GO_BACK)
+        {
+            return;
+        }
         cout << "Is this the computer type you wanted to add?" << endl;
         cout << "TYPE : " << computerType << endl;
         cout << "Enter y for yes, n for no." << endl;
