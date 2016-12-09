@@ -1162,6 +1162,50 @@ void UserLayer::searchForAComputer()
     }
 }
 
+void UserLayer::viewComputerTrashCan()
+{
+    vector<Computer> trash = _service.getComputerTrash();
+    int sizeOfTrash = trash.size();
+    cout << endl;
+    if(sizeOfTrash == constants::EMPTY_LIST)
+    {
+        cout << "Trash can is empty" << endl;
+        cout << endl;
+    }
+    else
+    {
+        cout << "Current computers are in the trashcan:" << endl;
+        cout << endl;
+        for(int i=0; i < sizeOfTrash; i++)
+        {
+            cout << trash.at(i).getName() << endl;
+        }
+        cout << endl;
+    }
+}
+
+void UserLayer::viewComputerScientistTrashCan()
+{
+    vector<CSPerson> trash = _service.getComputerScientistTrash();
+    int sizeOfTrash = trash.size();
+    cout << endl;
+    if(sizeOfTrash == constants::EMPTY_LIST)
+    {
+        cout << "Trash can is empty" << endl;
+        cout << endl;
+    }
+    else
+    {
+        cout << "Current scientists are in the trashcan:" << endl;
+        cout << endl;
+        for(int i=0; i < sizeOfTrash; i++)
+        {
+            cout << trash.at(i).getName() << endl;
+        }
+        cout << endl;
+    }
+}
+
 void UserLayer::invalidInput()
 {
     cout << "Your input was invalid, please try again." << endl;

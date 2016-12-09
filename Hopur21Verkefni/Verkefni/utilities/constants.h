@@ -52,6 +52,8 @@ namespace constants {
     const std::string ADD_COMPUTER = "1";
     const std::string ADD_COMPUTER_TYPE = "2";
     const std::string COMPUTERS_SCIENTIST_CONTRIBUTED_TO = "8";
+    const std::string COMPUTER_TRASH = "5";
+    const std::string SCIENTIST_TRASH = "6";
 
 
 

@@ -83,6 +83,8 @@ void MenuInterface::DisplayMenu()
         cout << "| 2 | Search the list" << endl;
         cout << "| 3 | Add to the list" << endl;
         cout << "| 4 | Remove from the list" << endl;
+        cout << "| 5 | View the computer trashcan" << endl;
+        cout << "| 6 | View the scientist trashcan" << endl;
         cout << "| Q | Exit the program" << endl;
         cout << "Enter your choice here: ";
         cin >> choice;
@@ -91,6 +93,14 @@ void MenuInterface::DisplayMenu()
         if(choice == constants::DISPLAY_LIST || choice == constants::ADD || choice == constants::SEARCH || choice == constants::REMOVE)
         {
             processChoice(choice);
+        }
+        else if(choice == constants::COMPUTER_TRASH)
+        {
+            _userLayer.viewComputerTrashCan();
+        }
+        else if(choice == constants::SCIENTIST_TRASH)
+        {
+            _userLayer.viewComputerScientistTrashCan();
         }
         else if(choice == "Q" || choice == "q")
         {

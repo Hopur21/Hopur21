@@ -24,6 +24,8 @@ class UserLayer
 
     public:
         UserLayer(){}
+        void viewComputerTrashCan();
+        void viewComputerScientistTrashCan();
         void addPerson();
         void addComputer();
         void addComputerType();
