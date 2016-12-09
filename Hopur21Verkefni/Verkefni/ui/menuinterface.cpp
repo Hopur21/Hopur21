@@ -64,7 +64,7 @@ void MenuInterface::banner()
     }
 
     //if program is run on Apple the banner displays white as normal
-    #elif _APPLE_
+    #else
     //system("CLS");
     if(_firstTimeBooting == constants::FIRST_TIME)
     {
