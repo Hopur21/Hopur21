@@ -11,7 +11,6 @@ void UserLayer::addPerson()
     char userInput;
     int error_counter = 0;
     bool validity = false;
-    // A list of all computers the scientist might have had something to do with
     vector <Computer> computerList = _service.getComputerList();
     vector <string> userSelection;
     vector <int> realComputerID;
@@ -75,8 +74,8 @@ void UserLayer::addPerson()
     cin.ignore();
     getline(cin, comment);
     cout << endl;
-
     error_counter = 0;
+
     do
     {
         if(error_counter == 0)
@@ -346,7 +345,7 @@ void UserLayer::addComputer()
 
     valid = constants::INVALID;
     validity = false;
-
+    connectPersons = false;
 
     do
     {
@@ -359,6 +358,7 @@ void UserLayer::addComputer()
             case 'y':
             case 'Y':
                 valid = constants::VALID;
+                connectPersons = true;
                 break;
             case 'n':
             case 'N':
@@ -438,6 +438,11 @@ void UserLayer::addComputer()
             }
         }
 
+        for(unsigned int n = 0; n<realScientistID.size();n++)
+        {
+            cout << "THE IDS : -------> " << realScientistID.at(n) << endl;
+        }
+
     }
 
     //computerTypeRealID is the id of the type of computer the user selected
@@ -457,15 +462,129 @@ void UserLayer::addComputer()
 
 void UserLayer::removePersonFromList()
 {
+    int valid = constants::INVALID;
+    vector<CSPerson> listOfPersons = _service.getComputerScientistList();
+    int listSize = listOfPersons.size();
     printCompleteList();
-    string personToRemove;
-    cout << "Enter the number of the person that is to be removed or 0 to go back: ";
-    cin >> personToRemove;
-    if(personToRemove == constants::GO_BACK)
+    int number;
+
+    do
     {
-        return;
+        cout << "Enter the number of the person that is to be removed or 0 to go back: ";
+        try
+        {
+            cin >> number;
+        }
+        catch(int e)
+        {
+            invalidInput();
+        }
+        if(listSize == constants::EMPTY_LIST)
+        {
+            cout << "List is empty" << endl;
+            return;
+        }
+        else if(number == constants::EMPTY_LIST)
+        {
+            return;
+        }
+        else if(number < constants::EMPTY_LIST || number > listSize)
+        {
+            invalidInput();
+        }
+        else
+        {
+            valid = constants::VALID;
+        }
+
+    }while(valid == constants::INVALID);
+
+    string selection = listOfPersons.at(number -1).getName();
+
+    int realID;
+
+    for(unsigned int i = 0; i < listSize; i++)
+    {
+        if(selection == listOfPersons.at(i).getName())
+        {
+            realID = listOfPersons.at(i).getID();
+        }
     }
-    _service.removePersonFromList(personToRemove);
+
+    //IT IS OK TO REMOVE THESE COMMENTS
+/*
+    if(_service.removeComputerFromList(realID))
+    {
+        cout << "Computer removed successfully" << endl;
+    }
+    else
+    {
+        cout << "Something went wrong" << endl;
+    }
+*/
+}
+
+void UserLayer::removeComputerFromList()
+{
+    int valid = constants::INVALID;
+    vector<Computer> listOfComputers = _service.getComputerList();
+    int listSize = listOfComputers.size();
+    printCompleteListOfComputers();
+    int number;
+
+    do
+    {
+        cout << "Enter the number of the computer that is to be removed or 0 to go back: ";
+        cin >> number;
+
+        if(listSize == constants::EMPTY_LIST)
+        {
+            cout << "List is empty" << endl;
+            return;
+        }
+        else if(number == constants::EMPTY_LIST)
+        {
+            return;
+        }
+        else if(number < constants::EMPTY_LIST || number > listSize)
+        {
+            invalidInput();
+        }
+        else if(!isdigit(number))
+        {
+            valid = constants::VALID;
+        }
+        else
+        {
+            invalidInput();
+        }
+
+    }while(valid == constants::INVALID);
+
+    string selection = listOfComputers.at(number -1).getName();
+
+    int realID;
+
+    for(unsigned int i = 0; i < listSize; i++)
+    {
+        if(selection == listOfComputers.at(i).getName())
+        {
+            realID = listOfComputers.at(i).getID();
+        }
+    }
+
+    //IT IS OK TO REMOVE THESE COMMENTS
+/*
+    if(_service.removeComputerFromList(realID))
+    {
+        cout << "Computer removed successfully" << endl;
+    }
+    else
+    {
+        cout << "Something went wrong" << endl;
+    }
+*/
+
 }
 
 void UserLayer::printGenderMenu()

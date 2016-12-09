@@ -26,6 +26,7 @@ class UserLayer
         void addPerson();
         void addComputer();
         void removePersonFromList();
+        void removeComputerFromList();
         //Scientist Sorts
         void sortScientistListAlphabetically();
         void sortScientistListAlphabeticallyDESC();

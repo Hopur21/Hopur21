@@ -30,10 +30,13 @@ bool Service::addNewComputerToList(const vector<int> scientistConnectionID, cons
 
 bool Service::removePersonFromList(const string id)
 {
-    /*if (_cSPersonService.removePersonFromList(id))
-    {
-        return true;
-    }*/
+    // TODO EYÐA ÚR GAGNAGRUNNI (ID KEMUR RÉTT INN)
+    return false;
+}
+
+bool Service::removeComputerFromList(const string id)
+{
+    // TODO EYÐA ÚR GAGNAGRUNNI (ID KEMUR RÉTT INN)
     return false;
 }
 void Service::updateComputerTypesList()

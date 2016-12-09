@@ -147,7 +147,7 @@ void MenuInterface::processChoice(const string choice)
             _userLayer.addComputer();
             break;
         case 4:
-            // Remove a computer
+            _userLayer.removeComputerFromList();
             break;
         default:
             invalidInput();
