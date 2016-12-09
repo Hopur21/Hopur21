@@ -239,7 +239,7 @@ void DbCon::getComputerScientists(vector<CSPerson>& computerScientists)
 {
     bool success = false;
     computerScientists.clear();//Clear the vector
-    QSqlQuery query("SELECT ID, name, YEAR(birth_year) AS birth_year, YEAR(death_year) AS death_year, gender, comment, is_alive FROM computer_scientists ORDER BY name");
+    QSqlQuery query("SELECT ID, name, YEAR(birth_year) AS birth_year, YEAR(death_year) AS death_year, gender, comment, is_alive FROM computer_scientists WHERE removed = 0 ORDER BY name");
     //int idName = query.record().indexOf("name");
     while (query.next())
     {
@@ -255,7 +255,7 @@ void DbCon::getComputers(vector<Computer>& computers)
 {
     computers.clear();
     bool success = false;
-       QSqlQuery query("SELECT ID, name, YEAR(design_year) AS design_year, YEAR(build_year) AS build_year, is_created, (SELECT name FROM type WHERE ID = type_ID) AS type, type_ID FROM computers ORDER BY name;");
+       QSqlQuery query("SELECT ID, name, YEAR(design_year) AS design_year, YEAR(build_year) AS build_year, is_created, (SELECT name FROM type WHERE ID = type_ID) AS type, type_ID FROM computers WHERE removed = 0 ORDER BY name;");
        //int idName = query.record().indexOf("name");
        while (query.next())
        {
