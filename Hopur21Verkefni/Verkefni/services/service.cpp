@@ -71,13 +71,17 @@ bool Service::removeComputerFromList(const string id)
     }
     return success;
 }
-/*
-vector<CSPerson> getComputerScientistTrash()
-{
-    return
-}*/
 
-vector<Computer> getComputerTrash();
+vector<CSPerson> Service::getComputerScientistTrash()
+{
+    return _dbCon.getComputerScientistsTrashCan();
+}
+
+vector<Computer> Service::getComputerTrash()
+{
+    return _dbCon.getComputerTrashCan();
+}
+
 vector<CSPerson> Service::getScientistConntedToComputers(const int computerID)
 {
     return _dbCon.getCSConntedToComputer(computerID);
