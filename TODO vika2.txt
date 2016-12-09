@@ -18,21 +18,12 @@ For computer scientist name
 For computer scientist birth_year
 For computer scientist death_year
 
-Adds:
-Computer
-Computer scientist
-
-Removes:
-Computer
-Computer scientist
-
 Menu:
 Tengja tölvu við persónu - prufa
 Tengja persónu við tölvu - prufa
 hætta í miðju addi
 birta deleted items
 tengja console clear þegar allt er komið
-print more info þegar tölva er valin
 
 Service:
 Búa til remove

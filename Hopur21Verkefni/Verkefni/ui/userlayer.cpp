@@ -17,7 +17,7 @@ void UserLayer::addPerson()
     // If user inputs no input an error message occurs
     do
     {
-        cout << "Enter name(0 to go back): ";
+        cout << "Enter name (0 to go back): ";
         cin.ignore();
         getline(cin, name);
         if(name == constants::EMPTY_STRING)
@@ -67,7 +67,7 @@ void UserLayer::addPerson()
     }while(input != constants::GENDER_MALE || input != constants::GENDER_FEMALE || input != constants::GENDER_OTHER);
 
     // Birth year validation
-    cout << "Enter the year of birth(0 to go back): ";
+    cout << "Enter the year of birth (0 to go back): ";
     cin >> birthYear;
     if(birthYear == constants::GO_BACK)
     {
@@ -82,7 +82,7 @@ void UserLayer::addPerson()
     {
         deathYear = deathYearValidation(birthYear, deathYear);
     }
-    cout << "What is this person's greatest achievement(0 to go back): ";
+    cout << "What is this person's greatest achievement (0 to go back): ";
     cin.ignore();
     getline(cin, comment);
     cout << endl;
@@ -217,7 +217,13 @@ void UserLayer::computerChoice()
         cout << "Do you want to add:" << endl;
         cout << "| 1 | Computer " << endl;
         cout << "| 2 | Computer type" << endl;
+        cout << "| 0 | Go back" << endl;
         cin >> subMenuChoice;
+
+        if(subMenuChoice == constants::GO_BACK)
+        {
+            return;
+        }
 
         if(subMenuChoice == constants::ADD_COMPUTER || subMenuChoice == constants::ADD_COMPUTER_TYPE)
         {
@@ -247,9 +253,13 @@ void UserLayer::addComputerType()
 
     do
     {
-        cout << "Enter the name of the computer type: ";
+        cout << "Enter the name of the computer type(0 to go back): ";
         cin.ignore();
         getline(cin, computerType);
+        if(computerType == constants::GO_BACK)
+        {
+            return;
+        }
         cout << "Is this the computer type you wanted to add?" << endl;
         cout << "TYPE : " << computerType << endl;
         cout << "Enter y for yes, n for no." << endl;
@@ -290,7 +300,7 @@ void UserLayer::addComputer()
     bool connectPersons = false;
     char yesOrNo;
 
-    cout << "Enter the name of the computer: ";
+    cout << "Enter the name of the computer(0 to go back): ";
     do
     {
         cin.ignore();
@@ -299,13 +309,21 @@ void UserLayer::addComputer()
         {
             invalidInput();
         }
+        if(name == constants::GO_BACK)
+        {
+            return;
+        }
     }while(name == "");
 
     do
     {
-        cout << "Enter the design year of the computer: ";
+        cout << "Enter the design year of the computer(0 to go back): ";
         cin >> designYear;
 
+        if(designYear == constants::GO_BACK)
+        {
+            return;
+        }
         if(!checkNumberValidity(designYear))
         {
             intDesignYear = stoi(designYear);
@@ -318,7 +336,6 @@ void UserLayer::addComputer()
         }
     }while(validity != true);
 
-    cout << "Select the computer type: " << endl;
     cout << endl;
 
     if(sizeOfTypesList == constants::EMPTY_LIST)
@@ -341,8 +358,7 @@ void UserLayer::addComputer()
     {
         valid = constants::INVALID;
 
-        cout << "Choose a computer type: " << endl;
-        cout << endl;
+        cout << "Choose a computer type(0 to go back): ";
 
         try
         {
@@ -352,7 +368,10 @@ void UserLayer::addComputer()
         {
             invalidInput();
         }
-
+        if(inputComputerType == constants::INVALID)
+        {
+            return;
+        }
         if(inputComputerType <= 0 || inputComputerType > sizeOfTypesList)
         {
             invalidInput();
@@ -1107,13 +1126,15 @@ void UserLayer::sortComputerListByBuildYear()
 void UserLayer::searchForAPerson()
 {
     string searchString;
-    cout << "Who are we searching for: ";
+    cout << "Please enter name, gender or year: ";
     cin.ignore();
     getline(cin, searchString);
+    cout << endl;
     vector<CSPerson> listOfPersons = _service.searchComputerScientist(searchString);
     if(listOfPersons.size() == constants::EMPTY_LIST)
     {
         cout << "Not found" << endl;
+        cout << endl;
     }
     else
     {
@@ -1125,13 +1146,15 @@ void UserLayer::searchForAComputer()
 {
     string searchString;
 
-    cout << "Please enter either: Name, type or year: ";
+    cout << "Please enter name, type or year: ";
     cin.ignore();
     getline(cin, searchString);
+    cout << endl;
     vector<Computer> listOfComputers = _service.searchComputer(searchString);
     if(listOfComputers.size() == constants::EMPTY_LIST)
     {
         cout << "Not found" << endl;
+        cout << endl;
     }
     else
     {
@@ -1164,5 +1187,4 @@ void UserLayer::adjustForSpaces(int i)
         cout << i << ". ";
     }
 }
-
 
