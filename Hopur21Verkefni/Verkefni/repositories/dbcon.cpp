@@ -277,6 +277,21 @@ void DbCon::getComputerTypes(vector<string>& computerTypes)
     }
     if(!success){qDebug() << "getComputerTypes error:  " << query.lastError();}
 }
+void DbCon::getTrashCan(vector<CSPerson>& trashCan)
+{
+    bool success = false;
+    QSqlQuery query("SELECT ID, name, YEAR(birth_year), YEAR(death_year), is_alive, gender, comment from computer_scientists WHERE removed = 1 ORDER BY name;");
+    while (query.next())
+    {
+        if(success == false)
+        {
+            success = true;
+        }
+        runSelectForScientist(query, trashCan);
+    }
+    if(!success){qDebug() << "getTrashCan error:  " << query.lastError();}
+}
+
 bool DbCon::computerScientistExist(const string& name)
 {
     bool foundValdo = false;
