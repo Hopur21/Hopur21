@@ -51,6 +51,7 @@ namespace constants {
     const std::string SEARCH_BY_YEAR = "2";
     const std::string ADD_COMPUTER = "1";
     const std::string ADD_COMPUTER_TYPE = "2";
+    const std::string COMPUTERS_SCIENTIST_CONTRIBUTED_TO = "8";
 
 
 

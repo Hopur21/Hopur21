@@ -275,6 +275,7 @@ void MenuInterface::displayScientists()
     cout << "| 5 | Sort computer scientists by year of death" << endl;
     cout << "| 6 | Sort computer scientists by age" << endl;
     cout << "| 7 | Sort computer scientists by gender" << endl;
+    cout << "| 8 | Display the computers the scientist contributed to" << endl;
     cout << "| 0 | Go back" << endl;
     cout << "Enter your choice here: ";
     cin >> sortOption;
@@ -314,6 +315,11 @@ void MenuInterface::displayScientists()
     {
         banner();
         _userLayer.sortScientistListByGender();
+    }
+    else if(sortOption == constants::COMPUTERS_SCIENTIST_CONTRIBUTED_TO)
+    {
+        banner();
+        _userLayer.displayListOfComputersScientistContributedTo();
     }
     else if(sortOption == constants::GO_BACK)
     {
