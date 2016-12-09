@@ -29,7 +29,7 @@ namespace constants {
     const std::string SEARCH = "2";
     const std::string REMOVE = "4";
     const std::string SORT_ALPHABET = "1";
-    const std::string SORT_ASCENDING_ALPHABET = "2";
+    const std::string SORT_DESCENDING_ALPHABET = "2";
     const std::string SORT_BY_YEAR_OF_BIRTH = "3";
     const std::string SORT_BY_ASCENDING_YEAR_OF_BIRTH = "4";
     const std::string SORT_BY_YEAR_OF_DEATH = "5";

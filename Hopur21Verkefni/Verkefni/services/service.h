@@ -19,9 +19,6 @@ class Service
         ComputerService _computerService;
         CSPersonService _cSPersonService;
 
-        void updateComputerList();
-        void updateComputerScientistList();
-
     public:
         Service();
 
@@ -29,11 +26,15 @@ class Service
         bool addNewPersonToList(const vector<int> computerConnectionID, const string name,const string gender, const string birthYear, const string deathYear,const string comment);
         bool addNewComputerToList(const vector<int> scientistConnectionID,const string name,const int designyear, const int buildyear, const string type, const bool created);
         bool removePersonFromList(const string id);
+        void updateAllLists();
+        void updateComputerList();
+        void updateComputerScientistList();
+        void updateComputerTypesList();
 
         //Gets
-        vector <string> getComputerTypesList();
-        vector<CSPerson> getComputerScientistList();
-        vector<Computer> getComputerList();
+        vector <string> getComputerTypesList(){return _computerTypes;}
+        vector<CSPerson> getComputerScientistList(){return _computerScientists;}
+        vector<Computer> getComputerList(){return _computerList;}
 
         vector<CSPerson> searchByName(const string searchString);
         vector<CSPerson> searchByYearOfBirth(const string searchString);
@@ -43,15 +44,21 @@ class Service
         vector<Computer> searchComputerByType(const string searchString);
         vector<Computer> searchComputerByYear(const string searchString);
 
-
-        void sortListAlphabetically();
-        void sortListAlphabeticallyASC();
-        void sortListByGender();
-        void sortListByDeathYear();
-        void sortListByBirthYear();
-        void sortListByBirthYearASC();
-        void sortListByAge();
-
+        //Scientist Sorts
+        void sortScientistListAlphabetically();
+        void sortScientistListAlphabeticallyDESC();
+        void sortScientistListByGender();
+        void sortScientistListByDeathYear();
+        void sortScientistListByBirthYear();
+        void sortScientistListByBirthYearASC();
+        void sortScientistListByAge();
+        //Computer Sorts
+        void sortComputerListAlphabetically();
+        void sortComputerListAlphabeticallyDESC();
+        void sortComputertListByBuildYear();
+        void sortComputerListByDesignYear();
+        void sortComputerListByType();
+        void sortComputerListWasBuilt();
 
 };
 
