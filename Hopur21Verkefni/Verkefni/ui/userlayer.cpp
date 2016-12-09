@@ -294,7 +294,7 @@ void UserLayer::addComputer()
     bool connectPersons = false;
     char yesOrNo;
 
-    cout << "Enter the name of the computer: ";
+    cout << "Enter the name of the computer(0 to go back): ";
     do
     {
         cin.ignore();
@@ -303,13 +303,21 @@ void UserLayer::addComputer()
         {
             invalidInput();
         }
+        if(name == constants::GO_BACK)
+        {
+            return;
+        }
     }while(name == "");
 
     do
     {
-        cout << "Enter the design year of the computer: ";
+        cout << "Enter the design year of the computer(0 to go back): ";
         cin >> designYear;
 
+        if(designYear == constants::GO_BACK)
+        {
+            return;
+        }
         if(!checkNumberValidity(designYear))
         {
             intDesignYear = stoi(designYear);
@@ -322,7 +330,6 @@ void UserLayer::addComputer()
         }
     }while(validity != true);
 
-    cout << "Select the computer type: " << endl;
     cout << endl;
 
     if(sizeOfTypesList == constants::EMPTY_LIST)
@@ -345,8 +352,7 @@ void UserLayer::addComputer()
     {
         valid = constants::INVALID;
 
-        cout << "Choose a computer type: " << endl;
-        cout << endl;
+        cout << "Choose a computer type(0 to go back): ";
 
         try
         {
@@ -356,7 +362,10 @@ void UserLayer::addComputer()
         {
             invalidInput();
         }
-
+        if(inputComputerType == constants::INVALID)
+        {
+            return;
+        }
         if(inputComputerType <= 0 || inputComputerType > sizeOfTypesList)
         {
             invalidInput();
