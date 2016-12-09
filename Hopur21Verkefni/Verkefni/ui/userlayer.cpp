@@ -484,9 +484,9 @@ void UserLayer::removePersonFromList()
         }
         else
         {
-            invalidInput();
+            //invalidInput();
+            break;
         }
-
 
     }while(valid == constants::INVALID);
 
@@ -502,15 +502,16 @@ void UserLayer::removePersonFromList()
         }
     }
 
-    if(_service.removeComputerFromList(to_string(realID)))
+    if(_service.removePersonFromList(to_string(realID)))
     {
-        cout << "Computer removed successfully" << endl;
+        cout << "Computer scientist removed successfully" << endl;
+        cout << endl;
+        printCompleteList();
     }
     else
     {
         cout << "Something went wrong" << endl;
     }
-
 }
 
 void UserLayer::removeComputerFromList()
@@ -565,6 +566,8 @@ void UserLayer::removeComputerFromList()
     if(_service.removeComputerFromList(to_string(realID)))
     {
         cout << "Computer removed successfully" << endl;
+        cout << endl;
+        printCompleteListOfComputers();
     }
     else
     {
@@ -706,7 +709,7 @@ void UserLayer::printListMoreInfoComputer()
 
     do
     {
-        if(id < 0 || id >= listSize || isdigit(id))
+        if(id < 0 || id > listSize || isdigit(id))
         {
             invalidInput();
             cout << "Enter the id of the computer you want info on: ";
@@ -957,9 +960,20 @@ void UserLayer::searchForAPerson()
 {
     string searchString;
 
-    cout << "Who are we searching for : ";
+    cout << "Who are we searching for: ";
     cin.ignore();
     getline(cin, searchString);
+    vector<CSPerson> listOfPersons = _service.searchComputerScientist(searchString);
+    if(listOfPersons.size() == constants::EMPTY_LIST)
+    {
+        cout << "Not found" << endl;
+    }
+    else
+    {
+        printListOfScientists(listOfPersons);
+    }
+
+
 }
 
 void UserLayer::searchForAComputer()
@@ -969,6 +983,16 @@ void UserLayer::searchForAComputer()
     cout << "Please enter either: Name, type or year : ";
     cin.ignore();
     getline(cin, searchString);
+    vector<Computer> listOfComputers = _service.searchComputer(searchString);
+    if(listOfComputers.size() == constants::EMPTY_LIST)
+    {
+        cout << "Not found" << endl;
+    }
+    else
+    {
+        printListOfComputers(listOfComputers);
+    }
+
 
 }
 

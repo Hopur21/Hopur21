@@ -202,6 +202,7 @@ vector<Computer> DbCon::getComputersConnectedToCS(const int scientistID)
     QSqlQuery query;
     query.prepare("SELECT c.ID, c.name, YEAR(c.design_year) AS design_year, YEAR(c.build_year) AS build_year, c.type_ID,(SELECT name FROM type WHERE ID = type_ID) AS type, c.is_created FROM computer_scientists_computers csc JOIN computers c ON (csc.computer_ID=c.ID) WHERE csc.computer_scientist_ID = (:scientistID);");
     query.bindValue(":scientistID", scientistID);
+    query.exec();
     while (query.next())
     {
         if(success == false)//If we made it here the query was a success, no need to set it to true for every single loop
@@ -219,8 +220,9 @@ vector<CSPerson> DbCon::getCSConntedToComputer(const int computerID)
     bool success = false;
     CSList.clear();
     QSqlQuery query;
-    query.prepare("SELECT cs.ID, cs.name, YEAR(cs.birth_year) AS birth_year, YEAR(cs.death_year) AS death_year, cs.gender, cs.comment, cs.is_alive FROM computer_scientists_computers csc JOIN computer_scientists cs ON (csc.computer_scientist_ID=cs.ID) WHERE csc.computer_ID = (:computerID);");
-    query.bindValue(":scientistID", computerID);
+    query.prepare("SELECT cs.ID, cs.name, YEAR(cs.birth_year) AS birth_year, YEAR(cs.death_year) AS death_year, cs.gender, cs.comment, cs.is_alive FROM computer_scientists_computers csc JOIN computer_scientists cs ON (csc.computer_scientist_ID=cs.ID) WHERE csc.computer_ID = :computerID");
+    query.bindValue(":computerID", computerID);
+    query.exec();
     while (query.next())
     {
         if(success == false)
@@ -237,7 +239,7 @@ void DbCon::getComputerScientists(vector<CSPerson>& computerScientists)
 {
     bool success = false;
     computerScientists.clear();//Clear the vector
-    QSqlQuery query("SELECT ID, name, YEAR(birth_year) AS birth_year, YEAR(death_year) AS death_year, gender, comment, is_alive FROM computer_scientists ORDER BY name");
+    QSqlQuery query("SELECT ID, name, YEAR(birth_year) AS birth_year, YEAR(death_year) AS death_year, gender, comment, is_alive FROM computer_scientists WHERE removed = 0 ORDER BY name");
     //int idName = query.record().indexOf("name");
     while (query.next())
     {
@@ -253,7 +255,7 @@ void DbCon::getComputers(vector<Computer>& computers)
 {
     computers.clear();
     bool success = false;
-       QSqlQuery query("SELECT ID, name, YEAR(design_year) AS design_year, YEAR(build_year) AS build_year, is_created, (SELECT name FROM type WHERE ID = type_ID) AS type, type_ID FROM computers ORDER BY name;");
+       QSqlQuery query("SELECT ID, name, YEAR(design_year) AS design_year, YEAR(build_year) AS build_year, is_created, (SELECT name FROM type WHERE ID = type_ID) AS type, type_ID FROM computers WHERE removed = 0 ORDER BY name;");
        //int idName = query.record().indexOf("name");
        while (query.next())
        {
@@ -335,6 +337,7 @@ void DbCon::searchScientist(vector<CSPerson>& scientist, const string searchFor)
     QSqlQuery query;
     query.prepare("SElECT ID,name,YEAR(birth_year) AS birth_year, YEAR(death_year) AS death_year,gender,comment,is_alive FROM computer_scientists WHERE name LIKE \"%:searchFor%\" OR death_year LIKE \"%:searchFor%\" OR birth_year LIKE \"%:searchFor%\" OR gender LIKE \"%:searchFor%\"  ORDER BY name");
     query.bindValue(":searchFor", QString::fromStdString(searchFor));
+    query.exec();
     while (query.next())
     {
         if(success == false)//If we made it here the query was a success, no need to set it to true for every single loop
@@ -352,6 +355,7 @@ void DbCon::searchComputer(vector<Computer>& computer, const string searchFor)
     QSqlQuery query;
     query.prepare("SELECT c.ID, c.name, YEAR(c.design_year) AS design_year, YEAR(c.build_year) AS build_year, c.is_created, t.name AS type, c.type_ID FROM computers c JOIN type t ON(t.ID=c.type_ID) WHERE c.name LIKE \"%:searchFor%\" OR c.design_year LIKE \"%:searchFor%\" OR c.build_year LIKE \"%:searchFor%\" ORt.name LIKE \"%:searchFor%\"ORDER BY name");
     query.bindValue(":searchFor", QString::fromStdString(searchFor));
+    query.exec();
     while (query.next())
     {
         if(success == false)
