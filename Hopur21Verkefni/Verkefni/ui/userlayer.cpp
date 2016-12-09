@@ -1038,6 +1038,7 @@ void UserLayer::searchForAPerson()
     cout << "Please enter name, gender or year: ";
     cin.ignore();
     getline(cin, searchString);
+    cout << endl;
     vector<CSPerson> listOfPersons = _service.searchComputerScientist(searchString);
     if(listOfPersons.size() == constants::EMPTY_LIST)
     {
@@ -1056,6 +1057,7 @@ void UserLayer::searchForAComputer()
     cout << "Please enter name, type or year: ";
     cin.ignore();
     getline(cin, searchString);
+    cout << endl;
     vector<Computer> listOfComputers = _service.searchComputer(searchString);
     if(listOfComputers.size() == constants::EMPTY_LIST)
     {
