@@ -267,7 +267,7 @@ void UserLayer::addComputer()
             invalidInput();
         }
 
-        if(inputComputerType < 0 || inputComputerType > sizeOfTypesList)
+        if(inputComputerType <= 0 || inputComputerType > sizeOfTypesList)
         {
             invalidInput();
         }
@@ -404,7 +404,7 @@ void UserLayer::addComputer()
                     invalidInput();
                 }
 
-                if(number < 0 || number >= sizeOfList)
+                if(number < 0 || number > sizeOfList)
                 {
                     invalidInput();
                 }
@@ -448,7 +448,7 @@ void UserLayer::addComputer()
     //realScientistID is a vector of ints
     //vector<int> tempvectorToIgnoreError; **remove in final product**
 
-    if(!(_service.addNewComputerToList(realScientistID, name, intDesignYear, intBuildYear, computerTypeRealID, created)))
+    if(_service.addNewComputerToList(realScientistID, name, intDesignYear, intBuildYear, computerTypeRealID, created))
     {
         cout << "The computer has been added successfully." << endl;
         cout << endl;
@@ -470,14 +470,8 @@ void UserLayer::removePersonFromList()
     do
     {
         cout << "Enter the number of the person that is to be removed or 0 to go back: ";
-        try
-        {
-            cin >> number;
-        }
-        catch(int e)
-        {
-            invalidInput();
-        }
+        cin >> number;
+
         if(listSize == constants::EMPTY_LIST)
         {
             cout << "List is empty" << endl;
@@ -491,10 +485,16 @@ void UserLayer::removePersonFromList()
         {
             invalidInput();
         }
-        else
+        else if(!isdigit(number))
         {
             valid = constants::VALID;
         }
+        else
+        {
+            // Vantar villucheck fyrir stafi    :/
+            invalidInput();
+        }
+
 
     }while(valid == constants::INVALID);
 
@@ -555,6 +555,7 @@ void UserLayer::removeComputerFromList()
         }
         else
         {
+            // Vantar villucheck fyrir stafi    :/
             invalidInput();
         }
 
