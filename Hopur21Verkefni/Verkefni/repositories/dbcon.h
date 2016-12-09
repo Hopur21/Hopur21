@@ -19,6 +19,8 @@ private:
     bool makeConnection();
 
     //Sets
+    void runSelectForScientist(QSqlQuery& query, vector<CSPerson>& scientist);
+    void runSelectForComputers(QSqlQuery& query, vector<Computer>& computers);
     void setDataInPersonVector(vector<CSPerson>& computerScientists, const int id, const string name, const string gender, const int birthYear, const int passedAwayYear, const string comment, const bool isAlive);
     void setDataInComputerVector(vector<Computer>& computers, const int id, const string name, const int designYear, const int buildYear, const string type,const string typeID, const bool isCreated);
     void setDataInTypeVector(vector<string>& computerTypes, const string name);
@@ -32,7 +34,6 @@ public:
 
     //Gets
     bool connectionSuccessful(){return _connectionSuccess;}
-    bool testFunction(const QString& name); //Test
     //Select
     void getComputersConnectedToCS(vector<Computer>& compuerList,const int scientistID);
     void getCSConntedToComputer(vector<CSPerson>& CSList,const int computerID);
@@ -40,6 +41,8 @@ public:
     void getComputers(vector<Computer>& computers);
     void getComputerTypes(vector<string>& computerTypes);
     bool computerScientistExist(const string& name);
+    void searchScientist(vector<CSPerson>& scientist, const string searchFor);
+    void searchComputer(vector<Computer>& computer, const string searchFor);
     //Insert
     bool addComputerType(const string computerName);
     bool addCStoComputer(const int cSID,const int compID);

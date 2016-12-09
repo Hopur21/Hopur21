@@ -15,6 +15,9 @@ namespace constants {
     //Menu for Console GUI
     const char SPACE = ' ';
     const int FIRST_TIME = 0;
+    const int VALID = 1;
+    const int INVALID = 0;
+    const int EMPTY_LIST = 0;
     const std::string EMPTY_STRING = "";
     const std::string SEARCH_BY_NAME = "1";
     const std::string SEARCH_BY_YEAR_OF_BIRTH = "2";
@@ -44,6 +47,8 @@ namespace constants {
     const std::string MORE_INFO = "6";
     const std::string SEARCH_BY_TYPE = "1";
     const std::string SEARCH_BY_YEAR = "2";
+
+
 
 }
 

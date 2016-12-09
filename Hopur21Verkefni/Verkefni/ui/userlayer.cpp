@@ -1,6 +1,6 @@
 #include <iostream>
 #include "userlayer.h"
-#include <windows.h>
+//#include <windows.h>
 
 using namespace std;
 
@@ -194,9 +194,13 @@ void UserLayer::addPerson()
 void UserLayer::addComputer()
 {
     string name, type;
-    string designYear, buildYear;
+    string designYear, buildYear, chosenComputer;
     vector<string> listOfComputerTypes = _service.getComputerTypesList();
-    int intDesignYear, intBuildYear;
+    vector<Computer> listOfAllComputers = _service.getComputerList();
+    int intDesignYear, intBuildYear, inputComputerType;
+    string computerTypeRealID;
+    unsigned int sizeOfTypesList = listOfComputerTypes.size();
+    int valid; // Sometimes the bool validity didn't work, therefore int valid was also used
     bool created = false;
     bool validity = false;
     bool connectPersons = false;
@@ -230,22 +234,68 @@ void UserLayer::addComputer()
         }
     }while(validity != true);
 
-    cout << "Select the computer type: ";
-
-    for(unsigned int i = 0; i < listOfComputerTypes.size(); i++)
-    {
-        // This should print a list of computer types
-        cout << listOfComputerTypes.at(i);
-    }
-    // Validation needed
-    int inputComputerType;
-    cin >> inputComputerType;
+    cout << "Select the computer type: " << endl;
     cout << endl;
 
-    validity = false;
+    if(sizeOfTypesList == constants::EMPTY_LIST)
+    {
+        cout << "List is empty" << endl;
+    }
+    else
+    {
+        // Printing computer types
+        for(unsigned int i = 0; i < sizeOfTypesList; i++)
+        {
+            // This should print a list of computer types
+            cout << "#" << i+1 << "   " << listOfComputerTypes.at(i) << endl;
+        }
+    }
 
-    // VILLA Í þessu
-/*
+
+    // Selecting a computer type
+    do
+    {
+        valid = constants::INVALID;
+
+        cout << "Choose a computer type: " << endl;
+        cout << endl;
+
+        try
+        {
+            cin >> inputComputerType;
+        }
+        catch(int e)
+        {
+            invalidInput();
+        }
+
+        if(inputComputerType < 0 || inputComputerType > sizeOfTypesList)
+        {
+            invalidInput();
+        }
+        else if(!isdigit(inputComputerType))
+        {
+            chosenComputer = listOfComputerTypes.at(inputComputerType-1);
+            cout << "You chose : " << chosenComputer << endl;
+            valid = constants::VALID;
+        }
+
+    }while(valid == constants::INVALID);
+
+
+    for(unsigned int i = 0; i < listOfAllComputers.size();i++)
+    {
+        string comparisonType = listOfAllComputers.at(i).getType();
+        cout << "COMPTYPE -----> " << comparisonType << endl;
+        if(chosenComputer == comparisonType)
+        {
+            // This is the correct ID of the computer type chosen
+            computerTypeRealID = listOfAllComputers.at(i).getTypeID();
+        }
+    }
+
+    valid = constants::INVALID;
+
     do
     {
         cout << "Was this computer ever built?" << endl;
@@ -257,56 +307,46 @@ void UserLayer::addComputer()
         {
             case 'y':
             case 'Y':
-            cout << "EHAHEA";
                 created = true;
-                validity = true;
+                valid = constants::VALID;
                 break;
             case 'n':
             case 'N':
                 created = false;
-                validity = true;
+                valid = constants::VALID;
                 break;
             default:
                 invalidInput();
                 break;
         }
-
-    }while(validity == false);
-
-
-
+    }while(valid == constants::INVALID);
 
     if(created == true)
     {
 
-        validity = false;
+        valid = constants::INVALID;
         do
         {
-
-            buildYear = "";
+            cout << "Enter the year the computer was built: ";
             cin >> buildYear;
 
             if(!checkNumberValidity(buildYear))
             {
                 intBuildYear = stoi(buildYear);
-                validity = true;
+                valid = constants::VALID;
             }
             else
             {
                 invalidInput();
             }
-            cout << "Enter the year the computer was built: ";
 
-        }while(validity == false);
-    }
-    else
-    {
-        intBuildYear = 0;
+        }while(valid == constants::INVALID);
     }
 
 
+    valid = constants::INVALID;
     validity = false;
-*/
+
 
     do
     {
@@ -318,19 +358,21 @@ void UserLayer::addComputer()
         {
             case 'y':
             case 'Y':
-                validity = true;
+                valid = constants::VALID;
                 break;
             case 'n':
             case 'N':
                 created = false;
-                validity = true;
+                valid = constants::VALID;
                 break;
             default:
                 invalidInput();
                 break;
         }
 
-    }while(validity != true);
+    }while(valid == constants::INVALID);
+
+    valid = constants::INVALID;
 
     vector<int> realScientistID;
     vector<CSPerson> computerScientistList = _service.getComputerScientistList();
@@ -346,7 +388,7 @@ void UserLayer::addComputer()
         }
 
         int number = 1;
-        validity = false;
+        valid = constants::INVALID;
 
         do
         {
@@ -369,7 +411,7 @@ void UserLayer::addComputer()
                 }
                 else if(number == 0)
                 {
-                    validity = true;
+                    valid = constants::VALID;
                     break;
                 }
                 else if(!isdigit(number))
@@ -380,7 +422,7 @@ void UserLayer::addComputer()
                 }
 
             }
-        }while(validity == false);
+        }while(valid == constants::INVALID);
 
         int realID;
 
@@ -391,7 +433,6 @@ void UserLayer::addComputer()
                 if(userSelection.at(i) == computerScientistList.at(j).getName())
                 {
                     realID = computerScientistList.at(j).getID();
-                    cout << "-------> " << realID << endl;
                     realScientistID.push_back(realID);
                 }
             }
@@ -399,8 +440,11 @@ void UserLayer::addComputer()
 
     }
 
-    vector<int> tempvectorToIgnoreError;
-    if(!(_service.addNewComputerToList(tempvectorToIgnoreError, name, intDesignYear, intBuildYear, type, created)))
+    //computerTypeRealID is the id of the type of computer the user selected
+    //realScientistID is a vector of ints
+    //vector<int> tempvectorToIgnoreError; **remove in final product**
+
+    if(!(_service.addNewComputerToList(realScientistID, name, intDesignYear, intBuildYear, computerTypeRealID, created)))
     {
         cout << "The computer has been added successfully." << endl;
         cout << endl;
@@ -533,12 +577,12 @@ void UserLayer::printListOfComputers(vector<Computer> list)
         adjustForSpaces(i);
 
         // sets font in console to RED
-        HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-        SetConsoleTextAttribute(hConsole, 9);
+        //HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+        //SetConsoleTextAttribute(hConsole, 9);
 
         cout << name.append(32 - name.length(), constants::SPACE);
 
-        SetConsoleTextAttribute(hConsole, 15); //set back to black background and white text
+        //SetConsoleTextAttribute(hConsole, 15); //set back to black background and white text
 
 
         cout << type;
