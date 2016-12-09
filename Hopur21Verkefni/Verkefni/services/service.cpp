@@ -48,14 +48,20 @@ bool Service::addNewComputerToList(const vector<int> scientistConnectionID, cons
 
 bool Service::removePersonFromList(const string id)
 {
-    // TODO EYÐA ÚR GAGNAGRUNNI (ID ER RÉTT)
-    return false;
+    if(!validNumber(id))
+    {
+        return false;
+    }
+    return _dbCon.removeComputerScientist(stoi(id));
 }
 
 bool Service::removeComputerFromList(const string id)
 {
-    // TODO EYÐA ÚR GAGNAGRUNNI (ID ER RÉTT)
-    return false;
+    if(!validNumber(id))
+    {
+        return false;
+    }
+    return _dbCon.removeComputer(stoi(id));
 }
 void Service::updateComputerTypesList()
 {
@@ -75,7 +81,18 @@ void Service::updateAllLists()
     updateComputerList();
     updateComputerTypesList();
 }
-
+bool Service::validNumber(string number)
+{
+    try
+    {
+        stoi(number);
+        return true;
+    }
+    catch(int e)
+    {
+        return false;
+    }
+}
 
 
 //Computer scientist Sorts
