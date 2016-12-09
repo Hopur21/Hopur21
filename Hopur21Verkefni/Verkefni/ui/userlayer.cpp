@@ -534,6 +534,82 @@ void UserLayer::addComputer()
     }
 }
 
+void UserLayer::displayListOfComputersScientistContributedTo()
+{
+    vector<CSPerson> listOfPersons = _service.getComputerScientistList();
+    int listSize = listOfPersons.size();
+    int valid = constants::INVALID;
+    int number;
+
+    if(listSize == 0)
+    {
+        cout << "List is empty" << endl;
+    }
+    else
+    {
+        for(int i=0; i< listSize; i++)
+        {
+              cout << i+1 << "  " << listOfPersons.at(i).getName() << endl;
+        }
+    }
+    do
+    {
+        cout << endl;
+        cout << "Enter the number of the person that you want information on" << endl;
+        cout << "Or 0 to go back: " << endl;
+        cin >> number;
+
+        if(listSize == constants::EMPTY_LIST)
+        {
+            cout << "List is empty" << endl;
+            return;
+        }
+        else if(number == constants::EMPTY_LIST)
+        {
+            return;
+        }
+        else if(number < constants::EMPTY_LIST || number > listSize)
+        {
+            invalidInput();
+        }
+        else if(!isdigit(number))
+        {
+            valid = constants::VALID;
+        }
+
+    }while(valid == constants::INVALID);
+
+    string nameOfPerson = listOfPersons.at(number-1).getName();
+    // Get ID of person
+    int realID;
+
+    for(unsigned int i=0; i<listSize; i++)
+    {
+
+        if(nameOfPerson == listOfPersons.at(i).getName())
+        {
+            realID = listOfPersons.at(i).getID();
+        }
+    }
+
+    vector<Computer> allComputers = _service.getComputersConntedToCS(realID);
+    int sizeOfComputers = allComputers.size();
+    if(sizeOfComputers == constants::EMPTY_LIST)
+    {
+        cout << "This scientist did not create nor design a computer" << endl;
+    }
+    else
+    {
+        cout << nameOfPerson << " contributed to the making of the following machines" << endl;
+        cout << endl;
+        for(unsigned j = 0; j < sizeOfComputers; j++)
+        {
+            cout << "Computer name:  " << allComputers.at(j).getName() << endl;
+        }
+        cout << endl;
+    }
+}
+
 void UserLayer::removePersonFromList()
 {
     int valid = constants::INVALID;

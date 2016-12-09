@@ -15,6 +15,7 @@ class UserLayer
         void printListOfScientists(vector<CSPerson> list);
         void printListOfComputers(vector<Computer> list);
         void printListMoreInfo(vector<CSPerson> list);
+
         void adjustForSpaces(int i);
         void printGenderMenu();
         bool checkNumberValidity(string userInput);
@@ -29,6 +30,7 @@ class UserLayer
         void computerChoice();
         void removePersonFromList();
         void removeComputerFromList();
+        void displayListOfComputersScientistContributedTo();
         //Scientist Sorts
         void sortScientistListAlphabetically();
         void sortScientistListAlphabeticallyDESC();
