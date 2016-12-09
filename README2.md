@@ -1,4 +1,5 @@
 # Hopur21
+# Vika 2
 
 Meðlimir:
 Páll Helgi Sigurðarsson
