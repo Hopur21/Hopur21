@@ -828,7 +828,6 @@ void UserLayer::printListMoreInfoComputer()
     designYear = to_string(computerList.at(id-1).getDesignYear());
     name = computerList.at(id-1).getName();
     type = computerList.at(id-1).getType();
-    //computerScientist = computerList.at(id-1).getCSConntedToComputer(); //how to find the scientist that made the computer???
 
     cout << "------------------------------------------------------------------------------" << endl;
     cout << "BUILD YEAR:" << buildYear << "          " << name <<  "         DESIGN YEAR:" << designYear << endl;
@@ -914,7 +913,7 @@ void UserLayer::printListMoreInfo(vector<CSPerson> list)
     if(sizeOfList == 0)
     {
         cout << "List is empty." << endl;
-        return; //á að hætta í forritinu hér?
+        return;
     }
 
     cout <<   "#     NAME                            GENDER     YOB     YOD      AGE" << endl;
@@ -1010,7 +1009,7 @@ void UserLayer::sortScientistListByAge()
     _service.sortScientistListByAge();
     printListOfScientists(_service.getComputerScientistList());
 }
-//TODO Computer Sorts
+// Computer Sorts
 void UserLayer::sortComputerListAlphabetically()
 {
     _service.sortComputerListAlphabetically();
