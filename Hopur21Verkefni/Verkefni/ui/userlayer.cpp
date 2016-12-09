@@ -761,7 +761,7 @@ void UserLayer::printListMoreInfoComputer()
 
     do
     {
-        if(id < 0 || id > listSize || isdigit(id))
+        if(id <= 0 || id > listSize || isdigit(id))
         {
             invalidInput();
             cout << "Enter the id of the computer you want info on: ";
