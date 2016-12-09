@@ -11,7 +11,7 @@ public:
 
     //Sets
     void setCompleteList();
-    bool addNewComputerToList(Computer& newComputer, const string name,const int designyear, const int buildyear, const string type ,const bool created);
+    bool addNewComputerToList(Computer& newComputer, const string name,const int designyear, const int buildyear, const string typeID, const bool created);
     bool removeComputerFromList(const string id);
 
     //Gets
