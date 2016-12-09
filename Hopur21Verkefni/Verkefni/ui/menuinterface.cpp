@@ -230,27 +230,27 @@ void MenuInterface::displayComputers()
 
     if(sortOption == constants::SORT_ALPHABET)
     {
-       // banner();
+        banner();
         _userLayer.sortComputerListAlphabetically();
     }
     else if(sortOption == constants::SORT_DESCENDING_ALPHABET)
     {
-       // banner();
+        banner();
         _userLayer.sortComputerListAlphabeticallyDESC();
     }
     else if(sortOption == constants::SORT_BY_BUILDYEAR)
     {
-       // banner();
+        banner();
         _userLayer.sortComputerListByBuildYear();
     }
     else if(sortOption == constants::SORT_BY_DESIGNYEAR)
     {
-       // banner();
+        banner();
         _userLayer.sortComputerListByDesignYear();
     }
     else if(sortOption == constants::SORT_BY_TYPE)
     {
-       // banner();
+       banner();
        _userLayer.sortComputerListByType();
     }
     else if(sortOption == constants::MORE_INFO)
