@@ -1,6 +1,5 @@
 #include <iostream>
 #include "userlayer.h"
-//#include <windows.h>
 
 using namespace std;
 
@@ -651,7 +650,13 @@ string UserLayer::deathYearValidation(string birthYear, string deathYear)
         {
             cout << "Enter the year of death: ";
             cin >> deathYear;
-        }
+            if (deathYear == constants::ALIVE)
+            {
+                deathYearValidation = false;
+                return deathYear;
+            }
+        }  
+        // catches inputs if they are not numbers and if input is lower than birthyear
         if(checkNumberValidity(deathYear) || birthYear >= deathYear)
         {
             invalidInput();
@@ -689,30 +694,25 @@ void UserLayer::printListOfComputers(vector<Computer> list)
         // number and name of the computer according to the size of the value i in the for loop
         adjustForSpaces(i);
 
-        // sets font in console to RED
-        //HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-        //SetConsoleTextAttribute(hConsole, 9);
-
         cout << name.append(32 - name.length(), constants::SPACE);
-
-        //SetConsoleTextAttribute(hConsole, 15); //set back to black background and white text
-
-
         cout << type;
         cout << endl;
     }
     cout <<   "------------------------------------------------------------------------" << endl;
+    cout << endl;
 }
 
 void UserLayer::printListMoreInfoComputer()
 {
     vector <Computer> computerList = _service.getComputerList();
     int id;
-    string buildYear, designYear, name;
+    string buildYear, designYear, name, type, computerScientist;
     bool valid = false;
     int listSize = computerList.size();
     cout << "Enter the id of the computer you want info on: ";
     cin >> id;
+    cout << endl;
+
 
     do
     {
@@ -722,6 +722,7 @@ void UserLayer::printListMoreInfoComputer()
             cout << "Enter the id of the computer you want info on: ";
             cout << endl;
             cin >> id;
+            cout << endl;
         }
         else
         {
@@ -732,14 +733,36 @@ void UserLayer::printListMoreInfoComputer()
     buildYear = to_string(computerList.at(id-1).getBuildYear());
     designYear = to_string(computerList.at(id-1).getDesignYear());
     name = computerList.at(id-1).getName();
+    type = computerList.at(id-1).getType();
+    //computerScientist = computerList.at(id-1).getCSConntedToComputer(); //how to find the scientist that made the computer???
 
-    cout << "BUILD YEAR:" << buildYear << "          "<< name <<  "         DESIGN YEAR:" << designYear << endl;
+
     cout << "------------------------------------------------------------------------------" << endl;
-    for(int i=0;i<6;i++)
-    {
-        cout << "TODO PRENTA UPPLÝSINGAR UM HÖNNUÐI OG SVOLEIÐIS!" << endl;
-    }
-    cout <<   "------------------------------------------------------------------------------" << endl;
+    cout << "BUILD YEAR:" << buildYear << "          " << name <<  "         DESIGN YEAR:" << designYear << endl;
+    cout << "------------------------------------------------------------------------------" << endl;
+    //for(int i = 0; i < 6; i++)
+    //{
+        //string name = list.at(i).getName();
+        //string type = list.at(i).getType();
+        //string buildYear = to_string(list.at(i).getBuildYear());
+        //string designYear = to_string(list.at(i).getDesignYear());
+
+        //adjustForSpaces(i);
+
+        //cout << name << endl; //.append(30 - name.length(), constants::SPACE);
+        //cout << buildYear << endl; //.append(8 - buildYear.length(), constants::SPACE);
+        //cout << designYear << endl; //.append(8 - designYear.length(), constants::SPACE);
+        cout << name << " was created by " << computerScientist << " God!" << endl;                     //TODO
+        cout << "It is of type: " << type << endl; //.append(20 - type.length(), constants::SPACE);
+
+        if(buildYear == "0")
+        {
+            cout << "The " << name << " was never built.";
+            cout << endl;
+        }
+
+    cout << "------------------------------------------------------------------------------" << endl;
+    cout << endl;
 }
 
 void UserLayer::printListOfScientists(vector<CSPerson> list)

@@ -7,25 +7,38 @@ Service::Service()
 
 bool Service::addNewPersonToList(const vector<int> computerConnectionID,const string name,const string gender, const string birthYear, const string deathYear,const string comment)
 {
-    if(_cSPersonService.addNewPersonToList(name, gender,birthYear, deathYear, comment))
+    CSPerson newPerson;
+    int newPersonID;
+    newPerson.setName(name);
+    newPerson.setGender(gender);
+    newPerson.setBirthYear(stoi(birthYear));
+    newPerson.setPassedAwayYear(stoi(deathYear));
+    newPerson.setComment(comment);
+    newPersonID = _dbCon.addComputerScientist(newPerson);
+    for(unsigned int i = 0; i < computerConnectionID.size(); i++)
     {
-        return true;
+        _dbCon.addCStoComputer(newPersonID,computerConnectionID[i]);
     }
-    return false;
+    return true;
 }
 
 
-bool Service::addNewComputerToList(const vector<int> scientistConnectionID, const string name, const int designyear, const int buildyear, const string typeRealID, const bool created)
+bool Service::addNewComputerToList(const vector<int> scientistConnectionID, const string name, const int designYear, const int buildYear, const string typeRealID, const bool created)
 {
     Computer newComputer;
-    int computerID = 0;
-    // Kemur villa
-    /*if(_computerService.addNewComputerToList(newComputer, name, designYear, buildYear, type, created))
+    int newComputerID = 0;
+    newComputer.setName(name);
+    newComputer.setDesignYear(designYear);
+    newComputer.setBuildYear(buildYear);
+    newComputer.setTypeID(typeRealID);
+    newComputer.setCreated(created);
+    newComputerID = _dbCon.addComputer(newComputer);
+    //Assign computer to computer scientists
+    for(unsigned int i = 0; i < scientistConnectionID.size(); i++)
     {
-        computerID = _dbCon.addComputer(newComputer);
-        return true;
-    }*/
-    return false;
+        _dbCon.addCStoComputer(scientistConnectionID[i],newComputerID);
+    }
+    return true;
 }
 
 bool Service::removePersonFromList(const string id)

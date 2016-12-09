@@ -1,8 +1,24 @@
 #include <iostream>
 #include "menuinterface.h"
-//#include <windows.h>
+
+#ifdef _WIN32
+    #include <windows.h>
+#endif
 
 using namespace std;
+
+/*
+bool systemCheck
+{
+    #ifdef _APPLE_
+        return 0;
+    #elif _WIN32
+        return 1;
+    #else
+        return 2;
+    #endif
+}
+*/
 
 MenuInterface::MenuInterface()
 {
@@ -18,38 +34,41 @@ void MenuInterface::invalidInput()
 
 void MenuInterface::banner()
 {
+    //if program is run on Windows then the banner is displayed in color
+    #ifdef _WIN32
+        //sets color of font to pink
+        HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+        SetConsoleTextAttribute(hConsole, 13);
+
     //system("CLS");
     if(_firstTimeBooting == constants::FIRST_TIME)
     {
-        // sets font in console to RED
-        //HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-        //SetConsoleTextAttribute(hConsole, 14);
-
         cout << endl;
         cout << "       ********************************************" << endl;
         cout << "       *   WELCOME TO THE COMPUTER SCIENCE LIST   *" << endl;
         cout << "       ********************************************" << endl;
         cout << endl;
-        _firstTimeBooting = 1; //just something else than 0
 
-        //SetConsoleTextAttribute(hConsole, 15); //set back to black background and white text
+        SetConsoleTextAttribute(hConsole, 15); //set back to black background and white text
+/*
+        cout << endl;
+        cout << "       ********************************************" << endl;
+        cout << "       *   WELCOME TO THE COMPUTER SCIENCE LIST   *" << endl;
+        cout << "       ********************************************" << endl;
+        cout << endl; */
+        _firstTimeBooting = 1; //just something else than 0
     }
     else
     {
-        // sets font in console to RED
-        //HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-        //SetConsoleTextAttribute(hConsole, 14);
-
         cout << endl;
         cout << "       ********************************************" << endl;
         cout << "       *           COMPUTER SCIENCE LIST          *" << endl;
         cout << "       ********************************************" << endl;
         cout << endl;
 
-        //SetConsoleTextAttribute(hConsole, 15); //set back to black background and white text
-
+        SetConsoleTextAttribute(hConsole, 15); //set back to black background and white text
     }
-
+    #endif
 }
 
 void MenuInterface::DisplayMenu()
