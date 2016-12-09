@@ -169,54 +169,15 @@ void Service::sortComputerListWasBuilt()
 {
     _computerService.sortWasBuilt(_computerList);
 }
-
-
-
-
-
-//Þau föll sem er ekki búið að fara yfir fyrir (aðlaga) Viku2
-
-
-
-
-
-vector<CSPerson> Service::searchByName(const string searchString)
+vector<CSPerson> Service::searchComputerScientist(const string searchString)
 {
-    vector <CSPerson> searchByName;// = _cSPersonService.searchByName(searchString);
-    return searchByName;
+    vector <CSPerson> searchCS;
+    _dbCon.searchScientist(searchCS,searchString);
+    return searchCS;
 }
-
-vector<CSPerson> Service::searchByYearOfBirth(const string searchString)
+vector<Computer> Service::searchComputer(const string searchString)
 {
-    vector <CSPerson> searchByYOB;// = _cSPersonService.searchByYearOfBirth(searchString);
-    return searchByYOB;
+    vector<Computer> searchComputer;
+    _dbCon.searchComputer(searchComputer, searchString);
+    return searchComputer;
 }
-
-vector<CSPerson> Service::searchByYearOfDeath(const string searchString)
-{
-    vector <CSPerson> searchByYOD;// = _cSPersonService.searchByYearOfDeath(searchString);
-    return searchByYOD;
-}
-
-vector<Computer> Service::searchComputerByName(const string searchString)
-{
-    // TODO
-    vector <Computer> searchByName; // = _computerService.searchByName;
-    return searchByName;
-}
-
-vector<Computer> Service::searchComputerByType(const string searchString)
-{
-    // TODO
-    vector <Computer> searchByType; // = _computerService.searchByType
-    return searchByType;
-}
-vector<Computer> Service::searchComputerByYear(const string searchString)
-{
-    // TODO
-    vector <Computer> searchByYear;
-    return searchByYear;
-}
-
-
-

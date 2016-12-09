@@ -10,10 +10,6 @@ class CSPersonService
         CSPersonService();
 
         //Sets
-        void setCompleteList();
-        bool addNewPersonToList(const string name,const string gender, const string birthYear, const string deathYear,const string comment);
-        bool removePersonFromList(const string id);
-        bool editPersonFromList(const string oldID, CSPerson person);
         void sortByName(vector<CSPerson>& computerScientists);
         void sortByNameDESC(vector<CSPerson>& computerScientists);
         void sortByGender(vector<CSPerson>& computerScientists);
@@ -28,11 +24,7 @@ class CSPersonService
         vector<CSPerson> searchByYearOfDeath(const string searchString);
 
     private:
-        //Sets
-        void removeNodeFromList(const int index);
-
         //Gets
-        int getIndexOfValueByName(const string name);
         bool validNumber(string number);
         bool checkIfStringSameIgnoreUpper(string orginalString, string searchFor);
 

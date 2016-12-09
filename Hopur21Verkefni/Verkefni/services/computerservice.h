@@ -8,16 +8,10 @@ class ComputerService
 {
 public:
     ComputerService();
-
-    //Sets
-    void setCompleteList();
-    bool removeComputerFromList(const string id);
-
     //Gets
     vector<Computer> searchByName(const string searchString);
     vector<Computer> searchByYear(const string searchString);
     vector<Computer> searchByType(const string searchString);
-
     //Sorts
     void sortByName(vector<Computer>& computerList);
     void sortByNameDESC(vector<Computer>& computerList);
@@ -25,18 +19,8 @@ public:
     void sortByBuildYear(vector<Computer>& computerList);
     void sortByType(vector<Computer>& computerList);
     void sortWasBuilt(vector<Computer>& computerList);
-
-
 private:
-    //Sets
-    void removeNodeFromList(const int index);
 
-    //Gets
-    int getIndexOfValueByName(const string name);
-    bool validNumber(string number);
-    bool checkIfStringSameIgnoreUpper(string orginalString, string searchFor);
-
-    //Sorts
 };
 
 #endif // COMPUTERSERVICE_H

@@ -40,15 +40,9 @@ class Service
         vector<Computer> getComputerList(){return _computerList;}
         vector<CSPerson> getScientistConntedToComputers(const int computerID);
         vector<Computer> getComputersConntedToCS(const int computerScientistID);
-
-        vector<CSPerson> searchByName(const string searchString);
-        vector<CSPerson> searchByYearOfBirth(const string searchString);
-        vector<CSPerson> searchByYearOfDeath(const string searchString);
-
-        vector<Computer> searchComputerByName(const string searchString);
-        vector<Computer> searchComputerByType(const string searchString);
-        vector<Computer> searchComputerByYear(const string searchString);
-
+        //Search
+        vector<CSPerson> searchComputerScientist(const string searchString);
+        vector<Computer> searchComputer(const string searchString);
         //Scientist Sorts
         void sortScientistListAlphabetically();
         void sortScientistListAlphabeticallyDESC();
