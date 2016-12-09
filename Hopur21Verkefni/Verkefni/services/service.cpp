@@ -13,6 +13,11 @@ bool Service::addNewPersonToList(const vector<int> computerConnectionID,const st
     newPerson.setGender(gender);
     newPerson.setBirthYear(stoi(birthYear));
     newPerson.setPassedAwayYear(stoi(deathYear));
+    if(deathYear != constants::ALIVE) {
+        newPerson.setIsAlive(false);
+    } else {
+        newPerson.setIsAlive(true);
+    }
     newPerson.setComment(comment);
     newPersonID = _dbCon.addComputerScientist(newPerson);
     for(unsigned int i = 0; i < computerConnectionID.size(); i++)
