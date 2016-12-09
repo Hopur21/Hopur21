@@ -153,7 +153,6 @@ void MenuInterface::processChoice(const string choice)
         {
             invalidInput();
         }
-
     }
 
     int subMenuInt = stoi(subMenuChoice);
@@ -172,9 +171,7 @@ void MenuInterface::processChoice(const string choice)
             _userLayer.searchForAComputer();
             break;
         case 3:
-            // banner();
-            // here could be the choice to add type of computer?
-            _userLayer.addComputer();
+            _userLayer.computerChoice();
             break;
         case 4:
             _userLayer.removeComputerFromList();
@@ -225,7 +222,7 @@ void MenuInterface::displayComputers()
     cout << "| 3 | Sort by year of build" << endl;
     cout << "| 4 | Sort by year of design" << endl;
     cout << "| 5 | Sort by type of computer" << endl;
-    cout << "| 6 | To view more info on a computer" << endl;
+    cout << "| 6 | View more info on a computer" << endl;
     cout << "| 0 | Go back" << endl;
     cout << "Enter your choice here: ";
     cin >> sortOption;
