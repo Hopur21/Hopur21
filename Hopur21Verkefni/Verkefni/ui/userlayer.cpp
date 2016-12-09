@@ -690,7 +690,8 @@ void UserLayer::printListOfComputers(vector<Computer> list)
 void UserLayer::printListMoreInfoComputer()
 {
     vector <Computer> computerList = _service.getComputerList();
-    int id;
+
+    int id, realID;
     string buildYear, designYear, name, type, computerScientist;
     bool valid = false;
     int listSize = computerList.size();
@@ -725,29 +726,41 @@ void UserLayer::printListMoreInfoComputer()
     cout << "------------------------------------------------------------------------------" << endl;
     cout << "BUILD YEAR:" << buildYear << "          " << name <<  "         DESIGN YEAR:" << designYear << endl;
     cout << "------------------------------------------------------------------------------" << endl;
-    //for(int i = 0; i < 6; i++)
-    //{
-        //string name = list.at(i).getName();
-        //string type = list.at(i).getType();
-        //string buildYear = to_string(list.at(i).getBuildYear());
-        //string designYear = to_string(list.at(i).getDesignYear());
 
-        //adjustForSpaces(i);
+    // GetRealID of the computer
+    for(unsigned int i=0; i< listSize; i++)
+    {
+        if(name == computerList.at(i).getName())
+        {
+            realID = computerList.at(i).getID();
+        }
+    }
 
-        //cout << name << endl; //.append(30 - name.length(), constants::SPACE);
-        //cout << buildYear << endl; //.append(8 - buildYear.length(), constants::SPACE);
-        //cout << designYear << endl; //.append(8 - designYear.length(), constants::SPACE);
-        cout << name << " was created by " << computerScientist << " God!" << endl;                     //TODO
-        cout << "It is of type: " << type << endl; //.append(20 - type.length(), constants::SPACE);
-
+    vector <CSPerson> personsConnectedToTheCompter = _service.getScientistConntedToComputers(realID);
+    int sizeOfPersonsList = personsConnectedToTheCompter.size();
+    cout << "Persons connected to the making and designing of the computer: " << endl;
+    for(int i = 0; i < sizeOfPersonsList; i++)
+    {
+        cout << "Person " << i+1 << " " << personsConnectedToTheCompter.at(i).getName();
+        cout << "---------------------------------------------------------------------";
+        cout << personsConnectedToTheCompter.at(i).getComments();
+        cout << "---------------------------------------------------------------------";
         if(buildYear == "0")
         {
-            cout << "The " << name << " was never built.";
+            cout << "The " << name << " was designed in " << designYear << endl;
+            cout << "However " << name << " was never built" << endl;
             cout << endl;
         }
+        else
+        {
+            cout << "The " << name << " was designed in " << designYear << endl;
+            cout << "And " << name << " was buit in the year " << buildYear << endl;
+            cout << endl;
+        }
+        cout << "------------------------------------------------------------------------------" << endl;
+        cout << endl;
 
-    cout << "------------------------------------------------------------------------------" << endl;
-    cout << endl;
+    }
 }
 
 void UserLayer::printListOfScientists(vector<CSPerson> list)
