@@ -7,19 +7,6 @@
 
 using namespace std;
 
-/*
-bool systemCheck
-{
-    #ifdef _APPLE_
-        return 0;
-    #elif _WIN32
-        return 1;
-    #else
-        return 2;
-    #endif
-}
-*/
-
 MenuInterface::MenuInterface()
 {
     _firstTimeBooting = 0;
