@@ -143,8 +143,13 @@ void MenuInterface::processChoice(const string choice)
         cout << "Choose either:" << endl;
         cout << "| 1 | Computer " << endl;
         cout << "| 2 | Scientist " << endl;
+        cout << "| 0 | Go back" << endl;
         cin >> subMenuChoice;
 
+        if(subMenuChoice == constants::GO_BACK)
+        {
+            return;
+        }
         if(subMenuChoice == "1" || subMenuChoice == "2")
         {
             valid = true;
