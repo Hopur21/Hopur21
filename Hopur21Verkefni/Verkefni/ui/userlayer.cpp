@@ -201,7 +201,7 @@ void UserLayer::computerChoice()
         cout << "| 2 | Computer type" << endl;
         cin >> subMenuChoice;
 
-        if(subMenuChoice == "1" || subMenuChoice == "2")
+        if(subMenuChoice == constants::ADD_COMPUTER || subMenuChoice == constants::ADD_COMPUTER_TYPE)
         {
             valid = true;
         }
@@ -211,19 +211,49 @@ void UserLayer::computerChoice()
         }
     }
 
-    if(subMenuChoice == "1")
-    {
-        addComputerType();
-    }
-    else if(subMenuChoice == "2")
+    if(subMenuChoice == constants::ADD_COMPUTER)
     {
         addComputer();
+    }
+    else if(subMenuChoice == constants::ADD_COMPUTER_TYPE)
+    {
+        addComputerType();
     }
 }
 
 void UserLayer::addComputerType()
 {
+    bool valid = constants::INVALID;
+    string computerType;
+    char yesOrNo;
 
+    do
+    {
+        cout << "Enter the name of the computer type: ";
+        cin.ignore();
+        getline(cin, computerType);
+        cout << "Is this the computer type you wanted to add?" << endl;
+        cout << "TYPE : " << computerType << endl;
+        cout << "Enter y for yes, n for no." << endl;
+
+        cin >> yesOrNo;
+
+        switch(yesOrNo)
+        {
+            case 'y':
+            case 'Y':
+                _service.addComputerType(computerType);
+                cout << "Computer type added successfully" << endl;
+                valid = constants::VALID;
+                break;
+            case 'n':
+            case 'N':
+                break;
+            default:
+                invalidInput();
+                break;
+        }
+    }while(valid == constants::INVALID);
 }
 
 void UserLayer::addComputer()
@@ -779,25 +809,30 @@ void UserLayer::printListMoreInfoComputer()
     cout << "Persons connected to the making and designing of the computer: " << endl;
     for(int i = 0; i < sizeOfPersonsList; i++)
     {
-        cout << "Person " << i+1 << " " << personsConnectedToTheCompter.at(i).getName();
-        cout << "---------------------------------------------------------------------";
-        cout << personsConnectedToTheCompter.at(i).getComments();
-        cout << "---------------------------------------------------------------------";
-        if(buildYear == "0")
+        if(sizeOfPersonsList > constants::EMPTY_LIST)
         {
-            cout << "The " << name << " was designed in " << designYear << endl;
-            cout << "However " << name << " was never built" << endl;
+            string personConnected = personsConnectedToTheCompter.at(i).getName();
+            cout << "Person " << i+1 << ": " << personConnected;
             cout << endl;
-        }
-        else
-        {
-            cout << "The " << name << " was designed in " << designYear << endl;
-            cout << "And " << name << " was buit in the year " << buildYear << endl;
-            cout << endl;
-        }
-        cout << "------------------------------------------------------------------------------" << endl;
-        cout << endl;
+            cout << "----------" << "   " << personConnected << "   " << "----------" <<  endl;
+            cout << personsConnectedToTheCompter.at(i).getComments() << endl;
+            cout << "---------------------------------------------------------------------" << endl;
 
+            if(buildYear == "0")
+            {
+                cout << "The     " << name << " was designed in " << designYear << endl;
+                cout << "However " << name << " was never built" << endl;
+                cout << endl;
+            }
+            else
+            {
+                cout << "The " << name << " was designed in " << designYear << endl;
+                cout << "And " << name << " was buit in the year " << buildYear << endl;
+                cout << endl;
+            }
+            cout << "------------------------------------------------------------------------------" << endl;
+            cout << endl;
+        }
     }
 }
 

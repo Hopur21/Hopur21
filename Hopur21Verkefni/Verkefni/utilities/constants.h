@@ -49,6 +49,8 @@ namespace constants {
     const std::string MORE_INFO = "6";
     const std::string SEARCH_BY_TYPE = "1";
     const std::string SEARCH_BY_YEAR = "2";
+    const std::string ADD_COMPUTER = "1";
+    const std::string ADD_COMPUTER_TYPE = "2";
 
 
 

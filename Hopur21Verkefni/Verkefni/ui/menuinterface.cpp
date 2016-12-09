@@ -171,6 +171,9 @@ void MenuInterface::processChoice(const string choice)
             _userLayer.searchForAComputer();
             break;
         case 3:
+            // User gets a choice between:
+            // 1. adding a computer
+            // 2. adding a computer type
             _userLayer.computerChoice();
             break;
         case 4:
