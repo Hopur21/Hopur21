@@ -194,8 +194,9 @@ bool DbCon::updateComputer(Computer& computer)
     return success;
 }
 //Select Querys
-void DbCon::getComputersConnectedToCS(vector<Computer>& compuerList,const int scientistID)
+vector<Computer> DbCon::getComputersConnectedToCS(const int scientistID)
 {
+    vector<Computer> compuerList;
     bool success = false;
     compuerList.clear();
     QSqlQuery query;
@@ -210,9 +211,11 @@ void DbCon::getComputersConnectedToCS(vector<Computer>& compuerList,const int sc
         runSelectForComputers(query,compuerList);
     }
     if(!success){qDebug() << "getComputersConnectedToSC error:  " << query.lastError();}
+    return compuerList;
 }
-void DbCon::getCSConntedToComputer(vector<CSPerson>& CSList,const int computerID)
+vector<CSPerson> DbCon::getCSConntedToComputer(const int computerID)
 {
+    vector<CSPerson> CSList;
     bool success = false;
     CSList.clear();
     QSqlQuery query;
@@ -227,6 +230,7 @@ void DbCon::getCSConntedToComputer(vector<CSPerson>& CSList,const int computerID
         runSelectForScientist(query, CSList);
     }
     if(!success){qDebug() << "getCSConntedToComputer error:  " << query.lastError();}
+    return CSList;
 }
 
 void DbCon::getComputerScientists(vector<CSPerson>& computerScientists)

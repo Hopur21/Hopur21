@@ -133,7 +133,9 @@ void MenuInterface::DisplayMenu()
 
 string MenuInterface::subMenu()
 {
-    string subMenuChoice;
+    int valid = constants::INVALID;
+    int subMenuChoice;
+    string retValue;
     do
     {
         cout << endl;
@@ -143,29 +145,66 @@ string MenuInterface::subMenu()
 
         cin >> subMenuChoice;
 
-        if(subMenuChoice == constants::COMPUTER || subMenuChoice == constants::SCIENTIST)
+        if(subMenuChoice == constants::INT_COMPUTER)
         {
-            return subMenuChoice;
+            subMenuChoice = constants::INT_COMPUTER;
+            retValue = constants::COMPUTER;
+            valid = constants::VALID;
+        }
+        else if(subMenuChoice == constants::INT_SCIENTIST)
+        {
+            subMenuChoice = constants::INT_SCIENTIST;
+            retValue = constants::SCIENTIST;
+            valid = constants::VALID;
         }
         else
         {
             cout << endl;
-            invalidInput();
+            //invalidInput();
             cout << endl;
+            break;
         }
-    }while(subMenuChoice != constants::COMPUTER || subMenuChoice != constants::SCIENTIST);
 
-    return subMenuChoice;
+        if(valid == constants::VALID)
+        {
+            return retValue;
+        }
+    }while(valid == constants::INVALID);
+
+    // This will never run
+    return retValue;
 }
 
 void MenuInterface::processChoice(const string choice)
 {
-    string subMenuChoice = subMenu();
+    // subMenuChoice is set to 404 to enter the while loop
+    string subMenuChoice = "404";
+
+
+    while(subMenuChoice != constants::COMPUTER || subMenuChoice != constants::SCIENTIST)
+    {
+        cout << endl;
+        cout << "Choose either:" << endl;
+        cout << "| 1 | Computer " << endl;
+        cout << "| 2 | Scientist " << endl;
+        cout << endl;
+        cin >> subMenuChoice;
+        if(subMenuChoice != constants::COMPUTER || subMenuChoice != constants::SCIENTIST)
+        {
+            invalidInput();
+        }
+        else if(subMenuChoice == constants::COMPUTER || subMenuChoice == constants::SCIENTIST)
+        {
+            cout << "HALLO FROM OKOKOK";
+        }
+    }
+
+    int subMenuInt = stoi(subMenuChoice);
     int choiceInt = stoi(choice);
     banner();
 
     // Computer operations
-    if(subMenuChoice == constants::COMPUTER)
+    if(subMenuInt == constants::INT_COMPUTER)
     {
         switch (choiceInt)
         {
@@ -190,7 +229,7 @@ void MenuInterface::processChoice(const string choice)
     }
 
     // Scientist operations
-    else if(subMenuChoice == constants::SCIENTIST)
+    else if(subMenuInt == constants::INT_SCIENTIST)
     {
         switch (choiceInt)
         {

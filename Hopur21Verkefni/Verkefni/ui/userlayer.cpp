@@ -284,7 +284,6 @@ void UserLayer::addComputer()
     for(unsigned int i = 0; i < listOfAllComputers.size();i++)
     {
         string comparisonType = listOfAllComputers.at(i).getType();
-        cout << "COMPTYPE -----> " << comparisonType << endl;
         if(chosenComputer == comparisonType)
         {
             // This is the correct ID of the computer type chosen
@@ -436,17 +435,7 @@ void UserLayer::addComputer()
                 }
             }
         }
-
-        for(unsigned int n = 0; n<realScientistID.size();n++)
-        {
-            cout << "THE IDS : -------> " << realScientistID.at(n) << endl;
-        }
-
     }
-
-    //computerTypeRealID is the id of the type of computer the user selected
-    //realScientistID is a vector of ints
-    //vector<int> tempvectorToIgnoreError; **remove in final product**
 
     if(_service.addNewComputerToList(realScientistID, name, intDesignYear, intBuildYear, computerTypeRealID, created))
     {
@@ -491,7 +480,6 @@ void UserLayer::removePersonFromList()
         }
         else
         {
-            // Vantar villucheck fyrir stafi    :/
             invalidInput();
         }
 
@@ -555,8 +543,7 @@ void UserLayer::removeComputerFromList()
         }
         else
         {
-            // Vantar villucheck fyrir stafi    :/
-            invalidInput();
+            break;
         }
 
     }while(valid == constants::INVALID);

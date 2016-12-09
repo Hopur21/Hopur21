@@ -63,6 +63,15 @@ bool Service::removeComputerFromList(const string id)
     }
     return _dbCon.removeComputer(stoi(id));
 }
+vector<CSPerson> Service::getScientistConntedToComputers(const int computerID)
+{
+    return _dbCon.getCSConntedToComputer(computerID);
+}
+vector<Computer> Service::getComputersConntedToCS(const int computerScientistID)
+{
+    return _dbCon.getComputersConnectedToCS(computerScientistID);
+}
+
 void Service::updateComputerTypesList()
 {
     _dbCon.getComputerTypes(_computerTypes);
