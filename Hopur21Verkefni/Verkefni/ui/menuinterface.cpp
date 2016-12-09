@@ -82,8 +82,6 @@ void MenuInterface::banner()
         cout << "       *           COMPUTER SCIENCE LIST          *" << endl;
         cout << "       ********************************************" << endl;
         cout << endl;
-
-        SetConsoleTextAttribute(hConsole, 15); //set back to black background and white text
     }
     #endif
 }
