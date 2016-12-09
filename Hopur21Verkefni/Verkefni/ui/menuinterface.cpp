@@ -1,6 +1,6 @@
 #include <iostream>
 #include "menuinterface.h"
-#include <windows.h>
+//#include <windows.h>
 
 using namespace std;
 
@@ -22,8 +22,8 @@ void MenuInterface::banner()
     if(_firstTimeBooting == constants::FIRST_TIME)
     {
         // sets font in console to RED
-        HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-        SetConsoleTextAttribute(hConsole, 14);
+        //HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+        //SetConsoleTextAttribute(hConsole, 14);
 
         cout << endl;
         cout << "       ********************************************" << endl;
@@ -32,7 +32,7 @@ void MenuInterface::banner()
         cout << endl;
         _firstTimeBooting = 1; //just something else than 0
 
-        SetConsoleTextAttribute(hConsole, 15); //set back to black background and white text
+        //SetConsoleTextAttribute(hConsole, 15); //set back to black background and white text
     }
     else
     {
