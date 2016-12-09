@@ -1035,7 +1035,7 @@ void UserLayer::sortComputerListByBuildYear()
 void UserLayer::searchForAPerson()
 {
     string searchString;
-    cout << "Who are we searching for: ";
+    cout << "Please enter name, gender or year: ";
     cin.ignore();
     getline(cin, searchString);
     vector<CSPerson> listOfPersons = _service.searchComputerScientist(searchString);
@@ -1053,7 +1053,7 @@ void UserLayer::searchForAComputer()
 {
     string searchString;
 
-    cout << "Please enter either: Name, type or year: ";
+    cout << "Please enter name, type or year: ";
     cin.ignore();
     getline(cin, searchString);
     vector<Computer> listOfComputers = _service.searchComputer(searchString);
