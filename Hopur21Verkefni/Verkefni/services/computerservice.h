@@ -27,6 +27,7 @@ public:
     void sortByType(vector<Computer>& computerList);
     void sortWasBuilt(vector<Computer>& computerList);
 
+
 private:
     //Sets
     void removeNodeFromList(const int index);

@@ -19,6 +19,8 @@ class Service
         ComputerService _computerService;
         CSPersonService _cSPersonService;
 
+        bool validNumber(string number);
+
     public:
         Service();
 
