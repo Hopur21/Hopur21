@@ -17,7 +17,7 @@ void UserLayer::addPerson()
     // If user inputs no input an error message occurs
     do
     {
-        cout << "Enter name(or 0 to go back): ";
+        cout << "Enter name(0 to go back): ";
         cin.ignore();
         getline(cin, name);
         if(name == constants::EMPTY_STRING)
@@ -98,7 +98,7 @@ void UserLayer::addPerson()
         if(error_counter == 0)
         {
             cout << "Did this person contribute to designing or creating a computer?" << endl;
-            cout << "Enter y for yes, n for no." << endl;
+            cout << "Enter y for yes, n for no (0 to go back)." << endl;
         }
         else
         {
