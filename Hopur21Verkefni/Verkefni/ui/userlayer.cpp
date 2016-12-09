@@ -140,7 +140,7 @@ void UserLayer::addPerson()
 
             for(unsigned int i=0; i < computerList.size(); i++)
             {
-                  cout << i+1 << "  " << computerList.at(i).getName() << endl;
+                  cout << i+1 << ". " << computerList.at(i).getName() << endl;
             }
 
             int number = 1;
@@ -779,6 +779,7 @@ void UserLayer::printListMoreInfoComputer()
     designYear = to_string(computerList.at(id-1).getDesignYear());
     name = computerList.at(id-1).getName();
     type = computerList.at(id-1).getType();
+    //computerScientist = computerList.at(id-1).getCSConntedToComputer(); //how to find the scientist that made the computer???
 
     cout << "------------------------------------------------------------------------------" << endl;
     cout << "BUILD YEAR:" << buildYear << "          " << name <<  "         DESIGN YEAR:" << designYear << endl;
@@ -798,10 +799,12 @@ void UserLayer::printListMoreInfoComputer()
     cout << "Persons connected to the making and designing of the computer: " << endl;
     for(int i = 0; i < sizeOfPersonsList; i++)
     {
-        cout << "Person " << i+1 << " " << personsConnectedToTheCompter.at(i).getName();
-        cout << "---------------------------------------------------------------------";
-        cout << personsConnectedToTheCompter.at(i).getComments();
-        cout << "---------------------------------------------------------------------";
+        cout << endl;
+
+        cout << "Person " << i+1 << " " << personsConnectedToTheCompter.at(i).getName() << endl;
+        cout << "------------------------------------------------------------------------------" << endl;
+        cout << personsConnectedToTheCompter.at(i).getComments() << endl;
+        cout << "------------------------------------------------------------------------------" << endl;
         if(buildYear == "0")
         {
             cout << "The " << name << " was designed in " << designYear << endl;
@@ -811,12 +814,12 @@ void UserLayer::printListMoreInfoComputer()
         else
         {
             cout << "The " << name << " was designed in " << designYear << endl;
-            cout << "And " << name << " was buit in the year " << buildYear << endl;
-            cout << endl;
+            cout << "And " << name << " was built"
+                                      " in the year " << buildYear << endl;
+            //cout << endl;
         }
         cout << "------------------------------------------------------------------------------" << endl;
         cout << endl;
-
     }
 }
 
@@ -1027,7 +1030,7 @@ void UserLayer::searchForAComputer()
 {
     string searchString;
 
-    cout << "Please enter either: Name, type or year : ";
+    cout << "Please enter either: Name, type or year: ";
     cin.ignore();
     getline(cin, searchString);
     vector<Computer> listOfComputers = _service.searchComputer(searchString);
