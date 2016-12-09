@@ -135,9 +135,9 @@ void MenuInterface::processChoice(const string choice)
 {
 
     string subMenuChoice = "";
+    bool valid = false;
 
-
-    while(subMenuChoice != "1" || subMenuChoice != "2")
+    while(valid == false)
     {
         cout << endl;
         cout << "Choose either:" << endl;
@@ -145,10 +145,11 @@ void MenuInterface::processChoice(const string choice)
         cout << "| 2 | Scientist " << endl;
         cin >> subMenuChoice;
 
-        if(subMenuChoice == "1")
-            cout << "hommz" << endl;
-
-        if(subMenuChoice != "1" || subMenuChoice != "2")
+        if(subMenuChoice == "1" || subMenuChoice == "2")
+        {
+            valid = true;
+        }
+        else
         {
             invalidInput();
         }

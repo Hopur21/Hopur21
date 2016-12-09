@@ -498,9 +498,7 @@ void UserLayer::removePersonFromList()
         }
     }
 
-    //IT IS OK TO REMOVE THESE COMMENTS
-/*
-    if(_service.removeComputerFromList(realID))
+    if(_service.removeComputerFromList(to_string(realID)))
     {
         cout << "Computer removed successfully" << endl;
     }
@@ -508,7 +506,7 @@ void UserLayer::removePersonFromList()
     {
         cout << "Something went wrong" << endl;
     }
-*/
+
 }
 
 void UserLayer::removeComputerFromList()
@@ -560,9 +558,7 @@ void UserLayer::removeComputerFromList()
         }
     }
 
-    //IT IS OK TO REMOVE THESE COMMENTS
-/*
-    if(_service.removeComputerFromList(realID))
+    if(_service.removeComputerFromList(to_string(realID)))
     {
         cout << "Computer removed successfully" << endl;
     }
@@ -570,8 +566,6 @@ void UserLayer::removeComputerFromList()
     {
         cout << "Something went wrong" << endl;
     }
-*/
-
 }
 
 void UserLayer::printGenderMenu()
