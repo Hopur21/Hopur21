@@ -1,29 +1,12 @@
-TODO:
+﻿TODO:
 
 2.  Ekki er hægt að setja inn 0 í dánarár ef dánarár var gert vitlaust fyrst. Dæmi:
-- Fæðingarár: 1912
-- Dánarár: 1911 -- kemur villa
-- Dánarár: 0 -- kemur villa
+  - Fæðingarár: 1912
+  - Dánarár: 1911 -- kemur villa
+  - Dánarár: 0 -- kemur villa
 3.  Kóðinn skal vera lesanlegur, vel formaður, vel skjalaður, og viðhaldanlegur.
--- Skjölun ætti að vera einungis á annaðhvort íslensku eða ensku (helst ensku) -1
+  - Skjölun ætti að vera einungis á annaðhvort íslensku eða ensku (helst ensku) -1
 
-Sorts:
-Computer Scientists alpabetically
-Computer Scientists alpabetically desc
-Computer Scientists by birth_year
-Computer Scientists by birth_year desc
-Computer Scientists by death_year
-Computer Scientists by age //þarf að láta sql reikna aldurinn
-Computer Scientists by gender
-Computer Scientists by is_alive
-
-Computers alpabetically
-Computers alpabetically desc
-Computers by design year
-Computers by build year
-Computers by build year desc
-Computers by was_built
-Computers by type 
 
 Searches:
 For computer name
@@ -43,3 +26,8 @@ Computer scientist
 Removes:
 Computer
 Computer scientist
+
+
+Tengja tölvu við persónu
+hætta í miðju addi
+birta deleted items

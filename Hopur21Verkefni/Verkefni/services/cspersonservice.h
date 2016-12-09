@@ -14,13 +14,13 @@ class CSPersonService
         bool addNewPersonToList(const string name,const string gender, const string birthYear, const string deathYear,const string comment);
         bool removePersonFromList(const string id);
         bool editPersonFromList(const string oldID, CSPerson person);
-        void sortByName();
-        void sortByNameASC();
-        void sortByGender();
-        void sortByDeathYear();
-        void sortByBirthYear();
-        void sortByBirthYearASC();
-        void sortByAge();
+        void sortByName(vector<CSPerson>& computerScientists);
+        void sortByNameDESC(vector<CSPerson>& computerScientists);
+        void sortByGender(vector<CSPerson>& computerScientists);
+        void sortByDeathYear(vector<CSPerson>& computerScientists);
+        void sortByBirthYear(vector<CSPerson>& computerScientists);
+        void sortByBirthYearASC(vector<CSPerson>& computerScientists);
+        void sortByAge(vector<CSPerson>& computerScientists);
 
         //Gets
         vector<CSPerson> searchByName(const string searchString);

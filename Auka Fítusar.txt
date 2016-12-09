@@ -2,5 +2,23 @@ Gagnagrunnur er miðlægur (external server)
 Vector-ar eru geymdir í services og sendir með call by reference.
 
 
-
 Prenta út lista af deleted ?
+
+
+
+
+
+
+
+
+
+
+
+
+----
+Valmöguleikar úr dbcon:
+Computer: CRUD
+Comp Scien: CRUD
+Type: Select, Add
+Comp to CS: select, add
+

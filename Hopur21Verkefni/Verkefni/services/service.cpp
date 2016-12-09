@@ -2,7 +2,7 @@
 
 Service::Service()
 {
-
+    updateAllLists();
 }
 
 bool Service::addNewPersonToList(const vector<int> computerConnectionID,const string name,const string gender, const string birthYear, const string deathYear,const string comment)
@@ -34,23 +34,9 @@ bool Service::removePersonFromList(const string id)
     }*/
     return false;
 }
-
-vector<CSPerson> Service::getComputerScientistList()
+void Service::updateComputerTypesList()
 {
-    updateComputerScientistList();
-    return _computerScientists;
-}
-vector <string> Service::getComputerTypesList()
-{
-    // Not finished
-    //Get list from DB
-
-    return _computerTypes;
-}
-vector<Computer> Service::getComputerList()
-{
-    updateComputerList();
-    return _computerList;
+    _dbCon.getComputerTypes(_computerTypes);
 }
 void Service::updateComputerList()
 {
@@ -60,7 +46,80 @@ void Service::updateComputerScientistList()
 {
     _dbCon.getComputerScientists(_computerScientists);
 }
+void Service::updateAllLists()
+{
+    updateComputerScientistList();
+    updateComputerList();
+    updateComputerTypesList();
+}
 
+
+
+//Computer scientist Sorts
+void Service::sortScientistListAlphabetically()
+{
+    _cSPersonService.sortByName(_computerScientists);
+}
+
+void Service::sortScientistListAlphabeticallyDESC()
+{
+    _cSPersonService.sortByNameDESC(_computerScientists);
+}
+
+void Service::sortScientistListByGender()
+{
+    _cSPersonService.sortByGender(_computerScientists);
+}
+
+void Service::sortScientistListByDeathYear()
+{
+    _cSPersonService.sortByDeathYear(_computerScientists);
+}
+
+void Service::sortScientistListByBirthYear()
+{
+    _cSPersonService.sortByBirthYear(_computerScientists);
+}
+
+void Service::sortScientistListByBirthYearASC()
+{
+    _cSPersonService.sortByBirthYearASC(_computerScientists);
+}
+
+void Service::sortScientistListByAge()
+{
+    _cSPersonService.sortByAge(_computerScientists);
+}
+// Computer Sorts
+void Service::sortComputerListAlphabetically()
+{
+    _computerService.sortByName(_computerList);
+}
+
+void Service::sortComputerListAlphabeticallyDESC()
+{
+    _computerService.sortByNameDESC(_computerList);
+}
+
+void Service::sortComputertListByBuildYear()
+{
+    _computerService.sortByBuildYear(_computerList);
+}
+
+void Service::sortComputerListByDesignYear()
+{
+    _computerService.sortByDesignYear(_computerList);
+}
+
+void Service::sortComputerListByType()
+{
+    _computerService.sortByType(_computerList);
+}
+
+void Service::sortComputerListWasBuilt()
+{
+    _computerService.sortWasBuilt(_computerList);
+}
 
 
 
@@ -70,40 +129,7 @@ void Service::updateComputerScientistList()
 
 
 
-void Service::sortListAlphabetically()
-{
-    //_cSPersonService.sortByName();
-}
 
-void Service::sortListAlphabeticallyASC()
-{
-    //_cSPersonService.sortByNameASC();
-}
-
-void Service::sortListByGender()
-{
-    //_cSPersonService.sortByGender();
-}
-
-void Service::sortListByDeathYear()
-{
-    //_cSPersonService.sortByDeathYear();
-}
-
-void Service::sortListByBirthYear()
-{
-    //_cSPersonService.sortByBirthYear();
-}
-
-void Service::sortListByBirthYearASC()
-{
-    //_cSPersonService.sortByBirthYearASC();
-}
-
-void Service::sortListByAge()
-{
-    //_cSPersonService.sortByAge();
-}
 
 vector<CSPerson> Service::searchByName(const string searchString)
 {

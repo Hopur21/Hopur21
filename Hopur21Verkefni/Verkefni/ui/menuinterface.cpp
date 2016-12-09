@@ -1,5 +1,6 @@
 #include <iostream>
 #include "menuinterface.h"
+#include <windows.h>
 
 using namespace std;
 
@@ -20,20 +21,33 @@ void MenuInterface::banner()
     //system("CLS");
     if(_firstTimeBooting == constants::FIRST_TIME)
     {
+        // sets font in console to RED
+        HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+        SetConsoleTextAttribute(hConsole, 14);
+
         cout << endl;
         cout << "       ********************************************" << endl;
-        cout << "       *  WELCOME TO THE COMPUTER SCIENTIST LIST  *" << endl;
+        cout << "       *   WELCOME TO THE COMPUTER SCIENCE LIST   *" << endl;
         cout << "       ********************************************" << endl;
         cout << endl;
-        _firstTimeBooting = 1;//just something else than 0
+        _firstTimeBooting = 1; //just something else than 0
+
+        SetConsoleTextAttribute(hConsole, 15); //set back to black background and white text
     }
     else
     {
+        // sets font in console to RED
+        HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+        SetConsoleTextAttribute(hConsole, 14);
+
         cout << endl;
         cout << "       ********************************************" << endl;
-        cout << "       *          COMPUTER SCIENTIST LIST         *" << endl;
+        cout << "       *           COMPUTER SCIENCE LIST          *" << endl;
         cout << "       ********************************************" << endl;
         cout << endl;
+
+        SetConsoleTextAttribute(hConsole, 15); //set back to black background and white text
+
     }
 
 }
@@ -90,8 +104,8 @@ string MenuInterface::subMenu()
     {
         cout << endl;
         cout << "Choose either:" << endl;
-        cout << "| 1 | A computer " << endl;
-        cout << "| 2 | A scientist " << endl;
+        cout << "| 1 | Computer " << endl;
+        cout << "| 2 | Scientist " << endl;
 
         cin >> subMenuChoice;
 
@@ -125,12 +139,13 @@ void MenuInterface::processChoice(const string choice)
             displayComputers();
             break;
         case 2:
-            _uL.searchForAComputer();
+            _userLayer.searchForAComputer();
             break;
         case 3:
-            banner();
-            _uL.addComputer();
-        break;
+            // banner();
+            // here could be the choice to add type of computer?
+            _userLayer.addComputer();
+            break;
         case 4:
             // Remove a computer
             break;
@@ -149,13 +164,13 @@ void MenuInterface::processChoice(const string choice)
             displayScientists();
             break;
         case 2:
-            _uL.searchForAPerson();
+            _userLayer.searchForAPerson();
             break;
         case 3:
-            _uL.addPerson();
-        break;
+            _userLayer.addPerson();
+            break;
         case 4:
-            _uL.removePersonFromList();
+            _userLayer.removePersonFromList();
             break;
         default:
             // This should never run
@@ -173,7 +188,7 @@ void MenuInterface::processChoice(const string choice)
 void MenuInterface::displayComputers()
 {
     string sortOption;
-    _uL.printCompleteListOfComputers();
+    _userLayer.printCompleteListOfComputers();
 
     cout << "| 1 | Sort computers by alphabetical order" << endl;
     cout << "| 2 | Sort computers by descending alphabetical order" << endl;
@@ -189,31 +204,31 @@ void MenuInterface::displayComputers()
     if(sortOption == constants::SORT_ALPHABET)
     {
        // banner();
-        _cS.sortByName();
+        _userLayer.sortComputerListAlphabetically();
     }
-    else if(sortOption == constants::SORT_ASCENDING_ALPHABET)
+    else if(sortOption == constants::SORT_DESCENDING_ALPHABET)
     {
        // banner();
-        _cS.sortByNameDESC();
+        _userLayer.sortComputerListAlphabeticallyDESC();
     }
     else if(sortOption == constants::SORT_BY_BUILDYEAR)
     {
        // banner();
-        _cS.sortByBuildYear();
+        _userLayer.sortComputerListByBuildYear();
     }
     else if(sortOption == constants::SORT_BY_DESIGNYEAR)
     {
        // banner();
-        _cS.sortByDesignYear();
+        _userLayer.sortComputerListByDesignYear();
     }
     else if(sortOption == constants::SORT_BY_TYPE)
     {
        // banner();
-        //_cS.sortByType();
+       _userLayer.sortComputerListByType();
     }
     else if(sortOption == constants::MORE_INFO)
     {
-        _uL.printListMoreInfoComputer();
+        _userLayer.printListMoreInfoComputer();
     }
 
     else if(sortOption == constants::GO_BACK)
@@ -230,9 +245,9 @@ void MenuInterface::displayComputers()
 void MenuInterface::displayScientists()
 {
     string sortOption;
-    _uL.printCompleteList();
+    _userLayer.printCompleteList();
     cout << "| 1 | Sort computer scientists by alphabetical order" << endl;
-    cout << "| 2 | Sort computer scientists by ascending alphabetical order" << endl;
+    cout << "| 2 | Sort computer scientists by descending alphabetical order" << endl;
     cout << "| 3 | Sort computer scientists by year of birth" << endl;
     cout << "| 4 | Sort computer scientists by ascending year of birth" << endl;
     cout << "| 5 | Sort computer scientists by year of death" << endl;
@@ -246,37 +261,37 @@ void MenuInterface::displayScientists()
     if(sortOption == constants::SORT_ALPHABET)
     {
         banner();
-        _uL.sortListAlphabetically();
+        _userLayer.sortScientistListAlphabetically();
     }
     else if(sortOption == constants::SORT_BY_YEAR_OF_BIRTH)
     {
         banner();
-        _uL.sortListByBirthYear();
+        _userLayer.sortScientistListByBirthYear();
     }
     else if(sortOption == constants::SORT_BY_YEAR_OF_DEATH)
     {
         banner();
-        _uL.sortListByDeathYear();
+        _userLayer.sortScientistListByDeathYear();
     }
     else if(sortOption == constants::SORT_BY_AGE)
     {
         banner();
-        _uL.sortListByAge();
+        _userLayer.sortScientistListByAge();
     }
-    else if(sortOption == constants::SORT_ASCENDING_ALPHABET)
+    else if(sortOption == constants::SORT_DESCENDING_ALPHABET)
     {
         banner();
-        _uL.sortListAlphabeticallyASC();
+        _userLayer.sortScientistListAlphabeticallyDESC();
     }
     else if(sortOption == constants::SORT_BY_ASCENDING_YEAR_OF_BIRTH)
     {
         banner();
-        _uL.sortListByBirthYearASC();
+        _userLayer.sortScientistListByBirthYearASC();
     }
     else if(sortOption == constants::SORT_BY_GENDER)
     {
         banner();
-        _uL.sortListByGender();
+        _userLayer.sortScientistListByGender();
     }
     else if(sortOption == constants::GO_BACK)
     {

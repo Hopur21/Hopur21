@@ -46,11 +46,12 @@ public:
     int addComputerScientist(const CSPerson value);
     int addComputer(const Computer value);
     //Update
-    bool updateComputerScientist(const int& id, const string& name, const int& birthYear, const int& deathYear, const bool isAlive, const string& gender, const string& comment);
-    bool updateComputer(const int& id, const string& name, const int& designYear, const int& buildYear, const string& type, const bool isCreated);
+    bool updateComputerScientist(CSPerson& computerScientist);
+    bool updateComputer(Computer& computer);
     //Delete
     bool removeComputerScientist(const int& scientistID);
-    bool removeComputer(const int& scientistID);
+    bool removeComputer(const int& computerID);
+
 };
 
 
