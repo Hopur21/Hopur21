@@ -219,8 +219,9 @@ vector<CSPerson> DbCon::getCSConntedToComputer(const int computerID)
     bool success = false;
     CSList.clear();
     QSqlQuery query;
-    query.prepare("SELECT cs.ID, cs.name, YEAR(cs.birth_year) AS birth_year, YEAR(cs.death_year) AS death_year, cs.gender, cs.comment, cs.is_alive FROM computer_scientists_computers csc JOIN computer_scientists cs ON (csc.computer_scientist_ID=cs.ID) WHERE csc.computer_ID = (:computerID);");
-    query.bindValue(":scientistID", computerID);
+    qDebug() << " computer ID: " << computerID << endl;
+    query.prepare("SELECT cs.ID, cs.name, YEAR(cs.birth_year) AS birth_year, YEAR(cs.death_year) AS death_year, cs.gender, cs.comment, cs.is_alive FROM computer_scientists_computers csc JOIN computer_scientists cs ON (csc.computer_scientist_ID=cs.ID) WHERE csc.computer_ID = :computerID");
+    query.bindValue(":computerID", computerID);
     while (query.next())
     {
         if(success == false)
@@ -229,6 +230,7 @@ vector<CSPerson> DbCon::getCSConntedToComputer(const int computerID)
         }
         runSelectForScientist(query, CSList);
     }
+    qDebug() << query.lastQuery();
     if(!success){qDebug() << "getCSConntedToComputer error:  " << query.lastError();}
     return CSList;
 }
