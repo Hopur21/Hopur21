@@ -334,7 +334,7 @@ void DbCon::searchScientist(vector<CSPerson>& scientist, const string searchFor)
     scientist.clear();
     bool success = false;
     QSqlQuery query;
-    query.prepare("SELECT ID,name,YEAR(birth_year) AS birth_year, YEAR(death_year) AS death_year,gender,comment,is_alive FROM computer_scientists WHERE name LIKE '%' :searchFor '%' OR death_year LIKE '%' :searchFor '%' OR birth_year LIKE '%' :searchFor '%' OR gender LIKE '%' :searchFor '%'  ORDER BY name;");
+    query.prepare("SELECT ID,name,YEAR(birth_year) AS birth_year, YEAR(death_year) AS death_year,gender,comment,is_alive FROM computer_scientists WHERE name LIKE '%' :searchFor '%' OR death_year LIKE '%' :searchFor '%' OR birth_year LIKE '%' :searchFor '%' OR gender LIKE '%' :searchFor '%' WHERE removed = 0 ORDER BY name;");
     query.bindValue(":searchFor", QString::fromStdString(searchFor));
     query.exec();
     while (query.next())
@@ -352,7 +352,7 @@ void DbCon::searchComputer(vector<Computer>& computer, const string searchFor)
     computer.clear();
     bool success = false;
     QSqlQuery query;
-    query.prepare("SELECT c.ID, c.name, YEAR(c.design_year) AS design_year, YEAR(c.build_year) AS build_year, c.is_created, t.name AS type, c.type_ID FROM computers c JOIN type t ON(t.ID=c.type_ID) WHERE c.name LIKE '%' :searchFor '%' OR c.design_year LIKE '%' :searchFor '%' OR c.build_year LIKE '%' :searchFor '%' OR t.name LIKE '%' :searchFor '%' ORDER BY name");
+    query.prepare("SELECT c.ID, c.name, YEAR(c.design_year) AS design_year, YEAR(c.build_year) AS build_year, c.is_created, t.name AS type, c.type_ID FROM computers c JOIN type t ON(t.ID=c.type_ID) WHERE c.name LIKE '%' :searchFor '%' OR c.design_year LIKE '%' :searchFor '%' OR c.build_year LIKE '%' :searchFor '%' OR t.name LIKE '%' :searchFor '%' WHERE removed = 0 ORDER BY name");
     query.bindValue(":searchFor", QString::fromStdString(searchFor));
     query.exec();
     while (query.next())
