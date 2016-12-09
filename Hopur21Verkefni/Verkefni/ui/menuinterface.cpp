@@ -131,69 +131,25 @@ void MenuInterface::DisplayMenu()
     }
 }
 
-string MenuInterface::subMenu()
-{
-    int valid = constants::INVALID;
-    int subMenuChoice;
-    string retValue;
-    do
-    {
-        cout << endl;
-        cout << "Choose either:" << endl;
-        cout << "| 1 | Computer " << endl;
-        cout << "| 2 | Scientist " << endl;
-
-        cin >> subMenuChoice;
-
-        if(subMenuChoice == constants::INT_COMPUTER)
-        {
-            subMenuChoice = constants::INT_COMPUTER;
-            retValue = constants::COMPUTER;
-            valid = constants::VALID;
-        }
-        else if(subMenuChoice == constants::INT_SCIENTIST)
-        {
-            subMenuChoice = constants::INT_SCIENTIST;
-            retValue = constants::SCIENTIST;
-            valid = constants::VALID;
-        }
-        else
-        {
-            cout << endl;
-            //invalidInput();
-            cout << endl;
-            break;
-        }
-
-        if(valid == constants::VALID)
-        {
-            return retValue;
-        }
-    }while(valid == constants::INVALID);
-
-    // This will never run
-    return retValue;
-}
-
 void MenuInterface::processChoice(const string choice)
 {
-    // subMenuChoice is set to 404 to enter the while loop
-    string subMenuChoice = "404";
+
+    string subMenuChoice = "";
 
 
-    while(subMenuChoice != constants::COMPUTER || subMenuChoice != constants::SCIENTIST)
+    while(subMenuChoice != "1" || subMenuChoice != "2")
     {
         cout << endl;
         cout << "Choose either:" << endl;
         cout << "| 1 | Computer " << endl;
         cout << "| 2 | Scientist " << endl;
-        cout << endl;
         cin >> subMenuChoice;
-        if(subMenuChoice != constants::COMPUTER || subMenuChoice != constants::SCIENTIST)
+
+        if(subMenuChoice != "1" || subMenuChoice != "2")
         {
             invalidInput();
         }
-        else if(subMenuChoice == constants::COMPUTER || subMenuChoice == constants::SCIENTIST)
+        else
         {
             cout << "HALLO FROM OKOKOK";
         }

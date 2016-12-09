@@ -17,7 +17,6 @@ class MenuInterface
         void banner();
         void processChoice(const string choice);
         void invalidInput();
-        string subMenu();
         void displayScientists();
         void displayComputers();
 
