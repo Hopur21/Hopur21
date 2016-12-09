@@ -1,6 +1,6 @@
 #include <iostream>
 #include "userlayer.h"
-#include <windows.h>
+//#include <windows.h>
 
 using namespace std;
 
@@ -527,12 +527,12 @@ void UserLayer::printListOfComputers(vector<Computer> list)
         adjustForSpaces(i);
 
         // sets font in console to RED
-        HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-        SetConsoleTextAttribute(hConsole, 9);
+        //HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+        //SetConsoleTextAttribute(hConsole, 9);
 
         cout << name.append(32 - name.length(), constants::SPACE);
 
-        SetConsoleTextAttribute(hConsole, 15); //set back to black background and white text
+        //SetConsoleTextAttribute(hConsole, 15); //set back to black background and white text
 
 
         cout << type;
