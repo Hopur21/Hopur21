@@ -702,7 +702,7 @@ void UserLayer::printListMoreInfoComputer()
 
     do
     {
-        if(id < 0 || id >= listSize || isdigit(id))
+        if(id < 0 || id > listSize || isdigit(id))
         {
             invalidInput();
             cout << "Enter the id of the computer you want info on: ";
@@ -956,6 +956,17 @@ void UserLayer::searchForAPerson()
     cout << "Who are we searching for : ";
     cin.ignore();
     getline(cin, searchString);
+    vector<CSPerson> listOfPersons = _service.searchComputerScientist(searchString);
+    if(listOfPersons.size() == constants::EMPTY_LIST)
+    {
+        cout << "Not found" << endl;
+    }
+    else
+    {
+        printListOfScientists(listOfPersons);
+    }
+
+
 }
 
 void UserLayer::searchForAComputer()
@@ -965,6 +976,16 @@ void UserLayer::searchForAComputer()
     cout << "Please enter either: Name, type or year : ";
     cin.ignore();
     getline(cin, searchString);
+    vector<Computer> listOfComputers = _service.searchComputer(searchString);
+    if(listOfComputers.size() == constants::EMPTY_LIST)
+    {
+        cout << "Not found" << endl;
+    }
+    else
+    {
+        printListOfComputers(listOfComputers);
+    }
+
 
 }
 
