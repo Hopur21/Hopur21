@@ -1043,6 +1043,7 @@ void UserLayer::searchForAPerson()
     if(listOfPersons.size() == constants::EMPTY_LIST)
     {
         cout << "Not found" << endl;
+        cout << endl;
     }
     else
     {
@@ -1062,6 +1063,7 @@ void UserLayer::searchForAComputer()
     if(listOfComputers.size() == constants::EMPTY_LIST)
     {
         cout << "Not found" << endl;
+        cout << endl;
     }
     else
     {
