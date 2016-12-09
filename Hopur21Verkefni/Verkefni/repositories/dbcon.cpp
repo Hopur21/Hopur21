@@ -232,14 +232,7 @@ void DbCon::getCSConntedToComputer(vector<CSPerson>& CSList,const int computerID
         {
             success = true;
         }
-       QString id = query.value(query.record().indexOf("ID")).toString();
-       QString name = query.value(query.record().indexOf("name")).toString();
-       QString birthYear = query.value(query.record().indexOf("birth_year")).toString();
-       QString deathYear = query.value(query.record().indexOf("death_year")).toString();
-       QString gender = query.value(query.record().indexOf("gender")).toString();
-       QString comment = query.value(query.record().indexOf("comment")).toString();
-       QString isAlive = query.value(query.record().indexOf("is_alive")).toString();
-       setDataInPersonVector(CSList, id.toInt(), name.toStdString(), gender.toStdString(), birthYear.toInt(), deathYear.toInt(), comment.toStdString(), isAlive.toInt());
+        runSelectForScientist(query, CSList);
     }
     if(!success){qDebug() << "getCSConntedToComputer error:  " << query.lastError();}
 }
@@ -256,15 +249,7 @@ void DbCon::getComputerScientists(vector<CSPerson>& computerScientists)
         {
             success = true;
         }
-        //Get the index of the column we are going to find and save our current data into the variable.
-       QString id = query.value(query.record().indexOf("ID")).toString();
-       QString name = query.value(query.record().indexOf("name")).toString();
-       QString birthYear = query.value(query.record().indexOf("birth_year")).toString();
-       QString deathYear = query.value(query.record().indexOf("death_year")).toString();
-       QString gender = query.value(query.record().indexOf("gender")).toString();
-       QString comment = query.value(query.record().indexOf("comment")).toString();
-       QString isAlive = query.value(query.record().indexOf("is_alive")).toString();
-       setDataInPersonVector(computerScientists, id.toInt(), name.toStdString(), gender.toStdString(), birthYear.toInt(), deathYear.toInt(), comment.toStdString(), isAlive.toInt());
+        runSelectForScientist(query, computerScientists);
     }
     if(!success){qDebug() << "getComputerScientists error:  " << query.lastError();}
 }
@@ -326,6 +311,7 @@ bool DbCon::computerScientistExist(const string& name)
 //Search
 void DbCon::searchScientistByName(vector<CSPerson>& scientist, const string searchFor)
 {
+    scientist.clear();
     bool success = false;
     QSqlQuery query;
     query.prepare("SElECT ID,name,YEAR(birth_year) AS birth_year, YEAR(death_year) AS death_year,gender,comment,is_alive FROM computer_scientists WHERE name LIKE \"%:searchFor%\"");
@@ -336,16 +322,36 @@ void DbCon::searchScientistByName(vector<CSPerson>& scientist, const string sear
         {
             success = true;
         }
-        //Get the index of the column we are going to find and save our current data into the variable.
-       QString id = query.value(query.record().indexOf("ID")).toString();
-       QString name = query.value(query.record().indexOf("name")).toString();
-       QString birthYear = query.value(query.record().indexOf("birth_year")).toString();
-       QString deathYear = query.value(query.record().indexOf("death_year")).toString();
-       QString gender = query.value(query.record().indexOf("gender")).toString();
-       QString comment = query.value(query.record().indexOf("comment")).toString();
-       QString isAlive = query.value(query.record().indexOf("is_alive")).toString();
-       setDataInPersonVector(scientist, id.toInt(), name.toStdString(), gender.toStdString(), birthYear.toInt(), deathYear.toInt(), comment.toStdString(), isAlive.toInt());
+        runSelectForScientist(query, scientist);
     }
     if(!success){qDebug() << "getComputerScientists error:  " << query.lastError();}
-
+}
+void DbCon::searchScientistYear(vector<CSPerson>& scientist, const string searchFor)
+{
+    scientist.clear();
+    bool success = false;
+    QSqlQuery query;
+    query.prepare("SElECT ID,name,YEAR(birth_year) AS birth_year, YEAR(death_year) AS death_year,gender,comment,is_alive FROM computer_scientists WHERE birth_year LIKE \"%:searchFor%\" OR death_year LIKE \"%:searchFor%\"");
+    query.bindValue(":searchFor", QString::fromStdString(searchFor));
+    while (query.next())
+    {
+        if(success == false)//If we made it here the query was a success, no need to set it to true for every single loop
+        {
+            success = true;
+        }
+        runSelectForScientist(query, scientist);
+    }
+    if(!success){qDebug() << "getComputerScientists error:  " << query.lastError();}
+}
+void DbCon::runSelectForScientist(QSqlQuery& query, vector<CSPerson>& scientist)
+{
+    //Get the index of the column we are going to find and save our current data into the variable.
+   QString id = query.value(query.record().indexOf("ID")).toString();
+   QString name = query.value(query.record().indexOf("name")).toString();
+   QString birthYear = query.value(query.record().indexOf("birth_year")).toString();
+   QString deathYear = query.value(query.record().indexOf("death_year")).toString();
+   QString gender = query.value(query.record().indexOf("gender")).toString();
+   QString comment = query.value(query.record().indexOf("comment")).toString();
+   QString isAlive = query.value(query.record().indexOf("is_alive")).toString();
+   setDataInPersonVector(scientist, id.toInt(), name.toStdString(), gender.toStdString(), birthYear.toInt(), deathYear.toInt(), comment.toStdString(), isAlive.toInt());
 }
