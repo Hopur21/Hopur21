@@ -19,11 +19,12 @@ bool Service::addNewComputerToList(const vector<int> scientistConnectionID, cons
 {
     Computer newComputer;
     int computerID = 0;
-    if(_computerService.addNewComputerToList(newComputer, name, designYear, buildYear, type, created))
+    // Kemur villa
+    /*if(_computerService.addNewComputerToList(newComputer, name, designYear, buildYear, type, created))
     {
         computerID = _dbCon.addComputer(newComputer);
         return true;
-    }
+    }*/
     return false;
 }
 
