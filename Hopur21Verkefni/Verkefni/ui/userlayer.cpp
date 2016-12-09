@@ -568,7 +568,7 @@ void UserLayer::displayListOfComputersScientistContributedTo()
     {
         for(int i=0; i< listSize; i++)
         {
-              cout << i+1 << "  " << listOfPersons.at(i).getName() << endl;
+              cout << i+1 << ".  " << listOfPersons.at(i).getName() << endl;
         }
     }
     do
@@ -604,7 +604,6 @@ void UserLayer::displayListOfComputersScientistContributedTo()
 
     for(unsigned int i=0; i<listSize; i++)
     {
-
         if(nameOfPerson == listOfPersons.at(i).getName())
         {
             realID = listOfPersons.at(i).getID();
@@ -615,11 +614,12 @@ void UserLayer::displayListOfComputersScientistContributedTo()
     int sizeOfComputers = allComputers.size();
     if(sizeOfComputers == constants::EMPTY_LIST)
     {
-        cout << "This scientist did not create nor design a computer" << endl;
+        cout << nameOfPerson << " did not create nor design a computer" << endl;
+        cout << endl;
     }
     else
     {
-        cout << nameOfPerson << " contributed to the making of the following machines" << endl;
+        cout << nameOfPerson << " contributed to the making of the following machines: " << endl;
         cout << endl;
         for(unsigned j = 0; j < sizeOfComputers; j++)
         {
@@ -904,7 +904,6 @@ void UserLayer::printListMoreInfoComputer()
     designYear = to_string(computerList.at(id-1).getDesignYear());
     name = computerList.at(id-1).getName();
     type = computerList.at(id-1).getType();
-    //computerScientist = computerList.at(id-1).getCSConntedToComputer(); //how to find the scientist that made the computer???
 
     cout << "------------------------------------------------------------------------------" << endl;
     cout << "BUILD YEAR:" << buildYear << "          " << name <<  "         DESIGN YEAR:" << designYear << endl;
@@ -990,7 +989,7 @@ void UserLayer::printListMoreInfo(vector<CSPerson> list)
     if(sizeOfList == 0)
     {
         cout << "List is empty." << endl;
-        return; //á að hætta í forritinu hér?
+        return;
     }
 
     cout <<   "#     NAME                            GENDER     YOB     YOD      AGE" << endl;
@@ -1086,7 +1085,7 @@ void UserLayer::sortScientistListByAge()
     _service.sortScientistListByAge();
     printListOfScientists(_service.getComputerScientistList());
 }
-//TODO Computer Sorts
+// Computer Sorts
 void UserLayer::sortComputerListAlphabetically()
 {
     _service.sortComputerListAlphabetically();
