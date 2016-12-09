@@ -67,7 +67,7 @@ bool DbCon::removeComputerScientist(const int& scientistID)
     }
     catch(int e)
     {
-        {qDebug() << "removeComputerScientist error:  " << query.lastError();}
+        //{qDebug() << "removeComputerScientist error:  " << query.lastError();}
     }
     return success;
 }
@@ -83,7 +83,7 @@ bool DbCon::removeComputer(const int& computerID)
     }
     catch(int e)
     {
-        {qDebug() << "removeComputerScientist error:  " << query.lastError();}
+        //{qDebug() << "removeComputerScientist error:  " << query.lastError();}
     }
     return success;
 }
@@ -100,7 +100,7 @@ bool DbCon::addComputerType(const string typeName)
     }
     catch(int e)
     {
-        {qDebug() << "addCStoComputer error:  " << query.lastError();}
+        //{qDebug() << "addCStoComputer error:  " << query.lastError();}
     }
     return success;
 }
@@ -123,7 +123,7 @@ bool DbCon::addCStoComputer(const int cSID,const int compID)
     }
     catch(int e)
     {
-        {qDebug() << "addCStoComputer error:  " << query.lastError();}
+        //{qDebug() << "addCStoComputer error:  " << query.lastError();}
     }
     return success;
 }
@@ -141,7 +141,7 @@ int DbCon::addComputerScientist(const CSPerson value)
     query.bindValue(":gender", QString::fromStdString(value.getGender()));
     query.bindValue(":comment", QString::fromStdString(value.getComments()));
     success = query.exec();//Returns true/false if we made it
-    if(!success){qDebug() << "addComputerScientist error:  " << query.lastError();}
+    //if(!success){qDebug() << "addComputerScientist error:  " << query.lastError();}
     QVariant returnID = query.lastInsertId();
     return returnID.toInt();
 }
@@ -156,7 +156,7 @@ int DbCon::addComputer(const Computer value)
     query.bindValue(":isCreated", value.getIsCreated());
     query.bindValue(":type", QString::fromStdString(value.getTypeID()));
     success = query.exec();//Returns true/false if we made it
-    if(!success){qDebug() << "addComputer error:  " << query.lastError();}
+    //if(!success){qDebug() << "addComputer error:  " << query.lastError();}
     QVariant returnID = query.lastInsertId();
     return returnID.toInt();
 }
@@ -175,7 +175,7 @@ bool DbCon::updateComputerScientist(CSPerson& computerScientist)
     query.bindValue(":comment", QString::fromStdString(computerScientist.getComments()));
     query.bindValue(":id", QString::fromStdString(to_string(computerScientist.getID())));
     success = query.exec();
-    if(!success){qDebug() << "updateComputerScientist error:  " << query.lastError();}
+    //if(!success){qDebug() << "updateComputerScientist error:  " << query.lastError();}
     return success;
 }
 bool DbCon::updateComputer(Computer& computer)
@@ -190,7 +190,7 @@ bool DbCon::updateComputer(Computer& computer)
     query.bindValue(":type", QString::fromStdString(computer.getType()));
     query.bindValue(":id", QString::fromStdString(to_string(computer.getID())));
     success = query.exec();
-    if(!success){qDebug() << "updateComputer error:  " << query.lastError();}
+    //if(!success){qDebug() << "updateComputer error:  " << query.lastError();}
     return success;
 }
 //Select Querys
@@ -211,7 +211,7 @@ vector<Computer> DbCon::getComputersConnectedToCS(const int scientistID)
         }
         runSelectForComputers(query,compuerList);
     }
-    if(!success){qDebug() << "getComputersConnectedToSC error:  " << query.lastError();}
+    //if(!success){qDebug() << "getComputersConnectedToSC error:  " << query.lastError();}
     return compuerList;
 }
 vector<CSPerson> DbCon::getCSConntedToComputer(const int computerID)
@@ -231,7 +231,7 @@ vector<CSPerson> DbCon::getCSConntedToComputer(const int computerID)
         }
         runSelectForScientist(query, CSList);
     }
-    if(!success){qDebug() << "getCSConntedToComputer error:  " << query.lastError();}
+    //if(!success){qDebug() << "getCSConntedToComputer error:  " << query.lastError();}
     return CSList;
 }
 
@@ -249,7 +249,7 @@ void DbCon::getComputerScientists(vector<CSPerson>& computerScientists)
         }
         runSelectForScientist(query, computerScientists);
     }
-    if(!success){qDebug() << "getComputerScientists error:  " << query.lastError();}
+    //if(!success){qDebug() << "getComputerScientists error:  " << query.lastError();}
 }
 void DbCon::getComputers(vector<Computer>& computers)
 {
@@ -265,7 +265,7 @@ void DbCon::getComputers(vector<Computer>& computers)
            }
            runSelectForComputers(query,computers);
        }
-       if(!success){qDebug() << "getComputers error:  " << query.lastError();}
+       //if(!success){qDebug() << "getComputers error:  " << query.lastError();}
 }
 void DbCon::getComputerTypes(vector<string>& computerTypes)
 {
@@ -281,7 +281,7 @@ void DbCon::getComputerTypes(vector<string>& computerTypes)
        QString name = query.value(query.record().indexOf("name")).toString();
        setDataInTypeVector(computerTypes, name.toStdString());
     }
-    if(!success){qDebug() << "getComputerTypes error:  " << query.lastError();}
+    //if(!success){qDebug() << "getComputerTypes error:  " << query.lastError();}
 }
 vector<CSPerson> DbCon::getComputerScientistsTrashCan()
 {
@@ -296,7 +296,7 @@ vector<CSPerson> DbCon::getComputerScientistsTrashCan()
         }
         runSelectForScientist(query, computerScientistTrashCan);
     }
-    if(!success){qDebug() << "getTrashCan error:  " << query.lastError();}
+    //if(!success){qDebug() << "getTrashCan error:  " << query.lastError();}
     return computerScientistTrashCan;
 }
 vector<Computer> DbCon::getComputerTrashCan()
@@ -312,7 +312,7 @@ vector<Computer> DbCon::getComputerTrashCan()
         }
         runSelectForComputers(query, computerTrashCan);
     }
-    if(!success){qDebug() << "getTrashCan error:  " << query.lastError();}
+    //if(!success){qDebug() << "getTrashCan error:  " << query.lastError();}
     return computerTrashCan;
 }
 
@@ -337,36 +337,36 @@ void DbCon::searchScientist(vector<CSPerson>& scientist, const string searchFor)
     scientist.clear();
     bool success = false;
     QSqlQuery query;
-    query.prepare("SElECT ID,name,YEAR(birth_year) AS birth_year, YEAR(death_year) AS death_year,gender,comment,is_alive FROM computer_scientists WHERE name LIKE \"%:searchFor%\" OR death_year LIKE \"%:searchFor%\" OR birth_year LIKE \"%:searchFor%\" OR gender LIKE \"%:searchFor%\"  ORDER BY name");
+    query.prepare("SELECT ID,name,YEAR(birth_year) AS birth_year, YEAR(death_year) AS death_year,gender,comment,is_alive FROM computer_scientists WHERE name LIKE '%' :searchFor '%' OR death_year LIKE '%' :searchFor '%' OR birth_year LIKE '%' :searchFor '%' OR gender LIKE '%' :searchFor '%'  ORDER BY name;");
     query.bindValue(":searchFor", QString::fromStdString(searchFor));
-    query.exec();
     while (query.next())
     {
         if(success == false)//If we made it here the query was a success, no need to set it to true for every single loop
         {
             success = true;
         }
+        query.exec();
         runSelectForScientist(query, scientist);
     }
-    if(!success){qDebug() << "getComputerScientists error:  " << query.lastError();}
+    //if(!success){qDebug() << "getComputerScientists error:  " << query.lastError();}
 }
 void DbCon::searchComputer(vector<Computer>& computer, const string searchFor)
 {
     computer.clear();
     bool success = false;
     QSqlQuery query;
-    query.prepare("SELECT c.ID, c.name, YEAR(c.design_year) AS design_year, YEAR(c.build_year) AS build_year, c.is_created, t.name AS type, c.type_ID FROM computers c JOIN type t ON(t.ID=c.type_ID) WHERE c.name LIKE \"%:searchFor%\" OR c.design_year LIKE \"%:searchFor%\" OR c.build_year LIKE \"%:searchFor%\" ORt.name LIKE \"%:searchFor%\"ORDER BY name");
+    query.prepare("SELECT c.ID, c.name, YEAR(c.design_year) AS design_year, YEAR(c.build_year) AS build_year, c.is_created, t.name AS type, c.type_ID FROM computers c JOIN type t ON(t.ID=c.type_ID) WHERE c.name LIKE '%' :searchFor '%' OR c.design_year LIKE '%' :searchFor '%' OR c.build_year LIKE '%' :searchFor '%' OR t.name LIKE '%' :searchFor '%' ORDER BY name");
     query.bindValue(":searchFor", QString::fromStdString(searchFor));
-    query.exec();
     while (query.next())
     {
         if(success == false)
         {
             success = true;
         }
+        query.exec();
         runSelectForComputers(query,computer);
     }
-    if(!success){qDebug() << "getComputers error:  " << query.lastError();}
+    //if(!success){qDebug() << "getComputers error:  " << query.lastError();}
 }
 void DbCon::runSelectForScientist(QSqlQuery& query, vector<CSPerson>& scientist)
 {
