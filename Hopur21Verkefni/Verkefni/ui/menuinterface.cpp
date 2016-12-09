@@ -137,7 +137,7 @@ void MenuInterface::processChoice(const string choice)
         {
             return;
         }
-        if(subMenuChoice == "1" || subMenuChoice == "2")
+        if(subMenuChoice == constants::COMPUTER || subMenuChoice == constants::SCIENTIST)
         {
             valid = true;
         }
