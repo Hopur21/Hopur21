@@ -40,6 +40,7 @@ public:
     void getComputers(vector<Computer>& computers);
     void getComputerTypes(vector<string>& computerTypes);
     bool computerScientistExist(const string& name);
+    void searchScientistByName(vector<CSPerson>& scientist, const string searchFor);
     //Insert
     bool addComputerType(const string computerName);
     bool addCStoComputer(const int cSID,const int compID);
