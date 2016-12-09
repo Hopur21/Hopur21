@@ -51,7 +51,12 @@ bool Service::removePersonFromList(const string id)
     {
         return false;
     }
-    return _dbCon.removeComputerScientist(stoi(id));
+    bool success = _dbCon.removeComputerScientist(stoi(id));
+    if(success)
+    {
+        updateComputerScientistList();
+    }
+    return success;
 }
 bool Service::removeComputerFromList(const string id)
 {
@@ -59,7 +64,12 @@ bool Service::removeComputerFromList(const string id)
     {
         return false;
     }
-    return _dbCon.removeComputer(stoi(id));
+    bool success = _dbCon.removeComputer(stoi(id));
+    if(success)
+    {
+        updateComputerList();
+    }
+    return success;
 }
 /*
 vector<CSPerson> getComputerScientistTrash()
