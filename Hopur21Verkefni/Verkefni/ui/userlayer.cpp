@@ -661,9 +661,6 @@ string UserLayer::deathYearValidation(string birthYear, string deathYear)
         {
             invalidInput();
         }
-        //int stoiBirthYear = std::stoi (birthYear);
-        //int stoiDeathYear = std::stoi (deathYear);
-
         if(stoi(birthYear) >= stoi(deathYear))
         {
             invalidInput();
