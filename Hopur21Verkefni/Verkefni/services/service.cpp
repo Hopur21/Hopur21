@@ -14,7 +14,8 @@ bool Service::addNewPersonToList(const vector<int> computerConnectionID,const st
     return false;
 }
 
-bool Service::addNewComputerToList(const vector<int> scientistConnectionID,const string name,const int designYear, const int buildYear, const string type, const bool created)
+
+bool Service::addNewComputerToList(const vector<int> scientistConnectionID, const string name, const int designyear, const int buildyear, const string typeRealID, const bool created)
 {
     Computer newComputer;
     int computerID = 0;

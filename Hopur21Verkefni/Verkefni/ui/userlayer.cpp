@@ -197,7 +197,8 @@ void UserLayer::addComputer()
     string designYear, buildYear, chosenComputer;
     vector<string> listOfComputerTypes = _service.getComputerTypesList();
     vector<Computer> listOfAllComputers = _service.getComputerList();
-    int intDesignYear, intBuildYear, inputComputerType, computerTypeID, computerTypeRealID;
+    int intDesignYear, intBuildYear, inputComputerType, computerTypeID;
+    string computerTypeRealID;
     unsigned int sizeOfTypesList = listOfComputerTypes.size();
     int valid; // Sometimes the bool validity didn't work, therefore int valid was also used
     bool created = false;
@@ -284,10 +285,12 @@ void UserLayer::addComputer()
 
     for(unsigned int i = 0; i < listOfAllComputers.size();i++)
     {
-        if(chosenComputer == listOfAllComputers.at(i).getName())
+        string comparisonType = listOfAllComputers.at(i).getType();
+        cout << "COMPTYPE -----> " << comparisonType << endl;
+        if(chosenComputer == comparisonType)
         {
             // This is the correct ID of the computer type chosen
-            computerTypeRealID = listOfAllComputers.at(i).getID();
+            computerTypeRealID = listOfAllComputers.at(i).getTypeID();
         }
     }
 
@@ -318,16 +321,13 @@ void UserLayer::addComputer()
         }
     }while(valid == constants::INVALID);
 
-
-
-
     if(created == true)
     {
 
         valid = constants::INVALID;
         do
         {
-            buildYear = "";
+            cout << "Enter the year the computer was built: ";
             cin >> buildYear;
 
             if(!checkNumberValidity(buildYear))
@@ -339,14 +339,10 @@ void UserLayer::addComputer()
             {
                 invalidInput();
             }
-            cout << "Enter the year the computer was built: ";
 
         }while(valid == constants::INVALID);
     }
-    else
-    {
-        intBuildYear = 0;
-    }
+
 
     valid = constants::INVALID;
     validity = false;
@@ -437,7 +433,6 @@ void UserLayer::addComputer()
                 if(userSelection.at(i) == computerScientistList.at(j).getName())
                 {
                     realID = computerScientistList.at(j).getID();
-                    cout << "-------> " << realID << endl;
                     realScientistID.push_back(realID);
                 }
             }
@@ -445,8 +440,11 @@ void UserLayer::addComputer()
 
     }
 
+    //computerTypeRealID is the id of the type of computer the user selected
+    //realScientistID is a vector of ints
     vector<int> tempvectorToIgnoreError;
-    if(!(_service.addNewComputerToList(tempvectorToIgnoreError, name, intDesignYear, intBuildYear, type, created)))
+
+    if(!(_service.addNewComputerToList(tempvectorToIgnoreError, name, intDesignYear, intBuildYear, computerTypeRealID, created)))
     {
         cout << "The computer has been added successfully." << endl;
         cout << endl;
