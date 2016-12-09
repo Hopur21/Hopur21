@@ -217,7 +217,13 @@ void UserLayer::computerChoice()
         cout << "Do you want to add:" << endl;
         cout << "| 1 | Computer " << endl;
         cout << "| 2 | Computer type" << endl;
+        cout << "| 0 | Go back" << endl;
         cin >> subMenuChoice;
+
+        if(subMenuChoice == constants::GO_BACK)
+        {
+            return;
+        }
 
         if(subMenuChoice == constants::ADD_COMPUTER || subMenuChoice == constants::ADD_COMPUTER_TYPE)
         {
