@@ -155,7 +155,7 @@ void MenuInterface::processChoice(const string choice)
         }
 
     }
-    cout << "out of the loop"<< endl;
+
     int subMenuInt = stoi(subMenuChoice);
     int choiceInt = stoi(choice);
     banner();
