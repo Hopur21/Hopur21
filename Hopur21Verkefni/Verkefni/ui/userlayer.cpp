@@ -612,7 +612,6 @@ bool UserLayer::checkNumberValidity(string userInput)
     {
         return true;
     }
-
     return false;
 }
 
@@ -658,7 +657,14 @@ string UserLayer::deathYearValidation(string birthYear, string deathYear)
             }
         }  
         // catches inputs if they are not numbers and if input is lower than birthyear
-        if(checkNumberValidity(deathYear) || birthYear >= deathYear)
+        if(checkNumberValidity(deathYear))
+        {
+            invalidInput();
+        }
+        int stoiBirthYear = std::stoi (birthYear);
+        int stoiDeathYear = std::stoi (deathYear);
+
+        if(stoiBirthYear >= stoiDeathYear)
         {
             invalidInput();
         }
