@@ -163,7 +163,7 @@ void UserLayer::addPerson()
                         invalidInput();
                     }
 
-                    if(number < 0 || number >= sizeOfList)
+                    if(number < 0 || number > sizeOfList)
                     {
                         invalidInput();
                         error_counter = 1;
