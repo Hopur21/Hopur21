@@ -7,9 +7,8 @@ pass: HR.rjomi.2016
 Smella á phpmyadmin undir computer_scientist (neðri gagnagrunnurinn)
 
 
-
 database: harlausniris_computer_scientist
 port: 3306
 
 user: compTolva
-pass: HR.rjomi.2016
+pass: Eixc3~17

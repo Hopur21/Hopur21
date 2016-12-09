@@ -5,7 +5,7 @@ DbCon::DbCon()
     _hostname = "nocando.is";
     _databaseName = "harlausniris_computer_scientist";
     _username = "compTolva";
-    _password = "HR.rjomi.2016";
+    _password = "Eixc3~17";
     _connectionSuccess = makeConnection();
 }
 DbCon::DbCon(const QString& hostname, const QString& database, const QString& username, const QString& password)
