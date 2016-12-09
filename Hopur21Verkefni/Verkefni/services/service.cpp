@@ -13,6 +13,11 @@ bool Service::addNewPersonToList(const vector<int> computerConnectionID,const st
     newPerson.setGender(gender);
     newPerson.setBirthYear(stoi(birthYear));
     newPerson.setPassedAwayYear(stoi(deathYear));
+    if(deathYear != constants::ALIVE) {
+        newPerson.setIsAlive(false);
+    } else {
+        newPerson.setIsAlive(true);
+    }
     newPerson.setComment(comment);
     newPersonID = _dbCon.addComputerScientist(newPerson);
     for(unsigned int i = 0; i < computerConnectionID.size(); i++)
@@ -43,15 +48,30 @@ bool Service::addNewComputerToList(const vector<int> scientistConnectionID, cons
 
 bool Service::removePersonFromList(const string id)
 {
-    // TODO EYÐA ÚR GAGNAGRUNNI (ID ER RÉTT)
-    return false;
+    if(!validNumber(id))
+    {
+        return false;
+    }
+    return _dbCon.removeComputerScientist(stoi(id));
 }
 
 bool Service::removeComputerFromList(const string id)
 {
-    // TODO EYÐA ÚR GAGNAGRUNNI (ID ER RÉTT)
-    return false;
+    if(!validNumber(id))
+    {
+        return false;
+    }
+    return _dbCon.removeComputer(stoi(id));
 }
+vector<CSPerson> Service::getScientistConntedToComputers(const int computerID)
+{
+    return _dbCon.getCSConntedToComputer(computerID);
+}
+vector<Computer> Service::getComputersConntedToCS(const int computerScientistID)
+{
+    return _dbCon.getComputersConnectedToCS(computerScientistID);
+}
+
 void Service::updateComputerTypesList()
 {
     _dbCon.getComputerTypes(_computerTypes);
@@ -70,7 +90,18 @@ void Service::updateAllLists()
     updateComputerList();
     updateComputerTypesList();
 }
-
+bool Service::validNumber(string number)
+{
+    try
+    {
+        stoi(number);
+        return true;
+    }
+    catch(int e)
+    {
+        return false;
+    }
+}
 
 
 //Computer scientist Sorts

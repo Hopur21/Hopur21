@@ -35,8 +35,8 @@ public:
     //Gets
     bool connectionSuccessful(){return _connectionSuccess;}
     //Select
-    void getComputersConnectedToCS(vector<Computer>& compuerList,const int scientistID);
-    void getCSConntedToComputer(vector<CSPerson>& CSList,const int computerID);
+    vector<Computer> getComputersConnectedToCS(const int scientistID);
+    vector<CSPerson> getCSConntedToComputer(const int computerID);
     void getComputerScientists(vector<CSPerson>& computerScientists);
     void getComputers(vector<Computer>& computers);
     void getComputerTypes(vector<string>& computerTypes);
