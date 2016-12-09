@@ -82,11 +82,16 @@ void UserLayer::addPerson()
     {
         deathYear = deathYearValidation(birthYear, deathYear);
     }
-    cout << "What is this person's greatest achievement: ";
+    cout << "What is this person's greatest achievement(0 to go back): ";
     cin.ignore();
     getline(cin, comment);
     cout << endl;
     error_counter = 0;
+
+    if(comment == constants::GO_BACK)
+    {
+        return;
+    }
 
     do
     {
