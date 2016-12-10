@@ -27,7 +27,7 @@ void MenuInterface::banner()
         HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
         SetConsoleTextAttribute(hConsole, 13);
 
-    //system("CLS");
+    system("CLS");
     if(_firstTimeBooting == constants::FIRST_TIME)
     {
         cout << endl;

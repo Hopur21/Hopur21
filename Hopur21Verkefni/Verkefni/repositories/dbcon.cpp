@@ -284,7 +284,7 @@ vector<CSPerson> DbCon::getComputerScientistsTrashCan()
 {
     vector<CSPerson> computerScientistTrashCan;
     bool success = false;
-    QSqlQuery query("SELECT ID, name, YEAR(birth_year), YEAR(death_year), is_alive, gender, comment from computer_scientists WHERE removed = 1 ORDER BY name;");
+    QSqlQuery query("SELECT ID, name, YEAR(birth_year) AS birth_year, YEAR(death_year) AS death_year, is_alive, gender, comment from computer_scientists WHERE removed = 1 ORDER BY name;");
     while (query.next())
     {
         if(success == false)
@@ -300,7 +300,7 @@ vector<Computer> DbCon::getComputerTrashCan()
 {
     vector<Computer> computerTrashCan;
     bool success = false;
-    QSqlQuery query("SELECT ID, name, YEAR(design_year), YEAR(build_year), type_ID, is_created FROM computers WHERE removed = 1 ORDER BY name;");
+    QSqlQuery query("SELECT ID, name, YEAR(design_year) AS design_year, YEAR(build_year) AS build_year, is_created, (SELECT name FROM type WHERE ID = type_ID) AS type, type_ID FROM computers WHERE removed = 1 ORDER BY name;");
     while (query.next())
     {
         if(success == false)
