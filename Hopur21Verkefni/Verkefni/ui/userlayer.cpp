@@ -925,19 +925,19 @@ void UserLayer::printListMoreInfoComputer()
     vector <CSPerson> personsConnectedToTheCompter = _service.getScientistConntedToComputers(realID);
     int sizeOfPersonsList = personsConnectedToTheCompter.size();
     cout << "Persons connected to the making and designing of the computer: " << endl;
+    cout << endl;
     for(int i = 0; i < sizeOfPersonsList; i++)
     {
         string personConnected = personsConnectedToTheCompter.at(i).getName();
         if(sizeOfPersonsList > constants::EMPTY_LIST)
-        cout << endl;
 
         cout << "Person " << i+1 << ": " << personConnected << endl;
         cout << "------------------------------------------------------------------------------" << endl;
         cout << personsConnectedToTheCompter.at(i).getComments() << endl;
         cout << "------------------------------------------------------------------------------" << endl;
         cout << endl;
-        cout << endl;
     }
+    cout << endl;
 }
 
 void UserLayer::printListOfScientists(vector<CSPerson> list)
@@ -1177,12 +1177,13 @@ void UserLayer::viewComputerTrashCan()
     }
     else
     {
+        cout <<   "------------------------------------------------------------------------------" << endl;
         cout << "Current computers are in the trashcan:" << endl;
-        cout << endl;
         for(int i=0; i < sizeOfTrash; i++)
         {
             cout << trash.at(i).getName() << endl;
         }
+        cout <<   "------------------------------------------------------------------------------" << endl;
         cout << endl;
     }
 }
@@ -1199,12 +1200,14 @@ void UserLayer::viewComputerScientistTrashCan()
     }
     else
     {
+        cout <<   "------------------------------------------------------------------------------" << endl;
         cout << "Current scientists are in the trashcan:" << endl;
         cout << endl;
         for(int i=0; i < sizeOfTrash; i++)
         {
             cout << trash.at(i).getName() << endl;
         }
+        cout <<   "------------------------------------------------------------------------------" << endl;
         cout << endl;
     }
 }

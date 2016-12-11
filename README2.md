@@ -8,9 +8,9 @@ Guðrún Valdimarsdóttir
 Jón Pétur Jónsson
 
 Með forritinu er hægt er að skrá tölvunarfræðinga í lista með upplýsingum um nafn, fæðingarár, dánarár, kyn og lýsingu á helstu afrekum,
-ásamt tölvum með upplýsingum um hönnunarár, ár sem hún var smíðuð og tegund tölvunnar. Auðvelt er að tengja saman þá töævunarfræðinga
+ásamt tölvum með upplýsingum um hönnunarár, ár sem hún var smíðuð og tegund tölvunnar. Auðvelt er að tengja saman þá tölvunarfræðinga
 og þær tölvur sem eiga á einhvern hátt saman. 
-Listinn er geymdur í sql gagnagrunni og er verður þar áfram þótt notandi hættir í forritinu og opnar það aftur. Því getur
+Listinn er geymdur í sql gagnagrunni og er þar áfram þótt notandi hættir í forritinu og opnar það aftur. Því getur
 notandinn alltaf kallað fram listann sem hann hafði áður búið til. Notandi getur slegið inn Q eða q til að hætta í forritinu. 
 
 Fyrst birtist notendanum menu með lista af möguleikum:
