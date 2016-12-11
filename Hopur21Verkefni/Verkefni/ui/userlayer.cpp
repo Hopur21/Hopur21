@@ -575,8 +575,9 @@ void UserLayer::displayListOfComputersScientistContributedTo()
     {
         cout << endl;
         cout << "Enter the number of the person that you want information on" << endl;
-        cout << "Or 0 to go back: " << endl;
+        cout << "Or 0 to go back: ";
         cin >> number;
+        cout << endl;
 
         if(listSize == constants::EMPTY_LIST)
         {
@@ -619,12 +620,15 @@ void UserLayer::displayListOfComputersScientistContributedTo()
     }
     else
     {
+        cout << endl;
+        cout << "------------------------------------------------------------------------------" << endl;
         cout << nameOfPerson << " contributed to the making of the following machines: " << endl;
         cout << endl;
         for(unsigned j = 0; j < sizeOfComputers; j++)
         {
             cout << "Computer name:  " << allComputers.at(j).getName() << endl;
         }
+        cout << "------------------------------------------------------------------------------" << endl;
         cout << endl;
     }
 }
@@ -868,7 +872,7 @@ void UserLayer::printListOfComputers(vector<Computer> list)
         cout << type;
         cout << endl;
     }
-    cout <<   "------------------------------------------------------------------------" << endl;
+    cout <<   "------------------------------------------------------------------------------" << endl;
     cout << endl;
 }
 
@@ -921,19 +925,19 @@ void UserLayer::printListMoreInfoComputer()
     vector <CSPerson> personsConnectedToTheCompter = _service.getScientistConntedToComputers(realID);
     int sizeOfPersonsList = personsConnectedToTheCompter.size();
     cout << "Persons connected to the making and designing of the computer: " << endl;
+    cout << endl;
     for(int i = 0; i < sizeOfPersonsList; i++)
     {
         string personConnected = personsConnectedToTheCompter.at(i).getName();
         if(sizeOfPersonsList > constants::EMPTY_LIST)
-        cout << endl;
 
         cout << "Person " << i+1 << ": " << personConnected << endl;
         cout << "------------------------------------------------------------------------------" << endl;
         cout << personsConnectedToTheCompter.at(i).getComments() << endl;
         cout << "------------------------------------------------------------------------------" << endl;
         cout << endl;
-        cout << endl;
     }
+    cout << endl;
 }
 
 void UserLayer::printListOfScientists(vector<CSPerson> list)
@@ -947,7 +951,7 @@ void UserLayer::printListOfScientists(vector<CSPerson> list)
     }
 
     cout <<   "#     NAME                            GENDER     YOB     YOD      AGE" << endl;
-    cout <<   "------------------------------------------------------------------------------"<< endl;
+    cout <<   "------------------------------------------------------------------------------" << endl;
     for(int i=0;i<sizeOfList;i++)
     {
         string name = list.at(i).getName();
@@ -977,7 +981,7 @@ void UserLayer::printListOfScientists(vector<CSPerson> list)
         }
         cout << endl;
     }
-    cout <<   "------------------------------------------------------------------------" << endl;
+    cout <<   "------------------------------------------------------------------------------" << endl;
     cout <<   "Year of birth = YOB , Year of death = YOD" << endl << endl;
 
 }
@@ -993,7 +997,7 @@ void UserLayer::printListMoreInfo(vector<CSPerson> list)
     }
 
     cout <<   "#     NAME                            GENDER     YOB     YOD      AGE" << endl;
-    cout <<   "------------------------------------------------------------------------------"<< endl;
+    cout <<   "------------------------------------------------------------------------------" << endl;
     for(int i=0;i<sizeOfList;i++)
     {
         string name = list.at(i).getName();
@@ -1026,7 +1030,7 @@ void UserLayer::printListMoreInfo(vector<CSPerson> list)
         cout << endl;
         cout << info << endl;
     }
-    cout <<   "------------------------------------------------------------------------" << endl << endl;
+    cout <<   "------------------------------------------------------------------------------" << endl << endl;
     cout <<   "Year of birth = YOB , Year of death = YOD" << endl;
 }
 
@@ -1174,10 +1178,14 @@ void UserLayer::viewComputerTrashCan()
     }
     else
     {
+        cout <<   "------------------------------------------------------------------------------" << endl;
         cout << "Current computers are in the trashcan:" << endl;
+<<<<<<< HEAD
         cout << endl;
         cout <<   "#     NAME                            TYPE                                    " << endl;
         cout <<   "------------------------------------------------------------------------------" << endl;
+=======
+>>>>>>> ff8af084e959aad39c18d050cd7affb02247e694
         for(int i=0; i < sizeOfTrash; i++)
         {
             name = trash.at(i).getName();
@@ -1191,7 +1199,11 @@ void UserLayer::viewComputerTrashCan()
             cout << type;
             cout << endl;
         }
+<<<<<<< HEAD
         cout <<   "------------------------------------------------------------------------" << endl;
+=======
+        cout <<   "------------------------------------------------------------------------------" << endl;
+>>>>>>> ff8af084e959aad39c18d050cd7affb02247e694
         cout << endl;
     }
 }
@@ -1209,6 +1221,7 @@ void UserLayer::viewComputerScientistTrashCan()
     }
     else
     {
+        cout <<   "------------------------------------------------------------------------------" << endl;
         cout << "Current scientists are in the trashcan:" << endl;
         cout << endl;
         cout <<   "#     NAME                            GENDER     YOB     YOD      AGE" << endl;
@@ -1243,8 +1256,13 @@ void UserLayer::viewComputerScientistTrashCan()
             }
             cout << endl;
         }
+<<<<<<< HEAD
         cout <<   "------------------------------------------------------------------------" << endl;
         cout <<   "Year of birth = YOB , Year of death = YOD" << endl << endl;
+=======
+        cout <<   "------------------------------------------------------------------------------" << endl;
+        cout << endl;
+>>>>>>> ff8af084e959aad39c18d050cd7affb02247e694
     }
 }
 
