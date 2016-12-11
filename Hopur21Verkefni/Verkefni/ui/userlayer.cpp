@@ -1165,6 +1165,7 @@ void UserLayer::viewComputerTrashCan()
 {
     vector<Computer> trash = _service.getComputerTrash();
     int sizeOfTrash = trash.size();
+    string name, type;
     cout << endl;
     if(sizeOfTrash == constants::EMPTY_LIST)
     {
@@ -1175,10 +1176,22 @@ void UserLayer::viewComputerTrashCan()
     {
         cout << "Current computers are in the trashcan:" << endl;
         cout << endl;
+        cout <<   "#     NAME                            TYPE                                    " << endl;
+        cout <<   "------------------------------------------------------------------------------" << endl;
         for(int i=0; i < sizeOfTrash; i++)
         {
-            cout << trash.at(i).getName() << endl;
+            name = trash.at(i).getName();
+            type = trash.at(i).getType();
+
+            // adjustForSpaces adjusts the spaces between the
+            // number and name of the computer according to the size of the value i in the for loop
+            adjustForSpaces(i);
+
+            cout << name.append(32 - name.length(), constants::SPACE);
+            cout << type;
+            cout << endl;
         }
+        cout <<   "------------------------------------------------------------------------" << endl;
         cout << endl;
     }
 }
@@ -1187,6 +1200,7 @@ void UserLayer::viewComputerScientistTrashCan()
 {
     vector<CSPerson> trash = _service.getComputerScientistTrash();
     int sizeOfTrash = trash.size();
+
     cout << endl;
     if(sizeOfTrash == constants::EMPTY_LIST)
     {
@@ -1197,11 +1211,40 @@ void UserLayer::viewComputerScientistTrashCan()
     {
         cout << "Current scientists are in the trashcan:" << endl;
         cout << endl;
+        cout <<   "#     NAME                            GENDER     YOB     YOD      AGE" << endl;
+        cout <<   "------------------------------------------------------------------------------"<< endl;
         for(int i=0; i < sizeOfTrash; i++)
         {
-            cout << trash.at(i).getName() << endl;
+
+            string name = trash.at(i).getName();
+            string gender = trash.at(i).getGender();
+            string stringBirthYear = to_string(trash.at(i).getBirthYear());
+            string stringPassedAway = to_string(trash.at(i).getPassedAwayYear());
+            int age = trash.at(i).getAge();
+
+            // adjustForSpaces adjusts the spaces between the
+            // number and name of the scientist according to the size of the value i in the for loop
+            adjustForSpaces(i);
+
+            cout << name.append(32 - name.length(), constants::SPACE);
+            cout << gender.append(11 - gender.length(), constants::SPACE);
+            cout << stringBirthYear.append(8 - stringBirthYear.length(), constants::SPACE);
+
+            if(stringPassedAway != constants::ALIVE)
+            {
+                cout << stringPassedAway.append(9 - stringPassedAway.length(), constants::SPACE);
+                cout << age;
+            }
+            else
+            {
+                cout << "Alive";
+                cout << "    " << age;
+
+            }
+            cout << endl;
         }
-        cout << endl;
+        cout <<   "------------------------------------------------------------------------" << endl;
+        cout <<   "Year of birth = YOB , Year of death = YOD" << endl << endl;
     }
 }
 
