@@ -1178,14 +1178,11 @@ void UserLayer::viewComputerTrashCan()
     }
     else
     {
-        cout <<   "------------------------------------------------------------------------------" << endl;
         cout << "Current computers are in the trashcan:" << endl;
-<<<<<<< HEAD
         cout << endl;
         cout <<   "#     NAME                            TYPE                                    " << endl;
         cout <<   "------------------------------------------------------------------------------" << endl;
-=======
->>>>>>> ff8af084e959aad39c18d050cd7affb02247e694
+
         for(int i=0; i < sizeOfTrash; i++)
         {
             name = trash.at(i).getName();
@@ -1199,11 +1196,8 @@ void UserLayer::viewComputerTrashCan()
             cout << type;
             cout << endl;
         }
-<<<<<<< HEAD
-        cout <<   "------------------------------------------------------------------------" << endl;
-=======
+
         cout <<   "------------------------------------------------------------------------------" << endl;
->>>>>>> ff8af084e959aad39c18d050cd7affb02247e694
         cout << endl;
     }
 }
@@ -1221,7 +1215,6 @@ void UserLayer::viewComputerScientistTrashCan()
     }
     else
     {
-        cout <<   "------------------------------------------------------------------------------" << endl;
         cout << "Current scientists are in the trashcan:" << endl;
         cout << endl;
         cout <<   "#     NAME                            GENDER     YOB     YOD      AGE" << endl;
@@ -1256,13 +1249,9 @@ void UserLayer::viewComputerScientistTrashCan()
             }
             cout << endl;
         }
-<<<<<<< HEAD
-        cout <<   "------------------------------------------------------------------------" << endl;
-        cout <<   "Year of birth = YOB , Year of death = YOD" << endl << endl;
-=======
         cout <<   "------------------------------------------------------------------------------" << endl;
+        cout <<   "Year of birth = YOB , Year of death = YOD" << endl << endl;
         cout << endl;
->>>>>>> ff8af084e959aad39c18d050cd7affb02247e694
     }
 }
 
