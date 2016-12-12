@@ -51,6 +51,9 @@
       <height>291</height>
      </rect>
     </property>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
       <string>Tab 1</string>
@@ -60,10 +63,16 @@
        <rect>
         <x>20</x>
         <y>0</y>
-        <width>711</width>
+        <width>721</width>
         <height>251</height>
        </rect>
       </property>
+<<<<<<< HEAD
+=======
+      <attribute name="horizontalHeaderStretchLastSection">
+       <bool>false</bool>
+      </attribute>
+>>>>>>> 176c77d595269763c9799ca4318160a011d51f66
       <column>
        <property name="text">
         <string>Name</string>
@@ -76,12 +85,20 @@
       </column>
       <column>
        <property name="text">
+<<<<<<< HEAD
         <string>Year of Birth</string>
+=======
+        <string>Year of birth</string>
+>>>>>>> 176c77d595269763c9799ca4318160a011d51f66
        </property>
       </column>
       <column>
        <property name="text">
+<<<<<<< HEAD
         <string>Year of Death</string>
+=======
+        <string>Year of death</string>
+>>>>>>> 176c77d595269763c9799ca4318160a011d51f66
        </property>
       </column>
      </widget>
@@ -90,6 +107,36 @@
      <attribute name="title">
       <string>Tab 2</string>
      </attribute>
+     <widget class="QTableWidget" name="table_computer">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>721</width>
+        <height>251</height>
+       </rect>
+      </property>
+      <column>
+       <property name="text">
+        <string>Computer name</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Computer type</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Design year</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Build year</string>
+       </property>
+      </column>
+     </widget>
     </widget>
    </widget>
   </widget>
@@ -99,7 +146,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
