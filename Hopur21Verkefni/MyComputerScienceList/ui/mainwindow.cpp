@@ -21,16 +21,13 @@ void MainWindow::fall()
     vector<CSPerson> compScientists = _service.getComputerScientistList();
 
     ui->table_computerScientist->setRowCount(compScientists.size());
-    ui->table_computerScientist->setColumnCount(3);
+    ui->table_computerScientist->setColumnCount(4);
     for(size_t i = 0; i < compScientists.size(); i++)
     {
 
         ui->table_computerScientist->setItem(i, 0, new QTableWidgetItem(QString::fromStdString(compScientists[i].getName())));
         ui->table_computerScientist->setItem(i, 1, new QTableWidgetItem(QString::number(compScientists[i].getAge())));
         ui->table_computerScientist->setItem(i, 2, new QTableWidgetItem(QString::number(compScientists[i].getBirthYear())));
-<<<<<<< HEAD
-        ui->table_computerScientist->setItem(i, 3, new QTableWidgetItem(QString::number(compScientists[i].getAge())));
-=======
         ui->table_computerScientist->setItem(i, 3, new QTableWidgetItem(QString::number(compScientists[i].getPassedAwayYear())));
     }
 
@@ -45,7 +42,6 @@ void MainWindow::fall()
         ui->table_computer->setItem(j, 1, new QTableWidgetItem(QString::fromStdString(computerList[j].getType())));
         ui->table_computer->setItem(j, 2, new QTableWidgetItem(QString::number(computerList[j].getDesignYear())));
         ui->table_computer->setItem(j, 3, new QTableWidgetItem(QString::number(computerList[j].getBuildYear())));
->>>>>>> 176c77d595269763c9799ca4318160a011d51f66
     }
 
 

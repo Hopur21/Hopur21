@@ -26,13 +26,52 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
+   <widget class="QPushButton" name="pushButton_3">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>10</y>
+      <width>61</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Show list</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>10</y>
+      <width>61</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Add</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_4">
+    <property name="geometry">
+     <rect>
+      <x>690</x>
+      <y>10</y>
+      <width>61</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Trash</string>
+    </property>
+   </widget>
    <widget class="QPushButton" name="button_quitProgram">
     <property name="geometry">
      <rect>
-      <x>610</x>
-      <y>320</y>
-      <width>75</width>
-      <height>23</height>
+      <x>330</x>
+      <y>0</y>
+      <width>71</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="accessibleName">
@@ -42,102 +81,18 @@
      <string>Quit</string>
     </property>
    </widget>
-   <widget class="QTabWidget" name="tabWidget">
+   <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>20</y>
-      <width>761</width>
-      <height>291</height>
+      <x>510</x>
+      <y>10</y>
+      <width>61</width>
+      <height>41</height>
      </rect>
     </property>
-    <property name="currentIndex">
-     <number>1</number>
+    <property name="text">
+     <string>Home</string>
     </property>
-    <widget class="QWidget" name="tab">
-     <attribute name="title">
-      <string>Tab 1</string>
-     </attribute>
-     <widget class="QTableWidget" name="table_computerScientist">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>0</y>
-        <width>721</width>
-        <height>251</height>
-       </rect>
-      </property>
-<<<<<<< HEAD
-=======
-      <attribute name="horizontalHeaderStretchLastSection">
-       <bool>false</bool>
-      </attribute>
->>>>>>> 176c77d595269763c9799ca4318160a011d51f66
-      <column>
-       <property name="text">
-        <string>Name</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Age</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-<<<<<<< HEAD
-        <string>Year of Birth</string>
-=======
-        <string>Year of birth</string>
->>>>>>> 176c77d595269763c9799ca4318160a011d51f66
-       </property>
-      </column>
-      <column>
-       <property name="text">
-<<<<<<< HEAD
-        <string>Year of Death</string>
-=======
-        <string>Year of death</string>
->>>>>>> 176c77d595269763c9799ca4318160a011d51f66
-       </property>
-      </column>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="tab_2">
-     <attribute name="title">
-      <string>Tab 2</string>
-     </attribute>
-     <widget class="QTableWidget" name="table_computer">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>0</y>
-        <width>721</width>
-        <height>251</height>
-       </rect>
-      </property>
-      <column>
-       <property name="text">
-        <string>Computer name</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Computer type</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Design year</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Build year</string>
-       </property>
-      </column>
-     </widget>
-    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -146,9 +101,15 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuHallo">
+    <property name="title">
+     <string>Hallo</string>
+    </property>
+   </widget>
+   <addaction name="menuHallo"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">

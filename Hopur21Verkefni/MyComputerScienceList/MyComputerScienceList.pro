@@ -37,7 +37,7 @@ HEADERS  += models/csperson.h \
 FORMS    += ui/mainwindow.ui \
     ui/addcomputerscientist.ui \
     ui/addcomputer.ui \
-    ui/removecomputerscientist.ui \
-    ui/removecomputer.ui \
-    ui/startloadingscreen.ui
+    ui/startloadingscreen.ui \
+    ui/addtype.ui \
+    ui/showlist.ui
 

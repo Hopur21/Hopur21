@@ -1,4 +1,5 @@
-
+Bæta í Database mynd
+comment fyrir tölvur
 
 Hugmynd:
 Main window windowOpacity?
