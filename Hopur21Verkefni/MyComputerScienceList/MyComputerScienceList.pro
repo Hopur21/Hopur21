@@ -34,5 +34,10 @@ HEADERS  += models/csperson.h \
     services/computerservice.h \
     ui/mainwindow.h
 
-FORMS    += ui/mainwindow.ui
+FORMS    += ui/mainwindow.ui \
+    ui/addcomputerscientist.ui \
+    ui/addcomputer.ui \
+    ui/removecomputerscientist.ui \
+    ui/removecomputer.ui \
+    ui/startloadingscreen.ui
 
