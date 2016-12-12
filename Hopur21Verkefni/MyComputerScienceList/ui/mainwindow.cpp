@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     fall();
+
 }
 
 MainWindow::~MainWindow()
@@ -47,10 +48,8 @@ void MainWindow::fall()
 
 */
 
-}
 
-void MainWindow::on_table_computerScientist_activated(const QModelIndex &index)
-{
+
 
 }
 
@@ -62,4 +61,5 @@ void MainWindow::on_button_quitProgram_clicked()
 void MainWindow::on_action_Add_Computer_Scientist_triggered()
 {
     qDebug() << "Computer scientist pressed";
+
 }

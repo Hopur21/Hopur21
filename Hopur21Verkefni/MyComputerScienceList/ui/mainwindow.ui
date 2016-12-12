@@ -94,6 +94,16 @@
      <string>Home</string>
     </property>
    </widget>
+   <widget class="QWidget" name="widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>110</y>
+      <width>611</width>
+      <height>201</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -108,7 +118,10 @@
     <property name="title">
      <string>File</string>
     </property>
+    <addaction name="action_Home"/>
     <addaction name="action_Add_Computer_Scientist"/>
+    <addaction name="action_Show_List"/>
+    <addaction name="action_Trash"/>
    </widget>
    <addaction name="menuHallo"/>
   </widget>
@@ -119,7 +132,10 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="action_Home"/>
    <addaction name="action_Add_Computer_Scientist"/>
+   <addaction name="action_Show_List"/>
+   <addaction name="action_Trash"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="action_Add_Computer_Scientist">
@@ -129,6 +145,33 @@
    </property>
    <property name="text">
     <string>Add Computer Scientist</string>
+   </property>
+  </action>
+  <action name="action_Show_List">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/icons/images/show_people.png</normaloff>:/icons/images/show_people.png</iconset>
+   </property>
+   <property name="text">
+    <string>Show List</string>
+   </property>
+  </action>
+  <action name="action_Home">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/icons/images/home.png</normaloff>:/icons/images/home.png</iconset>
+   </property>
+   <property name="text">
+    <string>Home</string>
+   </property>
+  </action>
+  <action name="action_Trash">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/icons/images/trash.png</normaloff>:/icons/images/trash.png</iconset>
+   </property>
+   <property name="text">
+    <string>Trash</string>
    </property>
   </action>
  </widget>

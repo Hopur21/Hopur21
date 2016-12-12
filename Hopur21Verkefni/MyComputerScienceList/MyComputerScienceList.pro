@@ -22,7 +22,11 @@ SOURCES += main.cpp\
     services/cspersonservice.cpp \
     services/service.cpp \
     services/computerservice.cpp \
-    ui/mainwindow.cpp
+    ui/mainwindow.cpp \
+    ui/addcomputer.cpp \
+    ui/addcomputerscientist.cpp \
+    ui/addtype.cpp \
+    ui/showlist.cpp
 
 HEADERS  += models/csperson.h \
     models/computer.h \
@@ -32,12 +36,14 @@ HEADERS  += models/csperson.h \
     services/cspersonservice.h \
     services/service.h \
     services/computerservice.h \
-    ui/mainwindow.h
-
+    ui/mainwindow.h \
+    ui/addcomputer.h \
+    ui/addcomputerscientist.h \
+    ui/addtype.h \
+    ui/showlist.h
 FORMS    += ui/mainwindow.ui \
-    ui/addcomputerscientist.ui \
     ui/addcomputer.ui \
-    ui/startloadingscreen.ui \
+    ui/addcomputerscientist.ui \
     ui/addtype.ui \
     ui/showlist.ui
 
