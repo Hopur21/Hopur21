@@ -41,3 +41,6 @@ FORMS    += ui/mainwindow.ui \
     ui/addtype.ui \
     ui/showlist.ui
 
+RESOURCES += \
+    resources.qrc
+

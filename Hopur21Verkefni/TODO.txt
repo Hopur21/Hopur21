@@ -4,3 +4,5 @@ comment fyrir tölvur
 Hugmynd:
 Main window windowOpacity?
 Ekki hægt að resize gluggann
+
+Success þegar addað er
