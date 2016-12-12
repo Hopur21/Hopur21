@@ -20,6 +20,7 @@ void MainWindow::fall()
     // Display scientists
     vector<CSPerson> compScientists = _service.getComputerScientistList();
 
+    /*
     ui->table_computerScientist->setRowCount(compScientists.size());
     ui->table_computerScientist->setColumnCount(4);
     for(size_t i = 0; i < compScientists.size(); i++)
@@ -44,8 +45,7 @@ void MainWindow::fall()
         ui->table_computer->setItem(j, 3, new QTableWidgetItem(QString::number(computerList[j].getBuildYear())));
     }
 
-
-
+*/
 
 }
 
@@ -57,4 +57,9 @@ void MainWindow::on_table_computerScientist_activated(const QModelIndex &index)
 void MainWindow::on_button_quitProgram_clicked()
 {
     QCoreApplication::quit();
+}
+
+void MainWindow::on_action_Add_Computer_Scientist_triggered()
+{
+    qDebug() << "Computer scientist pressed";
 }

@@ -1,1 +1,8 @@
-<RCC/>
+<RCC>
+    <qresource prefix="/icons">
+        <file>images/add_user.png</file>
+        <file>images/home.png</file>
+        <file>images/show_people.png</file>
+        <file>images/trash.png</file>
+    </qresource>
+</RCC>

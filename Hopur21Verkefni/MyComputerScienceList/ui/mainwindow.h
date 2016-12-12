@@ -28,6 +28,8 @@ private slots:
 
     void on_button_quitProgram_clicked();
 
+    void on_action_Add_Computer_Scientist_triggered();
+
 private:
     Service _service;
     Ui::MainWindow *ui;
