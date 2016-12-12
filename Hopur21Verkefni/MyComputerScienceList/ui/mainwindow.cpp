@@ -25,6 +25,8 @@ void MainWindow::fall()
 
         ui->table_computerScientist->setItem(i, 0, new QTableWidgetItem(QString::fromStdString(compScientists[i].getName())));
         ui->table_computerScientist->setItem(i, 1, new QTableWidgetItem(QString::number(compScientists[i].getAge())));
+        ui->table_computerScientist->setItem(i, 2, new QTableWidgetItem(QString::number(compScientists[i].getBirthYear())));
+        ui->table_computerScientist->setItem(i, 3, new QTableWidgetItem(QString::number(compScientists[i].getAge())));
     }
 
 }

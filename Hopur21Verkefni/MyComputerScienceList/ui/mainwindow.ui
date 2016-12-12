@@ -64,6 +64,26 @@
         <height>251</height>
        </rect>
       </property>
+      <column>
+       <property name="text">
+        <string>Name</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Age</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Year of Birth</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Year of Death</string>
+       </property>
+      </column>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_2">

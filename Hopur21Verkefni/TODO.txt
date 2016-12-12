@@ -2,3 +2,4 @@
 
 Hugmynd:
 Main window windowOpacity?
+Ekki hægt að resize gluggann
