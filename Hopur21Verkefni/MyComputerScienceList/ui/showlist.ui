@@ -125,20 +125,42 @@
       <property name="text">
        <string>Name</string>
       </property>
+      <property name="font">
+       <font>
+        <family>Calibri</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
      </column>
      <column>
       <property name="text">
        <string>Age</string>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calibri</family>
+       </font>
       </property>
      </column>
      <column>
       <property name="text">
        <string>Year of Birth</string>
       </property>
+      <property name="font">
+       <font>
+        <family>Calibri</family>
+       </font>
+      </property>
      </column>
      <column>
       <property name="text">
        <string>Year of Death</string>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calibri</family>
+       </font>
       </property>
      </column>
     </widget>
