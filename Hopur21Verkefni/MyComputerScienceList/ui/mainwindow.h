@@ -1,9 +1,12 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
 #include "services/service.h"
 #include "models/computer.h"
 #include "models/csperson.h"
+#include "ui/addcomputer.h"
+#include "ui/addcomputerscientist.h"
+#include "ui/addtype.h"
+#include "ui/showlist.h"
 
 #include <QTableWidget>
 

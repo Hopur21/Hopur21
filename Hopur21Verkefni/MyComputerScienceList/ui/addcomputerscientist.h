@@ -11,6 +11,7 @@ class AddComputerScientist : public QDialog
 {
     Q_OBJECT
 
+    //AddComputerScientist(QWidget *parent):QDialog(parent),ui(new Ui::AddComputerScientist);
 public:
     explicit AddComputerScientist(QWidget *parent = 0);
     ~AddComputerScientist();

@@ -80,10 +80,13 @@ void MainWindow::on_action_toolbar_Add_Computer__triggered()
 
 void MainWindow::on_pushButton_home_clicked()
 {
-    //mainWindow.show();
     qDebug() << "ET go home";
+    AddComputerScientist showScientist;
+    showScientist.setModal(true);
+    showScientist.exec();
 }
 
+<<<<<<< HEAD
 void MainWindow::on_pushButton_add_clicked()
 {
     AddComputer addcomp;
@@ -92,3 +95,5 @@ void MainWindow::on_pushButton_add_clicked()
 }
 
 
+=======
+>>>>>>> a0a8c9bed8dd7031b56734662ac375ba03273656
