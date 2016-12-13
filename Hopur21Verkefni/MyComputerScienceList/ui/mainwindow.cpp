@@ -67,6 +67,6 @@ void MainWindow::on_action_Add_Computer_Scientist_triggered()
 
 void MainWindow::on_pushButton_home_clicked()
 {
-    mainWindow.show();
-
+    //mainWindow.show();
+    qDebug() << "ET go home";
 }
