@@ -26,7 +26,8 @@ SOURCES += main.cpp\
     ui/addcomputer.cpp \
     ui/addcomputerscientist.cpp \
     ui/addtype.cpp \
-    ui/showlist.cpp
+    ui/showlist.cpp \
+    ui/showtrash.cpp
 
 HEADERS  += models/csperson.h \
     models/computer.h \
@@ -40,13 +41,15 @@ HEADERS  += models/csperson.h \
     ui/addcomputer.h \
     ui/addcomputerscientist.h \
     ui/addtype.h \
-    ui/showlist.h
+    ui/showlist.h \
+    ui/showtrash.h
 
 FORMS    += ui/mainwindow.ui \
     ui/addcomputer.ui \
     ui/addcomputerscientist.ui \
     ui/addtype.ui \
-    ui/showlist.ui
+    ui/showlist.ui \
+    ui/showtrash.ui
 
 RESOURCES += \
     resources.qrc

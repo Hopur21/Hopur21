@@ -105,3 +105,10 @@ void MainWindow::on_action_toolbar_Show_List_triggered()
     showlist.setModal(true);
     showlist.exec();
 }
+void MainWindow::on_action_toolbar_Trash_triggered()
+{
+    ShowTrash showtrash;
+    showtrash.setModal(true);
+    showtrash.exec();
+
+}
