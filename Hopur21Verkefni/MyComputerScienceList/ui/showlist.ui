@@ -32,7 +32,7 @@
    </property>
    <widget class="QWidget" name="tab_3">
     <attribute name="icon">
-     <iconset resource="../resources.qrc">
+     <iconset>
       <normaloff>:/icons/person_icon.png</normaloff>:/icons/person_icon.png</iconset>
     </attribute>
     <attribute name="title">
@@ -112,10 +112,29 @@
       <string>Search</string>
      </property>
     </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>250</y>
+       <width>21</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="../resources.qrc">:/icons/images/icon_search2.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="tab_4">
     <attribute name="icon">
-     <iconset resource="../resources.qrc">
+     <iconset>
       <normaloff>:/icons/computer_icon.png</normaloff>:/icons/computer_icon.png</iconset>
     </attribute>
     <attribute name="title">
