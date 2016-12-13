@@ -77,6 +77,12 @@ void MainWindow::on_action_toolbar_Add_Computer__triggered()
     addcomp.setModal(true);
     addcomp.exec();
 }
+void MainWindow::on_actionAdd_Computer_Scientist_triggered()
+{
+    AddComputerScientist showScientist;
+    showScientist.setModal(true);
+    showScientist.exec();
+}
 
 void MainWindow::on_pushButton_home_clicked()
 {

@@ -40,6 +40,8 @@ private slots:
 
     void on_action_toolbar_Add_Computer__triggered();
 
+    void on_actionAdd_Computer_Scientist_triggered();
+
 private:
     Service _service;
     Ui::MainWindow *ui;
