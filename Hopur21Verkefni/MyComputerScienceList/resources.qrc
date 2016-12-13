@@ -9,6 +9,10 @@
         <file>images/logo_computerScienceList.png</file>
         <file>images/person_icon.png</file>
         <file>images/trash_icon.png</file>
+        <file>../../../icons/icon_home.png</file>
+        <file>../../../icons/icon_home2.png</file>
+        <file>../../../icons/icon_home3.png</file>
+        <file>images/icon_home_black.png</file>
     </qresource>
     <qresource prefix="/">
         <file>../../../icons/noun_560198_cc copy.png</file>

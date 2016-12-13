@@ -27,7 +27,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="../resources.qrc">
-    <normaloff>:/icons/noun_560198_cc copy.png</normaloff>:/icons/noun_560198_cc copy.png</iconset>
+    <normaloff>:/icons/images/icon_home_black.png</normaloff>:/icons/images/icon_home_black.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(255, 255, 255);</string>
@@ -223,7 +223,7 @@ font: 8pt &quot;Calibri&quot;;
   <action name="action_toolbar_Home">
    <property name="icon">
     <iconset resource="../resources.qrc">
-     <normaloff>:/icons/images/home.png</normaloff>:/icons/images/home.png</iconset>
+     <normaloff>:/icons/icons/icon_home3.png</normaloff>:/icons/icons/icon_home3.png</iconset>
    </property>
    <property name="text">
     <string>Home</string>
