@@ -86,14 +86,9 @@ void MainWindow::on_pushButton_home_clicked()
     showScientist.exec();
 }
 
-<<<<<<< HEAD
 void MainWindow::on_pushButton_add_clicked()
 {
     AddComputer addcomp;
     addcomp.setModal(true);
     addcomp.exec();
 }
-
-
-=======
->>>>>>> a0a8c9bed8dd7031b56734662ac375ba03273656
