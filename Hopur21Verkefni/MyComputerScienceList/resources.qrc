@@ -4,6 +4,11 @@
         <file>images/home.png</file>
         <file>images/show_people.png</file>
         <file>images/trash.png</file>
+        <file>images/computer_icon.png</file>
+        <file>images/computer2_icon.png</file>
+        <file>images/logo_computerScienceList.png</file>
+        <file>images/person_icon.png</file>
+        <file>images/trash_icon.png</file>
     </qresource>
     <qresource prefix="/">
         <file>../../../icons/noun_560198_cc copy.png</file>
@@ -15,5 +20,8 @@
         <file>../../../icons/noun_570270_cc copy.png</file>
         <file>../../../icons/computer_icon.png</file>
         <file>../../../icons/person_icon.png</file>
+        <file>../../../icons/trash_icon.png</file>
+        <file>../../../icons/computer2_icon.png</file>
+        <file>../../../icons/logo_computerScienceList.png</file>
     </qresource>
 </RCC>

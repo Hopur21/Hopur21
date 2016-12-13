@@ -29,6 +29,9 @@
    <iconset resource="../resources.qrc">
     <normaloff>:/icons/noun_560198_cc copy.png</normaloff>:/icons/noun_560198_cc copy.png</iconset>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QPushButton" name="pushButton_show_list">
     <property name="geometry">
@@ -38,6 +41,11 @@
       <width>61</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(241, 241, 242);
+font: 8pt &quot;Calibri&quot;;
+</string>
     </property>
     <property name="text">
      <string>Show list</string>
@@ -52,6 +60,11 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(241, 241, 242);
+font: 8pt &quot;Calibri&quot;;
+</string>
+    </property>
     <property name="text">
      <string>Add</string>
     </property>
@@ -65,6 +78,11 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(241, 241, 242);
+font: 8pt &quot;Calibri&quot;;
+</string>
+    </property>
     <property name="text">
      <string>Trash</string>
     </property>
@@ -72,14 +90,19 @@
    <widget class="QPushButton" name="button_quitProgram">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>0</y>
+      <x>690</x>
+      <y>270</y>
       <width>71</width>
       <height>41</height>
      </rect>
     </property>
     <property name="accessibleName">
      <string/>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(241, 241, 242);
+font: 8pt &quot;Calibri&quot;;
+</string>
     </property>
     <property name="text">
      <string>Quit</string>
@@ -94,6 +117,12 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(241, 241, 242);
+border-color: rgb(221, 221, 222);
+font: 8pt &quot;Calibri&quot;;
+</string>
+    </property>
     <property name="text">
      <string>Home</string>
     </property>
@@ -106,6 +135,25 @@
       <width>611</width>
       <height>201</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>231</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="../resources.qrc">:/icons/images/logo_computerScienceList.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>
@@ -131,7 +179,7 @@
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <property name="styleSheet">
-    <string notr="true">border-color: rgb(0, 0, 0);</string>
+    <string notr="true">background-color: rgb(241, 241, 242);</string>
    </property>
    <property name="movable">
     <bool>false</bool>
@@ -157,7 +205,7 @@
   <action name="action_toolbar_Add_Computer_Scientist">
    <property name="icon">
     <iconset resource="../resources.qrc">
-     <normaloff>:/icons/images/add_user.png</normaloff>:/icons/images/add_user.png</iconset>
+     <normaloff>:/icons/images/computer_icon.png</normaloff>:/icons/images/computer_icon.png</iconset>
    </property>
    <property name="text">
     <string>Add Computer Scientist</string>
@@ -166,7 +214,7 @@
   <action name="action_toolbar_Show_List">
    <property name="icon">
     <iconset resource="../resources.qrc">
-     <normaloff>:/icons/images/show_people.png</normaloff>:/icons/images/show_people.png</iconset>
+     <normaloff>:/icons/images/computer2_icon.png</normaloff>:/icons/images/computer2_icon.png</iconset>
    </property>
    <property name="text">
     <string>Show List</string>
@@ -184,7 +232,7 @@
   <action name="action_toolbar_Trash">
    <property name="icon">
     <iconset resource="../resources.qrc">
-     <normaloff>:/icons/images/trash.png</normaloff>:/icons/images/trash.png</iconset>
+     <normaloff>:/icons/images/trash_icon.png</normaloff>:/icons/images/trash_icon.png</iconset>
    </property>
    <property name="text">
     <string>Trash</string>
