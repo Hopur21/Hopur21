@@ -79,3 +79,18 @@ void MainWindow::on_pushButton_home_clicked()
     //mainWindow.show();
     qDebug() << "ET go home";
 }
+
+void MainWindow::on_pushButton_add_clicked()
+{
+    qDebug() << "Add a computer scientist";
+}
+
+void MainWindow::on_pushButton_show_list_clicked()
+{
+    qDebug() << "Show list";
+}
+
+void MainWindow::on_pushButton_trash_clicked()
+{
+    qDebug() << "Trash";
+}
