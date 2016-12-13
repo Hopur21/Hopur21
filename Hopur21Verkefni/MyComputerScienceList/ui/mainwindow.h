@@ -7,6 +7,7 @@
 #include "ui/addcomputerscientist.h"
 #include "ui/addtype.h"
 #include "ui/showlist.h"
+#include "ui/showtrash.h"
 
 #include <QTableWidget>
 
@@ -41,6 +42,10 @@ private slots:
     void on_action_toolbar_Add_Computer__triggered();
 
     void on_actionAdd_Computer_Scientist_triggered();
+
+    void on_action_toolbar_Show_List_triggered();
+
+    void on_action_toolbar_Trash_triggered();
 
 private:
     Service _service;
