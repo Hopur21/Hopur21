@@ -9,27 +9,11 @@
         <file>images/logo_computerScienceList.png</file>
         <file>images/person_icon.png</file>
         <file>images/trash_icon.png</file>
-        <file>../../../icons/icon_home.png</file>
-        <file>../../../icons/icon_home2.png</file>
-        <file>../../../icons/icon_home3.png</file>
         <file>images/icon_home_black.png</file>
         <file>images/icon_list_view.png</file>
         <file>images/icon_list_view2.png</file>
         <file>images/logo_addAScientist.png</file>
         <file>images/logo_addAComputer.png</file>
-    </qresource>
-    <qresource prefix="/">
-        <file>../../../icons/noun_560198_cc copy.png</file>
-        <file>../../../icons/noun_560220_cc copy.png</file>
-        <file>../../../icons/noun_569836_cc copy.png</file>
-        <file>../../../icons/noun_569837_cc copy.png</file>
-        <file>../../../icons/noun_569873_cc copy.png</file>
-        <file>../../../icons/noun_570229_cc copy.png</file>
-        <file>../../../icons/noun_570270_cc copy.png</file>
-        <file>../../../icons/computer_icon.png</file>
-        <file>../../../icons/person_icon.png</file>
-        <file>../../../icons/trash_icon.png</file>
-        <file>../../../icons/computer2_icon.png</file>
-        <file>../../../icons/logo_computerScienceList.png</file>
+        <file>images/icon_home3.png</file>
     </qresource>
 </RCC>
