@@ -1,6 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include "addcomputer.h"
+#include "addcomputerscientist.h"
+#include "addtype.h"
+#include "showlist.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
