@@ -5,4 +5,7 @@
         <file>images/show_people.png</file>
         <file>images/trash.png</file>
     </qresource>
+    <qresource prefix="/">
+        <file>../../../icons/noun_560198_cc copy.png</file>
+    </qresource>
 </RCC>

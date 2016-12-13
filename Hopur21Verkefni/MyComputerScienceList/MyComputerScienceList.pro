@@ -50,3 +50,6 @@ FORMS    += ui/mainwindow.ui \
 RESOURCES += \
     resources.qrc
 
+DISTFILES += \
+    ../../../icons/noun_570270_cc copy.png
+
