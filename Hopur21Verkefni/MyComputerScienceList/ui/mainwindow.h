@@ -32,6 +32,8 @@ private slots:
 
     void on_pushButton_home_clicked();
 
+    void on_actionAdd_Computer_Scientist_clicked();
+
 private:
     Service _service;
     Ui::MainWindow *ui;

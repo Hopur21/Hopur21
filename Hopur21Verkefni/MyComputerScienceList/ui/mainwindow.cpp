@@ -1,7 +1,10 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-MainWindow mainWindow;
+#include "addcomputer.h"
+#include "addcomputerscientist.h"
+#include "addtype.h"
+#include "showlist.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -63,6 +66,12 @@ void MainWindow::on_action_Add_Computer_Scientist_triggered()
 {
     qDebug() << "Computer scientist pressed";
 
+}
+
+//Toolbar
+void MainWindow::on_actionAdd_Computer_Scientist_clicked()
+{
+    qDebug() << "Toolbar Computer Scientist pressed";
 }
 
 void MainWindow::on_pushButton_home_clicked()
