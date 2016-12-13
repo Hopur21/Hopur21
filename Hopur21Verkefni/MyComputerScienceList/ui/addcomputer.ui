@@ -25,7 +25,7 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="lineEdit_designYear">
    <property name="geometry">
     <rect>
      <x>278</x>
@@ -33,6 +33,11 @@
      <width>113</width>
      <height>20</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Calibri</family>
+    </font>
    </property>
    <property name="text">
     <string/>
@@ -41,7 +46,7 @@
     <string>Enter year of design</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="lineEdit_nameComputer">
    <property name="geometry">
     <rect>
      <x>278</x>
@@ -50,11 +55,16 @@
      <height>20</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Calibri</family>
+    </font>
+   </property>
    <property name="placeholderText">
     <string>Enter name</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_3">
+  <widget class="QLabel" name="label_wasComputerBuilt">
    <property name="geometry">
     <rect>
      <x>208</x>
@@ -63,11 +73,16 @@
      <height>20</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Calibri</family>
+    </font>
+   </property>
    <property name="text">
     <string>Was this computer built:</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_4">
+  <widget class="QPushButton" name="pushButton_browseComputer">
    <property name="geometry">
     <rect>
      <x>78</x>
@@ -76,11 +91,16 @@
      <height>23</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Calibri</family>
+    </font>
+   </property>
    <property name="text">
     <string>Browse</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_4">
+  <widget class="QLineEdit" name="lineEdit_commentsComputer">
    <property name="geometry">
     <rect>
      <x>210</x>
@@ -89,11 +109,16 @@
      <height>71</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Calibri</family>
+    </font>
+   </property>
    <property name="placeholderText">
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="pushButton_imageComputer">
    <property name="geometry">
     <rect>
      <x>78</x>
@@ -102,11 +127,16 @@
      <height>131</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Calibri</family>
+    </font>
+   </property>
    <property name="text">
-    <string>Mynd</string>
+    <string>Image</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_5">
+  <widget class="QLabel" name="label_commentsComputer">
    <property name="geometry">
     <rect>
      <x>208</x>
@@ -115,11 +145,16 @@
      <height>20</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Calibri</family>
+    </font>
+   </property>
    <property name="text">
     <string>Comments:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_7">
+  <widget class="QLabel" name="label_selectScientistForComputer">
    <property name="geometry">
     <rect>
      <x>428</x>
@@ -128,11 +163,16 @@
      <height>16</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Calibri</family>
+    </font>
+   </property>
    <property name="text">
     <string>Select scientist(s) that worked on this computer:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="label_designYear">
    <property name="geometry">
     <rect>
      <x>208</x>
@@ -140,6 +180,11 @@
      <width>71</width>
      <height>20</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Calibri</family>
+    </font>
    </property>
    <property name="text">
     <string>Year of design:</string>
@@ -154,11 +199,16 @@
      <height>23</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Calibri</family>
+    </font>
+   </property>
    <property name="text">
     <string>Clear Fields</string>
    </property>
   </widget>
-  <widget class="QCheckBox" name="checkBox">
+  <widget class="QCheckBox" name="checkBox_wasComputerBuilt">
    <property name="geometry">
     <rect>
      <x>378</x>
@@ -174,7 +224,7 @@
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QLabel" name="label_4">
+  <widget class="QLabel" name="label_buildYear">
    <property name="geometry">
     <rect>
      <x>198</x>
@@ -183,11 +233,16 @@
      <height>20</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Calibri</family>
+    </font>
+   </property>
    <property name="text">
     <string>Year it was built:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="label_nameComputer">
    <property name="geometry">
     <rect>
      <x>238</x>
@@ -196,11 +251,16 @@
      <height>16</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Calibri</family>
+    </font>
+   </property>
    <property name="text">
     <string>Name:</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="pushButton_saveComputer">
    <property name="geometry">
     <rect>
      <x>608</x>
@@ -209,11 +269,16 @@
      <height>23</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Calibri</family>
+    </font>
+   </property>
    <property name="text">
     <string>Save</string>
    </property>
   </widget>
-  <widget class="QTableWidget" name="tableWidget">
+  <widget class="QTableWidget" name="tableWidget_selectScientistForComputer">
    <property name="geometry">
     <rect>
      <x>428</x>
@@ -221,6 +286,11 @@
      <width>256</width>
      <height>221</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Calibri</family>
+    </font>
    </property>
    <column>
     <property name="text">
@@ -233,7 +303,7 @@
     </property>
    </column>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_3">
+  <widget class="QLineEdit" name="lineEdit_buildYear">
    <property name="enabled">
     <bool>true</bool>
    </property>
@@ -245,11 +315,16 @@
      <height>20</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Calibri</family>
+    </font>
+   </property>
    <property name="placeholderText">
     <string>Enter year of build</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox">
+  <widget class="QComboBox" name="comboBox_selectTypeOfComputer">
    <property name="geometry">
     <rect>
      <x>210</x>
@@ -258,8 +333,13 @@
      <height>21</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Calibri</family>
+    </font>
+   </property>
   </widget>
-  <widget class="QLabel" name="label_6">
+  <widget class="QLabel" name="label_selectTypeOfComputer">
    <property name="geometry">
     <rect>
      <x>210</x>
@@ -268,11 +348,41 @@
      <height>20</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Calibri</family>
+    </font>
+   </property>
    <property name="text">
     <string>Select type:</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label_logoAddScientist">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>20</y>
+     <width>331</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+font: 75 14pt &quot;Trebuchet MS&quot;;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../resources.qrc">:/icons/images/logo_addAComputer.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="../resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

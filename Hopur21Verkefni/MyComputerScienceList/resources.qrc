@@ -16,6 +16,7 @@
         <file>images/icon_list_view.png</file>
         <file>images/icon_list_view2.png</file>
         <file>images/logo_addAScientist.png</file>
+        <file>images/logo_addAComputer.png</file>
     </qresource>
     <qresource prefix="/">
         <file>../../../icons/noun_560198_cc copy.png</file>
