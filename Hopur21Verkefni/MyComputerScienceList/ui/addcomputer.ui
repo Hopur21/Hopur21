@@ -338,6 +338,11 @@
      <family>Calibri</family>
     </font>
    </property>
+   <item>
+    <property name="text">
+     <string>Computer type</string>
+    </property>
+   </item>
   </widget>
   <widget class="QLabel" name="label_selectTypeOfComputer">
    <property name="geometry">

@@ -65,8 +65,15 @@ void MainWindow::on_action_Add_Computer_Scientist_triggered()
     qDebug() << "Computer scientist pressed";
 
 }
+
 //Toolbar
 void MainWindow::on_actionAdd_Computer_Scientist_clicked()
 {
     qDebug() << "Toolbar Computer Scientist pressed";
+}
+
+void MainWindow::on_pushButton_home_clicked()
+{
+    //mainWindow.show();
+    qDebug() << "ET go home";
 }

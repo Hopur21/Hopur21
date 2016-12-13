@@ -1,5 +1,7 @@
 #ifndef SHOWLIST_H
 #define SHOWLIST_H
+#include "models/csperson.h"
+#include "services/service.h"
 
 #include <QDialog>
 
@@ -13,6 +15,10 @@ class ShowList : public QDialog
 
 public:
     explicit ShowList(QWidget *parent = 0);
+    void displayScientists();
+    void displayScientists(std::vector<CSPerson> CSPersons);
+
+
     ~ShowList();
 
 private:
