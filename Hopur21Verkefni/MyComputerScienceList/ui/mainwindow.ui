@@ -33,60 +33,6 @@
    <string notr="true">background-color: rgb(255, 255, 255);</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="pushButton_show_list">
-    <property name="geometry">
-     <rect>
-      <x>630</x>
-      <y>10</y>
-      <width>61</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(241, 241, 242);
-font: 8pt &quot;Calibri&quot;;
-</string>
-    </property>
-    <property name="text">
-     <string>Show list</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_add">
-    <property name="geometry">
-     <rect>
-      <x>570</x>
-      <y>10</y>
-      <width>61</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(241, 241, 242);
-font: 8pt &quot;Calibri&quot;;
-</string>
-    </property>
-    <property name="text">
-     <string>Add</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_trash">
-    <property name="geometry">
-     <rect>
-      <x>690</x>
-      <y>10</y>
-      <width>61</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(241, 241, 242);
-font: 8pt &quot;Calibri&quot;;
-</string>
-    </property>
-    <property name="text">
-     <string>Trash</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="button_quitProgram">
     <property name="geometry">
      <rect>
@@ -108,11 +54,58 @@ font: 8pt &quot;Calibri&quot;;
      <string>Quit</string>
     </property>
    </widget>
+   <widget class="QWidget" name="widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>110</y>
+      <width>611</width>
+      <height>201</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>10</y>
+      <width>231</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="../resources.qrc">:/icons/images/logo_computerScienceList.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_add">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>270</y>
+      <width>61</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(241, 241, 242);
+font: 8pt &quot;Calibri&quot;;
+</string>
+    </property>
+    <property name="text">
+     <string>Add</string>
+    </property>
+   </widget>
    <widget class="QPushButton" name="pushButton_home">
     <property name="geometry">
      <rect>
-      <x>510</x>
-      <y>10</y>
+      <x>10</x>
+      <y>270</y>
       <width>61</width>
       <height>41</height>
      </rect>
@@ -127,33 +120,40 @@ font: 8pt &quot;Calibri&quot;;
      <string>Home</string>
     </property>
    </widget>
-   <widget class="QWidget" name="widget" native="true">
+   <widget class="QPushButton" name="pushButton_show_list">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>110</y>
-      <width>611</width>
-      <height>201</height>
+      <x>130</x>
+      <y>270</y>
+      <width>61</width>
+      <height>41</height>
      </rect>
     </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>231</width>
-      <height>61</height>
-     </rect>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(241, 241, 242);
+font: 8pt &quot;Calibri&quot;;
+</string>
     </property>
     <property name="text">
-     <string/>
+     <string>Show list</string>
     </property>
-    <property name="pixmap">
-     <pixmap resource="../resources.qrc">:/icons/images/logo_computerScienceList.png</pixmap>
+   </widget>
+   <widget class="QPushButton" name="pushButton_trash">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>270</y>
+      <width>61</width>
+      <height>41</height>
+     </rect>
     </property>
-    <property name="scaledContents">
-     <bool>true</bool>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(241, 241, 242);
+font: 8pt &quot;Calibri&quot;;
+</string>
+    </property>
+    <property name="text">
+     <string>Trash</string>
     </property>
    </widget>
   </widget>
@@ -171,7 +171,7 @@ font: 8pt &quot;Calibri&quot;;
      <string>File</string>
     </property>
     <addaction name="action_toolbar_Home"/>
-    <addaction name="action_toolbar_Add_Computer_Scientist"/>
+    <addaction name="action_toolbar_Add_Computer_"/>
     <addaction name="action_toolbar_Show_List"/>
     <addaction name="action_toolbar_Trash"/>
    </widget>
@@ -197,24 +197,25 @@ font: 8pt &quot;Calibri&quot;;
     <bool>false</bool>
    </attribute>
    <addaction name="action_toolbar_Home"/>
-   <addaction name="action_toolbar_Add_Computer_Scientist"/>
    <addaction name="action_toolbar_Show_List"/>
+   <addaction name="actionAdd_Computer_Scientist"/>
+   <addaction name="action_toolbar_Add_Computer_"/>
    <addaction name="action_toolbar_Trash"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <action name="action_toolbar_Add_Computer_Scientist">
+  <action name="action_toolbar_Add_Computer_">
    <property name="icon">
     <iconset resource="../resources.qrc">
      <normaloff>:/icons/images/computer_icon.png</normaloff>:/icons/images/computer_icon.png</iconset>
    </property>
    <property name="text">
-    <string>Add Computer Scientist</string>
+    <string>Add Computer</string>
    </property>
   </action>
   <action name="action_toolbar_Show_List">
    <property name="icon">
     <iconset resource="../resources.qrc">
-     <normaloff>:/icons/images/computer2_icon.png</normaloff>:/icons/images/computer2_icon.png</iconset>
+     <normaloff>:/icons/images/icon_list_view2.png</normaloff>:/icons/images/icon_list_view2.png</iconset>
    </property>
    <property name="text">
     <string>Show List</string>
@@ -236,6 +237,18 @@ font: 8pt &quot;Calibri&quot;;
    </property>
    <property name="text">
     <string>Trash</string>
+   </property>
+  </action>
+  <action name="actionAdd_Computer_Scientist">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/icons/images/person_icon.png</normaloff>:/icons/images/person_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Add Computer Scientist</string>
+   </property>
+   <property name="toolTip">
+    <string>Add Computer Scientist</string>
    </property>
   </action>
  </widget>
