@@ -190,7 +190,7 @@
     <string>Year of design:</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="pushButton_clearFields">
    <property name="geometry">
     <rect>
      <x>78</x>
