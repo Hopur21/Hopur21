@@ -45,13 +45,19 @@
     <property name="accessibleName">
      <string/>
     </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(241, 241, 242);
-font: 8pt &quot;Calibri&quot;;
+     <string notr="true">font: 8pt &quot;Calibri&quot;;
+background-color: rgb(241, 241, 242);
 </string>
     </property>
     <property name="text">
      <string>Quit</string>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QWidget" name="widget" native="true">

@@ -1,4 +1,5 @@
 TODO Vika 3
 
-Ekki hægt að skoða commemt neinstaðar
+Ekki hægt að skoða comment neinstaðar
 Bæta við tölvu eða týpu af tölvu displayaði ekki strax
+View fyrir einstaka computer og scientist 
