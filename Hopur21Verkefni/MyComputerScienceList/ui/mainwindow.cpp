@@ -81,7 +81,10 @@ void MainWindow::on_actionAdd_Computer_Scientist_triggered()
 {
     AddComputerScientist showScientist;
     showScientist.setModal(true);
+
     showScientist.exec();
+
+
 }
 
 void MainWindow::on_pushButton_home_clicked()
