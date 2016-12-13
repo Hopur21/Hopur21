@@ -98,3 +98,10 @@ void MainWindow::on_pushButton_add_clicked()
     addcomp.setModal(true);
     addcomp.exec();
 }
+
+void MainWindow::on_action_toolbar_Show_List_triggered()
+{
+    ShowList showlist;
+    showlist.setModal(true);
+    showlist.exec();
+}

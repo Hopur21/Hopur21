@@ -42,6 +42,8 @@ private slots:
 
     void on_actionAdd_Computer_Scientist_triggered();
 
+    void on_action_toolbar_Show_List_triggered();
+
 private:
     Service _service;
     Ui::MainWindow *ui;
