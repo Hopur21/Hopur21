@@ -30,7 +30,7 @@
    <string>DockWidget</string>
   </property>
   <widget class="QWidget" name="dockWidgetContents">
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="pushButton_clearFields">
     <property name="geometry">
      <rect>
       <x>90</x>
@@ -39,11 +39,16 @@
       <height>23</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+     </font>
+    </property>
     <property name="text">
      <string>Clear Fields</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_2">
+   <widget class="QRadioButton" name="radioButton_otherGender">
     <property name="geometry">
      <rect>
       <x>340</x>
@@ -52,11 +57,16 @@
       <height>17</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+     </font>
+    </property>
     <property name="text">
      <string>Other</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_3">
+   <widget class="QLineEdit" name="lineEdit_deathYear">
     <property name="enabled">
      <bool>false</bool>
     </property>
@@ -68,11 +78,16 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+     </font>
+    </property>
     <property name="placeholderText">
      <string>Enter year of death</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="pushButton_image">
     <property name="geometry">
      <rect>
       <x>90</x>
@@ -81,11 +96,16 @@
       <height>131</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+     </font>
+    </property>
     <property name="text">
-     <string>Mynd</string>
+     <string>Image</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_4">
+   <widget class="QLineEdit" name="lineEdit_comment">
     <property name="geometry">
      <rect>
       <x>222</x>
@@ -94,11 +114,16 @@
       <height>71</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+     </font>
+    </property>
     <property name="placeholderText">
      <string>Greatest achievment</string>
     </property>
    </widget>
-   <widget class="QCheckBox" name="checkBox">
+   <widget class="QCheckBox" name="checkBox_isPersonAlive">
     <property name="geometry">
      <rect>
       <x>390</x>
@@ -114,7 +139,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton">
+   <widget class="QRadioButton" name="radioButton_male">
     <property name="geometry">
      <rect>
       <x>230</x>
@@ -123,11 +148,16 @@
       <height>17</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+     </font>
+    </property>
     <property name="text">
      <string>Male</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
+   <widget class="QLineEdit" name="lineEdit_birthYear">
     <property name="geometry">
      <rect>
       <x>290</x>
@@ -136,6 +166,11 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+     </font>
+    </property>
     <property name="text">
      <string/>
     </property>
@@ -143,7 +178,7 @@
      <string>Enter year of birth</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_3">
+   <widget class="QRadioButton" name="radioButton_female">
     <property name="geometry">
      <rect>
       <x>280</x>
@@ -152,11 +187,16 @@
       <height>17</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+     </font>
+    </property>
     <property name="text">
      <string>Female</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="pushButton_save">
     <property name="geometry">
      <rect>
       <x>620</x>
@@ -165,11 +205,16 @@
       <height>23</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+     </font>
+    </property>
     <property name="text">
      <string>Save</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="lineEdit_enterName">
     <property name="geometry">
      <rect>
       <x>290</x>
@@ -178,11 +223,16 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+     </font>
+    </property>
     <property name="placeholderText">
      <string>Enter name</string>
     </property>
    </widget>
-   <widget class="QTableWidget" name="tableWidget">
+   <widget class="QTableWidget" name="tableWidget_selectComputerForScientist">
     <property name="geometry">
      <rect>
       <x>440</x>
@@ -190,6 +240,14 @@
       <width>256</width>
       <height>221</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
     </property>
     <column>
      <property name="text">
@@ -202,7 +260,7 @@
      </property>
     </column>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="pushButton_browse">
     <property name="geometry">
      <rect>
       <x>90</x>
@@ -211,11 +269,16 @@
       <height>23</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+     </font>
+    </property>
     <property name="text">
      <string>Browse</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="label_nameOfScientist">
     <property name="geometry">
      <rect>
       <x>250</x>
@@ -224,11 +287,16 @@
       <height>16</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+     </font>
+    </property>
     <property name="text">
      <string>Name:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="label_birthYear">
     <property name="geometry">
      <rect>
       <x>220</x>
@@ -237,11 +305,16 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+     </font>
+    </property>
     <property name="text">
      <string>Year of birth:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
+   <widget class="QLabel" name="label_isPersonAlive">
     <property name="geometry">
      <rect>
       <x>220</x>
@@ -250,11 +323,16 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+     </font>
+    </property>
     <property name="text">
      <string>Is this person still alive:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_4">
+   <widget class="QLabel" name="label_deathYear">
     <property name="geometry">
      <rect>
       <x>220</x>
@@ -263,11 +341,16 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+     </font>
+    </property>
     <property name="text">
      <string>Year of death:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_5">
+   <widget class="QLabel" name="label_comments">
     <property name="geometry">
      <rect>
       <x>220</x>
@@ -276,11 +359,16 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+     </font>
+    </property>
     <property name="text">
      <string>Comments:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_6">
+   <widget class="QLabel" name="label_selectGender">
     <property name="geometry">
      <rect>
       <x>230</x>
@@ -289,11 +377,16 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+     </font>
+    </property>
     <property name="text">
      <string>Select gender:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_7">
+   <widget class="QLabel" name="label_selectComputerForScientist">
     <property name="geometry">
      <rect>
       <x>440</x>
@@ -302,17 +395,22 @@
       <height>16</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+     </font>
+    </property>
     <property name="text">
      <string>Select computer(s) this scientist contributed to:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_8">
+   <widget class="QLabel" name="label_logoAddScientist">
     <property name="geometry">
      <rect>
-      <x>250</x>
-      <y>20</y>
-      <width>241</width>
-      <height>21</height>
+      <x>220</x>
+      <y>10</y>
+      <width>331</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -320,7 +418,13 @@
 font: 75 14pt &quot;Trebuchet MS&quot;;</string>
     </property>
     <property name="text">
-     <string>Add a Computer Scientist</string>
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="../resources.qrc">:/icons/images/logo_addAScientist.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>
