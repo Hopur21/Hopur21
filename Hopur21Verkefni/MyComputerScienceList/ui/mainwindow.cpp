@@ -49,9 +49,16 @@ void MainWindow::fall()
 */
 
 
-//    AddComputer addcomp;
-//    addcomp.setModal(true);
-//    addcomp.exec();
+    /*
+    AddType addMyType;
+    addMyType.setModal(true);
+    int success = addMyType.exec();
+    if(success)
+    {
+        //It returns 1
+    }
+
+    */
 
 }
 

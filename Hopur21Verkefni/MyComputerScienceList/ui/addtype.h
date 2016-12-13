@@ -15,8 +15,17 @@ public:
     explicit AddType(QWidget *parent = 0);
     ~AddType();
 
+    int getMyIntValue() {return myIntValue;}
+
+private slots:
+    void on_button_Save_Type_clicked();
+
+    void on_button_clear_fields_clicked();
+
 private:
     Ui::AddType *ui;
+
+    int myIntValue;
 };
 
 #endif // ADDTYPE_H
