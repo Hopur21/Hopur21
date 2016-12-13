@@ -8,6 +8,10 @@ ShowList::ShowList(QWidget *parent) :
     ui(new Ui::ShowList)
 {
     ui->setupUi(this);
+    //streaches all columns to fit widget
+    ui->table_computerScientist_2->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
+    //streaches the name column
+    //ui->table_computerScientist_2->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
     //displayScientists();
 }
 
