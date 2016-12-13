@@ -41,6 +41,7 @@ HEADERS  += models/csperson.h \
     ui/addcomputerscientist.h \
     ui/addtype.h \
     ui/showlist.h
+
 FORMS    += ui/mainwindow.ui \
     ui/addcomputer.ui \
     ui/addcomputerscientist.ui \

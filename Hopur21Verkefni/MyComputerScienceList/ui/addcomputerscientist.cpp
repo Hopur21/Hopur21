@@ -5,7 +5,7 @@ AddComputerScientist::AddComputerScientist(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AddComputerScientist)
 {
-    //ui->setupUi(this);
+    ui->setupUi(this);
 }
 
 AddComputerScientist::~AddComputerScientist()

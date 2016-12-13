@@ -74,7 +74,9 @@ void MainWindow::on_actionAdd_Computer_Scientist_clicked()
 
 void MainWindow::on_pushButton_home_clicked()
 {
-    //mainWindow.show();
     qDebug() << "ET go home";
+    AddComputerScientist showScientist;
+    showScientist.setModal(true);
+    showScientist.exec();
 }
 
