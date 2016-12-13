@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include "ui/addcomputer.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -49,7 +49,9 @@ void MainWindow::fall()
 */
 
 
-
+//    AddComputer addcomp;
+//    addcomp.setModal(true);
+//    addcomp.exec();
 
 }
 

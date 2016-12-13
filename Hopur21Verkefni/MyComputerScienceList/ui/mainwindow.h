@@ -24,13 +24,13 @@ public:
     void fall();
 
 private slots:
-    void on_table_computerScientist_activated(const QModelIndex &index);
 
     void on_button_quitProgram_clicked();
 
     void on_action_Add_Computer_Scientist_triggered();
 
     void on_actionAdd_Computer_Scientist_clicked();
+
 private:
     Service _service;
     Ui::MainWindow *ui;
