@@ -171,8 +171,9 @@ font: 8pt &quot;Calibri&quot;;
      <string>File</string>
     </property>
     <addaction name="action_toolbar_Home"/>
-    <addaction name="action_toolbar_Add_Computer_"/>
     <addaction name="action_toolbar_Show_List"/>
+    <addaction name="actionAdd_Computer_Scientist"/>
+    <addaction name="action_toolbar_Add_Computer_"/>
     <addaction name="action_toolbar_Trash"/>
    </widget>
    <addaction name="menuHallo"/>
