@@ -7,5 +7,13 @@
     </qresource>
     <qresource prefix="/">
         <file>../../../icons/noun_560198_cc copy.png</file>
+        <file>../../../icons/noun_560220_cc copy.png</file>
+        <file>../../../icons/noun_569836_cc copy.png</file>
+        <file>../../../icons/noun_569837_cc copy.png</file>
+        <file>../../../icons/noun_569873_cc copy.png</file>
+        <file>../../../icons/noun_570229_cc copy.png</file>
+        <file>../../../icons/noun_570270_cc copy.png</file>
+        <file>../../../icons/computer_icon.png</file>
+        <file>../../../icons/person_icon.png</file>
     </qresource>
 </RCC>

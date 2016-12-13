@@ -30,7 +30,7 @@
     <normaloff>:/icons/noun_560198_cc copy.png</normaloff>:/icons/noun_560198_cc copy.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="pushButton_show_list">
     <property name="geometry">
      <rect>
       <x>630</x>
@@ -43,7 +43,7 @@
      <string>Show list</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="pushButton_add">
     <property name="geometry">
      <rect>
       <x>570</x>
@@ -56,7 +56,7 @@
      <string>Add</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="pushButton_trash">
     <property name="geometry">
      <rect>
       <x>690</x>
@@ -85,7 +85,7 @@
      <string>Quit</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="pushButton_home">
     <property name="geometry">
      <rect>
       <x>510</x>
@@ -122,10 +122,10 @@
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="action_Home"/>
-    <addaction name="action_Add_Computer_Scientist"/>
-    <addaction name="action_Show_List"/>
-    <addaction name="action_Trash"/>
+    <addaction name="action_toolbar_Home"/>
+    <addaction name="action_toolbar_Add_Computer_Scientist"/>
+    <addaction name="action_toolbar_Show_List"/>
+    <addaction name="action_toolbar_Trash"/>
    </widget>
    <addaction name="menuHallo"/>
   </widget>
@@ -148,13 +148,13 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="action_Home"/>
-   <addaction name="action_Add_Computer_Scientist"/>
-   <addaction name="action_Show_List"/>
-   <addaction name="action_Trash"/>
+   <addaction name="action_toolbar_Home"/>
+   <addaction name="action_toolbar_Add_Computer_Scientist"/>
+   <addaction name="action_toolbar_Show_List"/>
+   <addaction name="action_toolbar_Trash"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <action name="action_Add_Computer_Scientist">
+  <action name="action_toolbar_Add_Computer_Scientist">
    <property name="icon">
     <iconset resource="../resources.qrc">
      <normaloff>:/icons/images/add_user.png</normaloff>:/icons/images/add_user.png</iconset>
@@ -163,7 +163,7 @@
     <string>Add Computer Scientist</string>
    </property>
   </action>
-  <action name="action_Show_List">
+  <action name="action_toolbar_Show_List">
    <property name="icon">
     <iconset resource="../resources.qrc">
      <normaloff>:/icons/images/show_people.png</normaloff>:/icons/images/show_people.png</iconset>
@@ -172,7 +172,7 @@
     <string>Show List</string>
    </property>
   </action>
-  <action name="action_Home">
+  <action name="action_toolbar_Home">
    <property name="icon">
     <iconset resource="../resources.qrc">
      <normaloff>:/icons/images/home.png</normaloff>:/icons/images/home.png</iconset>
@@ -181,7 +181,7 @@
     <string>Home</string>
    </property>
   </action>
-  <action name="action_Trash">
+  <action name="action_toolbar_Trash">
    <property name="icon">
     <iconset resource="../resources.qrc">
      <normaloff>:/icons/images/trash.png</normaloff>:/icons/images/trash.png</iconset>

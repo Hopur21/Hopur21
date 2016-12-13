@@ -26,8 +26,12 @@
     <number>0</number>
    </property>
    <widget class="QWidget" name="tab_3">
+    <attribute name="icon">
+     <iconset resource="../resources.qrc">
+      <normaloff>:/icons/person_icon.png</normaloff>:/icons/person_icon.png</iconset>
+    </attribute>
     <attribute name="title">
-     <string>Tab 1</string>
+     <string>Scientists</string>
     </attribute>
     <widget class="QTableWidget" name="table_computerScientist_2">
      <property name="geometry">
@@ -100,8 +104,12 @@
     </widget>
    </widget>
    <widget class="QWidget" name="tab_4">
+    <attribute name="icon">
+     <iconset resource="../resources.qrc">
+      <normaloff>:/icons/computer_icon.png</normaloff>:/icons/computer_icon.png</iconset>
+    </attribute>
     <attribute name="title">
-     <string>Tab 2</string>
+     <string>Computers</string>
     </attribute>
     <widget class="QTableWidget" name="table_computer_2">
      <property name="geometry">
@@ -136,6 +144,8 @@
    </widget>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="../resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
