@@ -22,6 +22,11 @@
      <height>301</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Calibri</family>
+    </font>
+   </property>
    <property name="currentIndex">
     <number>0</number>
    </property>
@@ -97,6 +102,11 @@
        <width>311</width>
        <height>21</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Calibri</family>
+      </font>
      </property>
      <property name="placeholderText">
       <string>Search</string>
