@@ -71,9 +71,24 @@ void MainWindow::on_actionAdd_Computer_Scientist_clicked()
 {
     qDebug() << "Toolbar Computer Scientist pressed";
 }
+void MainWindow::on_action_toolbar_Add_Computer__triggered()
+{
+    AddComputer addcomp;
+    addcomp.setModal(true);
+    addcomp.exec();
+}
 
 void MainWindow::on_pushButton_home_clicked()
 {
     //mainWindow.show();
     qDebug() << "ET go home";
 }
+
+void MainWindow::on_pushButton_add_clicked()
+{
+    AddComputer addcomp;
+    addcomp.setModal(true);
+    addcomp.exec();
+}
+
+

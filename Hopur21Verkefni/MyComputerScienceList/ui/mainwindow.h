@@ -33,6 +33,10 @@ private slots:
 
     void on_actionAdd_Computer_Scientist_clicked();
 
+    void on_pushButton_add_clicked();
+
+    void on_action_toolbar_Add_Computer__triggered();
+
 private:
     Service _service;
     Ui::MainWindow *ui;
