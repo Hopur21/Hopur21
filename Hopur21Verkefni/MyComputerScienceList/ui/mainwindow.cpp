@@ -77,3 +77,4 @@ void MainWindow::on_pushButton_home_clicked()
     //mainWindow.show();
     qDebug() << "ET go home";
 }
+
