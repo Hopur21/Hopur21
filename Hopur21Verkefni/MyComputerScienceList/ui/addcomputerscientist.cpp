@@ -131,14 +131,12 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
         genderFail = true;
     }
 
+    // This gives how many rows are in the table
+    int rows = ui->tableWidget_Addscientist_selectComputerForScientist->rowCount();
 
-    //int rows = ui->tableWidget_Addscientist_selectComputerForScientist->rowCount();
+    qDebug() << "ROWS->" << rows;
 
-
-
-
-
-
+    // Vector of ID´s yet to be retrieved
 
 
     // If canCreatePerson is true, the person can be created
@@ -163,8 +161,6 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
         }
         //setResult(QDialog::Rejected);
     }
-
-
 }
 
 // This function creates the error string for: on_pushButton_Addscientist_save_clicked()
@@ -217,14 +213,7 @@ void AddComputerScientist::on_pushButton_browse_clicked()
         QPixmap pixmap(QString::fromStdString(filePath));
         ui->AddScientist_pushButton_image->setPi
 
-
-
-
     }*/
-
-
-
-
 }
 
 void AddComputerScientist::on_pushButton_Addscientist_clearFields_clicked()
@@ -234,3 +223,6 @@ void AddComputerScientist::on_pushButton_Addscientist_clearFields_clicked()
     ui->lineEdit_Addscientist_comment->clear();
     ui->lineEdit_Addscientist_deathYear->clear();
 }
+
+
+
