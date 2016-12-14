@@ -2,7 +2,6 @@
 #define SHOWTRASH_H
 #include "models/computer.h"
 #include "models/csperson.h"
-#include "ui/mainwindow.h"
 
 #include <QTableWidget>
 
@@ -18,9 +17,9 @@ class ShowTrash : public QDialog
 
 public:
     explicit ShowTrash(QWidget *parent = 0);
-    ~ShowTrash();
-
     void listTrashCan();
+
+    ~ShowTrash();
 
 private:
 
