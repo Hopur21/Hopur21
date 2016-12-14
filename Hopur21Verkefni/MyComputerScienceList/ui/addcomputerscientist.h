@@ -26,6 +26,10 @@ private slots:
 
     void on_checkBox_Addscientist_isPersonAlive_toggled(bool checked);
 
+    void on_pushButton_browse_clicked();
+
+    void on_pushButton_Addscientist_clearFields_clicked();
+
 private:
     Ui::AddComputerScientist *ui;
     CSPerson _newPerson;

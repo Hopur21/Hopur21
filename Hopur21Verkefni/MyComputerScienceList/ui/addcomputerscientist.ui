@@ -43,7 +43,7 @@
      <rect>
       <x>90</x>
       <y>320</y>
-      <width>75</width>
+      <width>81</width>
       <height>23</height>
      </rect>
     </property>
@@ -77,7 +77,7 @@
      <string>Enter year of death</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_image">
+   <widget class="QPushButton" name="AddScientist_pushButton_image">
     <property name="geometry">
      <rect>
       <x>90</x>
