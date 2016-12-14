@@ -60,3 +60,12 @@ void MainWindow::on_action_toolbar_Trash_triggered()
     _showTrash.exec();
 
 }
+
+void MainWindow::on_tempButton_clicked()
+{
+    vector<CSPerson> tempList;
+    tempList = _service.getComputerScientistList();
+    _csMoreInfo.setModal(true);
+    _csMoreInfo.setComputerScientist(tempList[0]);
+    _csMoreInfo.exec();
+}

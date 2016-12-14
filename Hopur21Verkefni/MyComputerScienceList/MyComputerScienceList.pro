@@ -28,7 +28,8 @@ SOURCES += main.cpp\
     ui/showlist.cpp \
     ui/showtrash.cpp \
     models/image.cpp \
-    models/computertype.cpp
+    models/computertype.cpp \
+    ui/csmoreinfo.cpp
 
 HEADERS  += models/csperson.h \
     models/computer.h \
@@ -44,14 +45,16 @@ HEADERS  += models/csperson.h \
     ui/showlist.h \
     ui/showtrash.h \
     models/image.h \
-    models/computertype.h
+    models/computertype.h \
+    ui/csmoreinfo.h
 
 FORMS    += ui/mainwindow.ui \
     ui/addcomputer.ui \
     ui/addcomputerscientist.ui \
     ui/addtype.ui \
     ui/showlist.ui \
-    ui/showtrash.ui
+    ui/showtrash.ui \
+    ui/csmoreinfo.ui
 
 RESOURCES += \
     resources.qrc
