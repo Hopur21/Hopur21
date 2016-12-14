@@ -56,24 +56,6 @@
      <string>Clear Fields</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_Addscientist_otherGender">
-    <property name="geometry">
-     <rect>
-      <x>340</x>
-      <y>320</y>
-      <width>51</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Calibri</family>
-     </font>
-    </property>
-    <property name="text">
-     <string>Other</string>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="lineEdit_Addscientist_deathYear">
     <property name="enabled">
      <bool>false</bool>
@@ -113,8 +95,8 @@
      <string/>
     </property>
     <property name="icon">
-     <iconset resource="../resources.qrc">
-      <normaloff>:/icons/icons/image_person.png</normaloff>:/icons/icons/image_person.png</iconset>
+     <iconset>
+      <normaloff>:/icons/images/image_person.png</normaloff>:/icons/images/image_person.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -157,24 +139,6 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_Addscientist_male">
-    <property name="geometry">
-     <rect>
-      <x>230</x>
-      <y>320</y>
-      <width>51</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Calibri</family>
-     </font>
-    </property>
-    <property name="text">
-     <string>Male</string>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="lineEdit_Addscientist_yearofbirth">
     <property name="geometry">
      <rect>
@@ -194,24 +158,6 @@
     </property>
     <property name="placeholderText">
      <string>Enter year of birth</string>
-    </property>
-   </widget>
-   <widget class="QRadioButton" name="radioButton_Addscientist_female">
-    <property name="geometry">
-     <rect>
-      <x>280</x>
-      <y>320</y>
-      <width>61</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Calibri</family>
-     </font>
-    </property>
-    <property name="text">
-     <string>Female</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_Addscientist_save">
@@ -274,10 +220,20 @@
      <property name="text">
       <string>Computer name</string>
      </property>
+     <property name="font">
+      <font>
+       <family>Calibri</family>
+      </font>
+     </property>
     </column>
     <column>
      <property name="text">
       <string>Computer Type</string>
+     </property>
+     <property name="font">
+      <font>
+       <family>Calibri</family>
+      </font>
      </property>
     </column>
    </widget>
@@ -467,6 +423,67 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>320</y>
+      <width>193</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QRadioButton" name="radioButton_Addscientist_male">
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+        </font>
+       </property>
+       <property name="text">
+        <string>Male</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="radioButton_Addscientist_female">
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+        </font>
+       </property>
+       <property name="text">
+        <string>Female</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="radioButton_Addscientist_otherGender">
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+        </font>
+       </property>
+       <property name="text">
+        <string>Other</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="Add_Scientist_error_field">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>350</y>
+     <width>261</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
   </widget>
  </widget>
  <resources>

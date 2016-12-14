@@ -50,7 +50,6 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
     // isAlive is connected to the checkbox
     bool isAlive;
 
-
     // TODO Taka inn mynd
 
     name = ui->lineEdit_Addscientist_name->text();
@@ -60,8 +59,7 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
 
     if(isAlive == true)
     {
-        qDebug() << "This person is still alive";
-        // If the person is still alive
+        // If the person is still alive deathYear is set to 0
         deathYear = "0";
     }
     else if(isAlive == false)
@@ -121,10 +119,36 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
     }
     else
     {
+        QString errorMessage = validateUserInput(nameFail, genderFail, birthYearFail, deathYearFail);
+
         //setResult(QDialog::Rejected);
     }
 
 
+}
+
+// This function creates the error string for: on_pushButton_Addscientist_save_clicked()
+QString AddComputerScientist::validateUserInput(bool nameFail, bool genderFail, bool birthYearFail, bool deathYearFail)
+{
+    QString errorString = "The following fields are missing: ";
+
+    if(nameFail == true)
+    {
+        errorString += "Name ";
+    }
+    if(genderFail == true)
+    {
+        errorString += "Gender ";
+    }
+    if(birthYearFail == true)
+    {
+        errorString += "Year of birth ";
+    }
+    if(deathYearFail == true)
+    {
+        errorString += "Year of death ";
+    }
+    return errorString;
 }
 
 
