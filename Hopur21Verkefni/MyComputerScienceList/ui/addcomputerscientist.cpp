@@ -13,7 +13,7 @@ AddComputerScientist::AddComputerScientist(QWidget *parent) :
     int year = ltm->tm_year + 1900;
 
     // Validation for year of birth & year of death
-    QIntValidator *yearValidator = new QIntValidator(0,year);
+    yearValidator = new QIntValidator(1,year);
     ui->lineEdit_Addscientist_yearofbirth->setValidator(yearValidator);
     ui->lineEdit_Addscientist_deathYear->setValidator(yearValidator);
 
@@ -21,6 +21,7 @@ AddComputerScientist::AddComputerScientist(QWidget *parent) :
 
 AddComputerScientist::~AddComputerScientist()
 {
+    delete yearValidator;
     delete ui;
 }
 
@@ -50,7 +51,7 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
     bool isAlive;
 
 
-    // Taka inn mynd
+    // TODO Taka inn mynd
 
     name = ui->lineEdit_Addscientist_name->text();
     birthYear = ui->lineEdit_Addscientist_yearofbirth->text();
@@ -60,6 +61,8 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
     if(isAlive == true)
     {
         qDebug() << "This person is still alive";
+        // If the person is still alive
+        deathYear = "0";
     }
     else if(isAlive == false)
     {
@@ -122,4 +125,20 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
     }
 
 
+}
+
+
+void AddComputerScientist::on_checkBox_Addscientist_isPersonAlive_toggled(bool checked)
+{
+    // If checkbox is checked then it is not possible to edit the year of death field
+    if(checked)
+    {
+        ui->label_deathYear->setDisabled(constants::DISABLED);
+        ui->lineEdit_Addscientist_deathYear->setDisabled(constants::DISABLED);
+    }
+    else
+    {
+        ui->label_deathYear->setEnabled(constants::ENABLED);
+        ui->lineEdit_Addscientist_deathYear->setEnabled(constants::ENABLED);
+    }
 }
