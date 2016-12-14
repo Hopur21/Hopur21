@@ -471,6 +471,19 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
      </item>
     </layout>
    </widget>
+   <widget class="QLabel" name="label_addScientist_invalidDeathYear">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>180</y>
+      <width>141</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
   </widget>
   <widget class="QLabel" name="Add_Scientist_error_field">
    <property name="enabled">
