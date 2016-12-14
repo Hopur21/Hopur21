@@ -46,10 +46,11 @@ public:
     void searchScientist(vector<CSPerson>& scientist, const string searchFor);
     void searchComputer(vector<Computer>& computer, const string searchFor);
     //Insert
+    int addPicture(const string imageName, const QByteArray image);
     bool addComputerType(string computerName);
     bool addCStoComputer(const int cSID,const int compID);
-    int addComputerScientist(const CSPerson value);
-    int addComputer(const Computer value);
+    int addComputerScientist(CSPerson value);
+    int addComputer(Computer value);
     //Update
     bool updateComputerScientist(CSPerson& computerScientist);
     bool updateComputer(Computer& computer);

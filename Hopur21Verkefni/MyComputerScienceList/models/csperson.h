@@ -47,6 +47,7 @@ class CSPerson
         void setID(const int ID){_id = ID;}
         void setIsAlive(const bool isAlive){_isAlive = isAlive;}
         void setImageInfo(int imageID, QByteArray imageByteArray, string imageName);
+        void setImage(const Image& newImage){_myImage = newImage;}
 };
 
 #endif // CSPERSON_H

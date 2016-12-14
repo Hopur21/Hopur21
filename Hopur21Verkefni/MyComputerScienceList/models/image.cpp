@@ -2,7 +2,9 @@
 
 Image::Image()
 {
-
+    _pictureByteArray = NULL;
+    _pictureName = "";
+    _pictureID = NULL;
 }
 void Image::setImageValues(QByteArray& pictureByteArray, std::string& name, int& pictureID)
 {
