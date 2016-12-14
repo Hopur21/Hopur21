@@ -264,7 +264,7 @@ void DbCon::getComputers(vector<Computer>& computers)
 {
     computers.clear();
     bool success = false;
-       QSqlQuery query("SELECT c.ID, c.name, YEAR(c.design_year) AS design_year, YEAR(c.build_year) AS build_year, c.is_created, (SELECT name FROM type WHERE ID = c.type_ID) AS type, c.type_ID , c.img_ID, im.file_name AS image_name, im.img_data  FROM computers cLEFT JOIN img_table im ON(c.img_ID=im.ID) WHERE removed = 0 ORDER BY name;");
+       QSqlQuery query("SELECT c.ID, c.name, YEAR(c.design_year) AS design_year, YEAR(c.build_year) AS build_year, c.is_created, (SELECT name FROM type WHERE ID = c.type_ID) AS type, c.type_ID , c.img_ID, im.file_name AS image_name, im.img_data  FROM computers c LEFT JOIN img_table im ON(c.img_ID=im.ID) WHERE removed = 0 ORDER BY name;");
        //int idName = query.record().indexOf("name");
        while (query.next())
        {
@@ -312,7 +312,7 @@ vector<Computer> DbCon::getComputerTrashCan()
 {
     vector<Computer> computerTrashCan;
     bool success = false;
-    QSqlQuery query("SELECT c.ID, c.name, YEAR(c.design_year) AS design_year, YEAR(c.build_year) AS build_year, c.is_created, (SELECT name FROM type WHERE ID = c.type_ID) AS type, c.type_ID , c.img_ID, im.file_name AS image_name, im.img_data  FROM computers cLEFT JOIN img_table im ON(c.img_ID=im.ID) WHERE removed = 1 ORDER BY name;");
+    QSqlQuery query("SELECT c.ID, c.name, YEAR(c.design_year) AS design_year, YEAR(c.build_year) AS build_year, c.is_created, (SELECT name FROM type WHERE ID = c.type_ID) AS type, c.type_ID , c.img_ID, im.file_name AS image_name, im.img_data  FROM computers c LEFT JOIN img_table im ON(c.img_ID=im.ID) WHERE removed = 1 ORDER BY name;");
     while (query.next())
     {
         if(success == false)
