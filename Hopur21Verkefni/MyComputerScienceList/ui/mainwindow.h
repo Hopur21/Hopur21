@@ -38,6 +38,7 @@ private:
     Service _service;
     ShowList _showList;
     ShowTrash _showTrash;
+    AddComputer _addComputer;
     Ui::MainWindow *ui;
 };
 
