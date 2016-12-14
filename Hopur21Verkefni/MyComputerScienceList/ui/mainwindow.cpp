@@ -7,8 +7,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    fall();
-
 }
 
 //QCoreApplication::quit();
@@ -16,32 +14,8 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-void MainWindow::fall()
-{
-
-    /*
-    AddType addMyType;
-    addMyType.setModal(true);
-    int success = addMyType.exec();
-    if(success)
-    {
-        //It returns 1
-    }
-
-    */
-}
-
-void MainWindow::on_action_Add_Computer_Scientist_triggered()
-{
-    qDebug() << "Computer scientist pressed";
-
-}
 
 //Toolbar
-void MainWindow::on_actionAdd_Computer_Scientist_clicked()
-{
-    qDebug() << "Toolbar Computer Scientist pressed";
-}
 void MainWindow::on_action_toolbar_Add_Computer__triggered()
 {
     _addComputer.setModal(true);
@@ -54,23 +28,6 @@ void MainWindow::on_actionAdd_Computer_Scientist_triggered()
     vector<Computer> allComputers = _service.getComputerList();
     showScientist.setComputersList(allComputers);
     showScientist.exec();
-}
-
-void MainWindow::on_pushButton_home_clicked()
-{
-    qDebug() << "ET go home";
-    AddComputerScientist showScientist;
-
-    showScientist.setModal(true);
-
-    showScientist.exec();
-}
-
-void MainWindow::on_pushButton_add_clicked()
-{
-    AddComputer addcomp;
-    addcomp.setModal(true);
-    addcomp.exec();
 }
 
 //Sending the trash list onwards into trash view for display
