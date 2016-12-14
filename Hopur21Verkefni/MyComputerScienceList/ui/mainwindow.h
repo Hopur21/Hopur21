@@ -49,6 +49,8 @@ private slots:
 
 private:
     Service _service;
+    ShowList _showList;
+    ShowTrash _showTrash;
     Ui::MainWindow *ui;
 };
 
