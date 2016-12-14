@@ -1,6 +1,7 @@
 #include "addcomputerscientist.h"
 #include "ui_addcomputerscientist.h"
 #include <QFileDialog>
+#include <QLabel>
 
 
 AddComputerScientist::AddComputerScientist(QWidget *parent) :
@@ -206,14 +207,14 @@ void AddComputerScientist::on_checkBox_Addscientist_isPersonAlive_toggled(bool c
 
 void AddComputerScientist::on_pushButton_browse_clicked()
 {
-    /*QString filePath = QFileDialog::getOpenFileName(this, "Search for images", "", "Image files (*.png *.jpg)").toStdString();
+    string filePath = QFileDialog::getOpenFileName(this, "Search for images", "", "Image files (*.png *.jpg)").toStdString();
     if(filePath.length())
     {
-        // Here user has selected a file
+         //Here user has selected a file
         QPixmap pixmap(QString::fromStdString(filePath));
-        ui->AddScientist_pushButton_image->setPi
+        ui->AddScientist_pushButton_image->setPixmap(pixmap);
 
-    }*/
+    }
 }
 
 void AddComputerScientist::on_pushButton_Addscientist_clearFields_clicked()
