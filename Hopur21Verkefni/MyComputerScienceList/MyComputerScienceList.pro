@@ -17,7 +17,6 @@ TEMPLATE = app
 SOURCES += main.cpp\
     models/csperson.cpp \
     models/computer.cpp \
-    repositories/datalayer.cpp \
     repositories/dbcon.cpp \
     services/cspersonservice.cpp \
     services/service.cpp \
@@ -27,12 +26,13 @@ SOURCES += main.cpp\
     ui/addcomputerscientist.cpp \
     ui/addtype.cpp \
     ui/showlist.cpp \
-    ui/showtrash.cpp
+    ui/showtrash.cpp \
+    models/image.cpp \
+    models/computertype.cpp
 
 HEADERS  += models/csperson.h \
     models/computer.h \
     utilities/constants.h \
-    repositories/datalayer.h \
     repositories/dbcon.h \
     services/cspersonservice.h \
     services/service.h \
@@ -42,7 +42,9 @@ HEADERS  += models/csperson.h \
     ui/addcomputerscientist.h \
     ui/addtype.h \
     ui/showlist.h \
-    ui/showtrash.h
+    ui/showtrash.h \
+    models/image.h \
+    models/computertype.h
 
 FORMS    += ui/mainwindow.ui \
     ui/addcomputer.ui \

@@ -13,7 +13,8 @@ AddComputerScientist::AddComputerScientist(QWidget *parent) :
     int year = ltm->tm_year + 1900;
 
     // Validation for year of birth & year of death
-    QIntValidator *yearValidator = new QIntValidator(0,year);
+    // the parameters are (lowest number, highest number)
+    yearValidator = new QIntValidator(1,year);
     ui->lineEdit_Addscientist_yearofbirth->setValidator(yearValidator);
     ui->lineEdit_Addscientist_deathYear->setValidator(yearValidator);
 
@@ -21,6 +22,7 @@ AddComputerScientist::AddComputerScientist(QWidget *parent) :
 
 AddComputerScientist::~AddComputerScientist()
 {
+    delete yearValidator;
     delete ui;
 }
 
@@ -49,8 +51,7 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
     // isAlive is connected to the checkbox
     bool isAlive;
 
-
-    // Taka inn mynd
+    // TODO Taka inn mynd
 
     name = ui->lineEdit_Addscientist_name->text();
     birthYear = ui->lineEdit_Addscientist_yearofbirth->text();
@@ -59,7 +60,8 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
 
     if(isAlive == true)
     {
-        qDebug() << "This person is still alive";
+        // If the person is still alive deathYear is set to 0
+        deathYear = "0";
     }
     else if(isAlive == false)
     {
@@ -69,22 +71,19 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
     if(ui->radioButton_Addscientist_male->isChecked())
     {
         gender = "Male";
-        qDebug() << "Gender selected Male";
     }
     if(ui->radioButton_Addscientist_female->isChecked())
     {
         gender = "Female";
-        qDebug() << "Gender selected Female";
     }
     if(ui->radioButton_Addscientist_otherGender->isChecked())
     {
         gender = "Other";
-        qDebug() << "Gender selected Other";
     }
 
     // Validations
 
-    if(name == "" || birthYear == "")
+    if(name == "")
     {
         canCreatePerson = false;
         nameFail = true;
@@ -108,7 +107,6 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
         genderFail = true;
     }
 
-
     // 1 denotes success 0 denotes failure
     if(canCreatePerson == true)
     {
@@ -118,8 +116,54 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
     }
     else
     {
+        // Á eftir að klára!!!!!!
+        QString errorMessage = "";
+        errorMessage = validateUserInput(nameFail, genderFail, birthYearFail, deathYearFail);
+        ui->Add_Scientist_error_field->clear();
+        ui->Add_Scientist_error_field->setText("<span style = 'color : red'>" + errorMessage + "</span>");
+
         //setResult(QDialog::Rejected);
     }
 
 
+}
+
+// This function creates the error string for: on_pushButton_Addscientist_save_clicked()
+QString AddComputerScientist::validateUserInput(bool nameFail, bool genderFail, bool birthYearFail, bool deathYearFail)
+{
+    QString errorString = "The following fields are missing: ";
+
+    if(nameFail == true)
+    {
+        errorString += "-Name-";
+    }
+    if(genderFail == true)
+    {
+        errorString += "-Gender-";
+    }
+    if(birthYearFail == true)
+    {
+        errorString += "-Year of birth-";
+    }
+    if(deathYearFail == true)
+    {
+        errorString += "-Year of death";
+    }
+    return errorString;
+}
+
+
+void AddComputerScientist::on_checkBox_Addscientist_isPersonAlive_toggled(bool checked)
+{
+    // If checkbox is checked then it is not possible to edit the year of death field
+    if(checked)
+    {
+        ui->label_deathYear->setDisabled(constants::DISABLED);
+        ui->lineEdit_Addscientist_deathYear->setDisabled(constants::DISABLED);
+    }
+    else
+    {
+        ui->label_deathYear->setEnabled(constants::ENABLED);
+        ui->lineEdit_Addscientist_deathYear->setEnabled(constants::ENABLED);
+    }
 }
