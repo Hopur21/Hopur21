@@ -106,10 +106,10 @@ void MainWindow::on_action_toolbar_Show_List_triggered()
 {
     _showList.setModal(true);
 
-    //Takes in vector of computer scientists in the list
+    //Takes in a vector of computer scientists in the list
     vector<CSPerson> computerScientists = _service.getComputerScientistList();
 
-    //Takes in vector of computers in the list
+    //Takes in a vector of computers in the list
     vector<Computer> computers = _service.getComputerList();
 
     //Takes the vectors and sets them into setList function in the ShowList class
@@ -120,10 +120,10 @@ void MainWindow::on_action_toolbar_Trash_triggered()
 {
     _showTrash.setModal(true);
 
-    //Takes in vector of computer scientists in the trash
+    //Takes in a vector of computer scientists in the trash
     vector<CSPerson> compScientists = _service.getComputerScientistTrash();
 
-    //Takes in vector of computers in the trash
+    //Takes in a vector of computers in the trash
     vector<Computer> computerTrashList = _service.getComputerTrash();
 
     //Takes vectors and sets them into setTrashList function in the ShowTrash class

@@ -17,11 +17,10 @@ ShowList::ShowList(QWidget *parent) :
     //ui->table_computerScientist_2->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
     //streaches the name column
     //ui->table_computerScientist_2->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
-    //displayScientists();
 }
 void ShowList::setList(vector<CSPerson> compScientistsList, vector<Computer> computerList)
 {
-    //Display computerScientistTrash
+    //Display computerScientistList
     ui->table_computerScientist_2->setRowCount(compScientistsList.size());
     ui->table_computerScientist_2->setColumnCount(4);
     for(size_t i = 0; i < compScientistsList.size(); i++)
@@ -33,7 +32,7 @@ void ShowList::setList(vector<CSPerson> compScientistsList, vector<Computer> com
         ui->table_computerScientist_2->setItem(i, 3, new QTableWidgetItem(QString::number(compScientistsList[i].getPassedAwayYear())));
     }
 
-    // Display computersTrash
+    // Display computersList
     ui->table_computer_2->setRowCount(computerList.size());
     ui->table_computer_2->setColumnCount(4);
     for(size_t j = 0; j < computerList.size(); j++)
