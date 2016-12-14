@@ -9,8 +9,7 @@ public:
     Image();
 
     //Sets
-    void setImageByteArray(QByteArray& pictureByteArray);
-    void setImageName(std::string& name);
+    void setImageValues(QByteArray& pictureByteArray, std::string& name, int& pictureID);
     //Gets
     QByteArray getImageByteArray();
     std::string getName();
@@ -18,6 +17,7 @@ public:
 private:
     QByteArray _pictureByteArray;
     std::string _pictureName;
+    int _pictureID;
 };
 
 #endif // IMAGE_H

@@ -83,6 +83,8 @@ void MainWindow::on_actionAdd_Computer_Scientist_triggered()
 {
     AddComputerScientist showScientist;
     showScientist.setModal(true);
+    vector<Computer> allComputers = _service.getComputerList();
+    showScientist.setComputersList(allComputers);
     showScientist.exec();
 }
 
@@ -90,7 +92,9 @@ void MainWindow::on_pushButton_home_clicked()
 {
     qDebug() << "ET go home";
     AddComputerScientist showScientist;
+
     showScientist.setModal(true);
+
     showScientist.exec();
 }
 

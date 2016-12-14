@@ -24,6 +24,18 @@ AddComputerScientist::AddComputerScientist(QWidget *parent) :
 
 }
 
+void AddComputerScientist::setComputersList(vector<Computer> allComputers)
+{
+    ui->tableWidget_Addscientist_selectComputerForScientist->setRowCount(allComputers.size());
+    ui->tableWidget_Addscientist_selectComputerForScientist->setColumnCount(2);
+    for(size_t i = 0; i < allComputers.size(); i++)
+    {
+
+        ui->tableWidget_Addscientist_selectComputerForScientist->setItem(i, 0, new QTableWidgetItem(QString::fromStdString(allComputers[i].getName())));
+        ui->tableWidget_Addscientist_selectComputerForScientist->setItem(i, 1, new QTableWidgetItem(QString::fromStdString(allComputers[i].getType())));
+    }
+}
+
 AddComputerScientist::~AddComputerScientist()
 {
     delete yearValidator;
@@ -118,6 +130,24 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
         canCreatePerson = false;
         genderFail = true;
     }
+
+        //
+        int rows = ui->tableWidget_Addscientist_selectComputerForScientist->rowCount();
+
+
+        /*for(int i=0;i < rows; i++)
+        {
+            for(int j=0; j < 2; j++)
+            {
+                QString test_STR2 = ui->tableWidget_Addscientist_selectComputerForScientist->item(j,i)->text();
+                qDebug() << "ZUPZUP -> " << test_STR2;
+                //qDebug(QString("OnOk %1,%2:%3").arg(i).arg(j).arg(test_STR).toLatin1());
+            }
+        }*/
+
+
+        //
+
 
     // If canCreatePerson is true, the person can be created
     if(canCreatePerson == true)

@@ -4,13 +4,11 @@ Image::Image()
 {
 
 }
-void Image::setImageByteArray(QByteArray& pictureByteArray)
+void Image::setImageValues(QByteArray& pictureByteArray, std::string& name, int& pictureID)
 {
     _pictureByteArray = pictureByteArray;
-}
-void Image::setImageName(std::string& name)
-{
     _pictureName = name;
+    _pictureID = pictureID;
 }
 //Gets
 QByteArray Image::getImageByteArray()
