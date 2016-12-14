@@ -398,10 +398,10 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
    <widget class="QTableWidget" name="tableWidget_Addscientist_selectComputerForScientist">
     <property name="geometry">
      <rect>
-      <x>425</x>
-      <y>101</y>
-      <width>351</width>
-      <height>191</height>
+      <x>460</x>
+      <y>100</y>
+      <width>301</width>
+      <height>192</height>
      </rect>
     </property>
     <property name="selectionMode">
@@ -410,20 +410,19 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
     <property name="selectionBehavior">
      <enum>QAbstractItemView::SelectRows</enum>
     </property>
-    <property name="iconSize">
-     <size>
-      <width>0</width>
-      <height>0</height>
-     </size>
-    </property>
     <column>
      <property name="text">
-      <string>Computer Name</string>
+      <string>Name</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Computer Type</string>
+      <string>Type</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>ID</string>
      </property>
     </column>
    </widget>
