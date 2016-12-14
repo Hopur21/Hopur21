@@ -107,10 +107,12 @@ void MainWindow::on_action_toolbar_Show_List_triggered()
     showlist.setModal(true);
     showlist.exec();
 }
+//Sending the trash list onwards into trash view for display
 void MainWindow::on_action_toolbar_Trash_triggered()
 {
-    ShowTrash showtrash;
-    showtrash.setModal(true);
-    showtrash.exec();
+    _showTrash.setModal(true);
+    vector<CSPerson> compScientists = _service.getComputerScientistList();
+    _showTrash.setComputerScientistTrashList(compScientists);
+    _showTrash.exec();
 
 }
