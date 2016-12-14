@@ -1,4 +1,5 @@
 #include "cspersonservice.h"
+/*
 //Bool variablers are used in sorting to decide the order of sorting, DESCending and ASCending
 bool sortByNameDESCC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getName() > rhs.getName(); }
 bool sortByNameASCC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.getName() < rhs.getName(); }
@@ -6,6 +7,7 @@ bool sortByGenderDESC(const CSPerson &lhs, const CSPerson &rhs) { return lhs.get
 bool sortByDeathYearASCC(const CSPerson &lhs, const CSPerson &rhs) {return lhs.getPassedAwayYear() > rhs.getPassedAwayYear(); }
 bool sortByBirthYearDESC(const CSPerson &lhs, const CSPerson &rhs) {return lhs.getBirthYear() < rhs.getBirthYear(); }
 bool sortByBirthYearASCC(const CSPerson &lhs, const CSPerson &rhs) {return lhs.getBirthYear() > rhs.getBirthYear(); }
+*/
 bool sortByAgeASCC(const CSPerson &lhs, const CSPerson &rhs)
 {
     CSPerson tempLeft = lhs;//Copy our const into a temp variable, so we can work with our int value and get the age.
@@ -15,6 +17,7 @@ bool sortByAgeASCC(const CSPerson &lhs, const CSPerson &rhs)
 CSPersonService::CSPersonService()
 {
 }
+/*
 //Sorts
 void CSPersonService::sortByName(vector<CSPerson>& computerScientists)
 {
@@ -44,7 +47,7 @@ void CSPersonService::sortByAge(vector<CSPerson>& computerScientists)
 {
     sort(computerScientists.begin(), computerScientists.end(), sortByAgeASCC);
 }
-
+*/
 
 
 bool CSPersonService::validNumber(string number)

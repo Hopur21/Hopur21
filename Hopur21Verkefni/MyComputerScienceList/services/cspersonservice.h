@@ -10,6 +10,7 @@ class CSPersonService
         CSPersonService();
 
         //Sets
+        /*
         void sortByName(vector<CSPerson>& computerScientists);
         void sortByNameDESC(vector<CSPerson>& computerScientists);
         void sortByGender(vector<CSPerson>& computerScientists);
@@ -17,7 +18,7 @@ class CSPersonService
         void sortByBirthYear(vector<CSPerson>& computerScientists);
         void sortByBirthYearASC(vector<CSPerson>& computerScientists);
         void sortByAge(vector<CSPerson>& computerScientists);
-
+        */
         //Gets
         vector<CSPerson> searchByName(const string searchString);
         vector<CSPerson> searchByYearOfBirth(const string searchString);
