@@ -18,6 +18,7 @@ public:
     explicit AddComputerScientist(QWidget *parent = 0);
     ~AddComputerScientist();
 
+    QString validateUserInput(bool nameFail, bool genderFail, bool birthYearFail, bool deathYearFail);
 private slots:
     void on_pushButton_Addscientist_save_clicked();
 

@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 }
 
+//QCoreApplication::quit();
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -59,11 +60,6 @@ void MainWindow::fall()
 
     */
 
-}
-
-void MainWindow::on_button_quitProgram_clicked()
-{
-    QCoreApplication::quit();
 }
 
 void MainWindow::on_action_Add_Computer_Scientist_triggered()

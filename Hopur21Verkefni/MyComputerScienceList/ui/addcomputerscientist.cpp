@@ -119,8 +119,9 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
     }
     else
     {
-        QString errorMessage = validateUserInput(nameFail, genderFail, birthYearFail, deathYearFail);
-
+        QString errorMessage = "";
+        errorMessage = validateUserInput(nameFail, genderFail, birthYearFail, deathYearFail);
+        qDebug() << "ERRORMESSAGE" << errorMessage;
         //setResult(QDialog::Rejected);
     }
 

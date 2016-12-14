@@ -16,10 +16,9 @@
         <file>images/logo_addAComputer.png</file>
         <file>images/icon_home3.png</file>
         <file>images/icon_search2.png</file>
-<<<<<<< HEAD
-=======
         <file>images/image_computer.png</file>
         <file>images/image_person.png</file>
->>>>>>> 349a0707b165a7dfadf85d3302fe8a86b4f4ca92
+        <file>images/icon_search.png</file>
+
     </qresource>
 </RCC>
