@@ -22,7 +22,7 @@ class CSPerson
 
     public:
         CSPerson(){}
-        CSPerson(const int id, const string name, const string gender, const int birthYear, const int passedAwayYear, const string comment, const bool isAlive,int imageID = -1, QByteArray imageByteArray = NULL, string imageName = "");
+        CSPerson(const int id, const string name, const string gender, const int birthYear, const int passedAwayYear, const string comment, const bool isAlive, const int imageID = -1,const QByteArray imageByteArray = NULL, string imageName = "");
 
         //Gets
         string getName()const {return _name;}
@@ -32,6 +32,9 @@ class CSPerson
         int getID(){return _id;}
         int getAge();
         bool getIsAlive()const {return _isAlive;}
+        QByteArray getImage(){return _myImage.getImageByteArray();}
+        string getImageName(){return _myImage.getName();}
+        int getImageID(){return _myImage.getID();}
 
         string getComments()const {return _comment;}
 
@@ -43,6 +46,7 @@ class CSPerson
         void setComment(const string comment){_comment = comment;}
         void setID(const int ID){_id = ID;}
         void setIsAlive(const bool isAlive){_isAlive = isAlive;}
+        void setImageInfo(int imageID, QByteArray imageByteArray, string imageName);
 };
 
 #endif // CSPERSON_H

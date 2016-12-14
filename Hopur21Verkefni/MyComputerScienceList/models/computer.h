@@ -2,6 +2,7 @@
 #define COMPUTER_H
 #include "models/computertype.h"
 #include <string>
+#include <models/image.h>
 
 using namespace std;
 
@@ -9,6 +10,7 @@ class Computer
 {
     private:
         ComputerType _myType;
+        Image _myImage;
         string _name;
         bool _isCreated;
         int _id;
@@ -17,6 +19,7 @@ class Computer
 
     public:
         Computer(){}
+        //Computer(const int id, const string name,const int designYear,const int buildYear,string typeName, string typeID,const bool created,int imageID = -1, QByteArray imageByteArray = NULL, string imageName = "");
         Computer(const int id, const string name,const int designYear,const int buildYear,string typeName, string typeID,const bool created);
 
         // Gets

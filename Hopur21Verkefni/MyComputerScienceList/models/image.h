@@ -13,6 +13,7 @@ public:
     //Gets
     QByteArray getImageByteArray();
     std::string getName();
+    int getID(){return _pictureID;}
 
 private:
     QByteArray _pictureByteArray;
