@@ -30,8 +30,6 @@ public:
 
 private slots:
 
-    void on_button_quitProgram_clicked();
-
     void on_action_Add_Computer_Scientist_triggered();
 
     void on_pushButton_home_clicked();
@@ -47,6 +45,9 @@ private slots:
     void on_action_toolbar_Show_List_triggered();
 
     void on_action_toolbar_Trash_triggered();
+
+    void on_actionExit_triggered();
+
 
 private:
     Service _service;
