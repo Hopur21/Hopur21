@@ -13,6 +13,7 @@ AddComputerScientist::AddComputerScientist(QWidget *parent) :
     int year = ltm->tm_year + 1900;
 
     // Validation for year of birth & year of death
+    // the parameters are (lowest number, highest number)
     yearValidator = new QIntValidator(1,year);
     ui->lineEdit_Addscientist_yearofbirth->setValidator(yearValidator);
     ui->lineEdit_Addscientist_deathYear->setValidator(yearValidator);
@@ -70,22 +71,19 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
     if(ui->radioButton_Addscientist_male->isChecked())
     {
         gender = "Male";
-        qDebug() << "Gender selected Male";
     }
     if(ui->radioButton_Addscientist_female->isChecked())
     {
         gender = "Female";
-        qDebug() << "Gender selected Female";
     }
     if(ui->radioButton_Addscientist_otherGender->isChecked())
     {
         gender = "Other";
-        qDebug() << "Gender selected Other";
     }
 
     // Validations
 
-    if(name == "" || birthYear == "")
+    if(name == "")
     {
         canCreatePerson = false;
         nameFail = true;
@@ -109,7 +107,6 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
         genderFail = true;
     }
 
-
     // 1 denotes success 0 denotes failure
     if(canCreatePerson == true)
     {
@@ -119,9 +116,12 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
     }
     else
     {
+        // Á eftir að klára!!!!!!
         QString errorMessage = "";
         errorMessage = validateUserInput(nameFail, genderFail, birthYearFail, deathYearFail);
-        qDebug() << "ERRORMESSAGE" << errorMessage;
+        ui->Add_Scientist_error_field->clear();
+        ui->Add_Scientist_error_field->setText("<span style = 'color : red'>" + errorMessage + "</span>");
+
         //setResult(QDialog::Rejected);
     }
 
@@ -135,19 +135,19 @@ QString AddComputerScientist::validateUserInput(bool nameFail, bool genderFail, 
 
     if(nameFail == true)
     {
-        errorString += "Name ";
+        errorString += "-Name-";
     }
     if(genderFail == true)
     {
-        errorString += "Gender ";
+        errorString += "-Gender-";
     }
     if(birthYearFail == true)
     {
-        errorString += "Year of birth ";
+        errorString += "-Year of birth-";
     }
     if(deathYearFail == true)
     {
-        errorString += "Year of death ";
+        errorString += "-Year of death";
     }
     return errorString;
 }

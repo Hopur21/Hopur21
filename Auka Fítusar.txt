@@ -1,6 +1,10 @@
-Gagnagrunnur er mi�l�gur (external server)
-Vector-ar eru geymdir � services og sendir me� call by reference.
-H�gt er a� fjarl�gja t�lvunarfr��ing og t�lvu og svo birta �� sem b�i� er a� henda.
-Leitin leitar eftir �llum flokkum �egar leitarstrengur er kominn inn
+Gagnagrunnur er milÊgur (external server)
+Vector-ar eru geymdir Ì services og sendir me call by reference.
+HÊgt er a fjarlÊgja tˆlvunarfrÊing og tˆlvu og svo birta ˛· sem b˙i er a henda.
+Leitin leitar eftir ˆllum flokkum ˛egar leitarstrengur er kominn inn
+
+Við notum QIntValidator fyrir þá reiti sem að taka inn tölur, validatorinn
+kemur í veg fyrir að strengir séu settir inn sem og tölur sem að eru ekki á réttu 
+talnabili. Það er t.d. ekki hægt að setja fæðingarár né dánarár hærra en núverandi ár.
 
 

@@ -95,7 +95,7 @@
      <string/>
     </property>
     <property name="icon">
-     <iconset>
+     <iconset resource="../resources.qrc">
       <normaloff>:/icons/images/image_person.png</normaloff>:/icons/images/image_person.png</iconset>
     </property>
     <property name="iconSize">
@@ -423,7 +423,7 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>230</x>
@@ -473,12 +473,15 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
    </widget>
   </widget>
   <widget class="QLabel" name="Add_Scientist_error_field">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
-     <x>200</x>
+     <x>180</x>
      <y>350</y>
-     <width>261</width>
-     <height>16</height>
+     <width>591</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="text">
