@@ -15,6 +15,9 @@ public:
     explicit AddComputer(QWidget *parent = 0);
     ~AddComputer();
 
+private slots:
+    void on_pushButton_saveComputer_clicked();
+
 private:
     Ui::AddComputer *ui;
 };

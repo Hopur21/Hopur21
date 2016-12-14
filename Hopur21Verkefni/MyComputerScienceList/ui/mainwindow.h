@@ -8,6 +8,7 @@
 #include "ui/addtype.h"
 #include "ui/showlist.h"
 #include "ui/showtrash.h"
+#include "ui/csmoreinfo.h"
 
 #include <QTableWidget>
 
@@ -25,31 +26,21 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-    void fall();
-
 private slots:
-
-    void on_action_Add_Computer_Scientist_triggered();
-
-    void on_pushButton_home_clicked();
-
-    void on_actionAdd_Computer_Scientist_clicked();
-
-    void on_pushButton_add_clicked();
-
     void on_action_toolbar_Add_Computer__triggered();
-
     void on_actionAdd_Computer_Scientist_triggered();
-
     void on_action_toolbar_Show_List_triggered();
-
     void on_action_toolbar_Trash_triggered();
 
+
+    void on_tempButton_clicked();
 
 private:
     Service _service;
     ShowList _showList;
     ShowTrash _showTrash;
+    AddComputer _addComputer;
+    CSMoreInfo _csMoreInfo;
     Ui::MainWindow *ui;
 };
 
