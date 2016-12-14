@@ -32,11 +32,18 @@ AddComputerScientist::~AddComputerScientist()
 
 void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
 {
+    // clear the error messages
+    ui->Add_Scientist_error_field->clear();
+    ui->label_addScientist_invalidDeathYear->clear();
+
     // If validation fails these are used
     bool nameFail = false;
     bool genderFail = false;
     bool birthYearFail = false;
     bool deathYearFail = false;
+
+    // invalid year of death in context with year of birth
+    bool deathYearInvalid = false;
 
     // If validation fails this is set as false
     bool canCreatePerson = true;
@@ -100,6 +107,12 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
         deathYearFail = true;
     }
 
+    if(birthYear >= deathYear && isAlive == false)
+    {
+        canCreatePerson = false;
+        deathYearInvalid = true;
+    }
+
     if(gender == "")
     {
         canCreatePerson = false;
@@ -118,9 +131,14 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
         QString initial = "The following fields are missing: ";
         QString errorMessage = "";
         errorMessage = validateUserInput(nameFail, genderFail, birthYearFail, deathYearFail);
-        ui->Add_Scientist_error_field->clear();
         ui->Add_Scientist_error_field->setText(initial + "<span style = 'color : red'>" + errorMessage + "</span>");
 
+        if(deathYearInvalid == true)
+        {
+            QString message = "Invalid year of death";
+            ui->label_addScientist_invalidDeathYear->setText("<span style = 'color : red'>" + message + "</span>");
+
+        }
         //setResult(QDialog::Rejected);
     }
 
@@ -148,6 +166,7 @@ QString AddComputerScientist::validateUserInput(bool nameFail, bool genderFail, 
     {
         errorString += "* Year of death *";
     }
+
     return errorString;
 }
 
