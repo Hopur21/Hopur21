@@ -6,6 +6,7 @@ AddComputer::AddComputer(QWidget *parent) :
     ui(new Ui::AddComputer)
 {
     ui->setupUi(this);
+
 }
 
 AddComputer::~AddComputer()
