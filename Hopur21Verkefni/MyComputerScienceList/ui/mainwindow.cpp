@@ -7,8 +7,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    fall();
-
 }
 
 //QCoreApplication::quit();
@@ -16,20 +14,7 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-void MainWindow::fall()
-{
 
-    /*
-    AddType addMyType;
-    addMyType.setModal(true);
-    int success = addMyType.exec();
-    if(success)
-    {
-        //It returns 1
-    }
-
-    */
-}
 //Toolbar
 void MainWindow::on_action_toolbar_Add_Computer__triggered()
 {

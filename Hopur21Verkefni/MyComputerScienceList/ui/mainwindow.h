@@ -25,8 +25,6 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-    void fall();
-
 private slots:
     void on_action_toolbar_Add_Computer__triggered();
     void on_actionAdd_Computer_Scientist_triggered();
