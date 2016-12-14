@@ -16,6 +16,10 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+/*vector<CSPerson> MainWindow::showComputerScientistTrashList()
+{
+
+}*/
 void MainWindow::fall()
 {
     // Display scientists
