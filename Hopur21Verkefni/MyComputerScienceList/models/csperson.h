@@ -22,7 +22,7 @@ class CSPerson
 
     public:
         CSPerson(){}
-        CSPerson(const int id, const string name, const string gender, const int birthYear, const int passedAwayYear, const string comment, const bool isAlive);
+        CSPerson(const int id, const string name, const string gender, const int birthYear, const int passedAwayYear, const string comment, const bool isAlive,int imageID = -1, QByteArray imageByteArray = NULL, string imageName = "");
 
         //Gets
         string getName()const {return _name;}

@@ -21,7 +21,7 @@ private:
     //Sets
     void runSelectForScientist(QSqlQuery& query, vector<CSPerson>& scientist);
     void runSelectForComputers(QSqlQuery& query, vector<Computer>& computers);
-    void setDataInPersonVector(vector<CSPerson>& computerScientists, const int id, const string name, const string gender, const int birthYear, const int passedAwayYear, const string comment, const bool isAlive);
+    void setDataInPersonVector(vector<CSPerson>& computerScientists, const int id, const string name, const string gender, const int birthYear, const int passedAwayYear, const string comment, const bool isAlive, const int imageID, const string imageName, const QByteArray imageByteArray);
     void setDataInComputerVector(vector<Computer>& computers, const int id, const string name, const int designYear, const int buildYear, const string type,const string typeID, const bool isCreated);
     void setDataInTypeVector(vector<string>& computerTypes, const string name);
     //Gets

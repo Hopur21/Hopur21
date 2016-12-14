@@ -36,9 +36,9 @@ bool DbCon::makeConnection()
     return _db.open();
 }
 //Other functions
-void DbCon::setDataInPersonVector(vector<CSPerson>& computerScientists, const int id, const string name, const string gender, const int birthYear, const int passedAwayYear, const string comment, const bool isAlive)
+void DbCon::setDataInPersonVector(vector<CSPerson>& computerScientists, const int id, const string name, const string gender, const int birthYear, const int passedAwayYear, const string comment, const bool isAlive, const int imageID, const string imageName, const QByteArray imageByteArray)
 {
-    CSPerson scientist(id,name,gender,birthYear,passedAwayYear,comment, isAlive);
+    CSPerson scientist(id,name,gender,birthYear,passedAwayYear,comment, isAlive,imageID, imageByteArray, imageName);
     computerScientists.push_back(scientist);
 }
 void DbCon::setDataInComputerVector(vector<Computer>& computers, const int id, const string name, const int designYear, const int buildYear, const string type,const string typeID, const bool isCreated)
@@ -217,7 +217,7 @@ vector<CSPerson> DbCon::getCSConntedToComputer(const int computerID)
     bool success = false;
     CSList.clear();
     QSqlQuery query;
-    query.prepare("SELECT cs.ID, cs.name, YEAR(cs.birth_year) AS birth_year, YEAR(cs.death_year) AS death_year, cs.gender, cs.comment, cs.is_alive FROM computer_scientists_computers csc JOIN computer_scientists cs ON (csc.computer_scientist_ID=cs.ID) WHERE csc.computer_ID = :computerID");
+    query.prepare("SELECT cs.ID, cs.name,YEAR(cs.birth_year) AS birth_year, YEAR(cs.death_year) AS death_year, cs.gender, cs.comment, cs.is_alive, cs.img_ID,im.file_name AS image_name, im.img_data FROM computer_scientists cs JOIN computer_scientists_computers csc ON (csc.computer_scientist_ID=cs.ID) LEFT JOIN img_table im ON(cs.img_ID=im.ID)WHERE csc.computer_ID = :computerID");
     query.bindValue(":computerID", computerID);
     query.exec();
     while (query.next())
@@ -236,7 +236,7 @@ void DbCon::getComputerScientists(vector<CSPerson>& computerScientists)
 {
     bool success = false;
     computerScientists.clear();//Clear the vector
-    QSqlQuery query("SELECT ID, name, YEAR(birth_year) AS birth_year, YEAR(death_year) AS death_year, gender, comment, is_alive FROM computer_scientists WHERE removed = 0 ORDER BY name");
+    QSqlQuery query("SELECT cs.ID, cs.name, YEAR(cs.birth_year) AS birth_year, YEAR(cs.death_year) AS death_year, cs.gender, cs.comment,cs.is_alive , cs.img_ID, im.file_name AS image_name, im.img_data FROM computer_scientists cs LEFT JOIN img_table im ON(cs.img_ID=im.ID) WHERE cs.removed = 0 ORDER BY name");
     //int idName = query.record().indexOf("name");
     while (query.next())
     {
@@ -284,7 +284,7 @@ vector<CSPerson> DbCon::getComputerScientistsTrashCan()
 {
     vector<CSPerson> computerScientistTrashCan;
     bool success = false;
-    QSqlQuery query("SELECT ID, name, YEAR(birth_year) AS birth_year, YEAR(death_year) AS death_year, is_alive, gender, comment from computer_scientists WHERE removed = 1 ORDER BY name;");
+    QSqlQuery query("SELECT cs.ID, cs.name, YEAR(cs.birth_year) AS birth_year, YEAR(cs.death_year) AS death_year, cs.gender, cs.comment,cs.is_alive , cs.img_ID, im.file_name AS image_name, im.img_data FROM computer_scientists cs LEFT JOIN img_table im ON(cs.img_ID=im.ID) WHERE cs.removed = 1 ORDER BY name;");
     while (query.next())
     {
         if(success == false)
@@ -334,7 +334,7 @@ void DbCon::searchScientist(vector<CSPerson>& scientist, const string searchFor)
     scientist.clear();
     bool success = false;
     QSqlQuery query;
-    query.prepare("SELECT ID,name,YEAR(birth_year) AS birth_year, YEAR(death_year) AS death_year,gender,comment,is_alive FROM computer_scientists WHERE (name LIKE '%' :searchFor '%' OR death_year LIKE '%' :searchFor '%' OR birth_year LIKE '%' :searchFor '%' OR gender LIKE '%' :searchFor '%') AND removed = 0 ORDER BY name;");
+    query.prepare("SELECT cs.ID, cs.name, YEAR(cs.birth_year) AS birth_year, YEAR(cs.death_year) AS death_year, cs.gender, cs.comment,cs.is_alive , cs.img_ID, im.file_name AS image_name, im.img_data FROM computer_scientists cs LEFT JOIN img_table im ON(cs.img_ID=im.ID) WHERE (cs.name LIKE '%' :searchFor '%' OR cs.death_year LIKE '%' :searchFor '%' OR cs.birth_year LIKE '%' :searchFor '%' OR cs.gender LIKE '%' :searchFor '%') AND cs.removed = 0 ORDER BY name");
     query.bindValue(":searchFor", QString::fromStdString(searchFor));
     query.exec();
     while (query.next())
@@ -376,7 +376,10 @@ void DbCon::runSelectForScientist(QSqlQuery& query, vector<CSPerson>& scientist)
    QString gender = query.value(query.record().indexOf("gender")).toString();
    QString comment = query.value(query.record().indexOf("comment")).toString();
    QString isAlive = query.value(query.record().indexOf("is_alive")).toString();
-   setDataInPersonVector(scientist, id.toInt(), name.toStdString(), gender.toStdString(), birthYear.toInt(), deathYear.toInt(), comment.toStdString(), isAlive.toInt());
+   QString imageID = query.value(query.record().indexOf("img_ID")).toString();
+   QString imageName = query.value(query.record().indexOf("image_name")).toString();
+   QByteArray  imageData = query.value(query.record().indexOf("img_data")).toByteArray();
+   setDataInPersonVector(scientist, id.toInt(), name.toStdString(), gender.toStdString(), birthYear.toInt(), deathYear.toInt(), comment.toStdString(), isAlive.toInt(), imageID.toInt(), imageName.toStdString(),imageData);
 }
 void DbCon::runSelectForComputers(QSqlQuery& query, vector<Computer>& computers)
 {

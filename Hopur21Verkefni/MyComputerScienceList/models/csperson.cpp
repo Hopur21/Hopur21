@@ -1,6 +1,6 @@
 #include "models/csperson.h"
 
-CSPerson::CSPerson(const int id, const string name, const string gender, const int birthYear, const int passedAwayYear, const string comment, const bool isAlive)
+CSPerson::CSPerson(const int id, const string name, const string gender, const int birthYear, const int passedAwayYear, const string comment, const bool isAlive, int imageID, QByteArray imageByteArray, string imageName)
 {
     _id = id;
     _name = name;
@@ -9,6 +9,10 @@ CSPerson::CSPerson(const int id, const string name, const string gender, const i
     _passedAwayYear = passedAwayYear;
     _comment = comment;
     _isAlive = isAlive;
+    if(imageID >=0)//If imageID is not negative (which is default value)
+    {
+        _myImage.setImageValues(imageByteArray,imageName,imageID);
+    }
 }
 
 int CSPerson::getCurrentYear()
