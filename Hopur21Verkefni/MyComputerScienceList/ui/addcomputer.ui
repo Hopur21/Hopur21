@@ -137,7 +137,7 @@
    </property>
    <property name="icon">
     <iconset resource="../resources.qrc">
-     <normaloff>:/icons/icons/image_computer2.png</normaloff>:/icons/icons/image_computer2.png</iconset>
+     <normaloff>:/icons/images/image_computer.png</normaloff>:/icons/images/image_computer.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -309,10 +309,20 @@
     <property name="text">
      <string>Scientist name</string>
     </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+     </font>
+    </property>
    </column>
    <column>
     <property name="text">
      <string>Year of Birth</string>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+     </font>
     </property>
    </column>
   </widget>

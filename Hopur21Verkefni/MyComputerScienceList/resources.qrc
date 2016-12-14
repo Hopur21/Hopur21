@@ -17,7 +17,8 @@
         <file>images/icon_home3.png</file>
         <file>images/icon_search.png</file>
         <file>images/icon_search2.png</file>
-        <file>../../../icons/image_computer2.png</file>
-        <file>../../../icons/image_person.png</file>
+        <file>images/icon_circle_search.png</file>
+        <file>images/image_computer.png</file>
+        <file>images/image_person.png</file>
     </qresource>
 </RCC>
