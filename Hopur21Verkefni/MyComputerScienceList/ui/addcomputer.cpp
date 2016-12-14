@@ -83,8 +83,44 @@ void AddComputer::on_pushButton_saveComputer_clicked()
     // If canCreatePerson is true, the person can be created
     if(canCreateComputer == true)
     {
+
         //CSPerson createdPerson;
         //_newPerson = createdPerson;
         //setResult(QDialog::Accepted);
+    }
+}
+// This function creates the error string for: on_pushButton_Addscientist_save_clicked()
+QString AddComputer::validateUserInput(bool nameFail, bool designYearFail, bool buildYearFail)
+{
+    QString errorString = "";
+
+    if(nameFail == true)
+    {
+        errorString += "* Name *";
+    }
+    if(designYearFail == true)
+    {
+        errorString += "* Design year *";
+    }
+    if(buildYearFail == true)
+    {
+        errorString += "* Build year *";
+    }
+
+    return errorString;
+}
+
+void AddComputer::on_checkBox_wasComputerBuilt_clicked(bool checked)
+{
+    // If checkbox is checked then it is not possible to edit the year of death field
+    if(checked)
+    {
+        ui->label_buildYear->setDisabled(constants::DISABLED);
+        ui->lineEdit_buildYear->setDisabled(constants::DISABLED);
+    }
+    else
+    {
+        ui->label_buildYear->setEnabled(constants::ENABLED);
+        ui->lineEdit_buildYear->setEnabled(constants::ENABLED);
     }
 }
