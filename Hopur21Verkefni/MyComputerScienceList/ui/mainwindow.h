@@ -26,7 +26,6 @@ public:
     ~MainWindow();
 
     void fall();
-    //vector<CSPerson> showComputerScientistTrashList;
 
 private slots:
 
