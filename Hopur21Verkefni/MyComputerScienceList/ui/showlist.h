@@ -15,9 +15,7 @@ class ShowList : public QDialog
 
 public:
     explicit ShowList(QWidget *parent = 0);
-    void displayScientists();
-    void displayScientists(std::vector<CSPerson> CSPersons);
-
+    void setList(vector<CSPerson> computerScientistlist, vector<Computer> computerList);
 
     ~ShowList();
 

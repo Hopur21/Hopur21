@@ -143,7 +143,7 @@ int DbCon::addComputerScientist(const CSPerson value)
     QVariant returnID = query.lastInsertId();
     return returnID.toInt();
 }
-int DbCon::addComputer(const Computer value)
+int DbCon::addComputer(Computer value)
 {
     QSqlQuery query;
     query.prepare("INSERT INTO computers(name, design_year, build_year, is_created, type_ID) VALUES (:name, :designYear, :buildYear, :isCreated, :type)");

@@ -27,7 +27,6 @@ public:
 
     void fall();
 
-
 private slots:
 
     void on_action_Add_Computer_Scientist_triggered();
@@ -50,7 +49,7 @@ private slots:
 private:
     Service _service;
     ShowList _showList;
-    //ShowTrash _showTrash;
+    ShowTrash _showTrash;
     Ui::MainWindow *ui;
 };
 

@@ -1,15 +1,15 @@
 #ifndef COMPUTER_H
 #define COMPUTER_H
-
+#include "models/computertype.h"
 #include <string>
+
 using namespace std;
 
 class Computer
 {
     private:
+        ComputerType _myType;
         string _name;
-        string _type;
-        string _typeID;
         bool _isCreated;
         int _id;
         int _designYear;
@@ -17,12 +17,12 @@ class Computer
 
     public:
         Computer(){}
-        Computer(const int id, const string name,const int designYear,const int buildYear,const string type, const string typeID,const bool created);
+        Computer(const int id, const string name,const int designYear,const int buildYear,string typeName, string typeID,const bool created);
 
         // Gets
         string getName()const {return _name;}
-        string getType()const {return _type;}
-        string getTypeID() const {return _typeID;}
+        string getType() {return _myType.getName();}
+        string getTypeID() {return to_string(_myType.getID());}
         int getDesignYear()const {return _designYear;}
         int getBuildYear()const {return _buildYear;}
         int getID()const {return _id;}
@@ -31,8 +31,7 @@ class Computer
         void setName(const string name){_name = name;}
         void setDesignYear(const int designYear){_designYear = designYear;}
         void setBuildYear(const int buildYear){_buildYear = buildYear;}
-        void setTypeID(const string typeID){_typeID = typeID;}
-        void setType(const string type){_type = type;}
+        void setType(string typeName, int typeID){_myType.setTypeValues(typeName, typeID);}
         void setCreated(const bool isCreated){_isCreated = isCreated;}
         void setID(const int ID) {_id = ID;}
 };

@@ -46,7 +46,7 @@ public:
     void searchScientist(vector<CSPerson>& scientist, const string searchFor);
     void searchComputer(vector<Computer>& computer, const string searchFor);
     //Insert
-    bool addComputerType(const string computerName);
+    bool addComputerType(string computerName);
     bool addCStoComputer(const int cSID,const int compID);
     int addComputerScientist(const CSPerson value);
     int addComputer(const Computer value);

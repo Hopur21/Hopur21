@@ -29,12 +29,22 @@ bool Service::addNewPersonToList(const vector<int> computerConnectionID,const st
 }
 bool Service::addNewComputerToList(const vector<int> scientistConnectionID, const string name, const int designYear, const int buildYear, const string typeRealID, const bool created)
 {
+    int typeID = 0;
+    try
+    {
+        typeID = stoi(typeRealID);
+    }
+    catch(int e)
+    {
+        return false;//We didnt make it.
+    }
+
     Computer newComputer;
     int newComputerID = 0;
     newComputer.setName(name);
     newComputer.setDesignYear(designYear);
     newComputer.setBuildYear(buildYear);
-    newComputer.setTypeID(typeRealID);
+    newComputer.setType("", typeID);
     newComputer.setCreated(created);
     newComputerID = _dbCon.addComputer(newComputer);
     //Assign computer to computer scientists
@@ -126,6 +136,7 @@ bool Service::addComputerType(const string typeName)
     return _dbCon.addComputerType(typeName);
 }
 
+/*
 //Computer scientist Sorts
 void Service::sortScientistListAlphabetically()
 {
@@ -191,6 +202,7 @@ void Service::sortComputerListWasBuilt()
 {
     _computerService.sortWasBuilt(_computerList);
 }
+*/
 vector<CSPerson> Service::searchComputerScientist(const string searchString)
 {
     vector <CSPerson> searchCS;

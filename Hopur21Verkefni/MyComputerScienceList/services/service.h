@@ -46,6 +46,7 @@ class Service
         //Search
         vector<CSPerson> searchComputerScientist(const string searchString);
         vector<Computer> searchComputer(const string searchString);
+        /*
         //Scientist Sorts
         void sortScientistListAlphabetically();
         void sortScientistListAlphabeticallyDESC();
@@ -61,6 +62,7 @@ class Service
         void sortComputerListByDesignYear();
         void sortComputerListByType();
         void sortComputerListWasBuilt();
+        */
 
 };
 
