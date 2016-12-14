@@ -15,11 +15,10 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
 void MainWindow::fall()
 {
     // Display scientists
-    vector<CSPerson> compScientists = _service.getComputerScientistList();
+    //vector<CSPerson> compScientists = _service.getComputerScientistList();
 
     /*
     ui->table_computerScientist->setRowCount(compScientists.size());
