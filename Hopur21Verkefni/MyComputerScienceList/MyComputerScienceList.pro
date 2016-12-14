@@ -17,7 +17,6 @@ TEMPLATE = app
 SOURCES += main.cpp\
     models/csperson.cpp \
     models/computer.cpp \
-    repositories/datalayer.cpp \
     repositories/dbcon.cpp \
     services/cspersonservice.cpp \
     services/service.cpp \
@@ -32,7 +31,6 @@ SOURCES += main.cpp\
 HEADERS  += models/csperson.h \
     models/computer.h \
     utilities/constants.h \
-    repositories/datalayer.h \
     repositories/dbcon.h \
     services/cspersonservice.h \
     services/service.h \
