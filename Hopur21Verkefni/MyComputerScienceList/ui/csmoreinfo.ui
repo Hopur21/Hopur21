@@ -39,6 +39,19 @@
     <string>TextLabel</string>
    </property>
   </widget>
+  <widget class="QLabel" name="showPicLabel">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>90</y>
+     <width>111</width>
+     <height>161</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
