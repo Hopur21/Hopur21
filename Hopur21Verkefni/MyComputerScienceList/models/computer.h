@@ -40,6 +40,7 @@ class Computer
         void setCreated(const bool isCreated){_isCreated = isCreated;}
         void setID(const int ID) {_id = ID;}
         void setImageInfo(int imageID,QByteArray imageByteArray, string imageName);
+        void setImage(const Image& newImage){_myImage = newImage;}
 };
 
 #endif // COMPUTER_H

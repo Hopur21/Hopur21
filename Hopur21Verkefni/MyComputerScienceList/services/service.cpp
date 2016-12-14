@@ -5,8 +5,17 @@ Service::Service()
     updateAllLists();
 }
 
-bool Service::addNewPersonToList(const vector<int> computerConnectionID,const string name,const string gender, const string birthYear, const string deathYear,const string comment)
+bool Service::addNewPersonToList(const vector<int> computerConnectionID,const string name,const string gender, const string birthYear, const string deathYear,const string comment, string imageName, QByteArray image)
 {
+    Image newImage;
+    int newImageID;
+
+    if(image != NULL)//If picture is inserted
+    {
+        newImageID =_dbCon.addPicture(imageName,image);
+        newImage.setImageValues(image,imageName,newImageID);
+    }
+
     CSPerson newPerson;
     int newPersonID;
     newPerson.setName(name);
@@ -19,6 +28,7 @@ bool Service::addNewPersonToList(const vector<int> computerConnectionID,const st
         newPerson.setIsAlive(true);
     }
     newPerson.setComment(comment);
+    newPerson.setImage(newImage);
     newPersonID = _dbCon.addComputerScientist(newPerson);
     for(unsigned int i = 0; i < computerConnectionID.size(); i++)
     {
@@ -27,7 +37,7 @@ bool Service::addNewPersonToList(const vector<int> computerConnectionID,const st
     updateComputerScientistList();
     return true;
 }
-bool Service::addNewComputerToList(const vector<int> scientistConnectionID, const string name, const int designYear, const int buildYear, const string typeRealID, const bool created)
+bool Service::addNewComputerToList(const vector<int> scientistConnectionID, const string name, const int designYear, const int buildYear, const string typeRealID, const bool created, string imageName, QByteArray image)
 {
     int typeID = 0;
     try
@@ -38,6 +48,14 @@ bool Service::addNewComputerToList(const vector<int> scientistConnectionID, cons
     {
         return false;//We didnt make it.
     }
+    Image newImage;
+    int newImageID;
+
+    if(image != NULL)//If picture is inserted
+    {
+        newImageID =_dbCon.addPicture(imageName,image);
+        newImage.setImageValues(image,imageName,newImageID);
+    }
 
     Computer newComputer;
     int newComputerID = 0;
@@ -46,6 +64,7 @@ bool Service::addNewComputerToList(const vector<int> scientistConnectionID, cons
     newComputer.setBuildYear(buildYear);
     newComputer.setType("", typeID);
     newComputer.setCreated(created);
+    newComputer.setImage(newImage);
     newComputerID = _dbCon.addComputer(newComputer);
     //Assign computer to computer scientists
     for(unsigned int i = 0; i < scientistConnectionID.size(); i++)

@@ -127,17 +127,28 @@ bool DbCon::addCStoComputer(const int cSID,const int compID)
     }
     return success;
 }
-
-int DbCon::addComputerScientist(const CSPerson value)
+int DbCon::addPicture(const string imageName, const QByteArray image)
 {
     QSqlQuery query;
-    query.prepare("INSERT INTO computer_scientists(name, birth_year, death_year, is_alive, gender, comment) VALUES (:name, :birthYear, :deathYear, :isAlive, :gender, :comment)");
+    query.prepare("INSERT INTO img_table(file_name, img_data) VALUES (:file_name, :img_data)");
+    query.bindValue(":file_name", QString::fromStdString(imageName));
+    query.bindValue(":img_data",image);
+    query.exec();
+    QVariant returnID = query.lastInsertId();
+    return returnID.toInt();
+}
+
+int DbCon::addComputerScientist(CSPerson value)
+{
+    QSqlQuery query;
+    query.prepare("INSERT INTO computer_scientists(name, birth_year, death_year, is_alive, gender, comment) VALUES (:name, :birthYear, :deathYear, :isAlive, :gender, :comment, :img_ID))");
     query.bindValue(":name", QString::fromStdString(value.getName()));
     query.bindValue(":birthYear", getDateFormat(to_string(value.getBirthYear())));
     query.bindValue(":deathYear", getDateFormat(to_string(value.getPassedAwayYear())));
     query.bindValue(":isAlive", value.getIsAlive());
     query.bindValue(":gender", QString::fromStdString(value.getGender()));
     query.bindValue(":comment", QString::fromStdString(value.getComments()));
+    query.bindValue(":img_ID", value.getImageID());
     query.exec();
     //if(!success){qDebug() << "addComputerScientist error:  " << query.lastError();}
     QVariant returnID = query.lastInsertId();
@@ -146,11 +157,12 @@ int DbCon::addComputerScientist(const CSPerson value)
 int DbCon::addComputer(Computer value)
 {
     QSqlQuery query;
-    query.prepare("INSERT INTO computers(name, design_year, build_year, is_created, type_ID) VALUES (:name, :designYear, :buildYear, :isCreated, :type)");
+    query.prepare("INSERT INTO computers(name, design_year, build_year, is_created, type_ID, img_ID) VALUES (:name, :designYear, :buildYear, :isCreated, :type, :img_ID)");
     query.bindValue(":name", QString::fromStdString(value.getName()));
     query.bindValue(":designYear", getDateFormat(to_string(value.getDesignYear())));
     query.bindValue(":buildYear", getDateFormat(to_string(value.getBuildYear())));
     query.bindValue(":isCreated", value.getIsCreated());
+    query.bindValue(":img_ID", value.getImageID());
     query.bindValue(":type", QString::fromStdString(value.getTypeID()));
     query.exec();
     //if(!success){qDebug() << "addComputer error:  " << query.lastError();}
