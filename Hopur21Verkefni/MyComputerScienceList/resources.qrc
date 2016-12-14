@@ -18,5 +18,6 @@
         <file>images/icon_search2.png</file>
         <file>images/image_computer.png</file>
         <file>images/image_person.png</file>
+        <file>images/icon_search.png</file>
     </qresource>
 </RCC>
