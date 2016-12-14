@@ -26,7 +26,9 @@ SOURCES += main.cpp\
     ui/addcomputerscientist.cpp \
     ui/addtype.cpp \
     ui/showlist.cpp \
-    ui/showtrash.cpp
+    ui/showtrash.cpp \
+    models/image.cpp \
+    models/computertype.cpp
 
 HEADERS  += models/csperson.h \
     models/computer.h \
@@ -40,7 +42,9 @@ HEADERS  += models/csperson.h \
     ui/addcomputerscientist.h \
     ui/addtype.h \
     ui/showlist.h \
-    ui/showtrash.h
+    ui/showtrash.h \
+    models/image.h \
+    models/computertype.h
 
 FORMS    += ui/mainwindow.ui \
     ui/addcomputer.ui \

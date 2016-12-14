@@ -3,6 +3,7 @@
 #include<string>
 #include <ctime>
 #include "utilities/constants.h"
+#include "models/image.h"
 
 using namespace std;
 
@@ -16,6 +17,7 @@ class CSPerson
         int _id;
         int _birthYear;
         int _passedAwayYear;
+        Image _myImage;
         int getCurrentYear();
 
     public:
