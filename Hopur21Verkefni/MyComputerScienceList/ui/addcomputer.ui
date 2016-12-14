@@ -28,9 +28,9 @@
   <widget class="QLineEdit" name="lineEdit_designYear">
    <property name="geometry">
     <rect>
-     <x>310</x>
+     <x>300</x>
      <y>110</y>
-     <width>91</width>
+     <width>101</width>
      <height>20</height>
     </rect>
    </property>
@@ -49,9 +49,9 @@
   <widget class="QLineEdit" name="lineEdit_nameComputer">
    <property name="geometry">
     <rect>
-     <x>288</x>
+     <x>260</x>
      <y>80</y>
-     <width>113</width>
+     <width>141</width>
      <height>20</height>
     </rect>
    </property>
@@ -67,7 +67,7 @@
   <widget class="QLabel" name="label_wasComputerBuilt">
    <property name="geometry">
     <rect>
-     <x>230</x>
+     <x>220</x>
      <y>140</y>
      <width>121</width>
      <height>20</height>
@@ -104,9 +104,9 @@
    <property name="geometry">
     <rect>
      <x>220</x>
-     <y>280</y>
+     <y>270</y>
      <width>181</width>
-     <height>71</height>
+     <height>61</height>
     </rect>
    </property>
    <property name="font">
@@ -133,14 +133,24 @@
     </font>
    </property>
    <property name="text">
-    <string>Image</string>
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/icons/icons/image_computer2.png</normaloff>:/icons/icons/image_computer2.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>100</width>
+     <height>150</height>
+    </size>
    </property>
   </widget>
   <widget class="QLabel" name="label_commentsComputer">
    <property name="geometry">
     <rect>
      <x>218</x>
-     <y>260</y>
+     <y>250</y>
      <width>121</width>
      <height>20</height>
     </rect>
@@ -175,7 +185,7 @@
   <widget class="QLabel" name="label_designYear">
    <property name="geometry">
     <rect>
-     <x>230</x>
+     <x>220</x>
      <y>110</y>
      <width>71</width>
      <height>20</height>
@@ -194,7 +204,7 @@
    <property name="geometry">
     <rect>
      <x>78</x>
-     <y>330</y>
+     <y>340</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -227,7 +237,7 @@
   <widget class="QLabel" name="label_buildYear">
    <property name="geometry">
     <rect>
-     <x>230</x>
+     <x>220</x>
      <y>170</y>
      <width>81</width>
      <height>20</height>
@@ -245,7 +255,7 @@
   <widget class="QLabel" name="label_nameComputer">
    <property name="geometry">
     <rect>
-     <x>230</x>
+     <x>220</x>
      <y>80</y>
      <width>41</width>
      <height>16</height>
@@ -264,7 +274,7 @@
    <property name="geometry">
     <rect>
      <x>608</x>
-     <y>330</y>
+     <y>340</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -284,7 +294,7 @@
      <x>428</x>
      <y>100</y>
      <width>256</width>
-     <height>221</height>
+     <height>231</height>
     </rect>
    </property>
    <property name="font">
@@ -292,6 +302,9 @@
      <family>Calibri</family>
     </font>
    </property>
+   <attribute name="horizontalHeaderDefaultSectionSize">
+    <number>127</number>
+   </attribute>
    <column>
     <property name="text">
      <string>Scientist name</string>
@@ -309,9 +322,9 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>310</x>
+     <x>300</x>
      <y>170</y>
-     <width>91</width>
+     <width>101</width>
      <height>20</height>
     </rect>
    </property>
@@ -328,7 +341,7 @@
    <property name="geometry">
     <rect>
      <x>220</x>
-     <y>230</y>
+     <y>220</y>
      <width>181</width>
      <height>21</height>
     </rect>
@@ -348,7 +361,7 @@
    <property name="geometry">
     <rect>
      <x>220</x>
-     <y>210</y>
+     <y>200</y>
      <width>81</width>
      <height>20</height>
     </rect>

@@ -27,6 +27,7 @@ public:
 
     void fall();
 
+
 private slots:
 
     void on_button_quitProgram_clicked();
