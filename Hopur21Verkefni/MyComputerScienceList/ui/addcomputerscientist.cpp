@@ -26,9 +26,14 @@ AddComputerScientist::~AddComputerScientist()
 
 void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
 {
-    // While loop conditions
-    bool exitLoop;
-    bool validInput;
+    // If validation fails these are used
+    bool nameFail = false;
+    bool genderFail = false;
+    bool birthYearFail = false;
+    bool deathYearFail = false;
+
+    // If validation fails this is set as false
+    bool canCreatePerson = true;
 
     // Gender options
     bool male = false;
@@ -36,45 +41,73 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
     bool other = false;
 
     QString name = "";
+    QString comment = "";
+    QString birthYear = "";
+    QString deathYear = "";
+    QString gender = "";
+
     // isAlive is connected to the checkbox
     bool isAlive;
-    QString gender;
-    QString comment;
-    QString birthYear;
-    QString deathYear;
 
 
     // Taka inn mynd
 
-
-    bool canCreatePerson = true;
-
-
     name = ui->lineEdit_Addscientist_name->text();
-    qDebug() << name;
     birthYear = ui->lineEdit_Addscientist_yearofbirth->text();
-    qDebug() << birthYear;
+    comment = ui->lineEdit_Addscientist_comment->text();
     isAlive = ui->checkBox_Addscientist_isPersonAlive->isChecked();
-    if(isAlive)
+
+    if(isAlive == true)
     {
         qDebug() << "This person is still alive";
     }
     else if(isAlive == false)
     {
-        deathYear = ui->lineEdit_Addscientist_deathYear->selectedText();
-        qDebug() << "This person died in the year" << deathYear;
+        deathYear = ui->lineEdit_Addscientist_deathYear->text();
     }
 
-    // If name or birthYear are empty strings
+    if(ui->radioButton_Addscientist_male->isChecked())
+    {
+        gender = "Male";
+        qDebug() << "Gender selected Male";
+    }
+    if(ui->radioButton_Addscientist_female->isChecked())
+    {
+        gender = "Female";
+        qDebug() << "Gender selected Female";
+    }
+    if(ui->radioButton_Addscientist_otherGender->isChecked())
+    {
+        gender = "Other";
+        qDebug() << "Gender selected Other";
+    }
+
+    // Validations
+
     if(name == "" || birthYear == "")
     {
         canCreatePerson = false;
+        nameFail = true;
+    }
+
+    if(birthYear == "")
+    {
+        canCreatePerson = false;
+        birthYearFail = true;
     }
 
     if(isAlive == false && deathYear == "")
     {
         canCreatePerson = false;
+        deathYearFail = true;
     }
+
+    if(gender == "")
+    {
+        canCreatePerson = false;
+        genderFail = true;
+    }
+
 
     // 1 denotes success 0 denotes failure
     if(canCreatePerson == true)
