@@ -114,8 +114,12 @@ void MainWindow::on_action_toolbar_Show_List_triggered()
 void MainWindow::on_action_toolbar_Trash_triggered()
 {
     _showTrash.setModal(true);
-    vector<CSPerson> compScientists = _service.getComputerScientistList();
-    _showTrash.setComputerScientistTrashList(compScientists);
+    //Takes in vector of computer scientists in trash
+    vector<CSPerson> compScientists = _service.getComputerScientistTrash();
+    //Takes in vector of computers in trash
+    vector<Computer> computerTrashList = _service.getComputerTrash();
+    //Takes vectors and sets them into setTrashList function in ShowTrash class
+    _showTrash.setTrashList(compScientists, computerTrashList);
     _showTrash.exec();
 
 }
