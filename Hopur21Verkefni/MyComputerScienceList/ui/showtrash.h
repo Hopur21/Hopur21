@@ -18,6 +18,7 @@ class ShowTrash : public QDialog
 public:
     explicit ShowTrash(QWidget *parent = 0);
     void listTrashCan();
+    void setComputerScientistTrashList(vector<CSPerson> compScientist);
 
     ~ShowTrash();
 
