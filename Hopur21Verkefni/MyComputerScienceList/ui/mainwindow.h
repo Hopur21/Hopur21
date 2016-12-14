@@ -46,8 +46,6 @@ private slots:
 
     void on_action_toolbar_Trash_triggered();
 
-    void on_actionExit_triggered();
-
 
 private:
     Service _service;
