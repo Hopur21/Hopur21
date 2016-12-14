@@ -10,7 +10,7 @@ bool Service::addNewPersonToList(const vector<int> computerConnectionID,const st
     Image newImage;
     int newImageID;
 
-    if(image != NULL)//If picture is inserted
+    if(!image.isEmpty())//If picture is inserted
     {
         newImageID =_dbCon.addPicture(imageName,image);
         newImage.setImageValues(image,imageName,newImageID);
@@ -51,7 +51,7 @@ bool Service::addNewComputerToList(const vector<int> scientistConnectionID, cons
     Image newImage;
     int newImageID;
 
-    if(image != NULL)//If picture is inserted
+    if(!image.isEmpty())//If picture is inserted
     {
         newImageID =_dbCon.addPicture(imageName,image);
         newImage.setImageValues(image,imageName,newImageID);

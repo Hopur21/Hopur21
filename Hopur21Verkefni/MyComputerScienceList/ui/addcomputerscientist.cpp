@@ -30,7 +30,6 @@ void AddComputerScientist::setComputersList(vector<Computer> allComputers)
     ui->tableWidget_Addscientist_selectComputerForScientist->setColumnCount(3);
     for(size_t i = 0; i < allComputers.size(); i++)
     {
-
         ui->tableWidget_Addscientist_selectComputerForScientist->setItem(i, 0, new QTableWidgetItem(QString::fromStdString(allComputers[i].getName())));
         ui->tableWidget_Addscientist_selectComputerForScientist->setItem(i, 1, new QTableWidgetItem(QString::fromStdString(allComputers[i].getType())));
         ui->tableWidget_Addscientist_selectComputerForScientist->setItem(i, 2, new QTableWidgetItem(QString::number(allComputers[i].getID())));
