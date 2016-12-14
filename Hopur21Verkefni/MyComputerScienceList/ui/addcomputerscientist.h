@@ -18,12 +18,18 @@ public:
     explicit AddComputerScientist(QWidget *parent = 0);
     ~AddComputerScientist();
 
+    QString validateUserInput(bool nameFail, bool genderFail, bool birthYearFail, bool deathYearFail);
 private slots:
     void on_pushButton_Addscientist_save_clicked();
+
+
+
+    void on_checkBox_Addscientist_isPersonAlive_toggled(bool checked);
 
 private:
     Ui::AddComputerScientist *ui;
     CSPerson _newPerson;
+    QIntValidator *yearValidator;
     CSPerson getPerson() { return _newPerson;}
 };
 
