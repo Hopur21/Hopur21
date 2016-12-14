@@ -56,7 +56,7 @@ void ShowTrash::listTrashCan()
         ui->table_trashComputerScientist->setItem(i, 2, new QTableWidgetItem(QString::number(compScientistsTrash[i].getBirthYear())));
         ui->table_trashComputerScientist->setItem(i, 3, new QTableWidgetItem(QString::number(compScientistsTrash[i].getPassedAwayYear())));
     }
-    /*
+
     // Display computersTrash
     vector<Computer> computerList = _service.getComputerList();
     ui->table_computer->setRowCount(computerList.size());
