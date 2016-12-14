@@ -38,12 +38,12 @@ bool DbCon::makeConnection()
 //Other functions
 void DbCon::setDataInPersonVector(vector<CSPerson>& computerScientists, const int id, const string name, const string gender, const int birthYear, const int passedAwayYear, const string comment, const bool isAlive, const int imageID, const string imageName, const QByteArray imageByteArray)
 {
-    CSPerson scientist(id,name,gender,birthYear,passedAwayYear,comment, isAlive,imageID, imageByteArray, imageName);
+    CSPerson scientist(id,name,gender,birthYear,passedAwayYear,comment, isAlive, imageID, imageByteArray, imageName);
     computerScientists.push_back(scientist);
 }
-void DbCon::setDataInComputerVector(vector<Computer>& computers, const int id, const string name, const int designYear, const int buildYear, const string type,const string typeID, const bool isCreated)
+void DbCon::setDataInComputerVector(vector<Computer>& computers, const int id, const string name, const int designYear, const int buildYear, const string type,const string typeID, const bool isCreated, const int imageID, const string imageName, const QByteArray imageByteArray)
 {
-    Computer computer(id, name, designYear, buildYear, type, typeID, isCreated);
+    Computer computer(id, name, designYear, buildYear, type, typeID, isCreated, imageID, imageByteArray, imageName);
     computers.push_back(computer);
 }
 void DbCon::setDataInTypeVector(vector<string>& computerTypes, const string name)
@@ -197,7 +197,7 @@ vector<Computer> DbCon::getComputersConnectedToCS(const int scientistID)
     bool success = false;
     compuerList.clear();
     QSqlQuery query;
-    query.prepare("SELECT c.ID, c.name, YEAR(c.design_year) AS design_year, YEAR(c.build_year) AS build_year, c.type_ID,(SELECT name FROM type WHERE ID = type_ID) AS type, c.is_created FROM computer_scientists_computers csc JOIN computers c ON (csc.computer_ID=c.ID) WHERE csc.computer_scientist_ID = (:scientistID);");
+    query.prepare("SELECT c.ID, c.name, YEAR(c.design_year) AS design_year, YEAR(c.build_year) AS build_year, c.type_ID,(SELECT name FROM type WHERE ID = type_ID) AS type, c.is_created, c.img_ID, im.file_name AS image_name, im.img_data FROM computer_scientists_computers csc JOIN computers c ON (csc.computer_ID=c.ID) LEFT JOIN img_table im ON(c.img_ID=im.ID) WHERE csc.computer_scientist_ID =(:scientistID);");
     query.bindValue(":scientistID", scientistID);
     query.exec();
     while (query.next())
@@ -252,7 +252,7 @@ void DbCon::getComputers(vector<Computer>& computers)
 {
     computers.clear();
     bool success = false;
-       QSqlQuery query("SELECT ID, name, YEAR(design_year) AS design_year, YEAR(build_year) AS build_year, is_created, (SELECT name FROM type WHERE ID = type_ID) AS type, type_ID FROM computers WHERE removed = 0 ORDER BY name;");
+       QSqlQuery query("SELECT c.ID, c.name, YEAR(c.design_year) AS design_year, YEAR(c.build_year) AS build_year, c.is_created, (SELECT name FROM type WHERE ID = c.type_ID) AS type, c.type_ID , c.img_ID, im.file_name AS image_name, im.img_data  FROM computers cLEFT JOIN img_table im ON(c.img_ID=im.ID) WHERE removed = 0 ORDER BY name;");
        //int idName = query.record().indexOf("name");
        while (query.next())
        {
@@ -300,7 +300,7 @@ vector<Computer> DbCon::getComputerTrashCan()
 {
     vector<Computer> computerTrashCan;
     bool success = false;
-    QSqlQuery query("SELECT ID, name, YEAR(design_year) AS design_year, YEAR(build_year) AS build_year, is_created, (SELECT name FROM type WHERE ID = type_ID) AS type, type_ID FROM computers WHERE removed = 1 ORDER BY name;");
+    QSqlQuery query("SELECT c.ID, c.name, YEAR(c.design_year) AS design_year, YEAR(c.build_year) AS build_year, c.is_created, (SELECT name FROM type WHERE ID = c.type_ID) AS type, c.type_ID , c.img_ID, im.file_name AS image_name, im.img_data  FROM computers cLEFT JOIN img_table im ON(c.img_ID=im.ID) WHERE removed = 1 ORDER BY name;");
     while (query.next())
     {
         if(success == false)
@@ -352,7 +352,7 @@ void DbCon::searchComputer(vector<Computer>& computer, const string searchFor)
     computer.clear();
     bool success = false;
     QSqlQuery query;
-    query.prepare("SELECT c.ID, c.name, YEAR(c.design_year) AS design_year, YEAR(c.build_year) AS build_year, c.is_created, t.name AS type, c.type_ID FROM computers c JOIN type t ON(t.ID=c.type_ID) WHERE (c.name LIKE '%' :searchFor '%' OR c.design_year LIKE '%' :searchFor '%' OR c.build_year LIKE '%' :searchFor '%' OR t.name LIKE '%' :searchFor '%') AND c.removed = 0 ORDER BY name");
+    query.prepare("SELECT c.ID, c.name, YEAR(c.design_year) AS design_year, YEAR(c.build_year) AS build_year, c.is_created, t.name AS type, c.type_ID , c.img_ID, im.file_name AS image_name, im.img_data FROM computers c JOIN type t ON(t.ID=c.type_ID) LEFT JOIN img_table im ON(c.img_ID=im.ID)WHERE (c.name LIKE '%' :searchFor '%' OR c.design_year LIKE '%' :searchFor '%' OR c.build_year LIKE '%' :searchFor '%' OR t.name LIKE '%' :searchFor '%') AND c.removed = 0 ORDER BY name");
     query.bindValue(":searchFor", QString::fromStdString(searchFor));
     query.exec();
     while (query.next())
@@ -391,5 +391,8 @@ void DbCon::runSelectForComputers(QSqlQuery& query, vector<Computer>& computers)
    QString type = query.value(query.record().indexOf("type")).toString();
    QString typeID = query.value(query.record().indexOf("type_ID")).toString();
    QString isCreated = query.value(query.record().indexOf("is_created")).toString();
-   setDataInComputerVector(computers, id.toInt(), name.toStdString(), designYear.toInt(), buildYear.toInt(), type.toStdString(),typeID.toStdString(), isCreated.toInt());
+   QString imageID = query.value(query.record().indexOf("img_ID")).toString();
+   QString imageName = query.value(query.record().indexOf("image_name")).toString();
+   QByteArray  imageData = query.value(query.record().indexOf("img_data")).toByteArray();
+   setDataInComputerVector(computers, id.toInt(), name.toStdString(), designYear.toInt(), buildYear.toInt(), type.toStdString(),typeID.toStdString(), isCreated.toInt(), imageID.toInt(), imageName.toStdString(),imageData);
 }

@@ -19,8 +19,7 @@ class Computer
 
     public:
         Computer(){}
-        //Computer(const int id, const string name,const int designYear,const int buildYear,string typeName, string typeID,const bool created,int imageID = -1, QByteArray imageByteArray = NULL, string imageName = "");
-        Computer(const int id, const string name,const int designYear,const int buildYear,string typeName, string typeID,const bool created);
+        Computer(const int id, const string name,const int designYear,const int buildYear,string typeName, string typeID,const bool created, const int imageID = -1,const QByteArray imageByteArray = NULL, string imageName = "");
 
         // Gets
         string getName()const {return _name;}
@@ -30,6 +29,9 @@ class Computer
         int getBuildYear()const {return _buildYear;}
         int getID()const {return _id;}
         bool getIsCreated()const {return _isCreated;}
+        QByteArray getImage(){return _myImage.getImageByteArray();}
+        string getImageName(){return _myImage.getName();}
+        int getImageID(){return _myImage.getID();}
         //Sets
         void setName(const string name){_name = name;}
         void setDesignYear(const int designYear){_designYear = designYear;}
@@ -37,6 +39,7 @@ class Computer
         void setType(string typeName, int typeID){_myType.setTypeValues(typeName, typeID);}
         void setCreated(const bool isCreated){_isCreated = isCreated;}
         void setID(const int ID) {_id = ID;}
+        void setImageInfo(int imageID,QByteArray imageByteArray, string imageName);
 };
 
 #endif // COMPUTER_H
