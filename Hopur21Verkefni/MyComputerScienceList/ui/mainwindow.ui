@@ -33,33 +33,6 @@
    <string notr="true">background-color: rgb(255, 255, 255);</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="button_quitProgram">
-    <property name="geometry">
-     <rect>
-      <x>690</x>
-      <y>280</y>
-      <width>71</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="accessibleName">
-     <string/>
-    </property>
-    <property name="layoutDirection">
-     <enum>Qt::LeftToRight</enum>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 8pt &quot;Calibri&quot;;
-background-color: rgb(241, 241, 242);
-</string>
-    </property>
-    <property name="text">
-     <string>Quit</string>
-    </property>
-    <property name="flat">
-     <bool>false</bool>
-    </property>
-   </widget>
    <widget class="QWidget" name="widget" native="true">
     <property name="geometry">
      <rect>
@@ -89,79 +62,6 @@ background-color: rgb(241, 241, 242);
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_add">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>280</y>
-      <width>61</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(241, 241, 242);
-font: 8pt &quot;Calibri&quot;;
-</string>
-    </property>
-    <property name="text">
-     <string>Add</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_home">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>280</y>
-      <width>61</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(241, 241, 242);
-border-color: rgb(221, 221, 222);
-font: 8pt &quot;Calibri&quot;;
-</string>
-    </property>
-    <property name="text">
-     <string>Home</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_show_list">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>280</y>
-      <width>61</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(241, 241, 242);
-font: 8pt &quot;Calibri&quot;;
-</string>
-    </property>
-    <property name="text">
-     <string>Show list</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_trash">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>280</y>
-      <width>61</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(241, 241, 242);
-font: 8pt &quot;Calibri&quot;;
-</string>
-    </property>
-    <property name="text">
-     <string>Trash</string>
-    </property>
-   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -180,7 +80,9 @@ font: 8pt &quot;Calibri&quot;;
     <addaction name="action_toolbar_Show_List"/>
     <addaction name="actionAdd_Computer_Scientist"/>
     <addaction name="action_toolbar_Add_Computer_"/>
+    <addaction name="separator"/>
     <addaction name="action_toolbar_Trash"/>
+    <addaction name="actionExit"/>
    </widget>
    <addaction name="menuHallo"/>
   </widget>
@@ -256,6 +158,11 @@ font: 8pt &quot;Calibri&quot;;
    </property>
    <property name="toolTip">
     <string>Add Computer Scientist</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
    </property>
   </action>
  </widget>
