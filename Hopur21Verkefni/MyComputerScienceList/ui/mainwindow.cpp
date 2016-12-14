@@ -60,3 +60,21 @@ void MainWindow::on_action_toolbar_Trash_triggered()
     _showTrash.exec();
 
 }
+
+void MainWindow::on_tempButton_clicked()
+{
+    QFile file("test.jpg");
+    if (file.open(QIODevice::ReadOnly))
+    {
+        qDebug() << "nadi að opna file";
+        QByteArray inByteArray = file.readAll();
+
+    }
+
+
+    vector<CSPerson> tempList;
+    tempList = _service.getComputerScientistList();
+    _csMoreInfo.setModal(true);
+    _csMoreInfo.setComputerScientist(tempList[0]);
+    _csMoreInfo.exec();
+}

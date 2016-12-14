@@ -20,8 +20,14 @@ public:
     void setTrashList(vector<CSPerson> compScientist, vector<Computer> computerTrashList);
     ~ShowTrash();
 
-private:
+private slots:
+    void on_lineEdit_searchScientistInTrashListView_textEdited(const QString &arg1);
 
+private:
+    vector<Computer> _computerList;
+    vector<CSPerson> _CSList;
+    void printComputerTrash();
+    void printComputerScientistTrash();
     Ui::ShowTrash *ui;
 };
 

@@ -8,6 +8,7 @@
 #include "ui/addtype.h"
 #include "ui/showlist.h"
 #include "ui/showtrash.h"
+#include "ui/csmoreinfo.h"
 
 #include <QTableWidget>
 
@@ -32,11 +33,14 @@ private slots:
     void on_action_toolbar_Trash_triggered();
 
 
+    void on_tempButton_clicked();
+
 private:
     Service _service;
     ShowList _showList;
     ShowTrash _showTrash;
     AddComputer _addComputer;
+    CSMoreInfo _csMoreInfo;
     Ui::MainWindow *ui;
 };
 

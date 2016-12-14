@@ -10,7 +10,7 @@ bool Service::addNewPersonToList(const vector<int> computerConnectionID,const st
     Image newImage;
     int newImageID;
 
-    if(image != NULL)//If picture is inserted
+    if(!image.isEmpty())//If picture is inserted
     {
         newImageID =_dbCon.addPicture(imageName,image);
         newImage.setImageValues(image,imageName,newImageID);
@@ -37,6 +37,19 @@ bool Service::addNewPersonToList(const vector<int> computerConnectionID,const st
     updateComputerScientistList();
     return true;
 }
+bool Service::onlyAddPicturetoDB(const string picName, QByteArray picture)
+{
+    try
+    {
+        _dbCon.addPicture(picName, picture);
+        return true;
+    }
+    catch(int e)
+    {
+        return false;
+    }
+}
+
 bool Service::addNewComputerToList(const vector<int> scientistConnectionID, const string name, const int designYear, const int buildYear, const string typeRealID, const bool created, string imageName, QByteArray image)
 {
     int typeID = 0;
@@ -51,7 +64,7 @@ bool Service::addNewComputerToList(const vector<int> scientistConnectionID, cons
     Image newImage;
     int newImageID;
 
-    if(image != NULL)//If picture is inserted
+    if(!image.isEmpty())//If picture is inserted
     {
         newImageID =_dbCon.addPicture(imageName,image);
         newImage.setImageValues(image,imageName,newImageID);

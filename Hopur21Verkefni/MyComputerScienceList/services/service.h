@@ -34,6 +34,7 @@ class Service
         void updateComputerList();
         void updateComputerScientistList();
         void updateComputerTypesList();
+        bool onlyAddPicturetoDB(const string picName, QByteArray picture);
 
         //Gets
         vector <string> getComputerTypesList(){return _computerTypes;}
