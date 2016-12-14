@@ -1,5 +1,7 @@
 #include "addcomputerscientist.h"
 #include "ui_addcomputerscientist.h"
+#include <QFileDialog>
+
 
 AddComputerScientist::AddComputerScientist(QWidget *parent) :
     QDialog(parent),
@@ -15,6 +17,8 @@ AddComputerScientist::AddComputerScientist(QWidget *parent) :
     // Validation for year of birth & year of death
     // the parameters are (lowest number, highest number)
     yearValidator = new QIntValidator(1,year);
+    // here the validation is set to both: yearofbirth and deathyear fields
+    // more info in extra features document
     ui->lineEdit_Addscientist_yearofbirth->setValidator(yearValidator);
     ui->lineEdit_Addscientist_deathYear->setValidator(yearValidator);
 
@@ -36,11 +40,6 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
 
     // If validation fails this is set as false
     bool canCreatePerson = true;
-
-    // Gender options
-    bool male = false;
-    bool female = false;
-    bool other = false;
 
     QString name = "";
     QString comment = "";
@@ -107,7 +106,7 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
         genderFail = true;
     }
 
-    // 1 denotes success 0 denotes failure
+    // If canCreatePerson is true, the person can be created
     if(canCreatePerson == true)
     {
         CSPerson createdPerson;
@@ -116,11 +115,11 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
     }
     else
     {
-        // Á eftir að klára!!!!!!
+        QString initial = "The following fields are missing: ";
         QString errorMessage = "";
         errorMessage = validateUserInput(nameFail, genderFail, birthYearFail, deathYearFail);
         ui->Add_Scientist_error_field->clear();
-        ui->Add_Scientist_error_field->setText("<span style = 'color : red'>" + errorMessage + "</span>");
+        ui->Add_Scientist_error_field->setText(initial + "<span style = 'color : red'>" + errorMessage + "</span>");
 
         //setResult(QDialog::Rejected);
     }
@@ -131,23 +130,23 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
 // This function creates the error string for: on_pushButton_Addscientist_save_clicked()
 QString AddComputerScientist::validateUserInput(bool nameFail, bool genderFail, bool birthYearFail, bool deathYearFail)
 {
-    QString errorString = "The following fields are missing: ";
+    QString errorString = "";
 
     if(nameFail == true)
     {
-        errorString += "-Name-";
+        errorString += "* Name *";
     }
     if(genderFail == true)
     {
-        errorString += "-Gender-";
+        errorString += "* Gender *";
     }
     if(birthYearFail == true)
     {
-        errorString += "-Year of birth-";
+        errorString += "* Year of birth *";
     }
     if(deathYearFail == true)
     {
-        errorString += "-Year of death";
+        errorString += "* Year of death *";
     }
     return errorString;
 }
@@ -166,4 +165,31 @@ void AddComputerScientist::on_checkBox_Addscientist_isPersonAlive_toggled(bool c
         ui->label_deathYear->setEnabled(constants::ENABLED);
         ui->lineEdit_Addscientist_deathYear->setEnabled(constants::ENABLED);
     }
+}
+
+void AddComputerScientist::on_pushButton_browse_clicked()
+{
+    /*QString filePath = QFileDialog::getOpenFileName(this, "Search for images", "", "Image files (*.png *.jpg)").toStdString();
+    if(filePath.length())
+    {
+        // Here user has selected a file
+        QPixmap pixmap(QString::fromStdString(filePath));
+        ui->AddScientist_pushButton_image->setPi
+
+
+
+
+    }*/
+
+
+
+
+}
+
+void AddComputerScientist::on_pushButton_Addscientist_clearFields_clicked()
+{
+    ui->lineEdit_Addscientist_name->clear();
+    ui->lineEdit_Addscientist_yearofbirth->clear();
+    ui->lineEdit_Addscientist_comment->clear();
+    ui->lineEdit_Addscientist_deathYear->clear();
 }
