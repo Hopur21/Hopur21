@@ -8,6 +8,13 @@
  */
 
 namespace constants {
+    //Consts for our Graphical user interface
+    const int TAB_HOME = 0;
+    const int TAB_SHOW_LIST = 1;
+    const int TAB_ADD_CS = 2;
+    const int TAB_ADD_COMPUTER = 3;
+    const int TAB_ADD_TYPE = 4;
+    const int TAB_SHOW_RECYCLE_BIN = 5;
 
     //Consts for our datalayer (Text datalayer)
     const char DELIMETER = ';';

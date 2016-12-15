@@ -398,11 +398,14 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
    <widget class="QTableWidget" name="tableWidget_Addscientist_selectComputerForScientist">
     <property name="geometry">
      <rect>
-      <x>460</x>
+      <x>440</x>
       <y>100</y>
-      <width>301</width>
+      <width>321</width>
       <height>192</height>
      </rect>
+    </property>
+    <property name="editTriggers">
+     <set>QAbstractItemView::NoEditTriggers</set>
     </property>
     <property name="selectionMode">
      <enum>QAbstractItemView::MultiSelection</enum>
@@ -410,6 +413,15 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
     <property name="selectionBehavior">
      <enum>QAbstractItemView::SelectRows</enum>
     </property>
+    <property name="sortingEnabled">
+     <bool>true</bool>
+    </property>
+    <attribute name="horizontalHeaderCascadingSectionResizes">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="verticalHeaderVisible">
+     <bool>false</bool>
+    </attribute>
     <column>
      <property name="text">
       <string>Name</string>
@@ -426,7 +438,7 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
      </property>
     </column>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>230</x>

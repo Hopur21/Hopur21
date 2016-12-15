@@ -1,6 +1,7 @@
 #include "addcomputerscientist.h"
 #include "ui_addcomputerscientist.h"
 #include <QFileDialog>
+#include <QLabel>
 
 
 AddComputerScientist::AddComputerScientist(QWidget *parent) :
@@ -30,10 +31,10 @@ void AddComputerScientist::setComputersList(vector<Computer> allComputers)
     ui->tableWidget_Addscientist_selectComputerForScientist->setColumnCount(3);
     for(size_t i = 0; i < allComputers.size(); i++)
     {
-
         ui->tableWidget_Addscientist_selectComputerForScientist->setItem(i, 0, new QTableWidgetItem(QString::fromStdString(allComputers[i].getName())));
         ui->tableWidget_Addscientist_selectComputerForScientist->setItem(i, 1, new QTableWidgetItem(QString::fromStdString(allComputers[i].getType())));
         ui->tableWidget_Addscientist_selectComputerForScientist->setItem(i, 2, new QTableWidgetItem(QString::number(allComputers[i].getID())));
+        ui->tableWidget_Addscientist_selectComputerForScientist->setColumnHidden(2,true);//Hide our ID column
     }
 }
 
@@ -45,6 +46,15 @@ AddComputerScientist::~AddComputerScientist()
 
 void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
 {
+
+    QItemSelectionModel *select = ui->tableWidget_Addscientist_selectComputerForScientist->selectionModel();
+    for(int i = 0; i < select->selectedRows(2).count(); i++)
+    {
+        qDebug() << "ID: "<< select->selectedRows(2).value(i).data().toString() << endl; //Print our ID in the console.
+    }
+
+
+
     // clear the error messages
     ui->Add_Scientist_error_field->clear();
     ui->label_addScientist_invalidDeathYear->clear();
@@ -132,14 +142,12 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
         genderFail = true;
     }
 
+    // This gives how many rows are in the table
+    int rows = ui->tableWidget_Addscientist_selectComputerForScientist->rowCount();
 
-    //int rows = ui->tableWidget_Addscientist_selectComputerForScientist->rowCount();
+    qDebug() << "ROWS->" << rows;
 
-
-
-
-
-
+    // Vector of ID´s yet to be retrieved
 
 
     // If canCreatePerson is true, the person can be created
@@ -164,8 +172,6 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
         }
         //setResult(QDialog::Rejected);
     }
-
-
 }
 
 // This function creates the error string for: on_pushButton_Addscientist_save_clicked()
@@ -211,21 +217,14 @@ void AddComputerScientist::on_checkBox_Addscientist_isPersonAlive_toggled(bool c
 
 void AddComputerScientist::on_pushButton_browse_clicked()
 {
-    /*QString filePath = QFileDialog::getOpenFileName(this, "Search for images", "", "Image files (*.png *.jpg)").toStdString();
+    string filePath = QFileDialog::getOpenFileName(this, "Search for images", "", "Image files (*.png *.jpg)").toStdString();
     if(filePath.length())
     {
-        // Here user has selected a file
+         //Here user has selected a file
         QPixmap pixmap(QString::fromStdString(filePath));
-        ui->AddScientist_pushButton_image->setPi
+        //ui->AddScientist_pushButton_image->setPixmap(pixmap);
 
-
-
-
-    }*/
-
-
-
-
+    }
 }
 
 void AddComputerScientist::on_pushButton_Addscientist_clearFields_clicked()
@@ -235,3 +234,6 @@ void AddComputerScientist::on_pushButton_Addscientist_clearFields_clicked()
     ui->lineEdit_Addscientist_comment->clear();
     ui->lineEdit_Addscientist_deathYear->clear();
 }
+
+
+
