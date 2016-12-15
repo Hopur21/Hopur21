@@ -20,6 +20,7 @@ public:
 private:
     CSPerson _myPerson;
     Ui::CSMoreInfo *ui;
+
 };
 
 #endif // CSMOREINFO_H
