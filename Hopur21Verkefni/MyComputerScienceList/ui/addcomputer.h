@@ -17,14 +17,20 @@ public:
     explicit AddComputer(QWidget *parent = 0);
     QString validateUserInput(bool nameFail, bool designYearFail, bool buildYearFail);
     ~AddComputer();
+    void clearFields();
 
 private slots:
-    void on_pushButton_saveComputer_clicked();
 
-    void on_checkBox_wasComputerBuilt_clicked(bool checked);
+    void on_pushButton_AddComputer_saveComputer_clicked();
+
+
+    void on_checkBox_AddComputer_wasComputerBuilt_toggled(bool checked);
+
+    void on_pushButton_AddComputer_clearFields_clicked();
 
 private:
     Ui::AddComputer *ui;
+    QIntValidator *yearValidator;
 };
 
 #endif // ADDCOMPUTER_H

@@ -25,7 +25,7 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLineEdit" name="lineEdit_designYear">
+  <widget class="QLineEdit" name="lineEdit_AddComputer_designYear">
    <property name="geometry">
     <rect>
      <x>300</x>
@@ -46,7 +46,7 @@
     <string>Enter year of design</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_nameComputer">
+  <widget class="QLineEdit" name="lineEdit_AddComputer_nameComputer">
    <property name="geometry">
     <rect>
      <x>260</x>
@@ -82,7 +82,7 @@
     <string>Was this computer built:</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_browseComputer">
+  <widget class="QPushButton" name="pushButton_AddComputer_browseComputer">
    <property name="geometry">
     <rect>
      <x>78</x>
@@ -182,12 +182,12 @@
     <string>Year of design:</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_clearFields">
+  <widget class="QPushButton" name="pushButton_AddComputer_clearFields">
    <property name="geometry">
     <rect>
-     <x>78</x>
+     <x>42</x>
      <y>280</y>
-     <width>75</width>
+     <width>111</width>
      <height>23</height>
     </rect>
    </property>
@@ -200,7 +200,7 @@
     <string>Clear Fields</string>
    </property>
   </widget>
-  <widget class="QCheckBox" name="checkBox_wasComputerBuilt">
+  <widget class="QCheckBox" name="checkBox_AddComputer_wasComputerBuilt">
    <property name="geometry">
     <rect>
      <x>388</x>
@@ -252,12 +252,12 @@
     <string>Name:</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_saveComputer">
+  <widget class="QPushButton" name="pushButton_AddComputer_saveComputer">
    <property name="geometry">
     <rect>
-     <x>608</x>
+     <x>650</x>
      <y>280</y>
-     <width>75</width>
+     <width>111</width>
      <height>23</height>
     </rect>
    </property>
@@ -270,7 +270,7 @@
     <string>Save</string>
    </property>
   </widget>
-  <widget class="QTableWidget" name="tableWidget_selectScientistForComputer">
+  <widget class="QTableWidget" name="tableWidget_AddComputer_selectScientistForComputer">
    <property name="geometry">
     <rect>
      <x>428</x>
@@ -308,7 +308,7 @@
     </property>
    </column>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_buildYear">
+  <widget class="QLineEdit" name="lineEdit_AddComputer_buildYear">
    <property name="enabled">
     <bool>true</bool>
    </property>
@@ -329,7 +329,7 @@
     <string>Enter year of build</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox_selectTypeOfComputer">
+  <widget class="QComboBox" name="comboBox_AddComputer_selectTypeOfComputer">
    <property name="geometry">
     <rect>
      <x>220</x>
@@ -409,7 +409,7 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QPlainTextEdit" name="plainTextEdit_commentsComputer">
+  <widget class="QPlainTextEdit" name="plainTextEdit_AddComputer_commentsComputer">
    <property name="geometry">
     <rect>
      <x>220</x>
@@ -417,6 +417,32 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
      <width>181</width>
      <height>61</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="AddComputer_ErrorMessage">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>290</y>
+     <width>461</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="AddComputer_InvalidBuildYear">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>150</y>
+     <width>111</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>
