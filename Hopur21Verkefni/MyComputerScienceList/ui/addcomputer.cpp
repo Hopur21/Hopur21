@@ -29,7 +29,7 @@ AddComputer::~AddComputer()
     delete ui;
 }
 
-void AddComputer::setComputerTypesComboBox(vector<string> allComputerTypes)
+void AddComputer::setComputerTypesComboBox(vector<ComputerType> allComputerTypes)
 {
     /*int sizeOfList = allComputerTypes.size();
     QString qSType;

@@ -19,7 +19,7 @@ public:
     ~AddComputer();
     void clearFields();
     // ComboBox set
-    void setComputerTypesComboBox(vector<string> allComputerTypes);
+    void setComputerTypesComboBox(vector<ComputerType> allComputerTypes);
     void setComputerScientistList(vector<CSPerson> allScientists);
 private slots:
 
