@@ -44,7 +44,7 @@ void AddType::on_button_Save_Type_clicked()
     else
     {
         QString errorMessage = "Please enter a computer type!";
-        ui->label_addTypeErrorField->setText("<span style = 'color : red>" + errorMessage+ "</span>");
+        ui->label_addTypeErrorField->setText("<span style = 'color : red>" + errorMessage + "</span>");
         this->setResult(QDialog::Rejected);
     }
     //this->close();
