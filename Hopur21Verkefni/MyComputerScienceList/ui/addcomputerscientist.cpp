@@ -55,9 +55,6 @@ void AddComputerScientist::saveComputersIDs()
         int computerID = select->selectedRows(2).value(i).data().toInt();
         _computersConnected.push_back(computerID);
     }
-    // Clear the error messages
-    ui->Add_Scientist_error_field->clear();
-    ui->label_addScientist_invalidDeathYear->clear();
 }
 QString AddComputerScientist::getGender()
 {
@@ -79,6 +76,10 @@ QString AddComputerScientist::getGender()
 
 void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
 {
+    // Clear the error messages
+    ui->Add_Scientist_error_field->clear();
+    ui->label_addScientist_invalidDeathYear->clear();
+
     //Save selected computers that are connected to the computer scientist.
     saveComputersIDs();
 

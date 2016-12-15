@@ -91,6 +91,7 @@ void MainWindow::on_actionAdd_Computer_Scientist_triggered()
 void MainWindow::on_action_toolbar_Add_Computer__triggered()
 {
     _addComputer->clearFields();
+    _addComputer->resetData();
     _addComputer->setComputerTypesComboBox(_service.getComputerTypesList());
     _addComputer->setComputerScientistList(_service.getComputerScientistList());
     ui->tabWidget_MainWindow->setCurrentIndex(constants::TAB_ADD_COMPUTER);
