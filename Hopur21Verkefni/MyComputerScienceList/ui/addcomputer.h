@@ -30,6 +30,7 @@ private slots:
 private:
     Ui::AddComputer *ui;
     QIntValidator *yearValidator;
+    vector<int> _listOfComputerTypeIDs;
 
 };
 
