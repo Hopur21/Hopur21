@@ -212,7 +212,7 @@ void AddComputerScientist::on_pushButton_browse_clicked()
     {
          //Here user has selected a file
         QPixmap pixmap(QString::fromStdString(filePath));
-        ui->AddScientist_pushButton_image->setPixmap(pixmap);
+        //ui->AddScientist_pushButton_image->setPixmap(pixmap);
 
     }
 }
