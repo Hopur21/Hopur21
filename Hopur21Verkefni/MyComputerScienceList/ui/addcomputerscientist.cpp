@@ -11,7 +11,8 @@ AddComputerScientist::AddComputerScientist(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    // getCurrent year   (year is the currentyear)
+    // getCurrent year   (year is the current year)
+    // therefore in the year 2016 the variable year becomes 2016
     time_t timeNow = time(0);
     tm *ltm = localtime(&timeNow);
     int year = ltm->tm_year + 1900;
@@ -20,7 +21,7 @@ AddComputerScientist::AddComputerScientist(QWidget *parent) :
     // the parameters are (lowest number, highest number)
     yearValidator = new QIntValidator(1,year);
     // here the validation is set to both: yearofbirth and deathyear fields
-    // more info in extra features document
+    // more info on this in the extra features document
     ui->lineEdit_Addscientist_yearofbirth->setValidator(yearValidator);
     ui->lineEdit_Addscientist_deathYear->setValidator(yearValidator);
 
@@ -48,17 +49,15 @@ AddComputerScientist::~AddComputerScientist()
 void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
 {
 
+    // This clears the computer vector
     _computersConnected.clear();
     QItemSelectionModel *select = ui->tableWidget_Addscientist_selectComputerForScientist->selectionModel();
-    vector <int> vectorOfComputers;
-    QString qStringIndex;
-    int index;
+    int indexOfID;
 
     for(int i = 0; i < select->selectedRows(2).count(); i++)
     {
-        int qStringIndex = select->selectedRows(2).value(i).data().toInt();
-        qDebug() << "INDEX::::ID ----> "<< qStringIndex;
-        qDebug() << "QITEM::::ID ----> "<< select->selectedRows(2).value(i).data().toString() << endl; //Print our ID in the console.
+        int indexOfID = select->selectedRows(2).value(i).data().toInt();
+        _computersConnected.push_back(indexOfID);
     }
 
     // Clear the error messages
@@ -161,7 +160,11 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
     {
         CSPerson createdPerson;
         _newPerson = createdPerson;
-        //setResult(QDialog::Accepted);
+
+
+
+        //on_pushButton_Addscientist_clearFields_clicked;
+        setResult(QDialog::Accepted);
     }
     else
     {
@@ -262,13 +265,24 @@ void AddComputerScientist::on_pushButton_Addscientist_clearFields_clicked()
     ui->lineEdit_Addscientist_comment->clear();
     ui->lineEdit_Addscientist_deathYear->clear();
 
-    // Radio buttons uncheck
-    ui->radioButton_Addscientist_female->setChecked(false);
-    ui->radioButton_Addscientist_male->setChecked(false);
-    ui->radioButton_Addscientist_otherGender->setChecked(false);
+    // Is alive checkbox is checked by default
+    ui->checkBox_Addscientist_isPersonAlive->setChecked(true);
+    // Table selection clear
+    ui->tableWidget_Addscientist_selectComputerForScientist->clearSelection();
+}
+
+void AddComputerScientist::clearFields()
+{
+    // Clear the input fields
+    ui->lineEdit_Addscientist_name->clear();
+    ui->lineEdit_Addscientist_yearofbirth->clear();
+    ui->lineEdit_Addscientist_comment->clear();
+    ui->lineEdit_Addscientist_deathYear->clear();
 
     // Is alive checkbox is checked by default
     ui->checkBox_Addscientist_isPersonAlive->setChecked(true);
+    // Table selection clear
+    ui->tableWidget_Addscientist_selectComputerForScientist->clearSelection();
 }
 
 
