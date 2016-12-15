@@ -7,74 +7,88 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    createAllTabs();
+    addSearchToMenuBar();
 }
-
-//QCoreApplication::quit();
 MainWindow::~MainWindow()
 {
+    deleteAllTabs();
     delete ui;
 }
+void MainWindow::createAllTabs()
+{
+    ui->tabWidget_MainWindow->removeTab(1);//Remove second (index 1) tab so we can edit it the rest here.
+    _showList = new ShowList(this);
+    _addComputerScientist = new AddComputerScientist(this);
+    _addComputer = new AddComputer(this);
+    _addType = new AddType(this);
+    _showTrash = new ShowTrash(this);
+
+    ui->tabWidget_MainWindow->addTab(_showList,"Show List");
+    ui->tabWidget_MainWindow->addTab(_addComputerScientist,"Add CS");
+    ui->tabWidget_MainWindow->addTab(_addComputer,"Add Comp");
+    ui->tabWidget_MainWindow->addTab(_addType,"Add Type");
+    ui->tabWidget_MainWindow->addTab(_showTrash,"Show Recycle");
+    //ui->tabWidget_MainWindow->addTab(tTIW,*(new QIcon(":/icons/images/computer2_icon.png")), tr("Tab Name"));//How to add QIcon
+}
+void MainWindow::deleteAllTabs()
+{
+    delete _showList;
+    delete _addComputerScientist;
+    delete _addComputer;
+    delete _addType;
+    delete _showTrash;
+}
+void MainWindow::addSearchToMenuBar()
+{
+    /*
+     * TODO
+    QWidgetAction *widgetAction = new QWidgetAction(this);
+    widgetAction->setDefaultWidget(new QProgressBar(this));
+    QMenuBar::setCornerWidget(widgetAction);
+    ui->menuBar->addAction(widgetAction);
+    */
+
+}
+//void QMenuBar::setCornerWidget ( QWidget * widget, Qt::Corner corner = Qt::TopRightCorner ){}
 
 //Toolbar
-void MainWindow::on_action_toolbar_Add_Computer__triggered()
+void MainWindow::on_action_toolbar_Home_triggered()
 {
-    _addComputer.setModal(true);
-    _addComputer.exec();
-}
-void MainWindow::on_actionAdd_Computer_Scientist_triggered()
-{
-    AddComputerScientist showScientist;
-    showScientist.setModal(true);
-    vector<Computer> allComputers = _service.getComputerList();
-    showScientist.setComputersList(allComputers);
-    showScientist.exec();
+    //TODO - Refresh all data before entering.
+    ui->tabWidget_MainWindow->setCurrentIndex(constants::TAB_HOME);
 }
 
-//Sending the trash list onwards into trash view for display
 void MainWindow::on_action_toolbar_Show_List_triggered()
 {
-    _showList.setModal(true);
+    //Send our data into the show list tab before we open it.
+    _showList->setList(_service.getComputerScientistList(), _service.getComputerList());
+    ui->tabWidget_MainWindow->setCurrentIndex(constants::TAB_SHOW_LIST);
+}
 
-    //Takes in a vector of computer scientists in the list
-    vector<CSPerson> computerScientists = _service.getComputerScientistList();
+void MainWindow::on_actionAdd_Computer_Scientist_triggered()
+{
+    _addComputerScientist->setComputersList(_service.getComputerList());
+    ui->tabWidget_MainWindow->setCurrentIndex(constants::TAB_ADD_CS);
+}
 
-    //Takes in a vector of computers in the list
-    vector<Computer> computers = _service.getComputerList();
+void MainWindow::on_action_toolbar_Add_Computer__triggered()
+{
+    //TODO - Refresh all data before opening.
+    ui->tabWidget_MainWindow->setCurrentIndex(constants::TAB_ADD_COMPUTER);
+}
 
-    //Takes the vectors and sets them into setList function in the ShowList class
-    _showList.setList(computerScientists, computers);
-    _showList.exec();
+void MainWindow::on_actionAdd_Computer_Type_triggered()
+{
+    //TODO - Refresh all data before opening.
+    ui->tabWidget_MainWindow->setCurrentIndex(constants::TAB_ADD_TYPE);
 }
 void MainWindow::on_action_toolbar_Trash_triggered()
 {
-    _showTrash.setModal(true);
-
-    //Takes in a vector of computer scientists in the trash
-    vector<CSPerson> compScientists = _service.getComputerScientistTrash();
-
-    //Takes in a vector of computers in the trash
-    vector<Computer> computerTrashList = _service.getComputerTrash();
-
-    //Takes vectors and sets them into setTrashList function in the ShowTrash class
-    _showTrash.setTrashList(compScientists, computerTrashList);
-    _showTrash.exec();
-
+    _showTrash->setTrashList(_service.getComputerScientistTrash(), _service.getComputerTrash());
+    ui->tabWidget_MainWindow->setCurrentIndex(constants::TAB_SHOW_RECYCLE_BIN);
 }
-
-void MainWindow::on_tempButton_clicked()
+void MainWindow::on_actionExit_triggered()
 {
-    QFile file("test.jpg");
-    if (file.open(QIODevice::ReadOnly))
-    {
-        qDebug() << "nadi að opna file";
-        QByteArray inByteArray = file.readAll();
-
-    }
-
-
-    vector<CSPerson> tempList;
-    tempList = _service.getComputerScientistList();
-    _csMoreInfo.setModal(true);
-    _csMoreInfo.setComputerScientist(tempList[0]);
-    _csMoreInfo.exec();
+    QCoreApplication::quit();
 }

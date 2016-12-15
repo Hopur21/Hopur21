@@ -5,7 +5,7 @@
 #include <QDialog>
 #include <QIntValidator>
 #include <qdebug.h>
-#include <QPixmap>
+//#include <QPixmap>
 
 namespace Ui {
 class AddComputerScientist;
@@ -28,6 +28,8 @@ private slots:
     void on_pushButton_browse_clicked();
     void on_pushButton_Addscientist_clearFields_clicked();
 
+
+    
 private:
     Ui::AddComputerScientist *ui;
     CSPerson _newPerson;

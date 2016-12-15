@@ -6,3 +6,38 @@ Main window windowOpacity?
 Ekki hægt að resize gluggann
 
 Success þegar addað er
+
+Kóði úr fyrirlestrunum:
+-----------------------------------------------------------------------------
+Hægri smell: 
+QWidget -> contextMenuPolicy -> CustomContextMenu
+#include <QMenu>
+
+in header:
+private slots:
+	void on_list_test_customContextMenuRequested(const QPoint &pos);
+
+in cpp:
+void MainWindow::on_table_cars_customContextMenuRequested(const QPoint &pos)
+{
+	QMenu menu;
+	menu.addAction(ui->table_cars->viewport()->mapToGlobal(pos));
+	//if we do not have the pos argument:
+	//menu.exec(QCursor::pos());
+}
+-----------------------------------------------------------------------------
+no edit triggers = ekki hægt að tvíklikka á dálk
+-----------------------------------------------------------------------------
+Message shows for 3 secs:
+ui->statusBar-showMessage("Computer Scientist was successfully added", 3000)
+-----------------------------------------------------------------------------
+MessageBox:
+#include <QMessageBox>
+
+int answer = QMessageBox::question(this, "Confirm", "Are you sure?");
+
+if (answer == QMessageBox::No)
+{
+	return;
+}
+-----------------------------------------------------------------------------

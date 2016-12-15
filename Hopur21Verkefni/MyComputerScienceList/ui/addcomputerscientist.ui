@@ -404,11 +404,17 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
       <height>192</height>
      </rect>
     </property>
+    <property name="editTriggers">
+     <set>QAbstractItemView::NoEditTriggers</set>
+    </property>
     <property name="selectionMode">
      <enum>QAbstractItemView::MultiSelection</enum>
     </property>
     <property name="selectionBehavior">
      <enum>QAbstractItemView::SelectRows</enum>
+    </property>
+    <property name="sortingEnabled">
+     <bool>true</bool>
     </property>
     <attribute name="horizontalHeaderCascadingSectionResizes">
      <bool>false</bool>
@@ -432,6 +438,7 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
      </property>
     </column>
    </widget>
+<<<<<<< HEAD
    <widget class="QLabel" name="TESTEST">
     <property name="geometry">
      <rect>
@@ -445,6 +452,8 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
      <string>TextLabel</string>
     </property>
    </widget>
+=======
+>>>>>>> 1211e185d82555e7a8c3dc094f25dec79c57e74a
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>

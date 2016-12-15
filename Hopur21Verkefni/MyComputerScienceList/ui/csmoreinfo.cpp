@@ -31,6 +31,23 @@ void CSMoreInfo::setComputerScientist(CSPerson myPerson)
        ui->showPicLabel->setScaledContents(true);
        ui->showPicLabel->show();
 
+       /* Til að lesa úr skrá
+      QFile file("test.jpg");
+      if (file.open(QIODevice::ReadOnly))
+      {
+          qDebug() << "nadi að opna file";
+          QByteArray inByteArray = file.readAll();
+
+      }
+
+
+      vector<CSPerson> tempList;
+      tempList = _service.getComputerScientistList();
+      _csMoreInfo.setModal(true);
+      _csMoreInfo.setComputerScientist(tempList[0]);
+      _csMoreInfo.exec();
+
+      */
 
        /*
        ui->label_title->setText(QString("<h2>%1</h2>").arg(QString::fromStdString(car.toString())));
