@@ -372,8 +372,8 @@
     <rect>
      <x>190</x>
      <y>10</y>
-     <width>331</width>
-     <height>31</height>
+     <width>371</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -384,7 +384,7 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="../resources.qrc">:/icons/images/logo_addAComputer.png</pixmap>
+    <pixmap resource="../resources.qrc">:/icons/images/logo_addComp.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
