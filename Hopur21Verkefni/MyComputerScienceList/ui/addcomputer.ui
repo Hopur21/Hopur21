@@ -28,9 +28,9 @@
   <widget class="QLineEdit" name="lineEdit_AddComputer_designYear">
    <property name="geometry">
     <rect>
-     <x>300</x>
+     <x>320</x>
      <y>80</y>
-     <width>101</width>
+     <width>81</width>
      <height>20</height>
     </rect>
    </property>
@@ -169,7 +169,7 @@
     <rect>
      <x>220</x>
      <y>80</y>
-     <width>71</width>
+     <width>81</width>
      <height>20</height>
     </rect>
    </property>
@@ -221,7 +221,7 @@
     <rect>
      <x>220</x>
      <y>140</y>
-     <width>81</width>
+     <width>91</width>
      <height>20</height>
     </rect>
    </property>
@@ -314,10 +314,10 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>300</x>
+     <x>320</x>
      <y>140</y>
-     <width>101</width>
-     <height>20</height>
+     <width>81</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="font">
@@ -342,6 +342,24 @@
     <font>
      <family>Calibri</family>
     </font>
+   </property>
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
+   <property name="currentText">
+    <string>Computer type</string>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <property name="maxVisibleItems">
+    <number>5</number>
+   </property>
+   <property name="maxCount">
+    <number>99999</number>
+   </property>
+   <property name="insertPolicy">
+    <enum>QComboBox::NoInsert</enum>
    </property>
    <item>
     <property name="text">
@@ -436,7 +454,7 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
    <property name="geometry">
     <rect>
      <x>300</x>
-     <y>150</y>
+     <y>160</y>
      <width>111</width>
      <height>16</height>
     </rect>

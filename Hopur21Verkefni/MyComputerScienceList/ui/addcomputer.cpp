@@ -29,6 +29,42 @@ AddComputer::~AddComputer()
     delete ui;
 }
 
+void AddComputer::setComputersList(vector<Computer> allComputers)
+{
+    setComputerTypesComboBox(allComputers);
+}
+
+void AddComputer::setComputerTypesComboBox(vector<Computer> allComputers)
+{
+    int sizeOfComputerList = allComputers.size();
+    QString qSType;
+    QStringList listOfTypes;
+    string type;
+    for(int i=0;i<sizeOfComputerList;i++)
+    {
+        type = allComputers.at(i).getType();
+        qSType = QString::fromStdString(type);
+        listOfTypes.append(qSType);
+    }
+    // qSort sorts the types alphabetically
+    qSort(listOfTypes.begin(), listOfTypes.end());
+    // Send to comboBox
+    ui->comboBox_AddComputer_selectTypeOfComputer->addItems(listOfTypes);
+}
+
+void AddComputer::setComputerScientistList(vector<CSPerson> allScientists)
+{
+    ui->tableWidget_AddComputer_selectScientistForComputer->setRowCount(allScientists.size());
+    ui->tableWidget_AddComputer_selectScientistForComputer->setColumnCount(3);
+    for(size_t i = 0; i < allScientists.size(); i++)
+    {
+        ui->tableWidget_AddComputer_selectScientistForComputer->setItem(i, 0, new QTableWidgetItem(QString::fromStdString(allScientists[i].getName())));
+        ui->tableWidget_AddComputer_selectScientistForComputer->setItem(i, 1, new QTableWidgetItem(QString::number(allScientists[i].getBirthYear())));
+        ui->tableWidget_AddComputer_selectScientistForComputer->setItem(i, 2, new QTableWidgetItem(QString::number(allScientists[i].getID())));
+        ui->tableWidget_AddComputer_selectScientistForComputer->setColumnHidden(2,true);//Hide our ID column
+    }
+}
+
 void AddComputer::on_pushButton_AddComputer_saveComputer_clicked()
 {
     // clear the error messages
@@ -144,6 +180,7 @@ void AddComputer::on_checkBox_AddComputer_wasComputerBuilt_toggled(bool checked)
     else
     {
         ui->checkBox_AddComputer_wasComputerBuilt->setChecked(constants::DISABLED);
+        ui->lineEdit_AddComputer_buildYear->clear();
         ui->label_buildYear->setDisabled(constants::ENABLED);
         ui->lineEdit_AddComputer_buildYear->setDisabled(constants::ENABLED);
     }
