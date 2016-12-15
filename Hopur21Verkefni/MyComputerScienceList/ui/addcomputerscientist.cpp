@@ -56,7 +56,7 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
 
     for(int i = 0; i < select->selectedRows(2).count(); i++)
     {
-        //int qStringIndex = select->selectedRows(2).value(i).data().toInt() << endl;
+        int qStringIndex = select->selectedRows(2).value(i).data().toInt();
 
         //qDebug() << "ID: "<< select->selectedRows(2).value(i).data().toString() << endl; //Print our ID in the console.
     }
