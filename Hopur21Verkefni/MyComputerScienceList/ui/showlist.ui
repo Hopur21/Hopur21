@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>400</height>
+    <height>350</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,9 +22,9 @@
   <widget class="QTabWidget" name="tabWidget_scientist">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>40</y>
-     <width>900</width>
+     <x>10</x>
+     <y>10</y>
+     <width>781</width>
      <height>301</height>
     </rect>
    </property>
@@ -46,7 +46,7 @@
     <enum>QTabWidget::Rounded</enum>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <property name="iconSize">
     <size>
@@ -65,9 +65,9 @@
     <widget class="QTableWidget" name="table_computerScientist_2">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>10</x>
        <y>10</y>
-       <width>721</width>
+       <width>761</width>
        <height>231</height>
       </rect>
      </property>
@@ -255,9 +255,9 @@
     <widget class="QTableWidget" name="table_computer_2">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>10</x>
        <y>10</y>
-       <width>721</width>
+       <width>761</width>
        <height>231</height>
       </rect>
      </property>
