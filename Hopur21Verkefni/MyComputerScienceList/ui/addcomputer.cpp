@@ -29,27 +29,26 @@ AddComputer::~AddComputer()
     delete ui;
 }
 
-void AddComputer::setComputersList(vector<Computer> allComputers)
+void AddComputer::setComputerTypesComboBox(vector<string> allComputerTypes)
 {
-    setComputerTypesComboBox(allComputers);
-}
-
-void AddComputer::setComputerTypesComboBox(vector<Computer> allComputers)
-{
-    int sizeOfComputerList = allComputers.size();
+    /*int sizeOfList = allComputerTypes.size();
     QString qSType;
     QStringList listOfTypes;
     string type;
-    for(int i=0;i<sizeOfComputerList;i++)
-    {
-        type = allComputers.at(i).getType();
-        qSType = QString::fromStdString(type);
-        listOfTypes.append(qSType);
-    }
-    // qSort sorts the types alphabetically
-    qSort(listOfTypes.begin(), listOfTypes.end());
+
+    vector<int> listOfIDs;*/
+
+    //for(int i=0;i<sizeOfList;i++)
+    //{
+        //type = allComputerTypes.at(i);
+        //listOfIDs.push_back(allComputerTypes.at(i).getID());
+        //int x = allComputerTypes.
+        //qSType = QString::fromStdString(type);
+        //listOfTypes.append(qSType);
+    //}
+
     // Send to comboBox
-    ui->comboBox_AddComputer_selectTypeOfComputer->addItems(listOfTypes);
+    //ui->comboBox_AddComputer_selectTypeOfComputer->addItems(listOfTypes);
 }
 
 void AddComputer::setComputerScientistList(vector<CSPerson> allScientists)
@@ -75,6 +74,7 @@ void AddComputer::on_pushButton_AddComputer_saveComputer_clicked()
     bool nameFail = false;
     bool designYearFail = false;
     bool buildYearFail = false;
+    bool computerTypeFail = false;
 
     // invalid build year in context with design year
     bool buildYearInvalid = false;
@@ -86,6 +86,7 @@ void AddComputer::on_pushButton_AddComputer_saveComputer_clicked()
     QString comment = "";
     QString designYear = "";
     QString buildYear = "";
+    QString computerType = "";
 
     // isBuilt is connected to the checkbox
     bool isBuilt;
@@ -94,6 +95,9 @@ void AddComputer::on_pushButton_AddComputer_saveComputer_clicked()
     designYear = ui->lineEdit_AddComputer_designYear->text();
     comment = ui->plainTextEdit_AddComputer_commentsComputer->toPlainText();
     isBuilt = ui->checkBox_AddComputer_wasComputerBuilt->isChecked();
+    //computerType = ui->comboBox_AddComputer_selectTypeOfComputer->itemData();
+    qDebug() << "ROLF" << computerType;
+
 
     if(isBuilt == false)
     {

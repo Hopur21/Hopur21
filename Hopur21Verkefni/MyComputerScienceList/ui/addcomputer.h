@@ -2,7 +2,7 @@
 #define ADDCOMPUTER_H
 #include "models/csperson.h"
 #include "models/computer.h"
-#include <QtAlgorithms> // for qSort
+#include "models/computertype.h"
 #include <QDialog>
 
 namespace Ui {
@@ -18,7 +18,8 @@ public:
     QString validateUserInput(bool nameFail, bool designYearFail, bool buildYearFail);
     ~AddComputer();
     void clearFields();
-    void setComputersList(vector<Computer> allComputers);
+    // ComboBox set
+    void setComputerTypesComboBox(vector<string> allComputerTypes);
     void setComputerScientistList(vector<CSPerson> allScientists);
 private slots:
 
@@ -29,8 +30,7 @@ private slots:
 private:
     Ui::AddComputer *ui;
     QIntValidator *yearValidator;
-    // ComboBox set
-    void setComputerTypesComboBox(vector<Computer> allComputers);
+
 };
 
 #endif // ADDCOMPUTER_H
