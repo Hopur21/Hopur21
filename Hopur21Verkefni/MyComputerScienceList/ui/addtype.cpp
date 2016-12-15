@@ -22,7 +22,7 @@ void AddType::on_button_Save_Type_clicked()
     bool nameTypeFail = false;
 
 
-    QString nameType = ui-> lineEdit_addComputerType->text();
+    QString nameType = ui->lineEdit_addComputerType->text();
 
     if(nameType == "")
     {
@@ -34,7 +34,10 @@ void AddType::on_button_Save_Type_clicked()
     {
         ComputerType newType;
         _newType = newType;
-        //_newType.getName(nameType.toStdString());
+        std::string newName = nameType.toStdString();
+        int id = newType.getID();
+        _newType.setTypeValues(newName, id);
+
         this->setResult(QDialog::Accepted);
 
     }
@@ -50,6 +53,9 @@ void AddType::on_button_Save_Type_clicked()
 
 void AddType::on_button_clear_fields_clicked()
 {
-    this->close();
-    this->setResult(QDialog::Rejected);
+    //Clear the input fields
+    ui->lineEdit_addComputerType->clear();
+
+    //this->close();
+    //this->setResult(QDialog::Rejected);
 }
