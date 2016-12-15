@@ -22,7 +22,7 @@ namespace constants {
     //Menu for Console GUI
     const char SPACE = ' ';
     const int ENABLED = 1;
-    const int DISABLED = 1;
+    const int DISABLED = 0;
     const int FIRST_TIME = 0;
     const int VALID = 1;
     const int INVALID = 0;

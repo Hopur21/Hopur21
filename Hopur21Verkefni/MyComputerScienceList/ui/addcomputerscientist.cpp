@@ -214,8 +214,8 @@ void AddComputerScientist::on_checkBox_Addscientist_isPersonAlive_toggled(bool c
     // If checkbox is checked then it is not possible to edit the year of death field
     if(checked)
     {
-        ui->label_deathYear->setDisabled(constants::DISABLED);
-        ui->lineEdit_Addscientist_deathYear->setDisabled(constants::DISABLED);
+        ui->label_deathYear->setDisabled(constants::ENABLED);
+        ui->lineEdit_Addscientist_deathYear->setDisabled(constants::ENABLED);
     }
     else
     {

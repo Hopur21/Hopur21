@@ -91,6 +91,8 @@ void MainWindow::on_actionAdd_Computer_Scientist_triggered()
 void MainWindow::on_action_toolbar_Add_Computer__triggered()
 {
     //TODO - Refresh all data before opening.
+    _addComputer->clearFields();
+
     ui->tabWidget_MainWindow->setCurrentIndex(constants::TAB_ADD_COMPUTER);
 }
 

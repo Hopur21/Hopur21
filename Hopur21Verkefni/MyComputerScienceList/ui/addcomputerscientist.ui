@@ -41,9 +41,9 @@
    <widget class="QPushButton" name="pushButton_Addscientist_clearFields">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>10</x>
       <y>290</y>
-      <width>81</width>
+      <width>121</width>
       <height>23</height>
      </rect>
     </property>
@@ -491,22 +491,19 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
      </rect>
     </property>
    </widget>
-  </widget>
-  <widget class="QLabel" name="Add_Scientist_error_field">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>180</x>
-     <y>350</y>
-     <width>591</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
+   <widget class="QLabel" name="Add_Scientist_error_field">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>290</y>
+      <width>491</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources>
