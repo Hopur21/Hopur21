@@ -21,7 +21,7 @@ public:
     ~AddComputerScientist();
     QString validateUserInput(bool nameFail, bool genderFail, bool birthYearFail, bool deathYearFail);
     void setComputersList(vector<Computer> allComputers);
-
+    void clearFields();
 private slots:
     void on_pushButton_Addscientist_save_clicked();
     void on_checkBox_Addscientist_isPersonAlive_toggled(bool checked);

@@ -68,6 +68,7 @@ void MainWindow::on_action_toolbar_Show_List_triggered()
 
 void MainWindow::on_actionAdd_Computer_Scientist_triggered()
 {
+    _addComputerScientist->clearFields();
     _addComputerScientist->setComputersList(_service.getComputerList());
     ui->tabWidget_MainWindow->setCurrentIndex(constants::TAB_ADD_CS);
 }
