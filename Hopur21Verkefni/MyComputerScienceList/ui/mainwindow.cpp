@@ -92,7 +92,8 @@ void MainWindow::on_action_toolbar_Add_Computer__triggered()
 {
     //TODO - Refresh all data before opening.
     _addComputer->clearFields();
-
+    _addComputer->setComputersList(_service.getComputerList());
+    _addComputer->setComputerScientistList(_service.getComputerScientistList());
     ui->tabWidget_MainWindow->setCurrentIndex(constants::TAB_ADD_COMPUTER);
 }
 
