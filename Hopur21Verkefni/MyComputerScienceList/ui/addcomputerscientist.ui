@@ -420,26 +420,13 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
      </property>
     </column>
    </widget>
-   <widget class="QLabel" name="TESTEST">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>220</y>
-      <width>91</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
-   </widget>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>220</x>
       <y>279</y>
       <width>193</width>
-      <height>16</height>
+      <height>20</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
@@ -487,15 +474,15 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
       <x>220</x>
       <y>180</y>
       <width>181</width>
-      <height>81</height>
+      <height>61</height>
      </rect>
     </property>
    </widget>
    <widget class="QLabel" name="Add_Scientist_error_field">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>270</y>
+      <x>160</x>
+      <y>300</y>
       <width>351</width>
       <height>20</height>
      </rect>
@@ -504,6 +491,31 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
      <string/>
     </property>
    </widget>
+   <zorder>pushButton_Addscientist_clearFields</zorder>
+   <zorder>lineEdit_Addscientist_deathYear</zorder>
+   <zorder>AddScientist_pushButton_image</zorder>
+   <zorder>checkBox_Addscientist_isPersonAlive</zorder>
+   <zorder>lineEdit_Addscientist_yearofbirth</zorder>
+   <zorder>pushButton_Addscientist_save</zorder>
+   <zorder>lineEdit_Addscientist_name</zorder>
+   <zorder>pushButton_browse</zorder>
+   <zorder>label_nameOfScientist</zorder>
+   <zorder>label_birthYear</zorder>
+   <zorder>label_isPersonAlive</zorder>
+   <zorder>label_deathYear</zorder>
+   <zorder>label_comments</zorder>
+   <zorder>label_selectGender</zorder>
+   <zorder>label_selectComputerForScientist</zorder>
+   <zorder>label_logoAddScientist</zorder>
+   <zorder>label</zorder>
+   <zorder>label_addScientist_invalidDeathYear</zorder>
+   <zorder>tableWidget_Addscientist_selectComputerForScientist</zorder>
+   <zorder>layoutWidget</zorder>
+   <zorder>lineEdit_Addscientist_comment</zorder>
+   <zorder>Add_Scientist_error_field</zorder>
+   <zorder>radioButton_Addscientist_otherGender</zorder>
+   <zorder>radioButton_Addscientist_female</zorder>
+   <zorder>radioButton_Addscientist_male</zorder>
   </widget>
  </widget>
  <resources>

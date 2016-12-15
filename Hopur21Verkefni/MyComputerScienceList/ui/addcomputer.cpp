@@ -91,7 +91,6 @@ void AddComputer::on_pushButton_AddComputer_saveComputer_clicked()
     bool canCreateComputer = true;
 
     QString name = "";
-    QString comment = "";
     QString designYear = "";
     QString buildYear = "";
     int computerTypeID = constants::NOTHING_SELECTED;
@@ -101,7 +100,6 @@ void AddComputer::on_pushButton_AddComputer_saveComputer_clicked()
 
     name = ui->lineEdit_AddComputer_nameComputer->text();
     designYear = ui->lineEdit_AddComputer_designYear->text();
-    comment = ui->plainTextEdit_AddComputer_commentsComputer->toPlainText();
     isBuilt = ui->checkBox_AddComputer_wasComputerBuilt->isChecked();
 
     // This function saves the IDs of the selected computer scientist to a member variable
@@ -159,7 +157,6 @@ void AddComputer::on_pushButton_AddComputer_saveComputer_clicked()
         createdComputer.setName(name.toStdString());
         createdComputer.setDesignYear(designYear.toInt());
         createdComputer.setBuildYear(buildYear.toInt());
-        //createdComputer.setComment(comment);
         //setResult(QDialog::Accepted);
     }
     else
@@ -184,10 +181,14 @@ QString AddComputer::validateUserInput(bool nameFail, bool designYearFail, bool 
     {
         errorString += "* Design year *";
     }
-    if(buildYearFail == true)
+    if(buildYearInvalid == true)
     {
         QString message = "Invalid year of build";
         ui->AddComputer_InvalidBuildYear->setText("<span style = 'color : red'>" + message + "</span>");
+    }
+    if(buildYearFail == true)
+    {
+        errorString += "* Build year *";
     }
     if(computerTypeFail == true)
     {
@@ -229,7 +230,6 @@ void AddComputer::clearFields()
     ui->lineEdit_AddComputer_nameComputer->clear();
     ui->lineEdit_AddComputer_designYear->clear();
     ui->lineEdit_AddComputer_buildYear->clear();
-    ui->plainTextEdit_AddComputer_commentsComputer->clear();
     ui->tableWidget_AddComputer_selectScientistForComputer->clearSelection();
 
 }
@@ -253,7 +253,6 @@ void AddComputer::on_pushButton_AddComputer_clearFields_clicked()
     ui->lineEdit_AddComputer_nameComputer->clear();
     ui->lineEdit_AddComputer_designYear->clear();
     ui->lineEdit_AddComputer_buildYear->clear();
-    ui->plainTextEdit_AddComputer_commentsComputer->clear();
     ui->tableWidget_AddComputer_selectScientistForComputer->clearSelection();
 
 }
