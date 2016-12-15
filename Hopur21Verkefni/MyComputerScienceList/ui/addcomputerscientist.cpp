@@ -57,14 +57,11 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
     for(int i = 0; i < select->selectedRows(2).count(); i++)
     {
         int qStringIndex = select->selectedRows(2).value(i).data().toInt();
-
-        //qDebug() << "ID: "<< select->selectedRows(2).value(i).data().toString() << endl; //Print our ID in the console.
+        qDebug() << "INDEX::::ID ----> "<< qStringIndex;
+        qDebug() << "QITEM::::ID ----> "<< select->selectedRows(2).value(i).data().toString() << endl; //Print our ID in the console.
     }
 
-
-
-
-    // clear the error messages
+    // Clear the error messages
     ui->Add_Scientist_error_field->clear();
     ui->label_addScientist_invalidDeathYear->clear();
 
@@ -74,7 +71,7 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
     bool birthYearFail = false;
     bool deathYearFail = false;
 
-    // invalid year of death in context with year of birth
+    // Invalid year of death in context with year of birth
     bool deathYearInvalid = false;
 
     // If validation fails this is set as false
@@ -259,10 +256,19 @@ void AddComputerScientist::on_pushButton_browse_clicked()
 
 void AddComputerScientist::on_pushButton_Addscientist_clearFields_clicked()
 {
+    // Clear the input fields
     ui->lineEdit_Addscientist_name->clear();
     ui->lineEdit_Addscientist_yearofbirth->clear();
     ui->lineEdit_Addscientist_comment->clear();
     ui->lineEdit_Addscientist_deathYear->clear();
+
+    // Radio buttons uncheck
+    ui->radioButton_Addscientist_female->setChecked(false);
+    ui->radioButton_Addscientist_male->setChecked(false);
+    ui->radioButton_Addscientist_otherGender->setChecked(false);
+
+    // Is alive checkbox is checked by default
+    ui->checkBox_Addscientist_isPersonAlive->setChecked(true);
 }
 
 
