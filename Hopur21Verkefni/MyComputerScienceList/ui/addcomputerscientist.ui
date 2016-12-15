@@ -33,7 +33,7 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>-4</y>
+     <y>0</y>
      <width>786</width>
      <height>321</height>
     </rect>
@@ -63,7 +63,7 @@
     <property name="geometry">
      <rect>
       <x>292</x>
-      <y>110</y>
+      <y>140</y>
       <width>111</width>
       <height>20</height>
      </rect>
@@ -109,7 +109,7 @@
     <property name="geometry">
      <rect>
       <x>390</x>
-      <y>90</y>
+      <y>110</y>
       <width>21</width>
       <height>17</height>
      </rect>
@@ -125,7 +125,7 @@
     <property name="geometry">
      <rect>
       <x>290</x>
-      <y>70</y>
+      <y>80</y>
       <width>113</width>
       <height>20</height>
      </rect>
@@ -145,9 +145,9 @@
    <widget class="QPushButton" name="pushButton_Addscientist_save">
     <property name="geometry">
      <rect>
-      <x>640</x>
-      <y>280</y>
-      <width>121</width>
+      <x>690</x>
+      <y>290</y>
+      <width>75</width>
       <height>23</height>
      </rect>
     </property>
@@ -218,7 +218,7 @@
     <property name="geometry">
      <rect>
       <x>220</x>
-      <y>70</y>
+      <y>80</y>
       <width>71</width>
       <height>20</height>
      </rect>
@@ -236,7 +236,7 @@
     <property name="geometry">
      <rect>
       <x>220</x>
-      <y>90</y>
+      <y>110</y>
       <width>121</width>
       <height>20</height>
      </rect>
@@ -254,7 +254,7 @@
     <property name="geometry">
      <rect>
       <x>220</x>
-      <y>110</y>
+      <y>140</y>
       <width>71</width>
       <height>20</height>
      </rect>
@@ -272,7 +272,7 @@
     <property name="geometry">
      <rect>
       <x>220</x>
-      <y>130</y>
+      <y>160</y>
       <width>121</width>
       <height>20</height>
      </rect>
@@ -289,8 +289,8 @@
    <widget class="QLabel" name="label_selectGender">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>240</y>
+      <x>220</x>
+      <y>270</y>
       <width>121</width>
       <height>20</height>
      </rect>
@@ -328,7 +328,7 @@
       <x>220</x>
       <y>10</y>
       <width>331</width>
-      <height>31</height>
+      <height>21</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -339,7 +339,7 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="../resources.qrc">:/icons/images/logo_addAScientist.png</pixmap>
+     <pixmap resource="../resources.qrc">:/icons/images/logo_addSci.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -368,7 +368,7 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
     <property name="geometry">
      <rect>
       <x>280</x>
-      <y>130</y>
+      <y>160</y>
       <width>141</width>
       <height>20</height>
      </rect>
@@ -436,8 +436,8 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>270</y>
+      <x>220</x>
+      <y>290</y>
       <width>193</width>
       <height>20</height>
      </rect>
@@ -485,7 +485,7 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
     <property name="geometry">
      <rect>
       <x>220</x>
-      <y>150</y>
+      <y>180</y>
       <width>181</width>
       <height>81</height>
      </rect>
