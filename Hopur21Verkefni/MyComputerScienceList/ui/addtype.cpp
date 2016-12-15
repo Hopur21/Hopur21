@@ -15,12 +15,47 @@ AddType::~AddType()
 
 void AddType::on_button_Save_Type_clicked()
 {
-    this->close();
-    this->setResult(QDialog::Accepted);
+    //If validation fails these are used
+    bool canCreateType = true;
+
+    //If validation fails this is set as false
+    bool nameTypeFail = false;
+
+
+    QString nameType = ui->lineEdit_addComputerType->text();
+
+    if(nameType == "")
+    {
+        canCreateType = false;
+        nameTypeFail = true;
+    }
+
+    if(canCreateType)
+    {
+        ComputerType newType;
+        _newType = newType;
+        std::string newName = nameType.toStdString();
+        int id = newType.getID();
+        _newType.setTypeValues(newName, id);
+
+        this->setResult(QDialog::Accepted);
+
+    }
+    else
+    {
+        QString errorMessage = "Please enter a computer type!";
+        ui->label_addTypeErrorField->setText("<span style = 'color : red>" + errorMessage + "</span>");
+        this->setResult(QDialog::Rejected);
+    }
+    //this->close();
+    //this->setResult(QDialog::Accepted);
 }
 
 void AddType::on_button_clear_fields_clicked()
 {
-    this->close();
-    this->setResult(QDialog::Rejected);
+    //Clear the input fields
+    ui->lineEdit_addComputerType->clear();
+
+    //this->close();
+    //this->setResult(QDialog::Rejected);
 }

@@ -43,7 +43,7 @@
     <string>Clear Fields</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="lineEdit_addComputerType">
    <property name="geometry">
     <rect>
      <x>280</x>
@@ -137,6 +137,19 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_addTypeErrorField">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>190</y>
+     <width>231</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>

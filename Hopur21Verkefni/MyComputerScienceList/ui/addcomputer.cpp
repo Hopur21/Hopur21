@@ -7,13 +7,12 @@ AddComputer::AddComputer(QWidget *parent) :
     ui(new Ui::AddComputer)
 {
     ui->setupUi(this);
+    int year = getCurrentYear();
+    initValidationData(year);
+}
 
-    // getCurrent year   (year is the current year)
-    // therefore in the year 2016 the variable year becomes 2016
-    time_t timeNow = time(0);
-    tm *ltm = localtime(&timeNow);
-    int year = ltm->tm_year + 1900;
-
+void AddComputer::initValidationData(int year)
+{
     // Validation for year of design and year of build
     // the parameters are (lowest number, highest number)
     yearValidator = new QIntValidator(1,year);
@@ -23,32 +22,41 @@ AddComputer::AddComputer(QWidget *parent) :
     ui->lineEdit_AddComputer_buildYear->setValidator(yearValidator);
 }
 
+int AddComputer::getCurrentYear()
+{
+    // getCurrent year   (year is the current year)
+    // therefore in the year 2016 the variable year becomes 2016
+    time_t timeNow = time(0);
+    tm *ltm = localtime(&timeNow);
+    int year = ltm->tm_year + 1900;
+    return year;
+}
+
 AddComputer::~AddComputer()
 {
     delete yearValidator;
     delete ui;
 }
 
-void AddComputer::setComputerTypesComboBox(vector<string> allComputerTypes)
+void AddComputer::setComputerTypesComboBox(vector<ComputerType> allComputerTypes)
 {
-    /*int sizeOfList = allComputerTypes.size();
+    _listOfComputerTypeIDs = allComputerTypes;
+    // Clear the member variable _listOfComputerTypeIDs
+    int sizeOfList = allComputerTypes.size();
     QString qSType;
     QStringList listOfTypes;
     string type;
 
-    vector<int> listOfIDs;*/
+    vector<int> listOfIDs;
 
-    //for(int i=0;i<sizeOfList;i++)
-    //{
-        //type = allComputerTypes.at(i);
-        //listOfIDs.push_back(allComputerTypes.at(i).getID());
-        //int x = allComputerTypes.
-        //qSType = QString::fromStdString(type);
-        //listOfTypes.append(qSType);
-    //}
-
-    // Send to comboBox
-    //ui->comboBox_AddComputer_selectTypeOfComputer->addItems(listOfTypes);
+    for(int i=0;i<sizeOfList;i++)
+    {
+        type = allComputerTypes.at(i).getName();
+        qSType = QString::fromStdString(type);
+        listOfTypes.append(qSType);
+    }
+    // listOfTypes is sent to comboBox
+    ui->comboBox_AddComputer_selectTypeOfComputer->addItems(listOfTypes);
 }
 
 void AddComputer::setComputerScientistList(vector<CSPerson> allScientists)
@@ -83,21 +91,23 @@ void AddComputer::on_pushButton_AddComputer_saveComputer_clicked()
     bool canCreateComputer = true;
 
     QString name = "";
-    QString comment = "";
     QString designYear = "";
     QString buildYear = "";
-    QString computerType = "";
+    int computerTypeID = constants::NOTHING_SELECTED;
 
     // isBuilt is connected to the checkbox
     bool isBuilt;
 
     name = ui->lineEdit_AddComputer_nameComputer->text();
     designYear = ui->lineEdit_AddComputer_designYear->text();
-    comment = ui->plainTextEdit_AddComputer_commentsComputer->toPlainText();
     isBuilt = ui->checkBox_AddComputer_wasComputerBuilt->isChecked();
-    //computerType = ui->comboBox_AddComputer_selectTypeOfComputer->itemData();
-    qDebug() << "ROLF" << computerType;
 
+    // This function saves the IDs of the selected computer scientist to a member variable
+    saveComputerScientistIDs();
+
+    // Index of the selected type
+    int index = ui->comboBox_AddComputer_selectTypeOfComputer->currentIndex();
+    computerTypeID = _listOfComputerTypeIDs.at(index-1).getID();
 
     if(isBuilt == false)
     {
@@ -110,7 +120,6 @@ void AddComputer::on_pushButton_AddComputer_saveComputer_clicked()
     }
 
     // Validations
-
     if(name == "")
     {
         canCreateComputer = false;
@@ -134,22 +143,33 @@ void AddComputer::on_pushButton_AddComputer_saveComputer_clicked()
         canCreateComputer = false;
         buildYearInvalid = true;
     }
+    if(computerTypeID == constants::NOTHING_SELECTED)
+    {
+        canCreateComputer = false;
+        computerTypeFail = true;
+    }
 
     // If canCreatePerson is true, the person can be created
     if(canCreateComputer == true)
     {
-
-        //Computer createdComputer;
-        //_newPerson = createdPerson;
+        qDebug() << "CAN CREATE COMPUTER"; // REMOVE THIS
+        Computer createdComputer;
+        createdComputer.setName(name.toStdString());
+        createdComputer.setDesignYear(designYear.toInt());
+        createdComputer.setBuildYear(buildYear.toInt());
         //setResult(QDialog::Accepted);
     }
     else
     {
-
+        qDebug() << "CAN NOT CREATE COMPUTER"; // REMOVE THIS
+        QString initial = "The following fields are missing: ";
+        QString errorMessage = validateUserInput(nameFail,designYearFail, buildYearFail, computerTypeFail, buildYearInvalid);
+        ui->AddComputer_ErrorMessage->setText(initial + "<span style = 'color : red'>" + errorMessage + "</span>");
+        this->setResult(QDialog::Rejected);
     }
 }
-// This function creates the error string for: on_pushButton_Addscientist_save_clicked()
-QString AddComputer::validateUserInput(bool nameFail, bool designYearFail, bool buildYearFail)
+// This function creates the error string for: on_pushButton_AddComputer_saveComputer_clicked()
+QString AddComputer::validateUserInput(bool nameFail, bool designYearFail, bool buildYearFail, bool computerTypeFail, bool buildYearInvalid)
 {
     QString errorString = "";
 
@@ -161,16 +181,23 @@ QString AddComputer::validateUserInput(bool nameFail, bool designYearFail, bool 
     {
         errorString += "* Design year *";
     }
+    if(buildYearInvalid == true)
+    {
+        QString message = "Invalid year of build";
+        ui->AddComputer_InvalidBuildYear->setText("<span style = 'color : red'>" + message + "</span>");
+    }
     if(buildYearFail == true)
     {
         errorString += "* Build year *";
     }
+    if(computerTypeFail == true)
+    {
+        QString message = "Please select a type";
+        ui->AddComputer_InvalidBuildYear->setText("<span style = 'color : red'>" + message + "</span>");
+    }
 
     return errorString;
 }
-
-
-
 
 void AddComputer::on_checkBox_AddComputer_wasComputerBuilt_toggled(bool checked)
 {
@@ -203,8 +230,14 @@ void AddComputer::clearFields()
     ui->lineEdit_AddComputer_nameComputer->clear();
     ui->lineEdit_AddComputer_designYear->clear();
     ui->lineEdit_AddComputer_buildYear->clear();
-    ui->plainTextEdit_AddComputer_commentsComputer->clear();
     ui->tableWidget_AddComputer_selectScientistForComputer->clearSelection();
+
+}
+
+void AddComputer::resetData()
+{
+    _listOfComputerTypeIDs.clear();
+    _scientistsConnected.clear();
 }
 
 void AddComputer::on_pushButton_AddComputer_clearFields_clicked()
@@ -220,6 +253,29 @@ void AddComputer::on_pushButton_AddComputer_clearFields_clicked()
     ui->lineEdit_AddComputer_nameComputer->clear();
     ui->lineEdit_AddComputer_designYear->clear();
     ui->lineEdit_AddComputer_buildYear->clear();
-    ui->plainTextEdit_AddComputer_commentsComputer->clear();
     ui->tableWidget_AddComputer_selectScientistForComputer->clearSelection();
+
+}
+
+void AddComputer::saveComputerScientistIDs()
+{
+    // This clears the computer vector
+    _scientistsConnected.clear();
+    QItemSelectionModel *select = ui->tableWidget_AddComputer_selectScientistForComputer->selectionModel();
+
+    for(int i = 0; i < select->selectedRows(2).count(); i++)//SelectedRows(2) = the ID column
+    {
+        int scientistID = select->selectedRows(2).value(i).data().toInt();
+        _scientistsConnected.push_back(scientistID);
+    }
+}
+
+
+
+void AddComputer::on_comboBox_AddComputer_selectTypeOfComputer_highlighted(int index)
+{
+    if(ui->comboBox_AddComputer_selectTypeOfComputer->currentText() == "Computer type")
+    ui->comboBox_AddComputer_selectTypeOfComputer->removeItem(0);
+
+
 }

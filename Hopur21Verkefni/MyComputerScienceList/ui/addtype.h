@@ -1,5 +1,6 @@
 #ifndef ADDTYPE_H
 #define ADDTYPE_H
+#include "models/computertype.h"
 
 #include <QDialog>
 
@@ -24,6 +25,8 @@ private slots:
 
 private:
     Ui::AddType *ui;
+    ComputerType _newType;
+    ComputerType getType() {return _newType;}
 
     int myIntValue;
 };

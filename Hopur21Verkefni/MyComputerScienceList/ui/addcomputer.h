@@ -19,17 +19,28 @@ public:
     ~AddComputer();
     void clearFields();
     // ComboBox set
-    void setComputerTypesComboBox(vector<string> allComputerTypes);
+    void setComputerTypesComboBox(vector<ComputerType> allComputerTypes);
     void setComputerScientistList(vector<CSPerson> allScientists);
+    void resetData();
 private slots:
 
     void on_pushButton_AddComputer_saveComputer_clicked();
     void on_checkBox_AddComputer_wasComputerBuilt_toggled(bool checked);
     void on_pushButton_AddComputer_clearFields_clicked();
 
+
+    void on_comboBox_AddComputer_selectTypeOfComputer_highlighted(int index);
+
 private:
     Ui::AddComputer *ui;
     QIntValidator *yearValidator;
+    vector<ComputerType> _listOfComputerTypeIDs;
+    vector<int> _scientistsConnected;
+    int getCurrentYear();
+    void initValidationData(int year);
+    void saveComputerScientistIDs();
+    QString validateUserInput(bool nameFail, bool designYearFail, bool buildYearFail, bool computerTypeFail, bool buildYearInvalid);
+
 
 };
 

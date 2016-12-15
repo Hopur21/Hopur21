@@ -67,7 +67,7 @@
   <widget class="QLabel" name="label_wasComputerBuilt">
    <property name="geometry">
     <rect>
-     <x>220</x>
+     <x>222</x>
      <y>110</y>
      <width>121</width>
      <height>20</height>
@@ -85,8 +85,8 @@
   <widget class="QPushButton" name="pushButton_AddComputer_browseComputer">
    <property name="geometry">
     <rect>
-     <x>78</x>
-     <y>200</y>
+     <x>50</x>
+     <y>190</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -103,8 +103,8 @@
   <widget class="QPushButton" name="pushButton_imageComputer">
    <property name="geometry">
     <rect>
-     <x>78</x>
-     <y>50</y>
+     <x>30</x>
+     <y>40</y>
      <width>111</width>
      <height>131</height>
     </rect>
@@ -126,24 +126,6 @@
      <width>100</width>
      <height>150</height>
     </size>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_commentsComputer">
-   <property name="geometry">
-    <rect>
-     <x>218</x>
-     <y>210</y>
-     <width>121</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Calibri</family>
-    </font>
-   </property>
-   <property name="text">
-    <string>Comments:</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_selectScientistForComputer">
@@ -203,7 +185,7 @@
   <widget class="QCheckBox" name="checkBox_AddComputer_wasComputerBuilt">
    <property name="geometry">
     <rect>
-     <x>388</x>
+     <x>390</x>
      <y>110</y>
      <width>21</width>
      <height>17</height>
@@ -220,7 +202,7 @@
    <property name="geometry">
     <rect>
      <x>220</x>
-     <y>140</y>
+     <y>130</y>
      <width>91</width>
      <height>20</height>
     </rect>
@@ -239,7 +221,7 @@
     <rect>
      <x>220</x>
      <y>50</y>
-     <width>41</width>
+     <width>31</width>
      <height>16</height>
     </rect>
    </property>
@@ -284,8 +266,20 @@
      <family>Calibri</family>
     </font>
    </property>
+   <property name="horizontalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOff</enum>
+   </property>
    <property name="editTriggers">
     <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
+   <property name="selectionMode">
+    <enum>QAbstractItemView::MultiSelection</enum>
+   </property>
+   <property name="selectionBehavior">
+    <enum>QAbstractItemView::SelectRows</enum>
+   </property>
+   <property name="sortingEnabled">
+    <bool>true</bool>
    </property>
    <attribute name="horizontalHeaderDefaultSectionSize">
     <number>127</number>
@@ -318,7 +312,7 @@
    <property name="geometry">
     <rect>
      <x>320</x>
-     <y>140</y>
+     <y>130</y>
      <width>81</width>
      <height>21</height>
     </rect>
@@ -335,9 +329,9 @@
   <widget class="QComboBox" name="comboBox_AddComputer_selectTypeOfComputer">
    <property name="geometry">
     <rect>
-     <x>220</x>
+     <x>140</x>
      <y>180</y>
-     <width>181</width>
+     <width>281</width>
      <height>21</height>
     </rect>
    </property>
@@ -430,23 +424,13 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QPlainTextEdit" name="plainTextEdit_AddComputer_commentsComputer">
-   <property name="geometry">
-    <rect>
-     <x>220</x>
-     <y>230</y>
-     <width>181</width>
-     <height>61</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLabel" name="AddComputer_ErrorMessage">
    <property name="geometry">
     <rect>
      <x>160</x>
-     <y>290</y>
+     <y>285</y>
      <width>461</width>
-     <height>16</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="text">
@@ -456,9 +440,9 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
   <widget class="QLabel" name="AddComputer_InvalidBuildYear">
    <property name="geometry">
     <rect>
-     <x>300</x>
+     <x>290</x>
      <y>160</y>
-     <width>111</width>
+     <width>131</width>
      <height>16</height>
     </rect>
    </property>
