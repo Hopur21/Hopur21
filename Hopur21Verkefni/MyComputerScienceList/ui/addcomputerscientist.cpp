@@ -4,6 +4,7 @@
 #include <QLabel>
 
 
+
 AddComputerScientist::AddComputerScientist(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AddComputerScientist)
@@ -207,14 +208,30 @@ void AddComputerScientist::on_checkBox_Addscientist_isPersonAlive_toggled(bool c
 
 void AddComputerScientist::on_pushButton_browse_clicked()
 {
-    string filePath = QFileDialog::getOpenFileName(this, "Search for images", "", "Image files (*.png *.jpg)").toStdString();
-    if(filePath.length())
+    /*QByteArray inByteArray;
+    QFile file("test.jpg");
+    if (file.open(QIODevice::ReadOnly))
     {
-         //Here user has selected a file
-        QPixmap pixmap(QString::fromStdString(filePath));
-        ui->AddScientist_pushButton_image->setPixmap(pixmap);
+        qDebug() << "nadi að opna file";
+        inByteArray = file.readAll();
+    }*/
 
-    }
+    /*vector<CSPerson> tempList;
+    tempList = _service.getComputerScientistList();
+    _csMoreInfo.setModal(true);
+    _csMoreInfo.setComputerScientist(tempList[0]);
+    _csMoreInfo.exec();
+
+    QByteArray inByteArray = myPerson.getImage();*/
+
+    /*QPixmap outPixmap = QPixmap();
+    outPixmap.loadFromData( inByteArray );*/
+
+
+    // NEXT TWO LINES DO NOT WORK ON MAC???? DON'T KNOW WHY
+    //ui->TESTEST->setPixmap(outPixmap);
+    //ui->TESTEST->setScaledContents(true);
+    //ui->AddScientist_pushButton_image->show();
 }
 
 void AddComputerScientist::on_pushButton_Addscientist_clearFields_clicked()

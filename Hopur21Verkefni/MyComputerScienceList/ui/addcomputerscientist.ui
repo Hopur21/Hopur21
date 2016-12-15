@@ -432,6 +432,19 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
      </property>
     </column>
    </widget>
+   <widget class="QLabel" name="TESTEST">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>260</y>
+      <width>91</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
    <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
