@@ -29,26 +29,28 @@ AddComputer::~AddComputer()
     delete ui;
 }
 
-void AddComputer::setComputerTypesComboBox(vector<string> allComputerTypes)
+void AddComputer::setComputerTypesComboBox(vector<ComputerType> allComputerTypes)
 {
-    /*int sizeOfList = allComputerTypes.size();
+    // Clear the member variable _listOfComputerTypeIDs
+    int sizeOfList = allComputerTypes.size();
+    int typeID;
     QString qSType;
     QStringList listOfTypes;
     string type;
 
-    vector<int> listOfIDs;*/
+    vector<int> listOfIDs;
 
-    //for(int i=0;i<sizeOfList;i++)
-    //{
-        //type = allComputerTypes.at(i);
-        //listOfIDs.push_back(allComputerTypes.at(i).getID());
-        //int x = allComputerTypes.
-        //qSType = QString::fromStdString(type);
-        //listOfTypes.append(qSType);
-    //}
-
-    // Send to comboBox
-    //ui->comboBox_AddComputer_selectTypeOfComputer->addItems(listOfTypes);
+    for(int i=0;i<sizeOfList;i++)
+    {
+        type = allComputerTypes.at(i).getName();
+        typeID = allComputerTypes.at(i).getID();
+        // Member vector takes in the IDs
+        _listOfComputerTypeIDs.push_back(typeID);
+        qSType = QString::fromStdString(type);
+        listOfTypes.append(qSType);
+    }
+    // listOfTypes is sent to comboBox
+    ui->comboBox_AddComputer_selectTypeOfComputer->addItems(listOfTypes);
 }
 
 void AddComputer::setComputerScientistList(vector<CSPerson> allScientists)
@@ -86,7 +88,7 @@ void AddComputer::on_pushButton_AddComputer_saveComputer_clicked()
     QString comment = "";
     QString designYear = "";
     QString buildYear = "";
-    QString computerType = "";
+    int computerID;
 
     // isBuilt is connected to the checkbox
     bool isBuilt;
@@ -95,9 +97,10 @@ void AddComputer::on_pushButton_AddComputer_saveComputer_clicked()
     designYear = ui->lineEdit_AddComputer_designYear->text();
     comment = ui->plainTextEdit_AddComputer_commentsComputer->toPlainText();
     isBuilt = ui->checkBox_AddComputer_wasComputerBuilt->isChecked();
-    //computerType = ui->comboBox_AddComputer_selectTypeOfComputer->itemData();
-    qDebug() << "ROLF" << computerType;
 
+    // Index of the selected type
+    int index = ui->comboBox_AddComputer_selectTypeOfComputer->currentIndex();
+    computerID = _listOfComputerTypeIDs.at(index-1);
 
     if(isBuilt == false)
     {
