@@ -5,7 +5,7 @@
 #include <QDialog>
 #include <QIntValidator>
 #include <qdebug.h>
-//#include <QPixmap>
+#include <QPixmap>
 
 namespace Ui {
 class AddComputerScientist;

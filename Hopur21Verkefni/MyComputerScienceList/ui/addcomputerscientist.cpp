@@ -222,15 +222,14 @@ void AddComputerScientist::on_pushButton_browse_clicked()
     QFile file("test.jpg");
     if (file.open(QIODevice::ReadOnly))
     {
-<<<<<<< HEAD
         qDebug() << "nadi að opna file";
         inByteArray = file.readAll();
     }*/
-=======
+
          //Here user has selected a file
-        QPixmap pixmap(QString::fromStdString(filePath));
+        //QPixmap pixmap(QString::fromStdString(filePath));
         //ui->AddScientist_pushButton_image->setPixmap(pixmap);
->>>>>>> 1211e185d82555e7a8c3dc094f25dec79c57e74a
+
 
     /*vector<CSPerson> tempList;
     tempList = _service.getComputerScientistList();

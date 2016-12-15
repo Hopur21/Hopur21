@@ -437,8 +437,7 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
       <string>ID</string>
      </property>
     </column>
-   </widget>
-<<<<<<< HEAD
+   </widget>   
    <widget class="QLabel" name="TESTEST">
     <property name="geometry">
      <rect>
@@ -452,8 +451,6 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
      <string>TextLabel</string>
     </property>
    </widget>
-=======
->>>>>>> 1211e185d82555e7a8c3dc094f25dec79c57e74a
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
