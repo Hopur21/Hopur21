@@ -20,6 +20,10 @@ public:
     ~ShowList();
 
 private:
+    vector<Computer> _computerList;
+    vector<CSPerson> _CSlist;
+    void printComputerList();
+    void printComputerScientistList();
     Ui::ShowList *ui;
 };
 
