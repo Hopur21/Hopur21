@@ -49,6 +49,9 @@ private:
     void createAllTabs();
     void deleteAllTabs();
     void addSearchToMenuBar();
+
+    //Other
+    void hardCodePictureToDB();
 };
 
 #endif // MAINWINDOW_H
