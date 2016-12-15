@@ -46,9 +46,11 @@ void DbCon::setDataInComputerVector(vector<Computer>& computers, const int id, c
     Computer computer(id, name, designYear, buildYear, type, typeID, isCreated, imageID, imageByteArray, imageName);
     computers.push_back(computer);
 }
-void DbCon::setDataInTypeVector(vector<string>& computerTypes, const string name)
+void DbCon::setDataInTypeVector(vector<ComputerType>& computerTypes,int id, string name)
 {
-    computerTypes.push_back(name);
+    ComputerType myType;
+    myType.setTypeValues(name,id);
+    computerTypes.push_back(myType);
 }
 QString DbCon::getDateFormat(const string& year)
 {
@@ -276,11 +278,11 @@ void DbCon::getComputers(vector<Computer>& computers)
        }
        //if(!success){qDebug() << "getComputers error:  " << query.lastError();}
 }
-void DbCon::getComputerTypes(vector<string>& computerTypes)
+void DbCon::getComputerTypes(vector<ComputerType>& computerTypes)
 {
     computerTypes.clear();
     bool success = false;
-    QSqlQuery query("SELECT name FROM type ORDER BY name");
+    QSqlQuery query("SELECT ID,name FROM type ORDER BY name");
     while (query.next())
     {
        if(success == false)
@@ -288,7 +290,8 @@ void DbCon::getComputerTypes(vector<string>& computerTypes)
            success = true;
        }
        QString name = query.value(query.record().indexOf("name")).toString();
-       setDataInTypeVector(computerTypes, name.toStdString());
+       QString id = query.value(query.record().indexOf("id")).toString();
+       setDataInTypeVector(computerTypes,id.toInt(), name.toStdString());
     }
     //if(!success){qDebug() << "getComputerTypes error:  " << query.lastError();}
 }

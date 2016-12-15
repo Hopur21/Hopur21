@@ -160,7 +160,6 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
         //TODO save image.
         this->setResult(QDialog::Accepted);
         clearFields();
-        this->close();
     }
     else
     {

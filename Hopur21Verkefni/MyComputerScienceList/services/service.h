@@ -13,7 +13,7 @@ class Service
     private:
         vector<CSPerson> _computerScientists;
         vector<Computer> _computerList;
-        vector <string> _computerTypes;
+        vector <ComputerType> _computerTypes;
 
         DbCon _dbCon;
         ComputerService _computerService;
@@ -37,7 +37,7 @@ class Service
         bool onlyAddPicturetoDB(const string picName, QByteArray picture);
 
         //Gets
-        vector <string> getComputerTypesList(){return _computerTypes;}
+        vector <ComputerType> getComputerTypesList(){return _computerTypes;}
         vector<CSPerson> getComputerScientistList(){return _computerScientists;}
         vector<Computer> getComputerList(){return _computerList;}
         vector<CSPerson> getScientistConntedToComputers(const int computerID);
