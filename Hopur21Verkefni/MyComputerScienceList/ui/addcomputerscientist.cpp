@@ -77,9 +77,9 @@ QString AddComputerScientist::getGender()
     }
     return gender;
 }
-
 void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
 {
+
     // Clear the error messages
     ui->Add_Scientist_error_field->clear();
     ui->label_addScientist_invalidDeathYear->clear();
@@ -165,7 +165,6 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
         //TODO save image.
         this->setResult(QDialog::Accepted);
         clearFields();
-        this->close();
     }
     else
     {

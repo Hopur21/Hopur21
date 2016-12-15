@@ -20,9 +20,6 @@ public:
     void setTrashList(vector<CSPerson> compScientist, vector<Computer> computerTrashList);
     ~ShowTrash();
 
-private slots:
-    void on_lineEdit_searchScientistInTrashListView_textEdited(const QString &arg1);
-
 private:
     vector<Computer> _computerList;
     vector<CSPerson> _CSList;

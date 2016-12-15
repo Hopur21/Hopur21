@@ -11,7 +11,7 @@
 #include "ui/csmoreinfo.h"
 
 #include <QTableWidget>
-
+#include <QTimer>
 #include <QMainWindow>
 
 namespace Ui {
@@ -25,6 +25,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+public slots:
 
 private slots:
     void on_action_toolbar_Home_triggered();
@@ -34,11 +35,7 @@ private slots:
     void on_actionAdd_Computer_Type_triggered();
     void on_action_toolbar_Trash_triggered();
     void on_actionExit_triggered();
-
-    void on_tabWidget_MainWindow_currentChanged();
-
-    void checkValues();
-
+    void checkDataAdded();
 private:
     Ui::MainWindow *ui;
     Service _service;
@@ -48,6 +45,7 @@ private:
     AddComputerScientist *_addComputerScientist;
     CSMoreInfo *_csMoreInfo;
     AddType *_addType;
+    QTimer *timer;
 
     //Tabs
     void createAllTabs();
@@ -56,7 +54,9 @@ private:
     void goHome();
     //Other
     void hardCodePictureToDB();
-    void testFall();
+    void createTimer();
+
+
 };
 
 #endif // MAINWINDOW_H

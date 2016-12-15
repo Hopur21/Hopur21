@@ -9,12 +9,22 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     createAllTabs();
     addSearchToMenuBar();
+    createTimer();
 }
 MainWindow::~MainWindow()
 {
     deleteAllTabs();
+    delete timer;
     delete ui;
 }
+//We use the timer to check if user has tried to add data to the program.
+void MainWindow::createTimer()
+{
+    timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(checkDataAdded()));
+    timer->start(500); //time specified in ms
+}
+
 void MainWindow::hardCodePictureToDB()
 {
     /*
@@ -30,11 +40,7 @@ void MainWindow::hardCodePictureToDB()
 
 }
 
-//emit
-void MainWindow::checkValues()
-{
-    qDebug() << 'got to checkValues()';
-}
+
 
 void MainWindow::createAllTabs()
 {
@@ -51,10 +57,6 @@ void MainWindow::createAllTabs()
     ui->tabWidget_MainWindow->addTab(_addType,"Add Type");
     ui->tabWidget_MainWindow->addTab(_showTrash,"Show Recycle");
     //ui->tabWidget_MainWindow->addTab(tTIW,*(new QIcon(":/icons/images/computer2_icon.png")), tr("Tab Name"));//How to add QIcon
-}
-void MainWindow::testFall()
-{
-    qDebug() << "made it to testfall!!!" << endl;
 }
 
 void MainWindow::deleteAllTabs()
@@ -123,17 +125,15 @@ void MainWindow::on_actionExit_triggered()
     QCoreApplication::quit();
 }
 
-void MainWindow::on_tabWidget_MainWindow_currentChanged()
+void MainWindow::checkDataAdded()
 {
-
-    qDebug() << "tab changed." << endl;
-    if(_addComputerScientist->result())//If input is valid.
+    if(_addComputerScientist->result())//If Add computer scientist was valid.
     {
-        qDebug() << "made it";
         _addComputerScientist->setResult(false);//Set result back to false
         goHome();
     }
 }
+
 void MainWindow::goHome()
 {
     ui->tabWidget_MainWindow->setCurrentIndex(constants::TAB_HOME);//Head back home

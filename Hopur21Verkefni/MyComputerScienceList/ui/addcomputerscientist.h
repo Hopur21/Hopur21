@@ -18,26 +18,21 @@ class AddComputerScientist : public QDialog
 {
     Q_OBJECT
 
-    //AddComputerScientist(QWidget *parent):QDialog(parent),ui(new Ui::AddComputerScientist);
 public:
     explicit AddComputerScientist(QWidget *parent = 0);
     ~AddComputerScientist();
+    Ui::AddComputerScientist *ui;
     QString validateUserInput(bool nameFail, bool genderFail, bool birthYearFail, bool deathYearFail);
     void setComputersList(vector<Computer> allComputers);
     void clearFields();
-signals:
-    void clicked();
 
 private slots:
-    void on_pushButton_Addscientist_save_clicked();
     void on_checkBox_Addscientist_isPersonAlive_toggled(bool checked);
     void on_pushButton_browse_clicked();
     void on_pushButton_Addscientist_clearFields_clicked();
-
-
-    
+    void on_pushButton_Addscientist_save_clicked();
 private:
-    Ui::AddComputerScientist *ui;
+    //Ui::AddComputerScientist *ui;
     CSPerson _newPerson;
     // The computers the newly created scientist is connected to
     vector <int> _computersConnected;

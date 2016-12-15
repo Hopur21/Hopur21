@@ -44,9 +44,3 @@ void ShowTrash::printComputerTrash()
         ui->table_trashComputer->setItem(j, 3, new QTableWidgetItem(QString::number(_computerList[j].getBuildYear())));
     }
 }
-
-
-void ShowTrash::on_lineEdit_searchScientistInTrashListView_textEdited(const QString &arg1)
-{
-    qDebug() << "Key pressed." << endl;
-}
