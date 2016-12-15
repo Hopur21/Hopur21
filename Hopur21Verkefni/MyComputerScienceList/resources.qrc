@@ -19,9 +19,10 @@
         <file>images/image_computer.png</file>
         <file>images/image_person.png</file>
         <file>images/icon_search.png</file>
-        <file>images/icon_compType.png</file>
         <file>images/logo_addComp.png</file>
         <file>images/logo_addSci.png</file>
         <file>images/logo_addType.png</file>
+        <file>../../../icons/icon_compType.png</file>
+        <file>images/icon_compType.png</file>
     </qresource>
 </RCC>
