@@ -437,7 +437,7 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
       <string>ID</string>
      </property>
     </column>
-   </widget>   
+   </widget>
    <widget class="QLabel" name="TESTEST">
     <property name="geometry">
      <rect>
@@ -498,16 +498,6 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
       </widget>
      </item>
     </layout>
-   </widget>
-   <widget class="QListWidget" name="test">
-    <property name="geometry">
-     <rect>
-      <x>450</x>
-      <y>100</y>
-      <width>256</width>
-      <height>192</height>
-     </rect>
-    </property>
    </widget>
   </widget>
   <widget class="QLabel" name="Add_Scientist_error_field">

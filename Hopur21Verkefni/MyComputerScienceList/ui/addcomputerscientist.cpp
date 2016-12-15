@@ -48,11 +48,19 @@ AddComputerScientist::~AddComputerScientist()
 void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
 {
 
+    _computersConnected.clear();
     QItemSelectionModel *select = ui->tableWidget_Addscientist_selectComputerForScientist->selectionModel();
+    vector <int> vectorOfComputers;
+    QString qStringIndex;
+    int index;
+
     for(int i = 0; i < select->selectedRows(2).count(); i++)
     {
-        qDebug() << "ID: "<< select->selectedRows(2).value(i).data().toString() << endl; //Print our ID in the console.
+        //int qStringIndex = select->selectedRows(2).value(i).data().toInt() << endl;
+
+        //qDebug() << "ID: "<< select->selectedRows(2).value(i).data().toString() << endl; //Print our ID in the console.
     }
+
 
 
 

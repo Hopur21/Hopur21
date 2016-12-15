@@ -33,6 +33,7 @@ private slots:
 private:
     Ui::AddComputerScientist *ui;
     CSPerson _newPerson;
+    vector <int> _computersConnected;
     QIntValidator *yearValidator;
     CSPerson getPerson() { return _newPerson;}
 
