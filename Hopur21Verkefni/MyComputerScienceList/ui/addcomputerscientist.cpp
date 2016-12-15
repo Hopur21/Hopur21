@@ -34,6 +34,7 @@ void AddComputerScientist::setComputersList(vector<Computer> allComputers)
         ui->tableWidget_Addscientist_selectComputerForScientist->setItem(i, 0, new QTableWidgetItem(QString::fromStdString(allComputers[i].getName())));
         ui->tableWidget_Addscientist_selectComputerForScientist->setItem(i, 1, new QTableWidgetItem(QString::fromStdString(allComputers[i].getType())));
         ui->tableWidget_Addscientist_selectComputerForScientist->setItem(i, 2, new QTableWidgetItem(QString::number(allComputers[i].getID())));
+        ui->tableWidget_Addscientist_selectComputerForScientist->setColumnHidden(2,true);//Hide our ID column
     }
 }
 
@@ -45,6 +46,15 @@ AddComputerScientist::~AddComputerScientist()
 
 void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
 {
+
+    QItemSelectionModel *select = ui->tableWidget_Addscientist_selectComputerForScientist->selectionModel();
+    for(int i = 0; i < select->selectedRows(2).count(); i++)
+    {
+        qDebug() << "ID: "<< select->selectedRows(2).value(i).data().toString() << endl; //Print our ID in the console.
+    }
+
+
+
     // clear the error messages
     ui->Add_Scientist_error_field->clear();
     ui->label_addScientist_invalidDeathYear->clear();
