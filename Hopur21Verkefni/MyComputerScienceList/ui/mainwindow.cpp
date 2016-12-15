@@ -15,6 +15,21 @@ MainWindow::~MainWindow()
     deleteAllTabs();
     delete ui;
 }
+void MainWindow::hardCodePictureToDB()
+{
+    /*
+    QString filename = "z3.jpggg";
+    QFile file("../../Computers/" + filename);
+    if (file.open(QIODevice::ReadOnly))
+    {
+        qDebug() << "Could Open File";
+        QByteArray inByteArray = file.readAll();
+        //_service.onlyAddPicturetoDB(filename.toStdString(),inByteArray);//Uncomment this line to write Picture to database.
+    }
+    */
+
+}
+
 void MainWindow::createAllTabs()
 {
     ui->tabWidget_MainWindow->removeTab(1);//Remove second (index 1) tab so we can edit it the rest here.

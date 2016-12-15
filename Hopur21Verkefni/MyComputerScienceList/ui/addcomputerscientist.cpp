@@ -269,6 +269,18 @@ void AddComputerScientist::on_pushButton_Addscientist_clearFields_clicked()
     ui->checkBox_Addscientist_isPersonAlive->setChecked(true);
     // Table selection clear
     ui->tableWidget_Addscientist_selectComputerForScientist->clearSelection();
+
+    // Radio buttons clear
+    ui->radioButton_Addscientist_female->setAutoExclusive(false);
+    ui->radioButton_Addscientist_male->setAutoExclusive(false);
+    ui->radioButton_Addscientist_otherGender->setAutoExclusive(false);
+    ui->radioButton_Addscientist_female->setChecked(false);
+    ui->radioButton_Addscientist_male->setChecked(false);
+    ui->radioButton_Addscientist_otherGender->setChecked(false);
+    ui->radioButton_Addscientist_female->setAutoExclusive(true);
+    ui->radioButton_Addscientist_male->setAutoExclusive(true);
+    ui->radioButton_Addscientist_otherGender->setAutoExclusive(true);
+
 }
 
 void AddComputerScientist::clearFields()
@@ -283,6 +295,17 @@ void AddComputerScientist::clearFields()
     ui->checkBox_Addscientist_isPersonAlive->setChecked(true);
     // Table selection clear
     ui->tableWidget_Addscientist_selectComputerForScientist->clearSelection();
+
+    // Radio buttons clear
+    ui->radioButton_Addscientist_female->setAutoExclusive(false);
+    ui->radioButton_Addscientist_male->setAutoExclusive(false);
+    ui->radioButton_Addscientist_otherGender->setAutoExclusive(false);
+    ui->radioButton_Addscientist_female->setChecked(false);
+    ui->radioButton_Addscientist_male->setChecked(false);
+    ui->radioButton_Addscientist_otherGender->setChecked(false);
+    ui->radioButton_Addscientist_female->setAutoExclusive(true);
+    ui->radioButton_Addscientist_male->setAutoExclusive(true);
+    ui->radioButton_Addscientist_otherGender->setAutoExclusive(true);
 }
 
 
