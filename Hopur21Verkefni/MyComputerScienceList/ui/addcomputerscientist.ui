@@ -7,19 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>400</height>
+    <height>320</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>800</width>
-    <height>400</height>
+    <height>320</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>800</width>
-    <height>400</height>
+    <height>350</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -33,16 +33,16 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>0</y>
+     <y>-4</y>
      <width>786</width>
-     <height>347</height>
+     <height>321</height>
     </rect>
    </property>
    <widget class="QPushButton" name="pushButton_Addscientist_clearFields">
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>320</y>
+      <y>290</y>
       <width>81</width>
       <height>23</height>
      </rect>
@@ -63,7 +63,7 @@
     <property name="geometry">
      <rect>
       <x>292</x>
-      <y>160</y>
+      <y>110</y>
       <width>111</width>
       <height>20</height>
      </rect>
@@ -81,7 +81,7 @@
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>60</y>
+      <y>50</y>
       <width>111</width>
       <height>131</height>
      </rect>
@@ -109,7 +109,7 @@
     <property name="geometry">
      <rect>
       <x>222</x>
-      <y>210</y>
+      <y>150</y>
       <width>181</width>
       <height>81</height>
      </rect>
@@ -127,7 +127,7 @@
     <property name="geometry">
      <rect>
       <x>390</x>
-      <y>130</y>
+      <y>90</y>
       <width>21</width>
       <height>17</height>
      </rect>
@@ -143,7 +143,7 @@
     <property name="geometry">
      <rect>
       <x>290</x>
-      <y>100</y>
+      <y>70</y>
       <width>113</width>
       <height>20</height>
      </rect>
@@ -164,7 +164,7 @@
     <property name="geometry">
      <rect>
       <x>620</x>
-      <y>320</y>
+      <y>290</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -182,7 +182,7 @@
     <property name="geometry">
      <rect>
       <x>262</x>
-      <y>60</y>
+      <y>50</y>
       <width>141</width>
       <height>20</height>
      </rect>
@@ -200,7 +200,7 @@
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>200</y>
+      <y>190</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -218,7 +218,7 @@
     <property name="geometry">
      <rect>
       <x>220</x>
-      <y>60</y>
+      <y>50</y>
       <width>41</width>
       <height>16</height>
      </rect>
@@ -236,7 +236,7 @@
     <property name="geometry">
      <rect>
       <x>220</x>
-      <y>100</y>
+      <y>70</y>
       <width>71</width>
       <height>20</height>
      </rect>
@@ -254,7 +254,7 @@
     <property name="geometry">
      <rect>
       <x>220</x>
-      <y>130</y>
+      <y>90</y>
       <width>121</width>
       <height>20</height>
      </rect>
@@ -272,7 +272,7 @@
     <property name="geometry">
      <rect>
       <x>220</x>
-      <y>160</y>
+      <y>110</y>
       <width>71</width>
       <height>20</height>
      </rect>
@@ -290,7 +290,7 @@
     <property name="geometry">
      <rect>
       <x>220</x>
-      <y>190</y>
+      <y>130</y>
       <width>121</width>
       <height>20</height>
      </rect>
@@ -308,7 +308,7 @@
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>300</y>
+      <y>240</y>
       <width>121</width>
       <height>20</height>
      </rect>
@@ -326,7 +326,7 @@
     <property name="geometry">
      <rect>
       <x>440</x>
-      <y>60</y>
+      <y>50</y>
       <width>251</width>
       <height>16</height>
      </rect>
@@ -399,7 +399,7 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
     <property name="geometry">
      <rect>
       <x>440</x>
-      <y>100</y>
+      <y>70</y>
       <width>321</width>
       <height>192</height>
      </rect>
@@ -437,12 +437,12 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
       <string>ID</string>
      </property>
     </column>
-   </widget>   
+   </widget>
    <widget class="QLabel" name="TESTEST">
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>260</y>
+      <y>220</y>
       <width>91</width>
       <height>61</height>
      </rect>
@@ -455,7 +455,7 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>320</y>
+      <y>270</y>
       <width>193</width>
       <height>20</height>
      </rect>
@@ -498,16 +498,6 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
       </widget>
      </item>
     </layout>
-   </widget>
-   <widget class="QListWidget" name="test">
-    <property name="geometry">
-     <rect>
-      <x>450</x>
-      <y>100</y>
-      <width>256</width>
-      <height>192</height>
-     </rect>
-    </property>
    </widget>
   </widget>
   <widget class="QLabel" name="Add_Scientist_error_field">
