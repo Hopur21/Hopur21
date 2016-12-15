@@ -290,7 +290,7 @@
     <property name="geometry">
      <rect>
       <x>220</x>
-      <y>270</y>
+      <y>260</y>
       <width>121</width>
       <height>20</height>
      </rect>
@@ -437,9 +437,9 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
     <property name="geometry">
      <rect>
       <x>220</x>
-      <y>290</y>
+      <y>279</y>
       <width>193</width>
-      <height>20</height>
+      <height>16</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
@@ -494,9 +494,9 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
    <widget class="QLabel" name="Add_Scientist_error_field">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>290</y>
-      <width>491</width>
+      <x>420</x>
+      <y>270</y>
+      <width>351</width>
       <height>20</height>
      </rect>
     </property>

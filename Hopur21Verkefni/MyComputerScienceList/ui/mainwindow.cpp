@@ -86,6 +86,12 @@ void MainWindow::on_actionAdd_Computer_Scientist_triggered()
     _addComputerScientist->clearFields();
     _addComputerScientist->setComputersList(_service.getComputerList());
     ui->tabWidget_MainWindow->setCurrentIndex(constants::TAB_ADD_CS);
+
+    if(_addComputerScientist->result())//If input is valid.
+    {
+        qDebug() << "mde it";
+        _addComputerScientist->setResult(false);//Set result back to false
+    }
 }
 
 void MainWindow::on_action_toolbar_Add_Computer__triggered()

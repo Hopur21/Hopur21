@@ -1,8 +1,5 @@
 #include "addcomputerscientist.h"
 #include "ui_addcomputerscientist.h"
-#include <QFileDialog>
-#include <QLabel>
-
 
 
 AddComputerScientist::AddComputerScientist(QWidget *parent) :
@@ -10,23 +7,13 @@ AddComputerScientist::AddComputerScientist(QWidget *parent) :
     ui(new Ui::AddComputerScientist)
 {
     ui->setupUi(this);
-
-    // getCurrent year   (year is the current year)
-    // therefore in the year 2016 the variable year becomes 2016
-    time_t timeNow = time(0);
-    tm *ltm = localtime(&timeNow);
-    int year = ltm->tm_year + 1900;
-
-    // Validation for year of birth & year of death
-    // the parameters are (lowest number, highest number)
-    yearValidator = new QIntValidator(1,year);
-    // here the validation is set to both: yearofbirth and deathyear fields
-    // more info on this in the extra features document
-    ui->lineEdit_Addscientist_yearofbirth->setValidator(yearValidator);
-    ui->lineEdit_Addscientist_deathYear->setValidator(yearValidator);
-
+    initValidationData();
 }
-
+AddComputerScientist::~AddComputerScientist()
+{
+    delete yearValidator;
+    delete ui;
+}
 void AddComputerScientist::setComputersList(vector<Computer> allComputers)
 {
     ui->tableWidget_Addscientist_selectComputerForScientist->setRowCount(allComputers.size());
@@ -39,30 +26,61 @@ void AddComputerScientist::setComputersList(vector<Computer> allComputers)
         ui->tableWidget_Addscientist_selectComputerForScientist->setColumnHidden(2,true);//Hide our ID column
     }
 }
-
-AddComputerScientist::~AddComputerScientist()
+int AddComputerScientist::getCurrentYear()
 {
-    delete yearValidator;
-    delete ui;
+    time_t timeNow = time(0);
+    tm *ltm = localtime(&timeNow);
+    int year = ltm->tm_year + 1900;
+    return year;
+}
+void AddComputerScientist::initValidationData()
+{
+    // Validation for year of birth & year of death
+    // the parameters are (lowest number, highest number)
+    yearValidator = new QIntValidator(1,getCurrentYear());
+    // here the validation is set to both: yearofbirth and deathyear fields
+    // more info on this in the extra features document
+    ui->lineEdit_Addscientist_yearofbirth->setValidator(yearValidator);
+    ui->lineEdit_Addscientist_deathYear->setValidator(yearValidator);
+}
+
+void AddComputerScientist::saveComputersIDs()
+{
+    // This clears the computer vector
+    _computersConnected.clear();
+    QItemSelectionModel *select = ui->tableWidget_Addscientist_selectComputerForScientist->selectionModel();
+
+    for(int i = 0; i < select->selectedRows(2).count(); i++)//SelectedRows(2) = the ID column
+    {
+        int computerID = select->selectedRows(2).value(i).data().toInt();
+        _computersConnected.push_back(computerID);
+    }
+    // Clear the error messages
+    ui->Add_Scientist_error_field->clear();
+    ui->label_addScientist_invalidDeathYear->clear();
+}
+QString AddComputerScientist::getGender()
+{
+    QString gender;
+    if(ui->radioButton_Addscientist_male->isChecked())
+    {
+        gender = "Male";
+    }
+    if(ui->radioButton_Addscientist_female->isChecked())
+    {
+        gender = "Female";
+    }
+    if(ui->radioButton_Addscientist_otherGender->isChecked())
+    {
+        gender = "Other";
+    }
+    return gender;
 }
 
 void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
 {
-
-    // This clears the computer vector
-    _computersConnected.clear();
-    QItemSelectionModel *select = ui->tableWidget_Addscientist_selectComputerForScientist->selectionModel();
-    int indexOfID;
-
-    for(int i = 0; i < select->selectedRows(2).count(); i++)
-    {
-        int indexOfID = select->selectedRows(2).value(i).data().toInt();
-        _computersConnected.push_back(indexOfID);
-    }
-
-    // Clear the error messages
-    ui->Add_Scientist_error_field->clear();
-    ui->label_addScientist_invalidDeathYear->clear();
+    //Save selected computers that are connected to the computer scientist.
+    saveComputersIDs();
 
     // If validation fails these are used
     bool nameFail = false;
@@ -76,47 +94,26 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
     // If validation fails this is set as false
     bool canCreatePerson = true;
 
-    QString name = "";
-    QString comment = "";
-    QString birthYear = "";
-    QString deathYear = "";
-    QString gender = "";
-
-    // isAlive is connected to the checkbox
-    bool isAlive;
-
     // TODO Taka inn mynd
 
-    name = ui->lineEdit_Addscientist_name->text();
-    birthYear = ui->lineEdit_Addscientist_yearofbirth->text();
-    comment = ui->lineEdit_Addscientist_comment->toPlainText();
-    isAlive = ui->checkBox_Addscientist_isPersonAlive->isChecked();
+    QString name = ui->lineEdit_Addscientist_name->text();
+    QString birthYear = ui->lineEdit_Addscientist_yearofbirth->text();
+    QString comment = ui->lineEdit_Addscientist_comment->toPlainText();
+    QString gender = getGender();
+    QString deathYear;
+    bool isAlive = ui->checkBox_Addscientist_isPersonAlive->isChecked();
 
-    if(isAlive == true)
+    if(isAlive)
     {
         // If the person is still alive deathYear is set to 0
         deathYear = "0";
     }
-    else if(isAlive == false)
+    else
     {
         deathYear = ui->lineEdit_Addscientist_deathYear->text();
     }
 
-    if(ui->radioButton_Addscientist_male->isChecked())
-    {
-        gender = "Male";
-    }
-    if(ui->radioButton_Addscientist_female->isChecked())
-    {
-        gender = "Female";
-    }
-    if(ui->radioButton_Addscientist_otherGender->isChecked())
-    {
-        gender = "Other";
-    }
-
     // Validations
-
     if(name == "")
     {
         canCreatePerson = false;
@@ -147,39 +144,35 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
         genderFail = true;
     }
 
-    // This gives how many rows are in the table
-    int rows = ui->tableWidget_Addscientist_selectComputerForScientist->rowCount();
-
-    qDebug() << "ROWS->" << rows;
-
-    // Vector of ID´s yet to be retrieved
-
-
     // If canCreatePerson is true, the person can be created
-    if(canCreatePerson == true)
+    if(canCreatePerson)
     {
-        CSPerson createdPerson;
-        _newPerson = createdPerson;
-
-
-
+        CSPerson newPerson;
+        _newPerson = newPerson;
         //on_pushButton_Addscientist_clearFields_clicked;
-        setResult(QDialog::Accepted);
+        _newPerson.setName(name.toStdString());
+        _newPerson.setGender(gender.toStdString());
+        _newPerson.setBirthYear(birthYear.toInt());
+        _newPerson.setComment(comment.toStdString());
+        _newPerson.setIsAlive(isAlive);
+        _newPerson.setPassedAwayYear(deathYear.toInt());
+
+        //TODO save image.
+        this->setResult(QDialog::Accepted);
     }
     else
     {
         QString initial = "The following fields are missing: ";
-        QString errorMessage = "";
-        errorMessage = validateUserInput(nameFail, genderFail, birthYearFail, deathYearFail);
+        QString errorMessage = validateUserInput(nameFail, genderFail, birthYearFail, deathYearFail);
         ui->Add_Scientist_error_field->setText(initial + "<span style = 'color : red'>" + errorMessage + "</span>");
 
-        if(deathYearInvalid == true)
+        if(deathYearInvalid)
         {
             QString message = "Invalid year of death";
             ui->label_addScientist_invalidDeathYear->setText("<span style = 'color : red'>" + message + "</span>");
 
         }
-        //setResult(QDialog::Rejected);
+        this->setResult(QDialog::Rejected);
     }
 }
 

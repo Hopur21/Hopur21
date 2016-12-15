@@ -2,10 +2,13 @@
 #define ADDCOMPUTERSCIENTIST_H
 #include "models/csperson.h"
 #include "models/computer.h"
-#include <QDialog>
+
+/*
 #include <QIntValidator>
-#include <qdebug.h>
 #include <QPixmap>
+#include <QFileDialog>
+#include <QLabel>
+*/
 
 namespace Ui {
 class AddComputerScientist;
@@ -37,6 +40,10 @@ private:
     vector <int> _computersConnected;
     QIntValidator *yearValidator;
     CSPerson getPerson() { return _newPerson;}
+    int getCurrentYear();
+    void initValidationData();
+    void saveComputersIDs();
+    QString getGender();
 
 };
 
