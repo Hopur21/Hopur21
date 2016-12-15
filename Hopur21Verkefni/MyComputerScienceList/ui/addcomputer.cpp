@@ -40,7 +40,7 @@ void AddComputer::on_pushButton_saveComputer_clicked()
     // isBuilt is connected to the checkbox
     bool isBuilt;
 
-    name = ui->plainTextEdit_commentsComputer->toPlainText();
+    name = ui->lineEdit_nameComputer->text();
     designYear = ui->lineEdit_designYear->text();
     comment = ui->plainTextEdit_commentsComputer->toPlainText();
     isBuilt = ui->checkBox_wasComputerBuilt->isChecked();
