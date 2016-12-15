@@ -33,6 +33,7 @@ class Computer
         string getImageName(){return _myImage.getName();}
         int getImageID(){return _myImage.getID();}
         //Sets
+
         void setName(const string name){_name = name;}
         void setDesignYear(const int designYear){_designYear = designYear;}
         void setBuildYear(const int buildYear){_buildYear = buildYear;}

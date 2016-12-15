@@ -107,7 +107,6 @@ void AddComputer::on_pushButton_AddComputer_saveComputer_clicked()
     // This function saves the IDs of the selected computer scientist to a member variable
     saveComputerScientistIDs();
 
-
     // Index of the selected type
     int index = ui->comboBox_AddComputer_selectTypeOfComputer->currentIndex();
     computerTypeID = _listOfComputerTypeIDs.at(index-1).getID();
@@ -123,7 +122,6 @@ void AddComputer::on_pushButton_AddComputer_saveComputer_clicked()
     }
 
     // Validations
-
     if(name == "")
     {
         canCreateComputer = false;
@@ -156,19 +154,21 @@ void AddComputer::on_pushButton_AddComputer_saveComputer_clicked()
     // If canCreatePerson is true, the person can be created
     if(canCreateComputer == true)
     {
-        qDebug() << "CAN CREATE COMPUTER";
-        //Computer createdComputer;
-        //_newPerson = createdPerson;
+        qDebug() << "CAN CREATE COMPUTER"; // REMOVE THIS
+        Computer createdComputer;
+        createdComputer.setName(name.toStdString());
+        createdComputer.setDesignYear(designYear.toInt());
+        createdComputer.setBuildYear(buildYear.toInt());
+        //createdComputer.setComment(comment);
         //setResult(QDialog::Accepted);
     }
     else
     {
+        qDebug() << "CAN NOT CREATE COMPUTER"; // REMOVE THIS
         QString initial = "The following fields are missing: ";
         QString errorMessage = validateUserInput(nameFail,designYearFail, buildYearFail, computerTypeFail, buildYearInvalid);
-        //
         ui->AddComputer_ErrorMessage->setText(initial + "<span style = 'color : red'>" + errorMessage + "</span>");
         this->setResult(QDialog::Rejected);
-
     }
 }
 // This function creates the error string for: on_pushButton_AddComputer_saveComputer_clicked()
