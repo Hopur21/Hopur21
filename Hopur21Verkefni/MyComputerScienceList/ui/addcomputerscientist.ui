@@ -105,24 +105,6 @@
      </size>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_Addscientist_comment">
-    <property name="geometry">
-     <rect>
-      <x>222</x>
-      <y>150</y>
-      <width>181</width>
-      <height>81</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Calibri</family>
-     </font>
-    </property>
-    <property name="placeholderText">
-     <string/>
-    </property>
-   </widget>
    <widget class="QCheckBox" name="checkBox_Addscientist_isPersonAlive">
     <property name="geometry">
      <rect>
@@ -385,8 +367,8 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
    <widget class="QLabel" name="label_addScientist_invalidDeathYear">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>180</y>
+      <x>280</x>
+      <y>130</y>
       <width>141</width>
       <height>20</height>
      </rect>
@@ -498,6 +480,16 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QPlainTextEdit" name="lineEdit_Addscientist_comment">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>150</y>
+      <width>181</width>
+      <height>81</height>
+     </rect>
+    </property>
    </widget>
   </widget>
   <widget class="QLabel" name="Add_Scientist_error_field">

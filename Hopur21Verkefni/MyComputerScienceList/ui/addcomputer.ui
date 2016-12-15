@@ -100,24 +100,6 @@
     <string>Browse</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_commentsComputer">
-   <property name="geometry">
-    <rect>
-     <x>220</x>
-     <y>220</y>
-     <width>181</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Calibri</family>
-    </font>
-   </property>
-   <property name="placeholderText">
-    <string/>
-   </property>
-  </widget>
   <widget class="QPushButton" name="pushButton_imageComputer">
    <property name="geometry">
     <rect>
@@ -425,6 +407,16 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPlainTextEdit" name="plainTextEdit_commentsComputer">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>220</y>
+     <width>181</width>
+     <height>61</height>
+    </rect>
    </property>
   </widget>
  </widget>

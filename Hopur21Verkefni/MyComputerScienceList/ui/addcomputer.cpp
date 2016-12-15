@@ -1,5 +1,6 @@
 #include "addcomputer.h"
 #include "ui_addcomputer.h"
+#include <QTextEdit>
 
 AddComputer::AddComputer(QWidget *parent) :
     QDialog(parent),
@@ -41,7 +42,7 @@ void AddComputer::on_pushButton_saveComputer_clicked()
 
     name = ui->lineEdit_nameComputer->text();
     designYear = ui->lineEdit_designYear->text();
-    comment = ui->lineEdit_commentsComputer->text();
+    comment = ui->plainTextEdit_commentsComputer->toPlainText();
     isBuilt = ui->checkBox_wasComputerBuilt->isChecked();
 
     if(isBuilt == true)

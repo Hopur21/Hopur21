@@ -89,7 +89,7 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
 
     name = ui->lineEdit_Addscientist_name->text();
     birthYear = ui->lineEdit_Addscientist_yearofbirth->text();
-    comment = ui->lineEdit_Addscientist_comment->text();
+    comment = ui->lineEdit_Addscientist_comment->toPlainText();
     isAlive = ui->checkBox_Addscientist_isPersonAlive->isChecked();
 
     if(isAlive == true)
