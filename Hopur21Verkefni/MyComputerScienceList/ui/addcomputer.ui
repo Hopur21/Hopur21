@@ -85,8 +85,8 @@
   <widget class="QPushButton" name="pushButton_AddComputer_browseComputer">
    <property name="geometry">
     <rect>
-     <x>78</x>
-     <y>200</y>
+     <x>50</x>
+     <y>190</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -103,8 +103,8 @@
   <widget class="QPushButton" name="pushButton_imageComputer">
    <property name="geometry">
     <rect>
-     <x>78</x>
-     <y>50</y>
+     <x>30</x>
+     <y>40</y>
      <width>111</width>
      <height>131</height>
     </rect>
@@ -284,8 +284,20 @@
      <family>Calibri</family>
     </font>
    </property>
+   <property name="horizontalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOff</enum>
+   </property>
    <property name="editTriggers">
     <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
+   <property name="selectionMode">
+    <enum>QAbstractItemView::MultiSelection</enum>
+   </property>
+   <property name="selectionBehavior">
+    <enum>QAbstractItemView::SelectRows</enum>
+   </property>
+   <property name="sortingEnabled">
+    <bool>true</bool>
    </property>
    <attribute name="horizontalHeaderDefaultSectionSize">
     <number>127</number>
@@ -335,9 +347,9 @@
   <widget class="QComboBox" name="comboBox_AddComputer_selectTypeOfComputer">
    <property name="geometry">
     <rect>
-     <x>220</x>
+     <x>140</x>
      <y>180</y>
-     <width>181</width>
+     <width>281</width>
      <height>21</height>
     </rect>
    </property>
