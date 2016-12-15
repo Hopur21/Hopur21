@@ -111,3 +111,18 @@ void MainWindow::on_actionExit_triggered()
 {
     QCoreApplication::quit();
 }
+
+void MainWindow::on_tabWidget_MainWindow_currentChanged()
+{
+    qDebug() << "tab changed." << endl;
+    if(_addComputerScientist->result())//If input is valid.
+    {
+        qDebug() << "mde it";
+        _addComputerScientist->setResult(false);//Set result back to false
+        goHome();
+    }
+}
+void MainWindow::goHome()
+{
+    ui->tabWidget_MainWindow->setCurrentIndex(constants::TAB_HOME);//Head back home
+}

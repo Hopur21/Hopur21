@@ -35,6 +35,8 @@ private slots:
     void on_action_toolbar_Trash_triggered();
     void on_actionExit_triggered();
 
+    void on_tabWidget_MainWindow_currentChanged();
+
 private:
     Ui::MainWindow *ui;
     Service _service;
@@ -49,7 +51,7 @@ private:
     void createAllTabs();
     void deleteAllTabs();
     void addSearchToMenuBar();
-
+    void goHome();
     //Other
     void hardCodePictureToDB();
 };
