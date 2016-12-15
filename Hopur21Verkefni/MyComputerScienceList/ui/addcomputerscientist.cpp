@@ -8,6 +8,10 @@ AddComputerScientist::AddComputerScientist(QWidget *parent) :
 {
     ui->setupUi(this);
     initValidationData();
+    //okButton->setAutoDefault(false);
+
+
+    //connect(ui, SIGNAL(clicked()), this, SLOT(checkValues()));
 }
 AddComputerScientist::~AddComputerScientist()
 {
@@ -160,6 +164,7 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
         //TODO save image.
         this->setResult(QDialog::Accepted);
         clearFields();
+        this->close();
     }
     else
     {

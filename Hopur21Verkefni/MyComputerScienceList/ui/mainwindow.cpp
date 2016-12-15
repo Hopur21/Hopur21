@@ -30,6 +30,12 @@ void MainWindow::hardCodePictureToDB()
 
 }
 
+//emit
+void MainWindow::checkValues()
+{
+    qDebug() << 'got to checkValues()';
+}
+
 void MainWindow::createAllTabs()
 {
     ui->tabWidget_MainWindow->removeTab(1);//Remove second (index 1) tab so we can edit it the rest here.
@@ -46,6 +52,11 @@ void MainWindow::createAllTabs()
     ui->tabWidget_MainWindow->addTab(_showTrash,"Show Recycle");
     //ui->tabWidget_MainWindow->addTab(tTIW,*(new QIcon(":/icons/images/computer2_icon.png")), tr("Tab Name"));//How to add QIcon
 }
+void MainWindow::testFall()
+{
+    qDebug() << "made it to testfall!!!" << endl;
+}
+
 void MainWindow::deleteAllTabs()
 {
     delete _showList;
@@ -114,10 +125,11 @@ void MainWindow::on_actionExit_triggered()
 
 void MainWindow::on_tabWidget_MainWindow_currentChanged()
 {
+
     qDebug() << "tab changed." << endl;
     if(_addComputerScientist->result())//If input is valid.
     {
-        qDebug() << "mde it";
+        qDebug() << "made it";
         _addComputerScientist->setResult(false);//Set result back to false
         goHome();
     }

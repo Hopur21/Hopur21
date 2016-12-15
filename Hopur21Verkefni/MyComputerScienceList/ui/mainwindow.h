@@ -37,6 +37,8 @@ private slots:
 
     void on_tabWidget_MainWindow_currentChanged();
 
+    void checkValues();
+
 private:
     Ui::MainWindow *ui;
     Service _service;
@@ -54,6 +56,7 @@ private:
     void goHome();
     //Other
     void hardCodePictureToDB();
+    void testFall();
 };
 
 #endif // MAINWINDOW_H
