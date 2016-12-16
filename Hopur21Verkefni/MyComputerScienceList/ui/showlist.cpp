@@ -164,7 +164,7 @@ vector<CSPerson> ShowList::getCSfromCompID(int id)
     {
         if(_computerCSconnection[i].getCompID() == id)
         {
-            returnValue.push_back(getComputerFromID(_computerCSconnection[i].getCSid()));
+            returnValue.push_back(getPersonFromID(_computerCSconnection[i].getCSid()));
         }
     }
     return returnValue;
