@@ -16,6 +16,9 @@ public:
     void setComputerScientist(CSPerson myPerson);
     ~CSMoreInfo();
 
+private slots:
+    void on_pushButton_close_clicked();
+
 private:
     CSPerson _myPerson;
     Ui::CSMoreInfo *ui;
