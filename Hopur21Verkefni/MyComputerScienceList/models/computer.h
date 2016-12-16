@@ -17,6 +17,7 @@ class Computer
         int _designYear;
         int _buildYear;
 
+
     public:
         Computer(){}
         Computer(const int id, const string name,const int designYear,const int buildYear,string typeName, string typeID,const bool created, const int imageID = -1,const QByteArray imageByteArray = NULL, string imageName = "");
@@ -33,6 +34,7 @@ class Computer
         string getImageName(){return _myImage.getName();}
         int getImageID(){return _myImage.getID();}
         //Sets
+
 
         void setName(const string name){_name = name;}
         void setDesignYear(const int designYear){_designYear = designYear;}

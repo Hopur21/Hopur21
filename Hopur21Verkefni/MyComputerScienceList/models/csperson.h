@@ -21,6 +21,7 @@ class CSPerson
         int getCurrentYear();
 
 
+
     public:
         CSPerson(){}
         CSPerson(const int id, const string name, const string gender, const int birthYear, const int passedAwayYear, const string comment, const bool isAlive, const int imageID = -1,const QByteArray imageByteArray = NULL, string imageName = "");

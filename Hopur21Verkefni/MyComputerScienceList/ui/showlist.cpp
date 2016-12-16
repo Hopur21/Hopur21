@@ -36,7 +36,15 @@ void ShowList::printComputerScientistList()
         ui->table_ComputerScientist->setItem(i, 0, new QTableWidgetItem(QString::fromStdString(_CSlist[i].getName())));
         ui->table_ComputerScientist->setItem(i, 1, new QTableWidgetItem(QString::number(_CSlist[i].getAge())));
         ui->table_ComputerScientist->setItem(i, 2, new QTableWidgetItem(QString::number(_CSlist[i].getBirthYear())));
-        ui->table_ComputerScientist->setItem(i, 3, new QTableWidgetItem(QString::number(_CSlist[i].getPassedAwayYear())));
+        int yearOfDeath = _CSlist[i].getPassedAwayYear();
+        if(yearOfDeath == constants::STILL_ALIVE)
+        {
+            ui->table_ComputerScientist->setItem(i, 3, new QTableWidgetItem("Still alive"));
+        }
+        else
+        {
+            ui->table_ComputerScientist->setItem(i, 3, new QTableWidgetItem(QString::number(_CSlist[i].getPassedAwayYear())));
+        }
         ui->table_ComputerScientist->setItem(i, 4, new QTableWidgetItem(QString::number(_CSlist[i].getID())));
         ui->table_ComputerScientist->setColumnHidden(4,true);//Hide our ID column
     }
@@ -52,7 +60,15 @@ void ShowList::printComputerList()
         ui->table_Computer->setItem(j, 0, new QTableWidgetItem(QString::fromStdString(_computerList[j].getName())));
         ui->table_Computer->setItem(j, 1, new QTableWidgetItem(QString::fromStdString(_computerList[j].getType())));
         ui->table_Computer->setItem(j, 2, new QTableWidgetItem(QString::number(_computerList[j].getDesignYear())));
-        ui->table_Computer->setItem(j, 3, new QTableWidgetItem(QString::number(_computerList[j].getBuildYear())));
+        int buildYear = _computerList[j].getBuildYear();
+        if(buildYear == constants::NEVER_BUILT)
+        {
+            ui->table_Computer->setItem(j, 3, new QTableWidgetItem("Computer was not built"));
+        }
+        else
+        {
+            ui->table_Computer->setItem(j, 3, new QTableWidgetItem(QString::number(_computerList[j].getBuildYear())));
+        }
         ui->table_Computer->setItem(j, 4, new QTableWidgetItem(QString::number(_computerList[j].getID())));
         ui->table_Computer->setColumnHidden(4,true);//Hide our ID column
     }
