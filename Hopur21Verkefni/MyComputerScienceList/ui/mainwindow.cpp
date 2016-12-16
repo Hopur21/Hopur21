@@ -224,8 +224,5 @@ void MainWindow::refreshAllTables()
         _addComputer->setComputerType(_service.getComputerTypesList());
         _addComputer->setComputerScientistList(_service.getComputerScientistList(_filterSearch));
         _addComputer->setComputerTypesComboBox();
-        _addType->clearFields();
-        _addType->resetData();
-        _addType->setTypes(_service.getComputerTypesList());
         _showTrash->setTrashList(_service.getComputerScientistTrash(_filterSearch), _service.getComputerTrash(_filterSearch));
 }
