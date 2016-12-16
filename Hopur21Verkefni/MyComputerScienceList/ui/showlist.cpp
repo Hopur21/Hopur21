@@ -91,7 +91,7 @@ void ShowList::on_table_ComputerScientist_doubleClicked(const QModelIndex &index
     _csMoreInfo.setModal(true);
     _csMoreInfo.exec();*/
 
-
+     _personToSend = getPersonFromID(_idForMoreInfo);
     _csMoreInfo.setComputerScientist(_personToSend);
     ui->Button_More_Info->setEnabled(false);
     _csMoreInfo.setModal(true);
@@ -108,7 +108,7 @@ void ShowList::on_table_Computer_cellClicked(int row)
 
 void ShowList::on_table_ComputerScientist_cellClicked(int row)
 {
-    _personToSend = getPersonFromID(_idForMoreInfo = ui->table_ComputerScientist->item(row,4)->text().toInt());
+    _idForMoreInfo = ui->table_ComputerScientist->item(row,4)->text().toInt();
     ui->Button_Delete->setEnabled(true);
     _removeComputerOrScientist = constants::COMPUTER_SCIENTIST;
     _row = row;
@@ -123,6 +123,7 @@ void ShowList::on_table_Computer_doubleClicked()
 
 void ShowList::on_Button_More_Info_clicked()
 {
+     _personToSend = getPersonFromID(_idForMoreInfo);
     _csMoreInfo.setComputerScientist(_personToSend);
     ui->Button_More_Info->setEnabled(false);
     _csMoreInfo.setModal(true);
