@@ -118,7 +118,7 @@
     <string/>
    </property>
    <property name="icon">
-    <iconset>
+    <iconset resource="../resources.qrc">
      <normaloff>:/icons/images/image_computer.png</normaloff>:/icons/images/image_computer.png</iconset>
    </property>
    <property name="iconSize">
@@ -399,7 +399,7 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>:/icons/images/logo_addComp.png</pixmap>
+    <pixmap resource="../resources.qrc">:/icons/images/logo_addComp.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -418,7 +418,7 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>:/icons/images/computer_icon.png</pixmap>
+    <pixmap resource="../resources.qrc">:/icons/images/computer_icon.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -450,35 +450,9 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_imageComputer_2">
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>80</y>
-     <width>111</width>
-     <height>131</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Calibri</family>
-    </font>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="icon">
-    <iconset>
-     <normaloff>:/icons/images/image_computer.png</normaloff>:/icons/images/image_computer.png</iconset>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>100</width>
-     <height>150</height>
-    </size>
-   </property>
-  </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="../resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
