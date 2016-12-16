@@ -3,13 +3,6 @@
 #include "models/csperson.h"
 #include "models/computer.h"
 
-/*
-#include <QIntValidator>
-#include <QPixmap>
-#include <QFileDialog>
-#include <QLabel>
-*/
-
 namespace Ui {
 class AddComputerScientist;
 }

@@ -104,7 +104,6 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
     {
         CSPerson newPerson;
         _newPerson = newPerson;
-        //on_pushButton_Addscientist_clearFields_clicked;
         _newPerson.setName(name.toStdString());
         _newPerson.setGender(gender.toStdString());
         _newPerson.setBirthYear(birthYear.toInt());
@@ -310,8 +309,8 @@ void AddComputerScientist::setImageButtonAsImage()
 
     QPixmap pixmap = QPixmap();
     pixmap.loadFromData( _image );
-    QIcon ButtonIcon(pixmap);
-    ui->AddScientist_pushButton_image->setIcon(ButtonIcon);
+    QIcon buttonIcon(pixmap);
+    ui->AddScientist_pushButton_image->setIcon(buttonIcon);
 }
 void AddComputerScientist::resetAllData()
 {

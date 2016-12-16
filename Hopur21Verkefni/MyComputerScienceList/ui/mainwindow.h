@@ -57,6 +57,7 @@ private:
 
     //Send data
     void addNewScientist();
+    void addNewComputer();
 
 
 };

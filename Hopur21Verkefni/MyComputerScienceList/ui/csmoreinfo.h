@@ -2,8 +2,6 @@
 #define CSMOREINFO_H
 #include "models/csperson.h"
 
-#include <QDialog>
-
 namespace Ui {
 class CSMoreInfo;
 }

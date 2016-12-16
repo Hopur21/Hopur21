@@ -93,8 +93,9 @@ void MainWindow::on_action_toolbar_Add_Computer__triggered()
 {
     _addComputer->clearFields();
     _addComputer->resetData();
-    _addComputer->setComputerTypesComboBox(_service.getComputerTypesList());
+    _addComputer->setComputerType(_service.getComputerTypesList());
     _addComputer->setComputerScientistList(_service.getComputerScientistList());
+    _addComputer->setComputerTypesComboBox();
     ui->tabWidget_MainWindow->setCurrentIndex(constants::TAB_ADD_COMPUTER);
 }
 
@@ -112,13 +113,19 @@ void MainWindow::on_actionExit_triggered()
 {
     QCoreApplication::quit();
 }
-
+//Check if data is needed to be inserted into the database.
 void MainWindow::checkDataAdded()
 {
     if(_addComputerScientist->result())//If Add computer scientist was valid.
     {
         addNewScientist();
         _addComputerScientist->setResult(false);//Set result back to false
+        goHome();
+    }
+    if(_addComputer->result())
+    {
+        addNewComputer();
+        _addComputer->setResult(false);
         goHome();
     }
 }
@@ -134,4 +141,16 @@ void MainWindow::addNewScientist()
                                 newScientist.getComments(),\
                                 _addComputerScientist->getImageName(),\
                                 _addComputerScientist->getImage());
+}
+void MainWindow::addNewComputer()
+{
+    Computer newComputer = _addComputer->getComputer();
+    _service.addNewComputerToList(_addComputer->getCSconntedToComp(),\
+                                  newComputer.getName(),\
+                                  newComputer.getDesignYear(),\
+                                  newComputer.getBuildYear(),\
+                                  newComputer.getTypeID(),\
+                                  newComputer.getIsCreated(),\
+                                  _addComputer->getImageName(),\
+                                  _addComputer->getImage());
 }
