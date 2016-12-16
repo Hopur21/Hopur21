@@ -1,5 +1,8 @@
 #ifndef COMPMOREINFO_H
 #define COMPMOREINFO_H
+#include "models/computer.h"
+
+//Was accidentally created with only lowercase, we got many conflicts trying to fix it.
 
 #include <QDialog>
 
@@ -14,9 +17,13 @@ class compmoreinfo : public QDialog
 public:
     explicit compmoreinfo(QWidget *parent = 0);
     ~compmoreinfo();
+    void setComputer(Computer myComputer);
 
 private:
     Ui::compmoreinfo *ui;
+    Computer _myComputer;
+    void loadImage();
+    void setDataInBoxes();
 };
 
 #endif // COMPMOREINFO_H

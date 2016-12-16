@@ -139,10 +139,10 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>420</x>
-     <y>70</y>
+     <x>440</x>
+     <y>90</y>
      <width>80</width>
-     <height>194</height>
+     <height>161</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -220,7 +220,7 @@
     <rect>
      <x>30</x>
      <y>50</y>
-     <width>113</width>
+     <width>261</width>
      <height>20</height>
     </rect>
    </property>
@@ -286,7 +286,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string/>
    </property>
   </widget>
   <zorder>layoutWidget</zorder>
