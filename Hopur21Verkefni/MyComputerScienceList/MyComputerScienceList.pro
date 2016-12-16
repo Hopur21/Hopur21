@@ -30,7 +30,8 @@ SOURCES += main.cpp\
     models/image.cpp \
     models/computertype.cpp \
     ui/csmoreinfo.cpp \
-    ui/compmoreinfo.cpp
+    ui/compmoreinfo.cpp \
+    models/computerscientisttocomputer.cpp
 
 HEADERS  += models/csperson.h \
     models/computer.h \
@@ -48,7 +49,8 @@ HEADERS  += models/csperson.h \
     models/image.h \
     models/computertype.h \
     ui/csmoreinfo.h \
-    ui/compmoreinfo.h
+    ui/compmoreinfo.h \
+    models/computerscientisttocomputer.h
 
 FORMS    += ui/mainwindow.ui \
     ui/addcomputer.ui \

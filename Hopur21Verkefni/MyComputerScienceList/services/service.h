@@ -3,6 +3,7 @@
 #include <vector>
 #include "models/computer.h"
 #include "models/csperson.h"
+#include "models/computerscientisttocomputer.h"
 #include "services/computerservice.h"
 #include "services/cspersonservice.h"
 #include "repositories/dbcon.h"
@@ -14,6 +15,7 @@ class Service
         vector<CSPerson> _computerScientists;
         vector<Computer> _computerList;
         vector <ComputerType> _computerTypes;
+        vector<ComputerScientistToComputer> _connection;
 
         DbCon _dbCon;
         ComputerService _computerService;
@@ -46,6 +48,7 @@ class Service
         vector<Computer> getComputersConntedToCS(const int computerScientistID);
         vector<CSPerson> getComputerScientistTrash(const string filter);
         vector<Computer> getComputerTrash(const string filter);
+        vector<ComputerScientistToComputer> getCSandCompConnection();
         //Search
         vector<CSPerson> searchComputerScientist(const string searchString);
         vector<Computer> searchComputer(const string searchString);

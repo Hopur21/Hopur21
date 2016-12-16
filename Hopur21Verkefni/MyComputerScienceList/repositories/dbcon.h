@@ -4,6 +4,7 @@
 #include <QtSql>
 #include "models/csperson.h"
 #include "models/computer.h"
+#include "models/computerscientisttocomputer.h"
 
 using namespace std;
 class DbCon
