@@ -1,9 +1,7 @@
 #include "computertype.h"
 
-ComputerType::ComputerType()
-{
+ComputerType::ComputerType() {}
 
-}
 //Both values are set in at once, to make sure the ID is not skipped.
 void ComputerType::setTypeValues(std::string& name, int& id)
 {

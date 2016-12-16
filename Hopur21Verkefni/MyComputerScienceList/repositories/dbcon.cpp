@@ -8,6 +8,7 @@ DbCon::DbCon()
     _password = "Eixc3~17";
     _connectionSuccess = makeConnection();
 }
+
 DbCon::DbCon(const QString& hostname, const QString& database, const QString& username, const QString& password)
 {
     _hostname = hostname;
@@ -16,6 +17,7 @@ DbCon::DbCon(const QString& hostname, const QString& database, const QString& us
     _password = password;
     _connectionSuccess = makeConnection();
 }
+
 DbCon::~DbCon()
 {
     QString connection;
@@ -24,6 +26,7 @@ DbCon::~DbCon()
     _db = QSqlDatabase();
     _db.removeDatabase(connection);
 }
+
 bool DbCon::makeConnection()
 {
     _db = QSqlDatabase::addDatabase("QMYSQL");
@@ -35,27 +38,32 @@ bool DbCon::makeConnection()
     //Return true if we made the connection, else false.
     return _db.open();
 }
+
 //Other functions
 void DbCon::setDataInPersonVector(vector<CSPerson>& computerScientists, const int id, const string name, const string gender, const int birthYear, const int passedAwayYear, const string comment, const bool isAlive, const int imageID, const string imageName, const QByteArray imageByteArray)
 {
     CSPerson scientist(id,name,gender,birthYear,passedAwayYear,comment, isAlive, imageID, imageByteArray, imageName);
     computerScientists.push_back(scientist);
 }
+
 void DbCon::setDataInComputerVector(vector<Computer>& computers, const int id, const string name, const int designYear, const int buildYear, const string type,const string typeID, const bool isCreated, const int imageID, const string imageName, const QByteArray imageByteArray)
 {
     Computer computer(id, name, designYear, buildYear, type, typeID, isCreated, imageID, imageByteArray, imageName);
     computers.push_back(computer);
 }
+
 void DbCon::setDataInTypeVector(vector<ComputerType>& computerTypes,int id, string name)
 {
     ComputerType myType;
     myType.setTypeValues(name,id);
     computerTypes.push_back(myType);
 }
+
 QString DbCon::getDateFormat(const string& year)
 {
     return QString::fromStdString(year + "-00-00");
 }
+
 //Restore
 bool DbCon::restoreComputerScientist(const int& scientistID)
 {
@@ -73,6 +81,7 @@ bool DbCon::restoreComputerScientist(const int& scientistID)
     }
     return success;
 }
+
 bool DbCon::restoreComputer(const int& computerID)
 {
     bool success = false;
@@ -89,6 +98,7 @@ bool DbCon::restoreComputer(const int& computerID)
     }
     return success;
 }
+
 //Remove Querys
 bool DbCon::removeComputerScientist(const int& scientistID)
 {
@@ -106,6 +116,7 @@ bool DbCon::removeComputerScientist(const int& scientistID)
     }
     return success;
 }
+
 bool DbCon::removeComputer(const int& computerID)
 {
     bool success = false;
@@ -122,6 +133,7 @@ bool DbCon::removeComputer(const int& computerID)
     }
     return success;
 }
+
 //Insert Querys
 bool DbCon::addComputerType(const string typeName)
 {
@@ -150,7 +162,6 @@ bool DbCon::addCStoComputer(const int cSID,const int compID)
         query.bindValue(":cSID", cSID);
         query.bindValue(":compID", compID);
         success = query.exec();
-
     }
     catch(int e)
     {
@@ -160,6 +171,7 @@ bool DbCon::addCStoComputer(const int cSID,const int compID)
     query.lastQuery();
     return success;
 }
+
 int DbCon::addPicture(const string imageName, const QByteArray image)
 {
     QSqlQuery query;
@@ -189,6 +201,7 @@ int DbCon::addComputerScientist(CSPerson value)
     //qDebug() << query.lastQuery();
     return returnID.toInt();
 }
+
 int DbCon::addComputer(Computer value)
 {
     QSqlQuery query;
@@ -222,6 +235,7 @@ bool DbCon::updateComputerScientist(CSPerson& computerScientist)
     //if(!success){qDebug() << "updateComputerScientist error:  " << query.lastError();}
     return success;
 }
+
 bool DbCon::updateComputer(Computer& computer)
 {
     bool success = false;
@@ -237,6 +251,7 @@ bool DbCon::updateComputer(Computer& computer)
     //if(!success){qDebug() << "updateComputer error:  " << query.lastError();}
     return success;
 }
+
 //Select Querys
 vector<ComputerScientistToComputer> DbCon::getCscientistToComps()
 {
@@ -245,7 +260,9 @@ vector<ComputerScientistToComputer> DbCon::getCscientistToComps()
     QSqlQuery query("select computer_scientist_ID, computer_ID from computer_scientists_computers;");
     while (query.next())
     {
-        if(success == false)//If we made it here the query was a success, no need to set it to true for every single loop
+        // If we made it here the query was a success
+        // no need to set it to true for every single loop
+        if(success == false)
         {
             success = true;
         }
@@ -270,15 +287,17 @@ vector<Computer> DbCon::getComputersConnectedToCS(const int scientistID)
     query.exec();
     while (query.next())
     {
-        if(success == false)//If we made it here the query was a success, no need to set it to true for every single loop
+        // If we made it here the query was a success
+        // no need to set it to true for every single loop
+        if(success == false)
         {
             success = true;
         }
         runSelectForComputers(query,compuerList);
     }
-    //if(!success){qDebug() << "getComputersConnectedToSC error:  " << query.lastError();}
     return compuerList;
 }
+
 vector<CSPerson> DbCon::getCSConntedToComputer(const int computerID)
 {
     vector<CSPerson> CSList;
@@ -296,7 +315,6 @@ vector<CSPerson> DbCon::getCSConntedToComputer(const int computerID)
         }
         runSelectForScientist(query, CSList);
     }
-    //if(!success){qDebug() << "getCSConntedToComputer error:  " << query.lastError();}
     return CSList;
 }
 

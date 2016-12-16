@@ -9,7 +9,8 @@ CSPerson::CSPerson(const int id, const string name, const string gender, const i
     _passedAwayYear = passedAwayYear;
     _comment = comment;
     _isAlive = isAlive;
-    if(imageID >=0)//If imageID is not negative (which is default value)
+    //If imageID is not negative (which is default value)
+    if(imageID >=0)
     {
         setImageInfo(imageID, imageByteArray,imageName);
     }
@@ -29,7 +30,6 @@ int CSPerson::getCurrentYear()
 
 int CSPerson::getAge()
 {
-
     int age = 0;
     if(_passedAwayYear == stoi(constants::ALIVE))
     {
