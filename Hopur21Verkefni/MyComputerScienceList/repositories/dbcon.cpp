@@ -142,8 +142,9 @@ int DbCon::addPicture(const string imageName, const QByteArray image)
 
 int DbCon::addComputerScientist(CSPerson value)
 {
+    bool success;
     QSqlQuery query;
-    query.prepare("INSERT INTO computer_scientists(name, birth_year, death_year, is_alive, gender, comment) VALUES (:name, :birthYear, :deathYear, :isAlive, :gender, :comment, :img_ID))");
+    query.prepare("INSERT INTO computer_scientists(name, birth_year, death_year, is_alive, gender, comment, img_ID) VALUES (:name, :birthYear, :deathYear, :isAlive, :gender, :comment, :img_ID)");
     query.bindValue(":name", QString::fromStdString(value.getName()));
     query.bindValue(":birthYear", getDateFormat(to_string(value.getBirthYear())));
     query.bindValue(":deathYear", getDateFormat(to_string(value.getPassedAwayYear())));
@@ -151,9 +152,10 @@ int DbCon::addComputerScientist(CSPerson value)
     query.bindValue(":gender", QString::fromStdString(value.getGender()));
     query.bindValue(":comment", QString::fromStdString(value.getComments()));
     query.bindValue(":img_ID", value.getImageID());
-    query.exec();
-    //if(!success){qDebug() << "addComputerScientist error:  " << query.lastError();}
+    success = query.exec();
+    if(!success){qDebug() << "addComputerScientist error:  " << query.lastError();}
     QVariant returnID = query.lastInsertId();
+    //qDebug() << query.lastQuery();
     return returnID.toInt();
 }
 int DbCon::addComputer(Computer value)

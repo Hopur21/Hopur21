@@ -8,10 +8,6 @@ AddComputerScientist::AddComputerScientist(QWidget *parent) :
 {
     ui->setupUi(this);
     initValidationData();
-    //okButton->setAutoDefault(false);
-
-
-    //connect(ui, SIGNAL(clicked()), this, SLOT(checkValues()));
 }
 AddComputerScientist::~AddComputerScientist()
 {
@@ -30,53 +26,7 @@ void AddComputerScientist::setComputersList(vector<Computer> allComputers)
         ui->tableWidget_Addscientist_selectComputerForScientist->setColumnHidden(2,true);//Hide our ID column
     }
 }
-int AddComputerScientist::getCurrentYear()
-{
-    time_t timeNow = time(0);
-    tm *ltm = localtime(&timeNow);
-    int year = ltm->tm_year + 1900;
-    return year;
-}
-void AddComputerScientist::initValidationData()
-{
-    // Validation for year of birth & year of death
-    // the parameters are (lowest number, highest number)
-    yearValidator = new QIntValidator(1,getCurrentYear());
-    // here the validation is set to both: yearofbirth and deathyear fields
-    // more info on this in the extra features document
-    ui->lineEdit_Addscientist_yearofbirth->setValidator(yearValidator);
-    ui->lineEdit_Addscientist_deathYear->setValidator(yearValidator);
-}
 
-void AddComputerScientist::saveComputersIDs()
-{
-    // This clears the computer vector
-    _computersConnected.clear();
-    QItemSelectionModel *select = ui->tableWidget_Addscientist_selectComputerForScientist->selectionModel();
-
-    for(int i = 0; i < select->selectedRows(2).count(); i++)//SelectedRows(2) = the ID column
-    {
-        int computerID = select->selectedRows(2).value(i).data().toInt();
-        _computersConnected.push_back(computerID);
-    }
-}
-QString AddComputerScientist::getGender()
-{
-    QString gender;
-    if(ui->radioButton_Addscientist_male->isChecked())
-    {
-        gender = "Male";
-    }
-    if(ui->radioButton_Addscientist_female->isChecked())
-    {
-        gender = "Female";
-    }
-    if(ui->radioButton_Addscientist_otherGender->isChecked())
-    {
-        gender = "Other";
-    }
-    return gender;
-}
 void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
 {
 
@@ -225,61 +175,37 @@ void AddComputerScientist::on_checkBox_Addscientist_isPersonAlive_toggled(bool c
 
 void AddComputerScientist::on_pushButton_browse_clicked()
 {
-    /*QByteArray inByteArray;
-    QFile file("test.jpg");
-    if (file.open(QIODevice::ReadOnly))
+    try
     {
-        qDebug() << "nadi að opna file";
-        inByteArray = file.readAll();
-    }*/
+        if(comvertAndSaveFile())
+        {
+            setImageButtonAsImage();
+        }
+    }
+    catch(int e)
+    {
 
-         //Here user has selected a file
-        //QPixmap pixmap(QString::fromStdString(filePath));
-        //ui->AddScientist_pushButton_image->setPixmap(pixmap);
+    }
+}
 
+void AddComputerScientist::on_AddScientist_pushButton_image_clicked()
+{
+    try
+    {
+        if(comvertAndSaveFile())
+        {
+            setImageButtonAsImage();
+        }
+    }
+    catch(int e)
+    {
 
-    /*vector<CSPerson> tempList;
-    tempList = _service.getComputerScientistList();
-    _csMoreInfo.setModal(true);
-    _csMoreInfo.setComputerScientist(tempList[0]);
-    _csMoreInfo.exec();
-
-    QByteArray inByteArray = myPerson.getImage();*/
-
-    /*QPixmap outPixmap = QPixmap();
-    outPixmap.loadFromData( inByteArray );*/
-
-
-    // NEXT TWO LINES DO NOT WORK ON MAC???? DON'T KNOW WHY
-    //ui->TESTEST->setPixmap(outPixmap);
-    //ui->TESTEST->setScaledContents(true);
-    //ui->AddScientist_pushButton_image->show();
+    }
 }
 
 void AddComputerScientist::on_pushButton_Addscientist_clearFields_clicked()
 {
-    // Clear the input fields
-    ui->lineEdit_Addscientist_name->clear();
-    ui->lineEdit_Addscientist_yearofbirth->clear();
-    ui->lineEdit_Addscientist_comment->clear();
-    ui->lineEdit_Addscientist_deathYear->clear();
-
-    // Is alive checkbox is checked by default
-    ui->checkBox_Addscientist_isPersonAlive->setChecked(true);
-    // Table selection clear
-    ui->tableWidget_Addscientist_selectComputerForScientist->clearSelection();
-
-    // Radio buttons clear
-    ui->radioButton_Addscientist_female->setAutoExclusive(false);
-    ui->radioButton_Addscientist_male->setAutoExclusive(false);
-    ui->radioButton_Addscientist_otherGender->setAutoExclusive(false);
-    ui->radioButton_Addscientist_female->setChecked(false);
-    ui->radioButton_Addscientist_male->setChecked(false);
-    ui->radioButton_Addscientist_otherGender->setChecked(false);
-    ui->radioButton_Addscientist_female->setAutoExclusive(true);
-    ui->radioButton_Addscientist_male->setAutoExclusive(true);
-    ui->radioButton_Addscientist_otherGender->setAutoExclusive(true);
-
+    clearFields();
 }
 
 void AddComputerScientist::clearFields()
@@ -305,7 +231,98 @@ void AddComputerScientist::clearFields()
     ui->radioButton_Addscientist_female->setAutoExclusive(true);
     ui->radioButton_Addscientist_male->setAutoExclusive(true);
     ui->radioButton_Addscientist_otherGender->setAutoExclusive(true);
+
+    //Image button
+    QPixmap pix(":/icons/images/image_person.png");
+    QIcon icon(pix);
+    ui->AddScientist_pushButton_image->setIcon(icon);
 }
 
+int AddComputerScientist::getCurrentYear()
+{
+    time_t timeNow = time(0);
+    tm *ltm = localtime(&timeNow);
+    int year = ltm->tm_year + 1900;
+    return year;
+}
+void AddComputerScientist::initValidationData()
+{
+    // Validation for year of birth & year of death
+    // the parameters are (lowest number, highest number)
+    yearValidator = new QIntValidator(1,getCurrentYear());
+    // here the validation is set to both: yearofbirth and deathyear fields
+    // more info on this in the extra features document
+    ui->lineEdit_Addscientist_yearofbirth->setValidator(yearValidator);
+    ui->lineEdit_Addscientist_deathYear->setValidator(yearValidator);
+}
 
+void AddComputerScientist::saveComputersIDs()
+{
+    // This clears the computer vector
+    _computersConnected.clear();
+    QItemSelectionModel *select = ui->tableWidget_Addscientist_selectComputerForScientist->selectionModel();
 
+    for(int i = 0; i < select->selectedRows(2).count(); i++)//SelectedRows(2) = the ID column
+    {
+        int computerID = select->selectedRows(2).value(i).data().toInt();
+        _computersConnected.push_back(computerID);
+    }
+}
+QString AddComputerScientist::getGender()
+{
+    QString gender;
+    if(ui->radioButton_Addscientist_male->isChecked())
+    {
+        gender = "Male";
+    }
+    if(ui->radioButton_Addscientist_female->isChecked())
+    {
+        gender = "Female";
+    }
+    if(ui->radioButton_Addscientist_otherGender->isChecked())
+    {
+        gender = "Other";
+    }
+    return gender;
+}
+QString AddComputerScientist::browseForFile()
+{
+    QString filename = QFileDialog::getOpenFileName(this, "Open a file", "directoryToOpen",
+            "Images (*.png *.gif *.jpg);;Text files (*.txt);;XML files (*.xml)");
+    return filename;
+}
+bool AddComputerScientist::comvertAndSaveFile()
+{
+    QString fileLocation = browseForFile();
+    QFile file(fileLocation);
+    if (file.open(QIODevice::ReadOnly))
+    {
+        QFileInfo fileInfo(fileLocation);
+        _imageName = fileInfo.fileName().toStdString();//Get the file name.
+        _image = file.readAll();
+        return true;
+    }
+    qDebug() << "Could not open file in addcomputerscientist.";
+    return false;
+}
+void AddComputerScientist::setImageButtonAsImage()
+{
+
+    QPixmap pixmap = QPixmap();
+    pixmap.loadFromData( _image );
+    QIcon ButtonIcon(pixmap);
+    ui->AddScientist_pushButton_image->setIcon(ButtonIcon);
+}
+void AddComputerScientist::resetAllData()
+{
+    CSPerson freshPerson;
+    _newPerson = freshPerson; //For some reason _newPerson.clear(); doesnt work.
+    vector <int> computersConnected;
+    _computersConnected = computersConnected;
+    QByteArray image;
+    _image = image;
+    string imageName;
+    _imageName = imageName;
+    clearFields();
+
+}

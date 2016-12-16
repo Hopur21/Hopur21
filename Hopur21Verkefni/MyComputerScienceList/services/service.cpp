@@ -1,5 +1,7 @@
 #include "service.h"
 
+#include <QDebug>
+
 Service::Service()
 {
     updateAllLists();
@@ -8,14 +10,13 @@ Service::Service()
 bool Service::addNewPersonToList(const vector<int> computerConnectionID,const string name,const string gender, const string birthYear, const string deathYear,const string comment, string imageName, QByteArray image)
 {
     Image newImage;
-    int newImageID;
+    int newImageID = NULL;
 
     if(!image.isEmpty())//If picture is inserted
     {
         newImageID =_dbCon.addPicture(imageName,image);
         newImage.setImageValues(image,imageName,newImageID);
     }
-
     CSPerson newPerson;
     int newPersonID;
     newPerson.setName(name);

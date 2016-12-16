@@ -8,7 +8,6 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     createAllTabs();
-    addSearchToMenuBar();
     createTimer();
 }
 MainWindow::~MainWindow()
@@ -28,20 +27,16 @@ void MainWindow::createTimer()
 void MainWindow::hardCodePictureToDB()
 {
     /*
-    QString filename = "z3.jpggg";
-    QFile file("../../Computers/" + filename);
+    QString filename = "no-image-available.png";
+    QFile file("../../Computers/computer scientists/" + filename);
     if (file.open(QIODevice::ReadOnly))
     {
         qDebug() << "Could Open File";
         QByteArray inByteArray = file.readAll();
-        //_service.onlyAddPicturetoDB(filename.toStdString(),inByteArray);//Uncomment this line to write Picture to database.
+        _service.onlyAddPicturetoDB(filename.toStdString(),inByteArray);//Uncomment this line to write Picture to database.
     }
     */
-
 }
-
-
-
 void MainWindow::createAllTabs()
 {
     ui->tabWidget_MainWindow->removeTab(1);//Remove second (index 1) tab so we can edit it the rest here.
@@ -67,24 +62,17 @@ void MainWindow::deleteAllTabs()
     delete _addType;
     delete _showTrash;
 }
-void MainWindow::addSearchToMenuBar()
-{
-    /*
-     * TODO
-    QWidgetAction *widgetAction = new QWidgetAction(this);
-    widgetAction->setDefaultWidget(new QProgressBar(this));
-    QMenuBar::setCornerWidget(widgetAction);
-    ui->menuBar->addAction(widgetAction);
-    */
-
-}
-//void QMenuBar::setCornerWidget ( QWidget * widget, Qt::Corner corner = Qt::TopRightCorner ){}
 
 //Toolbar
+void MainWindow::goHome()
+{
+    ui->tabWidget_MainWindow->setCurrentIndex(constants::TAB_HOME);//Head back home
+}
+
 void MainWindow::on_action_toolbar_Home_triggered()
 {
     //TODO - Refresh all data before entering.
-    ui->tabWidget_MainWindow->setCurrentIndex(constants::TAB_HOME);
+    goHome();
 }
 
 void MainWindow::on_action_toolbar_Show_List_triggered()
@@ -96,7 +84,7 @@ void MainWindow::on_action_toolbar_Show_List_triggered()
 
 void MainWindow::on_actionAdd_Computer_Scientist_triggered()
 {
-    _addComputerScientist->clearFields();
+    _addComputerScientist->resetAllData();
     _addComputerScientist->setComputersList(_service.getComputerList());
     ui->tabWidget_MainWindow->setCurrentIndex(constants::TAB_ADD_CS);
 }
@@ -129,12 +117,21 @@ void MainWindow::checkDataAdded()
 {
     if(_addComputerScientist->result())//If Add computer scientist was valid.
     {
+        addNewScientist();
         _addComputerScientist->setResult(false);//Set result back to false
         goHome();
     }
 }
-
-void MainWindow::goHome()
+void MainWindow::addNewScientist()
 {
-    ui->tabWidget_MainWindow->setCurrentIndex(constants::TAB_HOME);//Head back home
+
+    CSPerson newScientist = _addComputerScientist->getPerson();
+    _service.addNewPersonToList(_addComputerScientist->getComputersConnected(),\
+                                newScientist.getName(),\
+                                newScientist.getGender(),\
+                                to_string(newScientist.getBirthYear()),\
+                                to_string(newScientist.getPassedAwayYear()),\
+                                newScientist.getComments(),\
+                                _addComputerScientist->getImageName(),\
+                                _addComputerScientist->getImage());
 }

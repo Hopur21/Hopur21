@@ -50,11 +50,13 @@ private:
     //Tabs
     void createAllTabs();
     void deleteAllTabs();
-    void addSearchToMenuBar();
     void goHome();
     //Other
     void hardCodePictureToDB();
     void createTimer();
+
+    //Send data
+    void addNewScientist();
 
 
 };
