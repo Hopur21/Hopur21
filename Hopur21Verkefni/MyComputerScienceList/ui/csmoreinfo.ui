@@ -17,8 +17,8 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>50</y>
-     <width>201</width>
+     <y>40</y>
+     <width>531</width>
      <height>16</height>
     </rect>
    </property>
@@ -29,7 +29,7 @@
   <widget class="QPushButton" name="pushButton_imageComputer">
    <property name="geometry">
     <rect>
-     <x>240</x>
+     <x>280</x>
      <y>90</y>
      <width>111</width>
      <height>131</height>
@@ -57,10 +57,10 @@
   <widget class="QTextBrowser" name="textBrowser">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>60</x>
      <y>90</y>
      <width>201</width>
-     <height>201</height>
+     <height>171</height>
     </rect>
    </property>
   </widget>
@@ -68,21 +68,32 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>60</y>
-     <width>101</width>
-     <height>16</height>
+     <y>50</y>
+     <width>191</width>
+     <height>31</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Calibri</family>
+     <pointsize>11</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
    <property name="text">
-    <string>Charles Babbage:</string>
+    <string>Charles Babbage</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="Line" name="line_2">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>300</y>
-     <width>201</width>
+     <y>270</y>
+     <width>531</width>
      <height>16</height>
     </rect>
    </property>
@@ -93,7 +104,7 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>490</x>
+     <x>480</x>
      <y>290</y>
      <width>75</width>
      <height>23</height>
@@ -107,7 +118,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>20</y>
+     <y>10</y>
      <width>101</width>
      <height>31</height>
     </rect>
@@ -122,18 +133,39 @@
     <bool>true</bool>
    </property>
   </widget>
+  <widget class="Line" name="line_3">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>70</y>
+     <width>531</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
   <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>390</x>
+     <x>420</x>
      <y>70</y>
-     <width>72</width>
+     <width>80</width>
      <height>131</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QLabel" name="label_tempNafn">
+      <property name="font">
+       <font>
+        <family>Calibri</family>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
        <string>Year of birth:</string>
       </property>
@@ -141,6 +173,14 @@
     </item>
     <item>
      <widget class="QLabel" name="label_2">
+      <property name="font">
+       <font>
+        <family>Calibri</family>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
        <string>Year of death:</string>
       </property>
@@ -148,6 +188,14 @@
     </item>
     <item>
      <widget class="QLabel" name="label_3">
+      <property name="font">
+       <font>
+        <family>Calibri</family>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
        <string>Age:</string>
       </property>
@@ -168,6 +216,7 @@
   <zorder>label_tempNafn</zorder>
   <zorder>pushButton</zorder>
   <zorder>label</zorder>
+  <zorder>line_3</zorder>
  </widget>
  <resources>
   <include location="../resources.qrc"/>
