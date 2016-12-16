@@ -80,7 +80,6 @@ void MainWindow::on_action_toolbar_Show_List_triggered()
     //Send our data into the show list tab before we open it.
     _showList->setList(_service.getComputerScientistList(_filterSearch), _service.getComputerList(_filterSearch));
     ui->tabWidget_MainWindow->setCurrentIndex(constants::TAB_SHOW_LIST);
-    refreshAllTables();
 }
 
 void MainWindow::on_actionAdd_Computer_Scientist_triggered()
@@ -88,7 +87,6 @@ void MainWindow::on_actionAdd_Computer_Scientist_triggered()
     _addComputerScientist->resetAllData();
     _addComputerScientist->setComputersList(_service.getComputerList(_filterSearch));
     ui->tabWidget_MainWindow->setCurrentIndex(constants::TAB_ADD_CS);
-    refreshAllTables();
 }
 
 void MainWindow::on_action_toolbar_Add_Computer__triggered()
@@ -99,7 +97,6 @@ void MainWindow::on_action_toolbar_Add_Computer__triggered()
     _addComputer->setComputerScientistList(_service.getComputerScientistList(_filterSearch));
     _addComputer->setComputerTypesComboBox();
     ui->tabWidget_MainWindow->setCurrentIndex(constants::TAB_ADD_COMPUTER);
-    refreshAllTables();
 }
 
 void MainWindow::on_actionAdd_Computer_Type_triggered()
@@ -108,13 +105,11 @@ void MainWindow::on_actionAdd_Computer_Type_triggered()
     _addType->resetData();
     _addType->setTypes(_service.getComputerTypesList());//Sending computer types so we can check if this type already exist.
     ui->tabWidget_MainWindow->setCurrentIndex(constants::TAB_ADD_TYPE);
-    refreshAllTables();
 }
 void MainWindow::on_action_toolbar_Trash_triggered()
 {
     _showTrash->setTrashList(_service.getComputerScientistTrash(_filterSearch), _service.getComputerTrash(_filterSearch));
     ui->tabWidget_MainWindow->setCurrentIndex(constants::TAB_SHOW_RECYCLE_BIN);
-    refreshAllTables();
 }
 void MainWindow::on_actionExit_triggered()
 {
