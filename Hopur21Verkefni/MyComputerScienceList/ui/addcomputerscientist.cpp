@@ -9,11 +9,13 @@ AddComputerScientist::AddComputerScientist(QWidget *parent) :
     ui->setupUi(this);
     initValidationData();
 }
+
 AddComputerScientist::~AddComputerScientist()
 {
     delete yearValidator;
     delete ui;
 }
+
 void AddComputerScientist::setComputersList(vector<Computer> allComputers, vector<ComputerScientistToComputer> computerCSconnection)
 {
     _computerCSconnection = computerCSconnection;
@@ -30,7 +32,6 @@ void AddComputerScientist::setComputersList(vector<Computer> allComputers, vecto
 
 void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
 {
-
     // Clear the error messages
     ui->Add_Scientist_error_field->clear();
     ui->label_addScientist_invalidDeathYear->clear();
@@ -51,7 +52,6 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
     bool canCreatePerson = true;
 
     // TODO Taka inn mynd
-
     QString name = ui->lineEdit_Addscientist_name->text();
     QString birthYear = ui->lineEdit_Addscientist_yearofbirth->text();
     QString comment = ui->lineEdit_Addscientist_comment->toPlainText();
@@ -75,31 +75,26 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
         canCreatePerson = false;
         nameFail = true;
     }
-
     if(birthYear == "")
     {
         canCreatePerson = false;
         birthYearFail = true;
     }
-
     if(isAlive == false && deathYear == "")
     {
         canCreatePerson = false;
         deathYearFail = true;
     }
-
     if(birthYear >= deathYear && isAlive == false)
     {
         canCreatePerson = false;
         deathYearInvalid = true;
     }
-
     if(gender == "")
     {
         canCreatePerson = false;
         genderFail = true;
     }
-
     // If canCreatePerson is true, the person can be created
     if(canCreatePerson)
     {
@@ -111,7 +106,6 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
         _newPerson.setComment(comment.toStdString());
         _newPerson.setIsAlive(isAlive);
         _newPerson.setPassedAwayYear(deathYear.toInt());
-
         //TODO save image.
         this->setResult(QDialog::Accepted);
         clearFields();
@@ -136,7 +130,6 @@ void AddComputerScientist::on_pushButton_Addscientist_save_clicked()
 QString AddComputerScientist::validateUserInput(bool nameFail, bool genderFail, bool birthYearFail, bool deathYearFail)
 {
     QString errorString = "";
-
     if(nameFail == true)
     {
         errorString += "* Name *";
@@ -153,10 +146,8 @@ QString AddComputerScientist::validateUserInput(bool nameFail, bool genderFail, 
     {
         errorString += "* Year of death *";
     }
-
     return errorString;
 }
-
 
 void AddComputerScientist::on_checkBox_Addscientist_isPersonAlive_toggled(bool checked)
 {
@@ -215,12 +206,10 @@ void AddComputerScientist::clearFields()
     ui->lineEdit_Addscientist_yearofbirth->clear();
     ui->lineEdit_Addscientist_comment->clear();
     ui->lineEdit_Addscientist_deathYear->clear();
-
     // Is alive checkbox is checked by default
     ui->checkBox_Addscientist_isPersonAlive->setChecked(true);
     // Table selection clear
     ui->tableWidget_Addscientist_selectComputerForScientist->clearSelection();
-
     // Radio buttons clear
     ui->radioButton_Addscientist_female->setAutoExclusive(false);
     ui->radioButton_Addscientist_male->setAutoExclusive(false);
@@ -231,7 +220,6 @@ void AddComputerScientist::clearFields()
     ui->radioButton_Addscientist_female->setAutoExclusive(true);
     ui->radioButton_Addscientist_male->setAutoExclusive(true);
     ui->radioButton_Addscientist_otherGender->setAutoExclusive(true);
-
     //Image button
     QPixmap pix(":/icons/images/image_person.png");
     QIcon icon(pix);
@@ -245,6 +233,7 @@ int AddComputerScientist::getCurrentYear()
     int year = ltm->tm_year + 1900;
     return year;
 }
+
 void AddComputerScientist::initValidationData()
 {
     // Validation for year of birth & year of death
@@ -285,12 +274,14 @@ QString AddComputerScientist::getGender()
     }
     return gender;
 }
+
 QString AddComputerScientist::browseForFile()
 {
     QString filename = QFileDialog::getOpenFileName(this, "Open a file", "directoryToOpen",
             "Images (*.png *.gif *.jpg);;Text files (*.txt);;XML files (*.xml)");
     return filename;
 }
+
 bool AddComputerScientist::comvertAndSaveFile()
 {
     QString fileLocation = browseForFile();
@@ -305,14 +296,15 @@ bool AddComputerScientist::comvertAndSaveFile()
     qDebug() << "Could not open file in addcomputerscientist.";
     return false;
 }
+
 void AddComputerScientist::setImageButtonAsImage()
 {
-
     QPixmap pixmap = QPixmap();
     pixmap.loadFromData( _image );
     QIcon buttonIcon(pixmap);
     ui->AddScientist_pushButton_image->setIcon(buttonIcon);
 }
+
 void AddComputerScientist::resetAllData()
 {
     vector<ComputerScientistToComputer> computerCSconnection;
@@ -326,5 +318,4 @@ void AddComputerScientist::resetAllData()
     string imageName;
     _imageName = imageName;
     clearFields();
-
 }

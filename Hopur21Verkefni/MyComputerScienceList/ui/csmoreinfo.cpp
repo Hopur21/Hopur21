@@ -38,6 +38,7 @@ void CSMoreInfo::setDataInBoxes()
     }
     loadImage();
 }
+
 void CSMoreInfo::loadImage()
 {
     QPixmap pixmap = QPixmap();

@@ -36,7 +36,6 @@ class AddComputer : public QDialog
         void on_pushButton_AddComputer_saveComputer_clicked();
         void on_checkBox_AddComputer_wasComputerBuilt_toggled(bool checked);
         void on_pushButton_AddComputer_clearFields_clicked();
-        void on_comboBox_AddComputer_selectTypeOfComputer_highlighted(int index);
         void on_pushButton_AddComputer_browseComputer_clicked();
         void on_pushButton_imageComputer_clicked();
         void on_tableWidget_AddComputer_selectScientistForComputer_doubleClicked(const QModelIndex &index);

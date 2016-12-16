@@ -21,7 +21,6 @@ void AddType::on_button_Save_Type_clicked()
     //If validation fails this is set as false
     bool nameTypeFail = false;
 
-
     QString nameType = ui->lineEdit_AddComputerType_Name->text();
     QString errorMessage = "";
 
@@ -36,7 +35,6 @@ void AddType::on_button_Save_Type_clicked()
         canCreateType = false;
         errorMessage = "Computer type already exists!";
     }
-
     if(canCreateType)
     {
         _newTypeName = nameType.toStdString();
@@ -52,7 +50,6 @@ void AddType::on_button_Save_Type_clicked()
 
 bool AddType::typeAlreadyExist(std::string typeName)
 {
-
     for(unsigned int i = 0; i < _compTypes.size(); i++)
     {
 
@@ -68,10 +65,12 @@ void AddType::on_button_Clear_Fields_Type_clicked()
 {
     clearFields();
 }
+
 void AddType::clearFields()
 {
     ui->lineEdit_AddComputerType_Name->clear();
 }
+
 void AddType::resetData()
 {
     std::vector<ComputerType> compTypes;

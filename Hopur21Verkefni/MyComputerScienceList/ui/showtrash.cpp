@@ -7,10 +7,12 @@ ShowTrash::ShowTrash(QWidget *parent) :
 {
     ui->setupUi(this);
 }
+
 ShowTrash::~ShowTrash()
 {
     delete ui;
 }
+
 void ShowTrash::setTrashList(vector<CSPerson> compScientistsTrash, vector<Computer> computerTrashList)
 {
     _computerList = computerTrashList;
@@ -18,6 +20,7 @@ void ShowTrash::setTrashList(vector<CSPerson> compScientistsTrash, vector<Comput
     printComputerScientistTrash();
     printComputerTrash();
 }
+
 void ShowTrash::printComputerScientistTrash()
 {
     ui->table_trashComputerScientist->setRowCount(_CSList.size());
@@ -51,12 +54,14 @@ void ShowTrash::on_table_trashComputerScientist_cellClicked(int row)
     ui->Button_Restore_Computer->setEnabled(false);
     _compuerScientistRowSelected = row;
 }
+
 void ShowTrash::on_table_trashComputer_cellClicked(int row)
 {
     ui->Button_Restore_Computer->setEnabled(true);
     ui->Button_Restore_Computer_Scientist->setEnabled(false);
     _compuerRowSelected = row;
 }
+
 void ShowTrash::on_Button_Restore_Computer_Scientist_clicked()
 {
     this->setResult(QDialog::Accepted);
@@ -72,10 +77,9 @@ void ShowTrash::on_Button_Restore_Computer_clicked()
     _computerToRestore = _computerList[_compuerRowSelected].getID();
     disableButtons();
 }
+
 void ShowTrash::disableButtons()
 {
     ui->Button_Restore_Computer_Scientist->setEnabled(false);
     ui->Button_Restore_Computer->setEnabled(false);
 }
-
-

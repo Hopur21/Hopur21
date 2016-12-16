@@ -4,12 +4,13 @@ Service::Service()
 {
     updateAllLists();
 }
+
 bool Service::addNewPersonToList(const vector<int> computerConnectionID,const string name,const string gender, const string birthYear, const string deathYear,const string comment, string imageName, QByteArray image)
 {
     Image newImage;
     int newImageID = NULL;
-
-    if(!image.isEmpty())//If picture is inserted
+    //If a picture is inserted
+    if(!image.isEmpty())
     {
         newImageID =_dbCon.addPicture(imageName,image);
         newImage.setImageValues(image,imageName,newImageID);
@@ -20,9 +21,13 @@ bool Service::addNewPersonToList(const vector<int> computerConnectionID,const st
     newPerson.setGender(gender);
     newPerson.setBirthYear(stoi(birthYear));
     newPerson.setPassedAwayYear(stoi(deathYear));
-    if(deathYear != constants::ALIVE) {
+    // If person is not alive
+    if(deathYear != constants::ALIVE)
+    {
         newPerson.setIsAlive(false);
-    } else {
+    }
+    else
+    {
         newPerson.setIsAlive(true);
     }
     newPerson.setComment(comment);
@@ -35,6 +40,7 @@ bool Service::addNewPersonToList(const vector<int> computerConnectionID,const st
     updateComputerScientistList();
     return true;
 }
+
 bool Service::onlyAddPicturetoDB(const string picName, QByteArray picture)
 {
     try
@@ -57,17 +63,16 @@ bool Service::addNewComputerToList(const vector<int> scientistConnectionID, cons
     }
     catch(int e)
     {
-        return false;//We didnt make it.
+        return false;
     }
     Image newImage;
     int newImageID;
-
-    if(!image.isEmpty())//If picture is inserted
+    // If a picture is inserted
+    if(!image.isEmpty())
     {
         newImageID =_dbCon.addPicture(imageName,image);
         newImage.setImageValues(image,imageName,newImageID);
     }
-
     Computer newComputer;
     int newComputerID = 0;
     newComputer.setName(name);
@@ -77,7 +82,7 @@ bool Service::addNewComputerToList(const vector<int> scientistConnectionID, cons
     newComputer.setCreated(created);
     newComputer.setImage(newImage);
     newComputerID = _dbCon.addComputer(newComputer);
-    //Assign computer to computer scientists
+    // Assign a computer to computer scientists
     for(unsigned int i = 0; i < scientistConnectionID.size(); i++)
     {
         _dbCon.addCStoComputer(scientistConnectionID[i],newComputerID);
@@ -85,6 +90,7 @@ bool Service::addNewComputerToList(const vector<int> scientistConnectionID, cons
     updateComputerList();
     return true;
 }
+
 bool Service::restorePersonToList(const int id)
 {
     bool success = _dbCon.restoreComputerScientist(id);
@@ -130,6 +136,7 @@ bool Service::removeComputerFromList(const string id)
     }
     return success;
 }
+
 vector<ComputerScientistToComputer> Service::getCSandCompConnection()
 {
     return _dbCon.getCscientistToComps();
@@ -139,6 +146,7 @@ vector<CSPerson> Service::getScientistConntedToComputers(const int computerID)
 {
     return _dbCon.getCSConntedToComputer(computerID);
 }
+
 vector<Computer> Service::getComputersConntedToCS(const int computerScientistID)
 {
     return _dbCon.getComputersConnectedToCS(computerScientistID);
@@ -148,20 +156,24 @@ void Service::updateComputerTypesList()
 {
     _dbCon.getComputerTypes(_computerTypes);
 }
+
 void Service::updateComputerList()
 {
     _dbCon.getComputers(_computerList);
 }
+
 void Service::updateComputerScientistList()
 {
     _dbCon.getComputerScientists(_computerScientists);
 }
+
 void Service::updateAllLists()
 {
     updateComputerScientistList();
     updateComputerList();
     updateComputerTypesList();
 }
+
 bool Service::validNumber(string number)
 {
     try
@@ -174,15 +186,11 @@ bool Service::validNumber(string number)
         return false;
     }
 }
+
 bool Service::addComputerType(const string typeName)
 {
     return _dbCon.addComputerType(typeName);
 }
-
-
-
-
-
 
 vector<CSPerson> Service::getComputerScientistList(const string filter)
 {
@@ -190,12 +198,14 @@ vector<CSPerson> Service::getComputerScientistList(const string filter)
     _dbCon.searchScientist(searchCS,filter, false);
     return searchCS;
 }
+
 vector<Computer> Service::getComputerList(const string filter)
 {
     vector<Computer> searchComputer;
     _dbCon.searchComputer(searchComputer, filter, false);
     return searchComputer;
 }
+
 vector<CSPerson> Service::getComputerScientistTrash(const string filter)
 {
     vector <CSPerson> searchCS;

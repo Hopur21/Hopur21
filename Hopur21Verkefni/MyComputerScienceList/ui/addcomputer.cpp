@@ -36,6 +36,7 @@ AddComputer::~AddComputer()
     delete yearValidator;
     delete ui;
 }
+
 void AddComputer::setComputerType(vector<ComputerType> computerTypes)
 {
     _listOfComputerTypes = computerTypes;
@@ -146,13 +147,11 @@ void AddComputer::on_pushButton_AddComputer_saveComputer_clicked()
         canCreateComputer = false;
         designYearFail = true;
     }
-
     if(isBuilt == true && buildYear == "")
     {
         canCreateComputer = false;
         buildYearFail = true;
     }
-
     if(designYear >= buildYear && isBuilt == true)
     {
         canCreateComputer = false;
@@ -163,7 +162,6 @@ void AddComputer::on_pushButton_AddComputer_saveComputer_clicked()
         canCreateComputer = false;
         computerTypeFail = true;
     }
-
     // If canCreatePerson is true, the person can be created
     if(canCreateComputer)
     {
@@ -185,6 +183,7 @@ void AddComputer::on_pushButton_AddComputer_saveComputer_clicked()
         this->setResult(QDialog::Rejected);
     }
 }
+
 // This function creates the error string for: on_pushButton_AddComputer_saveComputer_clicked()
 QString AddComputer::validateUserInput(bool nameFail, bool designYearFail, bool buildYearFail, bool computerTypeFail, bool buildYearInvalid)
 {
@@ -233,6 +232,7 @@ void AddComputer::on_checkBox_AddComputer_wasComputerBuilt_toggled(bool checked)
         ui->lineEdit_AddComputer_buildYear->setEnabled(constants::DISABLED);
     }
 }
+
 void AddComputer::on_pushButton_AddComputer_clearFields_clicked()
 {
     clearFields();
@@ -249,11 +249,6 @@ void AddComputer::saveComputerScientistIDs()
         int scientistID = select->selectedRows(2).value(i).data().toInt();
         _scientistsConnected.push_back(scientistID);
     }
-}
-void AddComputer::on_comboBox_AddComputer_selectTypeOfComputer_highlighted(int index)
-{
-    //if(ui->comboBox_AddComputer_selectTypeOfComputer->currentText() == "Computer type")
-     //   ui->comboBox_AddComputer_selectTypeOfComputer->removeItem(0);
 }
 
 void AddComputer::resetData()
@@ -275,6 +270,7 @@ void AddComputer::resetData()
     vector<ComputerScientistToComputer> computerCSconnection;
     _computerCSconnection = computerCSconnection;
 }
+
 void AddComputer::clearFields()
 {
     // set checkbox default as checked
@@ -295,6 +291,7 @@ void AddComputer::clearFields()
     QIcon icon(pix);
     ui->pushButton_imageComputer->setIcon(icon);
 }
+
 void AddComputer::clearErrorMessages()
 {
     ui->AddComputer_ErrorMessage->clear();
@@ -308,6 +305,7 @@ QString AddComputer::browseForFile()
             "Images (*.png *.gif *.jpg)");
     return filename;
 }
+
 bool AddComputer::comvertAndSaveFile()
 {
     QString fileLocation = browseForFile();
@@ -319,12 +317,12 @@ bool AddComputer::comvertAndSaveFile()
         _image = file.readAll();
         return true;
     }
-    qDebug() << "Could not open file in add computer.";
+
     return false;
 }
+
 void AddComputer::setImageButtonAsImage()
 {
-
     QPixmap pixmap = QPixmap();
     pixmap.loadFromData( _image );
     QIcon buttonIcon(pixmap);
@@ -353,5 +351,4 @@ void AddComputer::on_tableWidget_AddComputer_selectScientistForComputer_cellClic
 {
     _personToSend = getPersonFromID(_idForMoreInfo = ui->tableWidget_AddComputer_selectScientistForComputer->item(row,2)->text().toInt());
     _row = row;
-    qDebug() << " ID: " << _idForMoreInfo << endl;
 }

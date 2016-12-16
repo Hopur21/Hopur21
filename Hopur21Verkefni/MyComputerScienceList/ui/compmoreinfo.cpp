@@ -23,8 +23,6 @@ void compmoreinfo::setDataInBoxes()
     ui->computer_name_input->setText(QString::fromStdString(_myComputer.getName()));
 
     loadImage();
-
-
 }
 void compmoreinfo::loadImage()
 {
@@ -44,5 +42,3 @@ void compmoreinfo::on_pushButton_clicked()
 {
     this->close();
 }
-
-
