@@ -1,7 +1,5 @@
 #include "addtype.h"
 #include "ui_addtype.h"
-#include <QDebug>
-#include <QString>
 
 AddType::AddType(QWidget *parent) :
     QDialog(parent),
