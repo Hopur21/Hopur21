@@ -25,7 +25,7 @@ void CSMoreInfo::setDataInBoxes()
     ui->lineEdit_aboutAge->setText(QString::number(_myPerson.getAge()));
 
     //vector<Computer> ComputersConntedToCS(const int computerScientistID);
-
+    //_computerCSconnection
     int yearOfDeath = _myPerson.getPassedAwayYear();
 
     if(yearOfDeath == constants::STILL_ALIVE)
