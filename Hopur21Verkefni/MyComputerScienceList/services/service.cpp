@@ -130,6 +130,10 @@ bool Service::removeComputerFromList(const string id)
     }
     return success;
 }
+vector<ComputerScientistToComputer> Service::getCSandCompConnection()
+{
+    return _dbCon.getCscientistToComps();
+}
 
 vector<CSPerson> Service::getScientistConntedToComputers(const int computerID)
 {

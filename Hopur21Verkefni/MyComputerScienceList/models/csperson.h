@@ -4,6 +4,7 @@
 #include <ctime>
 #include "utilities/constants.h"
 #include "models/image.h"
+#include "models/computerscientisttocomputer.h"
 
 using namespace std;
 

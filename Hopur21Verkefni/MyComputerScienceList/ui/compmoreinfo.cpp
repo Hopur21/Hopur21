@@ -44,3 +44,5 @@ void compmoreinfo::on_pushButton_clicked()
 {
     this->close();
 }
+
+

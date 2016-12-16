@@ -238,6 +238,27 @@ bool DbCon::updateComputer(Computer& computer)
     return success;
 }
 //Select Querys
+vector<ComputerScientistToComputer> DbCon::getCscientistToComps()
+{
+    vector<ComputerScientistToComputer> ourData;
+    bool success = false;
+    QSqlQuery query("select computer_scientist_ID, computer_ID from computer_scientists_computers;");
+    while (query.next())
+    {
+        if(success == false)//If we made it here the query was a success, no need to set it to true for every single loop
+        {
+            success = true;
+        }
+        ComputerScientistToComputer temp;
+        QString csID = query.value(query.record().indexOf("computer_scientist_ID")).toString();
+        QString compID = query.value(query.record().indexOf("computer_ID")).toString();
+        temp._compID = compID.toInt();
+        temp._csID = csID.toInt();
+        ourData.push_back(temp);
+    }
+    return ourData;
+}
+
 vector<Computer> DbCon::getComputersConnectedToCS(const int scientistID)
 {
     vector<Computer> compuerList;
