@@ -65,6 +65,7 @@ private:
     void addNewType();
     void restoreComputerScientist();
     void restoreComputer();
+    void refreshAllTables();
 
 
 };

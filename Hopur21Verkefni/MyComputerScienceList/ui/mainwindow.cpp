@@ -212,4 +212,20 @@ void MainWindow::restoreComputer()
 void MainWindow::on_TextBox_Search_textChanged()
 {
     _filterSearch = ui->TextBox_Search->text().toStdString();
+    refreshAllTables();
+}
+void MainWindow::refreshAllTables()
+{
+        _showList->setList(_service.getComputerScientistList(_filterSearch), _service.getComputerList(_filterSearch));
+        _addComputerScientist->resetAllData();
+        _addComputerScientist->setComputersList(_service.getComputerList(_filterSearch));
+        _addComputer->clearFields();
+        _addComputer->resetData();
+        _addComputer->setComputerType(_service.getComputerTypesList());
+        _addComputer->setComputerScientistList(_service.getComputerScientistList(_filterSearch));
+        _addComputer->setComputerTypesComboBox();
+        _addType->clearFields();
+        _addType->resetData();
+        _addType->setTypes(_service.getComputerTypesList());
+        _showTrash->setTrashList(_service.getComputerScientistTrash(_filterSearch), _service.getComputerTrash(_filterSearch));
 }
