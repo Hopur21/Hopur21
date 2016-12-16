@@ -154,6 +154,20 @@ void MainWindow::checkDataAdded()
             _showTrash->setResult(false);
         }
     }
+    //If we are going to remove some data
+    if(_showList->result())
+    {
+        if(_showList->getIfToRemoveComputer() == constants::COMPUTER)
+        {
+            _service.removeComputerFromList(to_string(_showList->getIdToRemove()));
+        }
+        else
+        {
+            _service.removePersonFromList(to_string(_showList->getIdToRemove()));
+        }
+        _showList->setList(_service.getComputerScientistList(), _service.getComputerList());
+        _showList->setResult(false);
+    }
 }
 void MainWindow::addNewScientist()
 {

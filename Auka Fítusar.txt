@@ -7,13 +7,13 @@ Við notum QIntValidator fyrir þá reiti sem að taka inn tölur, validatorinn
 kemur í veg fyrir að strengir séu settir inn sem og tölur sem að eru ekki á réttu 
 talnabili. Það er t.d. ekki hægt að setja fæðingarár né dánarár hærra en núverandi ár.
 
-<<<<<<< HEAD
 Í fallinu setComputerTypesComboBox í AddComputer klasanum notumst við við qSort reikniritið til að sortera tölvutegundirnar í stafrófsröð (sem er mun fallegra en að láta þær koma handahófskennt í comboboxið).
 
 
 
-=======
+
 Myndir af tölvunarfræðingum og tölvum eru vistaðar sem blob í database.
->>>>>>> c8abd0fd7b55fd5be6f9aca5b0fb26e67948cd4d
 
 Aðalglugginn í forritinu les inn hvern .ui fæl fyrir hvern "tab" sem er í boði. (Engir pop ups)
+
+Hægt að skoða ruslatunnu og restore-a úr henni.

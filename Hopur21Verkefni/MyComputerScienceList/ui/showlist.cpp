@@ -58,3 +58,35 @@ ShowList::~ShowList()
 {
     delete ui;
 }
+
+void ShowList::on_Button_Delete_clicked()
+{
+    this->setResult(QDialog::Accepted);
+    if(_removeComputerOrScientist == constants::COMPUTER)
+    {
+        _idToRemove = _computerList[_row].getID();
+    }
+    else
+    {
+        _idToRemove = _CSlist[_row].getID();
+    }
+}
+//If we switched tabs
+void ShowList::on_tabWidget_scientist_currentChanged(int index)
+{
+    ui->Button_Delete->setEnabled(false);
+}
+
+void ShowList::on_table_Computer_cellClicked(int row)
+{
+    ui->Button_Delete->setEnabled(true);
+    _removeComputerOrScientist = constants::COMPUTER;
+    _row = row;
+}
+
+void ShowList::on_table_ComputerScientist_cellClicked(int row)
+{
+    ui->Button_Delete->setEnabled(true);
+    _removeComputerOrScientist = constants::COMPUTER_SCIENTIST;
+    _row = row;
+}
