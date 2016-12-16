@@ -80,7 +80,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>360</x>
@@ -92,6 +92,11 @@
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <widget class="QLabel" name="label_2">
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+          </font>
+         </property>
          <property name="text">
           <string>Version 3.0</string>
          </property>
@@ -102,6 +107,11 @@
        </item>
        <item>
         <widget class="QLabel" name="label_3">
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+          </font>
+         </property>
          <property name="text">
           <string>Copyright © 2016</string>
          </property>
@@ -112,6 +122,11 @@
        </item>
        <item>
         <widget class="QLabel" name="label_4">
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+          </font>
+         </property>
          <property name="text">
           <string>Hopur21</string>
          </property>
@@ -288,6 +303,10 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>TextBox_Search</tabstop>
+  <tabstop>tabWidget_MainWindow</tabstop>
+ </tabstops>
  <resources>
   <include location="../resources.qrc"/>
  </resources>

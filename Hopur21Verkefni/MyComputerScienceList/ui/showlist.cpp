@@ -95,21 +95,13 @@ void ShowList::on_Button_Delete_clicked()
 void ShowList::on_tabWidget_scientist_currentChanged()
 {
     ui->Button_Delete->setEnabled(false);
-    ui->Button_More_Info->setEnabled(false);
 }
 
 
 void ShowList::on_table_ComputerScientist_doubleClicked(const QModelIndex &index)
 {
-    /*QString selectedName = index.model()->data(index, Qt::DisplayRole).toString();
-    string name = selectedName.toStdString();
-    _csMoreInfo.setComputerScientist(getPersonFromName(name));
-    _csMoreInfo.setModal(true);
-    _csMoreInfo.exec();*/
-
      _personToSend = getPersonFromID(_idForMoreInfo);
     _csMoreInfo.setComputerScientist(_personToSend);
-    ui->Button_More_Info->setEnabled(false);
     _csMoreInfo.setModal(true);
     _csMoreInfo.exec();
 }
@@ -128,23 +120,14 @@ void ShowList::on_table_ComputerScientist_cellClicked(int row)
     ui->Button_Delete->setEnabled(true);
     _removeComputerOrScientist = constants::COMPUTER_SCIENTIST;
     _row = row;
-    ui->Button_More_Info->setEnabled(true);
-    qDebug() << " ID: " << _idForMoreInfo << endl;
 }
 void ShowList::on_table_Computer_doubleClicked()
 {
-        //ID = _idForMoreInfo;
-    //TODO kalla í klasann fyrir compass info
+    _compMoreInfo.setComputer(getComputerFromID(_idForMoreInfo));
+   _compMoreInfo.setModal(true);
+   _compMoreInfo.exec();
 }
 
-void ShowList::on_Button_More_Info_clicked()
-{
-     _personToSend = getPersonFromID(_idForMoreInfo);
-    _csMoreInfo.setComputerScientist(_personToSend);
-    ui->Button_More_Info->setEnabled(false);
-    _csMoreInfo.setModal(true);
-    _csMoreInfo.exec();
-}
 CSPerson ShowList::getPersonFromID(int id)
 {
     for(unsigned int i = 0; i < _CSlist.size(); i++)
@@ -152,6 +135,16 @@ CSPerson ShowList::getPersonFromID(int id)
         if (_CSlist[i].getID() == id)
         {
             return _CSlist[i];
+        }
+    }
+}
+Computer ShowList::getComputerFromID(int id)
+{
+    for(unsigned int i = 0; i < _computerList.size(); i++)
+    {
+        if (_computerList[i].getID() == id)
+        {
+            return _computerList[i];
         }
     }
 }
