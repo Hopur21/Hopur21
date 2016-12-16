@@ -44,7 +44,7 @@ void AddType::on_button_Save_Type_clicked()
     }
     else
     {
-        ui->label_addTypeErrorField->setText("<span style = 'color : red>" + errorMessage + "</span>");
+        ui->label_addTypeErrorField->setText("<span style = 'color : red'>" + errorMessage + "</span>");
         this->setResult(QDialog::Rejected);
     }
 }
