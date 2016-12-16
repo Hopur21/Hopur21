@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Add Computer Scientist</string>
   </property>
   <widget class="QLineEdit" name="lineEdit_AddComputer_designYear">
    <property name="geometry">

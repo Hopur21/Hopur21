@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>About Computer</string>
   </property>
   <widget class="QPushButton" name="computer_image_input">
    <property name="geometry">

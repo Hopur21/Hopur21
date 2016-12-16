@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>DockWidget</string>
+   <string>Add Computer Scientist</string>
   </property>
   <property name="windowIcon">
    <iconset resource="../resources.qrc">

@@ -65,6 +65,7 @@ void AddComputer::setComputerScientistList(vector<CSPerson> allScientists, vecto
         ui->tableWidget_AddComputer_selectScientistForComputer->setColumnHidden(2,true);//Hide our ID column
     }
 }
+
 void AddComputer::on_pushButton_AddComputer_browseComputer_clicked()
 {
     try
@@ -94,6 +95,7 @@ void AddComputer::on_pushButton_imageComputer_clicked()
 
     }
 }
+
 void AddComputer::on_pushButton_AddComputer_saveComputer_clicked()
 {
     // clear the error messages
