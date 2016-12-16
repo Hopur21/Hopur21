@@ -76,7 +76,7 @@ void ShowList::on_Button_Delete_clicked()
     }
 }
 //If we switched tabs
-void ShowList::on_tabWidget_scientist_currentChanged(int index)
+void ShowList::on_tabWidget_scientist_currentChanged()
 {
     ui->Button_Delete->setEnabled(false);
 }
@@ -97,14 +97,14 @@ void ShowList::on_table_ComputerScientist_cellClicked(int row)
     _idForMoreInfo = ui->table_ComputerScientist->item(row,4)->text().toInt();
 }
 
-void ShowList::on_table_ComputerScientist_doubleClicked(const QModelIndex &index)
+void ShowList::on_table_ComputerScientist_doubleClicked()
 {
     //ID = _idForMoreInfo;
     _csMoreInfo.setModal(true);
     _csMoreInfo.exec();
 }
 
-void ShowList::on_table_Computer_doubleClicked(const QModelIndex &index)
+void ShowList::on_table_Computer_doubleClicked()
 {
         //ID = _idForMoreInfo;
     //TODO kalla í klasann fyrir compass info

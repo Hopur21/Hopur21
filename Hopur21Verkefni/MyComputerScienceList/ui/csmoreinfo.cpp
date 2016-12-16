@@ -27,18 +27,11 @@ void CSMoreInfo::setComputerScientist(CSPerson myPerson)
        QPixmap outPixmap = QPixmap();
        outPixmap.loadFromData( inByteArray );
 
-<<<<<<< HEAD
-//       ui->showPicLabel->setPixmap(outPixmap);
-//       ui->showPicLabel->setScaledContents(true);
-//       ui->showPicLabel->show();
-
-=======
        /*
        ui->showPicLabel->setPixmap(outPixmap);
        ui->showPicLabel->setScaledContents(true);
        ui->showPicLabel->show();
     */
->>>>>>> e2581b50ee9817e8f4ac70f58fff4703368165e0
 
 
        /* To read from files
