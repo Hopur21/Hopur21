@@ -18,9 +18,7 @@ SOURCES += main.cpp\
     models/csperson.cpp \
     models/computer.cpp \
     repositories/dbcon.cpp \
-    services/cspersonservice.cpp \
     services/service.cpp \
-    services/computerservice.cpp \
     ui/mainwindow.cpp \
     ui/addcomputer.cpp \
     ui/addcomputerscientist.cpp \
