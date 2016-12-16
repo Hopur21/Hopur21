@@ -451,6 +451,18 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>lineEdit_AddComputer_nameComputer</tabstop>
+  <tabstop>lineEdit_AddComputer_designYear</tabstop>
+  <tabstop>checkBox_AddComputer_wasComputerBuilt</tabstop>
+  <tabstop>lineEdit_AddComputer_buildYear</tabstop>
+  <tabstop>comboBox_AddComputer_selectTypeOfComputer</tabstop>
+  <tabstop>pushButton_AddComputer_browseComputer</tabstop>
+  <tabstop>tableWidget_AddComputer_selectScientistForComputer</tabstop>
+  <tabstop>pushButton_AddComputer_clearFields</tabstop>
+  <tabstop>pushButton_AddComputer_saveComputer</tabstop>
+  <tabstop>pushButton_imageComputer</tabstop>
+ </tabstops>
  <resources>
   <include location="../resources.qrc"/>
  </resources>

@@ -153,6 +153,11 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>lineEdit_AddComputerType_Name</tabstop>
+  <tabstop>button_Clear_Fields_Type</tabstop>
+  <tabstop>button_Save_Type</tabstop>
+ </tabstops>
  <resources>
   <include location="../resources.qrc"/>
  </resources>

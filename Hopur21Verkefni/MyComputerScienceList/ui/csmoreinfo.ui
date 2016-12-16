@@ -239,6 +239,19 @@
     </item>
    </layout>
   </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>290</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Edit</string>
+   </property>
+  </widget>
   <zorder>layoutWidget</zorder>
   <zorder>line</zorder>
   <zorder>image_of_person_input</zorder>
@@ -248,6 +261,7 @@
   <zorder>pushButton</zorder>
   <zorder>label</zorder>
   <zorder>line_3</zorder>
+  <zorder>pushButton_2</zorder>
  </widget>
  <resources>
   <include location="../resources.qrc"/>
