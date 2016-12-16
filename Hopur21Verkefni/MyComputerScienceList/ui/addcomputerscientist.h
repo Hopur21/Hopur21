@@ -2,6 +2,7 @@
 #define ADDCOMPUTERSCIENTIST_H
 #include "models/csperson.h"
 #include "models/computer.h"
+#include "models/computerscientisttocomputer.h"
 
 namespace Ui {
 class AddComputerScientist;
@@ -16,7 +17,7 @@ public:
     ~AddComputerScientist();
     Ui::AddComputerScientist *ui;
     QString validateUserInput(bool nameFail, bool genderFail, bool birthYearFail, bool deathYearFail);
-    void setComputersList(vector<Computer> allComputers);
+    void setComputersList(vector<Computer> allComputers,vector<ComputerScientistToComputer> _computerCSconnection);
     void clearFields();
     void resetAllData();
 
@@ -38,6 +39,7 @@ private:
     CSPerson _newPerson;
     // The computers the newly created scientist is connected to
     vector <int> _computersConnected;
+    vector<ComputerScientistToComputer> _computerCSconnection;
     QIntValidator *yearValidator;
     QByteArray _image;
     string _imageName;

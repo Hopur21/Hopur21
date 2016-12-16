@@ -3,6 +3,7 @@
 #include "models/csperson.h"
 #include "models/computer.h"
 #include "models/computertype.h"
+#include "models/computerscientisttocomputer.h"
 #include "ui/csmoreinfo.h"
 
 namespace Ui {
@@ -28,7 +29,7 @@ public:
     string getImageName(){return _imageName;}
     // ComboBox set
     void setComputerTypesComboBox();
-    void setComputerScientistList(vector<CSPerson> allScientists);
+    void setComputerScientistList(vector<CSPerson> allScientists, vector<ComputerScientistToComputer> _computerCSconnection);
     void resetData();
 
 private slots:
@@ -49,6 +50,7 @@ private:
     CSMoreInfo _csMoreInfo;
     Computer _newComputer;
     vector<ComputerType> _listOfComputerTypes;
+    vector<ComputerScientistToComputer> _computerCSconnection;
     vector<int> _scientistsConnected;
     // vector for more info
     vector<CSPerson> _listOfScientists;

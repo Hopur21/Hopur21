@@ -50,8 +50,9 @@ void AddComputer::setComputerTypesComboBox()
     }
 }
 
-void AddComputer::setComputerScientistList(vector<CSPerson> allScientists)
+void AddComputer::setComputerScientistList(vector<CSPerson> allScientists, vector<ComputerScientistToComputer> computerConnection)
 {
+    _computerCSconnection = computerConnection;
     _listOfScientists = allScientists;
     ui->tableWidget_AddComputer_selectScientistForComputer->setRowCount(allScientists.size());
     ui->tableWidget_AddComputer_selectScientistForComputer->setColumnCount(3);
@@ -270,6 +271,9 @@ void AddComputer::resetData()
     _image = image;
     string imageName;
     _imageName = imageName;
+
+    vector<ComputerScientistToComputer> computerCSconnection;
+    _computerCSconnection = computerCSconnection;
 }
 void AddComputer::clearFields()
 {
