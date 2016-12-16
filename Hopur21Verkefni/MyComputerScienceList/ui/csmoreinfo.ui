@@ -57,10 +57,10 @@
   <widget class="QTextBrowser" name="more_info_input">
    <property name="geometry">
     <rect>
-     <x>170</x>
+     <x>340</x>
      <y>80</y>
      <width>201</width>
-     <height>171</height>
+     <height>161</height>
     </rect>
    </property>
   </widget>
@@ -149,10 +149,10 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>420</x>
+     <x>170</x>
      <y>70</y>
      <width>80</width>
-     <height>181</height>
+     <height>161</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -252,6 +252,32 @@
     <string>Edit</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label_computersAss">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>220</y>
+     <width>91</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Computers:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_compAss">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>240</y>
+     <width>291</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Computers associated with person</string>
+   </property>
+  </widget>
   <zorder>layoutWidget</zorder>
   <zorder>line</zorder>
   <zorder>image_of_person_input</zorder>
@@ -262,6 +288,8 @@
   <zorder>label</zorder>
   <zorder>line_3</zorder>
   <zorder>pushButton_2</zorder>
+  <zorder>label_computersAss</zorder>
+  <zorder>label_compAss</zorder>
  </widget>
  <resources>
   <include location="../resources.qrc"/>
