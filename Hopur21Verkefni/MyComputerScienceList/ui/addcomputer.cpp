@@ -224,12 +224,12 @@ void AddComputer::on_checkBox_AddComputer_wasComputerBuilt_toggled(bool checked)
         ui->label_buildYear->setEnabled(constants::ENABLED);
         ui->lineEdit_AddComputer_buildYear->setEnabled(constants::ENABLED);
     }
-    else
+    else if(!checked)
     {
         ui->checkBox_AddComputer_wasComputerBuilt->setChecked(constants::DISABLED);
         ui->lineEdit_AddComputer_buildYear->clear();
         ui->label_buildYear->setDisabled(constants::ENABLED);
-        ui->lineEdit_AddComputer_buildYear->setDisabled(constants::ENABLED);
+        ui->lineEdit_AddComputer_buildYear->setEnabled(constants::DISABLED);
     }
 }
 void AddComputer::on_pushButton_AddComputer_clearFields_clicked()
