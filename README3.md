@@ -11,6 +11,8 @@ Jón Pétur Jónsson
 dánarár, kyn og lýsingu á helstu afrekum, ásamt tölvum með upplýsingum um hönnunarár, ár sem hún var smíðuð og tegund 
 tölvunnar. Auðvelt er að tengja saman þá tölvunarfræðinga og þær tölvur sem eiga á einhvern hátt saman. 
 
+Hægt er að tvísmella á tölvunarfræðing eða tölvu í listanum og fá upp frekari upplýsingar. 
+
 Listinn er geymdur í miðlægum sql gagnagrunni (external server) og er þar áfram þótt notandi hættir í forritinu og opnar það aftur. Því getur
 notandinn alltaf kallað fram listann sem hann hafði áður búið til. Notandi getur slegið inn Q eða q til að hætta í forritinu. 
 
@@ -27,7 +29,7 @@ inn sem tölur sem eru ekki á réttu talnabili. T.d. er ekki hægt að setja f�
 
 Myndir af tölvunarfræðingum og tölvum eru vistaðar sem blob í gagnagrunninum.
 
-Aðalglugginn í forritinu les inn hvert .ui skjal fyrir hvern "tab" sem er í boði og því eru engir "pop up" gluggar.
+Aðalglugginn í forritinu les inn hvert .ui skjal fyrir hvern "tab" sem er í boði og því eru ekki "pop up" gluggar.
 
 Hægt að skoða ruslatunnu og restore-a úr henni.
 
