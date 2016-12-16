@@ -74,7 +74,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="../resources.qrc">:/icons/images/logo_computerScienceList.png</pixmap>
+       <pixmap resource="../resources.qrc">:/icons/images/logo_compSciList.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
