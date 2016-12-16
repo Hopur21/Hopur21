@@ -81,6 +81,18 @@ void ShowList::on_tabWidget_scientist_currentChanged()
     ui->Button_Delete->setEnabled(false);
 }
 
+
+void ShowList::on_table_ComputerScientist_doubleClicked()
+{
+    CSPerson test;
+    test = getPersonFromID(_idForMoreInfo);
+    std::string bull = test.getName();
+    qDebug() << "name: " << QString::fromStdString(bull);
+    _csMoreInfo.setComputerScientist(getPersonFromID(_idForMoreInfo));
+    _csMoreInfo.setModal(true);
+    _csMoreInfo.exec();
+}
+
 void ShowList::on_table_Computer_cellClicked(int row)
 {
     ui->Button_Delete->setEnabled(true);
@@ -96,14 +108,6 @@ void ShowList::on_table_ComputerScientist_cellClicked(int row)
     _row = row;
     _idForMoreInfo = ui->table_ComputerScientist->item(row,4)->text().toInt();
 }
-
-void ShowList::on_table_ComputerScientist_doubleClicked()
-{
-    _csMoreInfo.setComputerScientist(getPersonFromID(_idForMoreInfo));
-    _csMoreInfo.setModal(true);
-    _csMoreInfo.exec();
-}
-
 void ShowList::on_table_Computer_doubleClicked()
 {
         //ID = _idForMoreInfo;
