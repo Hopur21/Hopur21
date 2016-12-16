@@ -17,15 +17,13 @@ compmoreinfo::~compmoreinfo()
 
 void compmoreinfo::setDataInBoxes()
 {
-    /*
-    ui->more_info_input->setText(QString::fromStdString(_myPerson.getComments()));
-    ui->name_input->setText(QString::fromStdString(_myPerson.getName()));
-    ui->age_input->setText(QString::number(_myPerson.getAge()) );
-    ui->label_yearOfDeath->setText(QString::number(_myPerson.getPassedAwayYear()));
-    ui->yearOfBirth_input->setText(QString::number(_myPerson.getBirthYear()));
-    ui->yearOfDeath_input->setText(QString::number(_myPerson.getPassedAwayYear()));
+    ui->computer_type_input->setText(QString::fromStdString(_myComputer.getType()));
+    ui->year_of_design_input->setText(QString::number(_myComputer.getDesignYear()));
+    ui->year_of_build_input->setText(QString::number(_myComputer.getBuildYear()));
+    ui->computer_name_input->setText(QString::fromStdString(_myComputer.getName()));
+
     loadImage();
-    */
+
 
 }
 void compmoreinfo::loadImage()
@@ -33,7 +31,7 @@ void compmoreinfo::loadImage()
     QPixmap pixmap = QPixmap();
     pixmap.loadFromData( _myComputer.getImage() );
     QIcon buttonIcon(pixmap);
-    //ui->image->setIcon(buttonIcon);
+    ui->computer_image_input->setIcon(buttonIcon);
 }
 
 void compmoreinfo::setComputer(Computer myComputer)

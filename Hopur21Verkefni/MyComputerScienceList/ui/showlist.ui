@@ -300,19 +300,6 @@
     <string>Delete</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="Button_More_Info">
-   <property name="geometry">
-    <rect>
-     <x>590</x>
-     <y>280</y>
-     <width>75</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>More Info</string>
-   </property>
-  </widget>
  </widget>
  <resources>
   <include location="../resources.qrc"/>

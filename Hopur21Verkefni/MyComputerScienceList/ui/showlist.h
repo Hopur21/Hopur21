@@ -3,6 +3,7 @@
 #include "models/csperson.h"
 #include "services/service.h"
 #include "ui/csmoreinfo.h"
+#include "ui/compmoreinfo.h"
 
 #include <QDialog>
 
@@ -30,10 +31,9 @@ private slots:
     void on_table_ComputerScientist_doubleClicked(const QModelIndex &index);
     void on_table_Computer_doubleClicked();
 
-    void on_Button_More_Info_clicked();
-
 private:
     CSMoreInfo _csMoreInfo;
+    compmoreinfo _compMoreInfo;
     vector<Computer> _computerList;
     vector<CSPerson> _CSlist;
     CSPerson _personToSend;
@@ -44,6 +44,7 @@ private:
     void printComputerList();
     void printComputerScientistList();
     CSPerson getPersonFromID(int id);
+    Computer getComputerFromID(int id);
     Ui::ShowList *ui;
 };
 
