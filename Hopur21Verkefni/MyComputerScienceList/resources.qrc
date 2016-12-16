@@ -23,5 +23,6 @@
         <file>images/logo_addSci.png</file>
         <file>images/logo_addType.png</file>
         <file>images/icon_compType.png</file>
+        <file>images/logo_about.png</file>
     </qresource>
 </RCC>
