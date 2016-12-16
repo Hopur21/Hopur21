@@ -43,8 +43,8 @@ public:
     vector<CSPerson> getComputerScientistsTrashCan();
     vector<Computer> getComputerTrashCan();
     bool computerScientistExist(const string& name);
-    void searchScientist(vector<CSPerson>& scientist, const string searchFor);
-    void searchComputer(vector<Computer>& computer, const string searchFor);
+    void searchScientist(vector<CSPerson>& scientist, const string searchFor, const bool removed);
+    void searchComputer(vector<Computer>& computer, const string searchFor, const bool removed);
     //Insert
     int addPicture(const string imageName, const QByteArray image);
     bool addComputerType(string computerName);

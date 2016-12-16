@@ -22,7 +22,7 @@ public:
 
 private slots:
     void on_button_Save_Type_clicked();
-    void on_button_clear_fields_clicked();
+void on_button_Clear_Fields_Type_clicked();
 
 private:
     Ui::AddType *ui;

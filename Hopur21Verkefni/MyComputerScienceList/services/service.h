@@ -40,12 +40,12 @@ class Service
 
         //Gets
         vector <ComputerType> getComputerTypesList(){return _computerTypes;}
-        vector<CSPerson> getComputerScientistList(){return _computerScientists;}
-        vector<Computer> getComputerList(){return _computerList;}
+        vector<CSPerson> getComputerScientistList(const string filter);
+        vector<Computer> getComputerList(const string filter);
         vector<CSPerson> getScientistConntedToComputers(const int computerID);
         vector<Computer> getComputersConntedToCS(const int computerScientistID);
-        vector<CSPerson> getComputerScientistTrash();
-        vector<Computer> getComputerTrash();
+        vector<CSPerson> getComputerScientistTrash(const string filter);
+        vector<Computer> getComputerTrash(const string filter);
         //Search
         vector<CSPerson> searchComputerScientist(const string searchString);
         vector<Computer> searchComputer(const string searchString);

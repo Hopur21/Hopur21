@@ -130,15 +130,6 @@ bool Service::removeComputerFromList(const string id)
     }
     return success;
 }
-vector<CSPerson> Service::getComputerScientistTrash()
-{
-    return _dbCon.getComputerScientistsTrashCan();
-}
-
-vector<Computer> Service::getComputerTrash()
-{
-    return _dbCon.getComputerTrashCan();
-}
 
 vector<CSPerson> Service::getScientistConntedToComputers(const int computerID)
 {
@@ -184,15 +175,33 @@ bool Service::addComputerType(const string typeName)
     return _dbCon.addComputerType(typeName);
 }
 
-vector<CSPerson> Service::searchComputerScientist(const string searchString)
+
+
+
+
+
+vector<CSPerson> Service::getComputerScientistList(const string filter)
 {
     vector <CSPerson> searchCS;
-    _dbCon.searchScientist(searchCS,searchString);
+    _dbCon.searchScientist(searchCS,filter, false);
     return searchCS;
 }
-vector<Computer> Service::searchComputer(const string searchString)
+vector<Computer> Service::getComputerList(const string filter)
 {
     vector<Computer> searchComputer;
-    _dbCon.searchComputer(searchComputer, searchString);
+    _dbCon.searchComputer(searchComputer, filter, false);
+    return searchComputer;
+}
+vector<CSPerson> Service::getComputerScientistTrash(const string filter)
+{
+    vector <CSPerson> searchCS;
+    _dbCon.searchScientist(searchCS,filter, true);
+    return searchCS;
+}
+
+vector<Computer> Service::getComputerTrash(const string filter)
+{
+    vector<Computer> searchComputer;
+    _dbCon.searchComputer(searchComputer, filter, true);
     return searchComputer;
 }

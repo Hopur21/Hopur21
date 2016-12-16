@@ -377,13 +377,14 @@ bool DbCon::computerScientistExist(const string& name)
     return foundValdo;
 }
 //Search
-void DbCon::searchScientist(vector<CSPerson>& scientist, const string searchFor)
+void DbCon::searchScientist(vector<CSPerson>& scientist, const string searchFor, const bool removed)
 {
     scientist.clear();
     bool success = false;
     QSqlQuery query;
-    query.prepare("SELECT cs.ID, cs.name, YEAR(cs.birth_year) AS birth_year, YEAR(cs.death_year) AS death_year, cs.gender, cs.comment,cs.is_alive , cs.img_ID, im.file_name AS image_name, im.img_data FROM computer_scientists cs LEFT JOIN img_table im ON(cs.img_ID=im.ID) WHERE (cs.name LIKE '%' :searchFor '%' OR cs.death_year LIKE '%' :searchFor '%' OR cs.birth_year LIKE '%' :searchFor '%' OR cs.gender LIKE '%' :searchFor '%') AND cs.removed = 0 ORDER BY name");
+    query.prepare("SELECT cs.ID, cs.name, YEAR(cs.birth_year) AS birth_year, YEAR(cs.death_year) AS death_year, cs.gender, cs.comment,cs.is_alive , cs.img_ID, im.file_name AS image_name, im.img_data FROM computer_scientists cs LEFT JOIN img_table im ON(cs.img_ID=im.ID) WHERE (cs.name LIKE '%' :searchFor '%' OR cs.death_year LIKE '%' :searchFor '%' OR cs.birth_year LIKE '%' :searchFor '%' OR cs.gender LIKE '%' :searchFor '%') AND cs.removed = (:removed) ORDER BY name");
     query.bindValue(":searchFor", QString::fromStdString(searchFor));
+    query.bindValue(":removed", removed);
     query.exec();
     while (query.next())
     {
@@ -395,13 +396,14 @@ void DbCon::searchScientist(vector<CSPerson>& scientist, const string searchFor)
     }
     //if(!success){qDebug() << "getComputerScientists error:  " << query.lastError();}
 }
-void DbCon::searchComputer(vector<Computer>& computer, const string searchFor)
+void DbCon::searchComputer(vector<Computer>& computer, const string searchFor, const bool removed)
 {
     computer.clear();
     bool success = false;
     QSqlQuery query;
-    query.prepare("SELECT c.ID, c.name, YEAR(c.design_year) AS design_year, YEAR(c.build_year) AS build_year, c.is_created, t.name AS type, c.type_ID , c.img_ID, im.file_name AS image_name, im.img_data FROM computers c JOIN type t ON(t.ID=c.type_ID) LEFT JOIN img_table im ON(c.img_ID=im.ID)WHERE (c.name LIKE '%' :searchFor '%' OR c.design_year LIKE '%' :searchFor '%' OR c.build_year LIKE '%' :searchFor '%' OR t.name LIKE '%' :searchFor '%') AND c.removed = 0 ORDER BY name");
+    query.prepare("SELECT c.ID, c.name, YEAR(c.design_year) AS design_year, YEAR(c.build_year) AS build_year, c.is_created, t.name AS type, c.type_ID , c.img_ID, im.file_name AS image_name, im.img_data FROM computers c JOIN type t ON(t.ID=c.type_ID) LEFT JOIN img_table im ON(c.img_ID=im.ID)WHERE (c.name LIKE '%' :searchFor '%' OR c.design_year LIKE '%' :searchFor '%' OR c.build_year LIKE '%' :searchFor '%' OR t.name LIKE '%' :searchFor '%') AND c.removed = (:removed) ORDER BY name");
     query.bindValue(":searchFor", QString::fromStdString(searchFor));
+    query.bindValue(":removed", removed);
     query.exec();
     while (query.next())
     {

@@ -78,14 +78,14 @@ void MainWindow::on_action_toolbar_Home_triggered()
 void MainWindow::on_action_toolbar_Show_List_triggered()
 {
     //Send our data into the show list tab before we open it.
-    _showList->setList(_service.getComputerScientistList(), _service.getComputerList());
+    _showList->setList(_service.getComputerScientistList(_filterSearch), _service.getComputerList(_filterSearch));
     ui->tabWidget_MainWindow->setCurrentIndex(constants::TAB_SHOW_LIST);
 }
 
 void MainWindow::on_actionAdd_Computer_Scientist_triggered()
 {
     _addComputerScientist->resetAllData();
-    _addComputerScientist->setComputersList(_service.getComputerList());
+    _addComputerScientist->setComputersList(_service.getComputerList(_filterSearch));
     ui->tabWidget_MainWindow->setCurrentIndex(constants::TAB_ADD_CS);
 }
 
@@ -94,7 +94,7 @@ void MainWindow::on_action_toolbar_Add_Computer__triggered()
     _addComputer->clearFields();
     _addComputer->resetData();
     _addComputer->setComputerType(_service.getComputerTypesList());
-    _addComputer->setComputerScientistList(_service.getComputerScientistList());
+    _addComputer->setComputerScientistList(_service.getComputerScientistList(_filterSearch));
     _addComputer->setComputerTypesComboBox();
     ui->tabWidget_MainWindow->setCurrentIndex(constants::TAB_ADD_COMPUTER);
 }
@@ -108,7 +108,7 @@ void MainWindow::on_actionAdd_Computer_Type_triggered()
 }
 void MainWindow::on_action_toolbar_Trash_triggered()
 {
-    _showTrash->setTrashList(_service.getComputerScientistTrash(), _service.getComputerTrash());
+    _showTrash->setTrashList(_service.getComputerScientistTrash(_filterSearch), _service.getComputerTrash(_filterSearch));
     ui->tabWidget_MainWindow->setCurrentIndex(constants::TAB_SHOW_RECYCLE_BIN);
 }
 void MainWindow::on_actionExit_triggered()
@@ -165,7 +165,7 @@ void MainWindow::checkDataAdded()
         {
             _service.removePersonFromList(to_string(_showList->getIdToRemove()));
         }
-        _showList->setList(_service.getComputerScientistList(), _service.getComputerList());
+        _showList->setList(_service.getComputerScientistList(_filterSearch), _service.getComputerList(_filterSearch));
         _showList->setResult(false);
     }
 }
@@ -201,10 +201,15 @@ void MainWindow::addNewType()
 void MainWindow::restoreComputerScientist()
 {
     _service.restorePersonToList(_showTrash->getCSidToRestore());
-    _showTrash->setTrashList(_service.getComputerScientistTrash(), _service.getComputerTrash());
+    _showTrash->setTrashList(_service.getComputerScientistTrash(_filterSearch), _service.getComputerTrash(_filterSearch));
 }
 void MainWindow::restoreComputer()
 {
     _service.restoreComputerToList(_showTrash->getComputerIDToRestore());
-    _showTrash->setTrashList(_service.getComputerScientistTrash(), _service.getComputerTrash());
+    _showTrash->setTrashList(_service.getComputerScientistTrash(_filterSearch), _service.getComputerTrash(_filterSearch));
+}
+
+void MainWindow::on_TextBox_Search_textChanged()
+{
+    _filterSearch = ui->TextBox_Search->text().toStdString();
 }

@@ -61,7 +61,7 @@ bool AddType::typeAlreadyExist(std::string typeName)
     return false;//If name is not in database
 }
 
-void AddType::on_button_clear_fields_clicked()
+void AddType::on_button_Clear_Fields_Type_clicked()
 {
     clearFields();
 }

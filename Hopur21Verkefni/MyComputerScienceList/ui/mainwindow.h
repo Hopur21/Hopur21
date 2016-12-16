@@ -36,6 +36,8 @@ private slots:
     void on_action_toolbar_Trash_triggered();
     void on_actionExit_triggered();
     void checkDataAdded();
+    void on_TextBox_Search_textChanged();
+
 private:
     Ui::MainWindow *ui;
     Service _service;
@@ -46,6 +48,8 @@ private:
     CSMoreInfo *_csMoreInfo;
     AddType *_addType;
     QTimer *timer;
+
+    string _filterSearch;
 
     //Tabs
     void createAllTabs();
