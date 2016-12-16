@@ -14,20 +14,19 @@ class compmoreinfo : public QDialog
 {
     Q_OBJECT
 
-public:
-    explicit compmoreinfo(QWidget *parent = 0);
-    ~compmoreinfo();
-    void setComputer(Computer myComputer);
+    public:
+        explicit compmoreinfo(QWidget *parent = 0);
+        ~compmoreinfo();
+        void setComputer(Computer myComputer);
 
-private slots:
-    void on_pushButton_clicked();
+    private slots:
+        void on_pushButton_clicked();
 
-
-private:
-    Ui::compmoreinfo *ui;
-    Computer _myComputer;
-    void loadImage();
-    void setDataInBoxes();
+    private:
+        Ui::compmoreinfo *ui;
+        Computer _myComputer;
+        void loadImage();
+        void setDataInBoxes();
 };
 
 #endif // COMPMOREINFO_H

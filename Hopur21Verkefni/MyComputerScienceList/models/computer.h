@@ -8,20 +8,9 @@ using namespace std;
 
 class Computer
 {
-    private:
-        ComputerType _myType;
-        Image _myImage;
-        string _name;
-        bool _isCreated;
-        int _id;
-        int _designYear;
-        int _buildYear;
-
-
     public:
         Computer(){}
         Computer(const int id, const string name,const int designYear,const int buildYear,string typeName, string typeID,const bool created, const int imageID = -1,const QByteArray imageByteArray = NULL, string imageName = "");
-
         // Gets
         string getName()const {return _name;}
         string getType() {return _myType.getName();}
@@ -34,8 +23,6 @@ class Computer
         string getImageName(){return _myImage.getName();}
         int getImageID(){return _myImage.getID();}
         //Sets
-
-
         void setName(const string name){_name = name;}
         void setDesignYear(const int designYear){_designYear = designYear;}
         void setBuildYear(const int buildYear){_buildYear = buildYear;}
@@ -44,6 +31,15 @@ class Computer
         void setID(const int ID) {_id = ID;}
         void setImageInfo(int imageID,QByteArray imageByteArray, string imageName);
         void setImage(const Image& newImage){_myImage = newImage;}
+
+    private:
+        ComputerType _myType;
+        Image _myImage;
+        string _name;
+        bool _isCreated;
+        int _id;
+        int _designYear;
+        int _buildYear;
 };
 
 #endif // COMPUTER_H

@@ -3,9 +3,9 @@
 
 #include <string>
 
-/**
- * This file contains constants that this application uses
- */
+/*
+    This file contains constants that this application uses
+*/
 
 namespace constants {
     //Consts for our Graphical user interface
@@ -15,13 +15,10 @@ namespace constants {
     const int TAB_ADD_COMPUTER = 3;
     const int TAB_ADD_TYPE = 4;
     const int TAB_SHOW_RECYCLE_BIN = 5;
-
     const bool COMPUTER_SCIENTIST = 1;
     const bool COMPUTER = 0;
-
     //Consts for our datalayer (Text datalayer)
     const char DELIMETER = ';';
-
     //Menu for Console GUI
     const char SPACE = ' ';
     const int STILL_ALIVE = 0;
@@ -69,8 +66,6 @@ namespace constants {
     const std::string COMPUTERS_SCIENTIST_CONTRIBUTED_TO = "8";
     const std::string COMPUTER_TRASH = "5";
     const std::string SCIENTIST_TRASH = "6";
-
 }
 
 #endif // CONSTANTS_H
-

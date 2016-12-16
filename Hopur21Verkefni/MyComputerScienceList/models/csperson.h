@@ -10,23 +10,9 @@ using namespace std;
 
 class CSPerson
 {
-    private:
-        bool _isAlive;
-        string _name;
-        string _gender;
-        string _comment;
-        int _id;
-        int _birthYear;
-        int _passedAwayYear;
-        Image _myImage;
-        int getCurrentYear();
-
-
-
     public:
         CSPerson(){}
         CSPerson(const int id, const string name, const string gender, const int birthYear, const int passedAwayYear, const string comment, const bool isAlive, const int imageID = -1,const QByteArray imageByteArray = NULL, string imageName = "");
-
         //Gets
         string getName()const {return _name;}
         string getGender()const {return _gender;}
@@ -38,9 +24,7 @@ class CSPerson
         QByteArray getImage(){return _myImage.getImageByteArray();}
         string getImageName(){return _myImage.getName();}
         int getImageID(){return _myImage.getID();}
-
         string getComments()const {return _comment;}
-
         //Sets
         void setName(const string name){_name = name;}
         void setGender(const string gender){_gender = gender;}
@@ -52,6 +36,16 @@ class CSPerson
         void setImageInfo(int imageID, QByteArray imageByteArray, string imageName);
         void setImage(const Image& newImage){_myImage = newImage;}
 
+    private:
+            bool _isAlive;
+            string _name;
+            string _gender;
+            string _comment;
+            int _id;
+            int _birthYear;
+            int _passedAwayYear;
+            Image _myImage;
+            int getCurrentYear();
 };
 
 #endif // CSPERSON_H

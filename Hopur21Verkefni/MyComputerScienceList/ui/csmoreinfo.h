@@ -11,21 +11,21 @@ class CSMoreInfo : public QDialog
 {
     Q_OBJECT
 
-public:
-    explicit CSMoreInfo(QWidget *parent = 0);
-    void setComputerScientist(CSPerson myPerson);
-    ~CSMoreInfo();
+    public:
+        explicit CSMoreInfo(QWidget *parent = 0);
+        void setComputerScientist(CSPerson myPerson);
+        ~CSMoreInfo();
 
-private slots:
-    void on_pushButton_close_clicked();
+    private slots:
+        void on_pushButton_close_clicked();
 
-private:
-    CSPerson _myPerson;
-    Ui::CSMoreInfo *ui;
-    vector<Computer> _computersConnectedToScientist;
-    void getComputerConnectedToScientist(int ID);
-    void setDataInBoxes();
-    void loadImage();
+    private:
+        CSPerson _myPerson;
+        Ui::CSMoreInfo *ui;
+        vector<Computer> _computersConnectedToScientist;
+        void getComputerConnectedToScientist(int ID);
+        void setDataInBoxes();
+        void loadImage();
 
 };
 

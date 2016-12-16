@@ -37,9 +37,7 @@ HEADERS  += models/csperson.h \
     models/computer.h \
     utilities/constants.h \
     repositories/dbcon.h \
-    services/cspersonservice.h \
     services/service.h \
-    services/computerservice.h \
     ui/mainwindow.h \
     ui/addcomputer.h \
     ui/addcomputerscientist.h \

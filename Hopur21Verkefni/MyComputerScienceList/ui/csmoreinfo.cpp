@@ -14,8 +14,6 @@ CSMoreInfo::~CSMoreInfo()
 void CSMoreInfo::getComputerConnectedToScientist(int ID)
 {
     //vector<Computer> _computersConnectedToScientist;
-
-
 }
 
 void CSMoreInfo::setDataInBoxes()
@@ -28,7 +26,6 @@ void CSMoreInfo::setDataInBoxes()
 
     //vector<Computer> ComputersConntedToCS(const int computerScientistID);
 
-
     int yearOfDeath = _myPerson.getPassedAwayYear();
 
     if(yearOfDeath == constants::STILL_ALIVE)
@@ -39,9 +36,7 @@ void CSMoreInfo::setDataInBoxes()
     {
         ui->lineEdit_aboutYearOfDeath->setText(QString::number(_myPerson.getPassedAwayYear()));
     }
-
     loadImage();
-
 }
 void CSMoreInfo::loadImage()
 {
