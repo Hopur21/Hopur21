@@ -1,6 +1,7 @@
 #ifndef COMPMOREINFO_H
 #define COMPMOREINFO_H
 #include "models/computer.h"
+#include "models/csperson.h"
 
 //Was accidentally created with only lowercase, we got many conflicts trying to fix it.
 
@@ -18,6 +19,7 @@ class compmoreinfo : public QDialog
         explicit compmoreinfo(QWidget *parent = 0);
         ~compmoreinfo();
         void setComputer(Computer myComputer);
+        void setComputerCreators(vector<CSPerson> myCreators);
 
     private slots:
         void on_pushButton_clicked();
@@ -25,8 +27,10 @@ class compmoreinfo : public QDialog
     private:
         Ui::compmoreinfo *ui;
         Computer _myComputer;
+        vector<CSPerson> _myCreators;
         void loadImage();
         void setDataInBoxes();
+        void showCreatorsofComputer();
 };
 
 #endif // COMPMOREINFO_H

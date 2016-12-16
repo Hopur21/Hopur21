@@ -119,7 +119,8 @@ void ShowList::on_table_ComputerScientist_cellClicked(int row)
 
 void ShowList::on_table_Computer_doubleClicked()
 {
-    _compMoreInfo.setComputer(getComputerFromID(_idForMoreInfo));
+   _compMoreInfo.setComputer(getComputerFromID(_idForMoreInfo));
+   _compMoreInfo.setComputerCreators(getCSfromCompID(_idForMoreInfo));
    _compMoreInfo.setModal(true);
    _compMoreInfo.exec();
 }
