@@ -99,7 +99,7 @@ void ShowList::on_table_ComputerScientist_cellClicked(int row)
 
 void ShowList::on_table_ComputerScientist_doubleClicked()
 {
-    //ID = _idForMoreInfo;
+    _csMoreInfo.setComputerScientist(getPersonFromID(_idForMoreInfo));
     _csMoreInfo.setModal(true);
     _csMoreInfo.exec();
 }
@@ -110,3 +110,13 @@ void ShowList::on_table_Computer_doubleClicked()
     //TODO kalla í klasann fyrir compass info
 }
 
+CSPerson ShowList::getPersonFromID(int id)
+{
+    for(unsigned int i = 0; i < _CSlist.size(); i++)
+    {
+        if (_CSlist[i].getID() == id)
+        {
+            return _CSlist[i];
+        }
+    }
+}
