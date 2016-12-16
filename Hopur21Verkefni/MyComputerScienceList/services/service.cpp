@@ -1,12 +1,9 @@
 #include "service.h"
 
-#include <QDebug>
-
 Service::Service()
 {
     updateAllLists();
 }
-
 bool Service::addNewPersonToList(const vector<int> computerConnectionID,const string name,const string gender, const string birthYear, const string deathYear,const string comment, string imageName, QByteArray image)
 {
     Image newImage;
@@ -114,7 +111,6 @@ bool Service::removeComputerFromList(const string id)
     }
     return success;
 }
-
 vector<CSPerson> Service::getComputerScientistTrash()
 {
     return _dbCon.getComputerScientistsTrashCan();
@@ -169,73 +165,6 @@ bool Service::addComputerType(const string typeName)
     return _dbCon.addComputerType(typeName);
 }
 
-/*
-//Computer scientist Sorts
-void Service::sortScientistListAlphabetically()
-{
-    _cSPersonService.sortByName(_computerScientists);
-}
-
-void Service::sortScientistListAlphabeticallyDESC()
-{
-    _cSPersonService.sortByNameDESC(_computerScientists);
-}
-
-void Service::sortScientistListByGender()
-{
-    _cSPersonService.sortByGender(_computerScientists);
-}
-
-void Service::sortScientistListByDeathYear()
-{
-    _cSPersonService.sortByDeathYear(_computerScientists);
-}
-
-void Service::sortScientistListByBirthYear()
-{
-    _cSPersonService.sortByBirthYear(_computerScientists);
-}
-
-void Service::sortScientistListByBirthYearASC()
-{
-    _cSPersonService.sortByBirthYearASC(_computerScientists);
-}
-
-void Service::sortScientistListByAge()
-{
-    _cSPersonService.sortByAge(_computerScientists);
-}
-// Computer Sorts
-void Service::sortComputerListAlphabetically()
-{
-    _computerService.sortByName(_computerList);
-}
-
-void Service::sortComputerListAlphabeticallyDESC()
-{
-    _computerService.sortByNameDESC(_computerList);
-}
-
-void Service::sortComputertListByBuildYear()
-{
-    _computerService.sortByBuildYear(_computerList);
-}
-
-void Service::sortComputerListByDesignYear()
-{
-    _computerService.sortByDesignYear(_computerList);
-}
-
-void Service::sortComputerListByType()
-{
-    _computerService.sortByType(_computerList);
-}
-
-void Service::sortComputerListWasBuilt()
-{
-    _computerService.sortWasBuilt(_computerList);
-}
-*/
 vector<CSPerson> Service::searchComputerScientist(const string searchString)
 {
     vector <CSPerson> searchCS;

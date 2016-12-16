@@ -113,20 +113,18 @@ bool DbCon::addCStoComputer(const int cSID,const int compID)
     QSqlQuery query;
     try
     {
-        if(!isdigit(cSID) || !isdigit(compID))
-        {
-            return success;
-        }
         query.prepare("INSERT INTO computer_scientists_computers(computer_scientist_ID,computer_ID) VALUES (:cSID, :compID)");
-
         query.bindValue(":cSID", cSID);
         query.bindValue(":compID", compID);
         success = query.exec();
+
     }
     catch(int e)
     {
-        //{qDebug() << "addCStoComputer error:  " << query.lastError();}
+        qDebug() << "addCStoComputer error:  " << query.lastError();
     }
+    query.lastError();
+    query.lastQuery();
     return success;
 }
 int DbCon::addPicture(const string imageName, const QByteArray image)
