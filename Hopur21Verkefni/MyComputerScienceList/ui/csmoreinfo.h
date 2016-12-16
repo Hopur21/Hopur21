@@ -20,7 +20,9 @@ class CSMoreInfo : public QDialog
     private slots:
         void on_pushButton_close_clicked();
 
-    private:
+        void on_pushButton_2_clicked();
+
+private:
         CSPerson _myPerson;
         Ui::CSMoreInfo *ui;
         vector<Computer> _computersConnectedToScientist;
