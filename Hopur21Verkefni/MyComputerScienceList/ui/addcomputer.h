@@ -30,6 +30,7 @@ public:
     void setComputerTypesComboBox();
     void setComputerScientistList(vector<CSPerson> allScientists);
     void resetData();
+
 private slots:
 
     void on_pushButton_AddComputer_saveComputer_clicked();
@@ -59,7 +60,6 @@ private:
     bool comvertAndSaveFile();
     void setImageButtonAsImage();
     QString validateUserInput(bool nameFail, bool designYearFail, bool buildYearFail, bool computerTypeFail, bool buildYearInvalid);
-
 
 };
 

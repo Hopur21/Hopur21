@@ -13,7 +13,8 @@ CSMoreInfo::~CSMoreInfo()
 
 void CSMoreInfo::setDataInBoxes()
 {
-
+    //ui->more_info_input->setText(QString::fromStdString(_myPerson.getComments()));
+    //loadImage();
     ui->more_info_input->setText(QString::fromStdString(_myPerson.getComments()));
     ui->name_input->setText(QString::fromStdString(_myPerson.getName()));
     ui->age_input->setText(QString::number(_myPerson.getAge()) );
@@ -21,6 +22,7 @@ void CSMoreInfo::setDataInBoxes()
     ui->yearOfBirth_input->setText(QString::number(_myPerson.getBirthYear()));
     ui->yearOfDeath_input->setText(QString::number(_myPerson.getPassedAwayYear()));
     loadImage();
+
 }
 void CSMoreInfo::loadImage()
 {
@@ -32,9 +34,16 @@ void CSMoreInfo::loadImage()
 
 void CSMoreInfo::setComputerScientist(CSPerson myPerson)
 {
+    if(myPerson.getName() != "")
+    {
+        qDebug() << "CHRISTMAS FUNCTION";
+    }
+
     setDataInBoxes();
-    _myPerson = myPerson;
-    qDebug() << "CHRISTMAS FUNCTION";
+    qDebug() << "YOLO FUNCTION";
+    //_myPerson = myPerson;
+    qDebug() << "TEST : " << QString::fromStdString(myPerson.getName());
+
 
     //QString test = QString::fromStdString(myPerson.getName());
     //qDebug() << test;
@@ -104,6 +113,9 @@ void CSMoreInfo::setComputerScientist(CSPerson myPerson)
        ui->label_image->setPixmap(pixmap);
        ui->label_image->setScaledContents(true);
        */
+
+
+
 
 
 

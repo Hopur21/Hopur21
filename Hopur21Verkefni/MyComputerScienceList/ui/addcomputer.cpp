@@ -332,23 +332,27 @@ void AddComputer::on_tableWidget_AddComputer_selectScientistForComputer_doubleCl
 
     QString selectedName = index.model()->data(index, Qt::DisplayRole).toString();
     string name = selectedName.toStdString();
-    CSPerson personToView;
+    //qDebug() << "NAME" <<QString::fromStdString(name);
+    vector<CSPerson> personToView;
 
     for(unsigned int i=0;i<_listOfScientists.size();i++)
     {
 
         if(name == _listOfScientists.at(i).getName())
         {
-            personToView = _listOfScientists.at(i);
-            break;
+            qDebug() << "PERSON FOUND!!!!";
+            personToView.push_back(_listOfScientists.at(i));
+            qDebug() << "SIZESIZE" <<personToView.size();
+
+            //_moreInfo->setComputerScientist(_listOfScientists.at(i));
+            //_moreInfo->setComputerScientist(*personToView);
+
         }
     }
 
-    // Error prevention
-    if(personToView.getName() != "")
-    {
-        _moreInfo->setComputerScientist(personToView);
-        _moreInfo->setModal(true);
-        _moreInfo->exec();
-    }
+
+    _moreInfo->setModal(true);
+    _moreInfo->setComputerScientist(personToView.at(0));
+    _moreInfo->exec();
+
 }
