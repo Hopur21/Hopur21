@@ -18,7 +18,7 @@ class ShowList : public QDialog
 
     public:
         explicit ShowList(QWidget *parent = 0);
-        void setList(vector<CSPerson> computerScientistlist, vector<Computer> computerList);
+        void setList(vector<CSPerson> computerScientistlist, vector<Computer> computerList, vector<ComputerScientistToComputer> computerCSconnection);
         int getIdToRemove(){return _idToRemove;}
         bool getIfToRemoveComputer(){return _removeComputerOrScientist;}
         ~ShowList();

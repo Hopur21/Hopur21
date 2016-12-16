@@ -85,7 +85,7 @@ void MainWindow::on_action_toolbar_Show_List_triggered()
 void MainWindow::on_actionAdd_Computer_Scientist_triggered()
 {
     _addComputerScientist->resetAllData();
-    _addComputerScientist->setComputersList(_service.getComputerList(_filterSearch));
+    _addComputerScientist->setComputersList(_service.getComputerList(_filterSearch),_service.getCSandCompConnection());
     ui->tabWidget_MainWindow->setCurrentIndex(constants::TAB_ADD_CS);
 }
 
@@ -94,7 +94,7 @@ void MainWindow::on_action_toolbar_Add_Computer__triggered()
     _addComputer->clearFields();
     _addComputer->resetData();
     _addComputer->setComputerType(_service.getComputerTypesList());
-    _addComputer->setComputerScientistList(_service.getComputerScientistList(_filterSearch));
+    _addComputer->setComputerScientistList(_service.getComputerScientistList(_filterSearch),_service.getCSandCompConnection());
     _addComputer->setComputerTypesComboBox();
     ui->tabWidget_MainWindow->setCurrentIndex(constants::TAB_ADD_COMPUTER);
 }
@@ -181,6 +181,8 @@ void MainWindow::addNewScientist()
                                 newScientist.getComments(),\
                                 _addComputerScientist->getImageName(),\
                                 _addComputerScientist->getImage());
+    _addComputerScientist->resetAllData();
+    _addComputerScientist->setComputersList(_service.getComputerList(_filterSearch),_service.getCSandCompConnection());
 }
 void MainWindow::addNewComputer()
 {
@@ -193,6 +195,11 @@ void MainWindow::addNewComputer()
                                   newComputer.getIsCreated(),\
                                   _addComputer->getImageName(),\
                                   _addComputer->getImage());
+    _addComputer->clearFields();
+    _addComputer->resetData();
+    _addComputer->setComputerType(_service.getComputerTypesList());
+    _addComputer->setComputerScientistList(_service.getComputerScientistList(_filterSearch),_service.getCSandCompConnection());
+    _addComputer->setComputerTypesComboBox();
 }
 void MainWindow::addNewType()
 {
@@ -218,11 +225,11 @@ void MainWindow::refreshAllTables()
 {
         _showList->setList(_service.getComputerScientistList(_filterSearch), _service.getComputerList(_filterSearch),_service.getCSandCompConnection());
         _addComputerScientist->resetAllData();
-        _addComputerScientist->setComputersList(_service.getComputerList(_filterSearch));
+        _addComputerScientist->setComputersList(_service.getComputerList(_filterSearch),_service.getCSandCompConnection());
         _addComputer->clearFields();
         _addComputer->resetData();
         _addComputer->setComputerType(_service.getComputerTypesList());
-        _addComputer->setComputerScientistList(_service.getComputerScientistList(_filterSearch));
+        _addComputer->setComputerScientistList(_service.getComputerScientistList(_filterSearch), _service.getCSandCompConnection());
         _addComputer->setComputerTypesComboBox();
         _showTrash->setTrashList(_service.getComputerScientistTrash(_filterSearch), _service.getComputerTrash(_filterSearch));
 }

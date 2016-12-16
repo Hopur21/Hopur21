@@ -14,8 +14,9 @@ AddComputerScientist::~AddComputerScientist()
     delete yearValidator;
     delete ui;
 }
-void AddComputerScientist::setComputersList(vector<Computer> allComputers)
+void AddComputerScientist::setComputersList(vector<Computer> allComputers, vector<ComputerScientistToComputer> computerCSconnection)
 {
+    _computerCSconnection = computerCSconnection;
     ui->tableWidget_Addscientist_selectComputerForScientist->setRowCount(allComputers.size());
     ui->tableWidget_Addscientist_selectComputerForScientist->setColumnCount(3);
     for(size_t i = 0; i < allComputers.size(); i++)
@@ -314,6 +315,8 @@ void AddComputerScientist::setImageButtonAsImage()
 }
 void AddComputerScientist::resetAllData()
 {
+    vector<ComputerScientistToComputer> computerCSconnection;
+    _computerCSconnection = computerCSconnection;
     CSPerson freshPerson;
     _newPerson = freshPerson; //For some reason _newPerson.clear(); doesnt work.
     vector <int> computersConnected;

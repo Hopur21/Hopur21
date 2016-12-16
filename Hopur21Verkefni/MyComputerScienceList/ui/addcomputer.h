@@ -3,6 +3,7 @@
 #include "models/csperson.h"
 #include "models/computer.h"
 #include "models/computertype.h"
+#include "models/computerscientisttocomputer.h"
 #include "ui/csmoreinfo.h"
 
 namespace Ui {
@@ -28,7 +29,7 @@ class AddComputer : public QDialog
         string getImageName(){return _imageName;}
         // ComboBox set
         void setComputerTypesComboBox();
-        void setComputerScientistList(vector<CSPerson> allScientists);
+        void setComputerScientistList(vector<CSPerson> allScientists, vector<ComputerScientistToComputer> computerCSconnection);
         void resetData();
 
     private slots:
@@ -48,6 +49,7 @@ class AddComputer : public QDialog
         Computer _newComputer;
         vector<ComputerType> _listOfComputerTypes;
         vector<int> _scientistsConnected;
+        vector<ComputerScientistToComputer> _computerCSconnection;
         // vector for more info
         vector<CSPerson> _listOfScientists;
         CSPerson _personToSend;
