@@ -54,16 +54,6 @@
     </size>
    </property>
   </widget>
-  <widget class="QTextBrowser" name="more_info_input">
-   <property name="geometry">
-    <rect>
-     <x>170</x>
-     <y>80</y>
-     <width>201</width>
-     <height>171</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLabel" name="name_input">
    <property name="geometry">
     <rect>
@@ -253,46 +243,55 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="yearOfBirth_input">
+  <widget class="QPlainTextEdit" name="plainTextEdit_aboutComment">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>80</y>
+     <width>211</width>
+     <height>111</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="tableWidget_aboutRelations">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>211</y>
+     <width>211</width>
+     <height>61</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_aboutAssociation">
    <property name="geometry">
     <rect>
      <x>170</x>
      <y>190</y>
-     <width>78</width>
-     <height>34</height>
+     <width>131</width>
+     <height>21</height>
     </rect>
    </property>
-   <property name="font">
-    <font>
-     <family>Calibri</family>
-    </font>
-   </property>
    <property name="text">
-    <string/>
+    <string>Computer associated with </string>
    </property>
   </widget>
-  <widget class="QLabel" name="age_input">
+  <widget class="QLabel" name="label_aboutName">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>140</y>
-     <width>78</width>
-     <height>43</height>
+     <x>300</x>
+     <y>190</y>
+     <width>61</width>
+     <height>20</height>
     </rect>
    </property>
-   <property name="font">
-    <font>
-     <family>Calibri</family>
-    </font>
-   </property>
    <property name="text">
-    <string/>
+    <string>TextLabel</string>
    </property>
   </widget>
   <zorder>layoutWidget</zorder>
   <zorder>line</zorder>
   <zorder>image_of_person_input</zorder>
-  <zorder>more_info_input</zorder>
   <zorder>name_input</zorder>
   <zorder>line_2</zorder>
   <zorder>pushButton</zorder>
@@ -301,8 +300,10 @@
   <zorder>pushButton_2</zorder>
   <zorder>lineEdit_aboutName</zorder>
   <zorder>yearOfDeath_input</zorder>
-  <zorder>yearOfBirth_input</zorder>
-  <zorder>age_input</zorder>
+  <zorder>plainTextEdit_aboutComment</zorder>
+  <zorder>tableWidget_aboutRelations</zorder>
+  <zorder>label_aboutAssociation</zorder>
+  <zorder>label_aboutName</zorder>
  </widget>
  <resources>
   <include location="../resources.qrc"/>
