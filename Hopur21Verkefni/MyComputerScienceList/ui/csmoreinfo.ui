@@ -26,7 +26,7 @@
     <enum>Qt::Horizontal</enum>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_imageComputer">
+  <widget class="QPushButton" name="image_of_person_input">
    <property name="geometry">
     <rect>
      <x>280</x>
@@ -54,7 +54,7 @@
     </size>
    </property>
   </widget>
-  <widget class="QTextBrowser" name="textBrowser">
+  <widget class="QTextBrowser" name="more_info_input">
    <property name="geometry">
     <rect>
      <x>60</x>
@@ -64,7 +64,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLabel" name="label_5">
+  <widget class="QLabel" name="name_input">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -82,7 +82,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Charles Babbage</string>
+    <string/>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -146,18 +146,18 @@
     <enum>Qt::Horizontal</enum>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>420</x>
      <y>70</y>
      <width>80</width>
-     <height>131</height>
+     <height>181</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QLabel" name="label_tempNafn">
+     <widget class="QLabel" name="label_Name">
       <property name="font">
        <font>
         <family>Calibri</family>
@@ -172,7 +172,14 @@
      </widget>
     </item>
     <item>
-     <widget class="QLabel" name="label_2">
+     <widget class="QLabel" name="yearOfBirth_input">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_yearOfDeath">
       <property name="font">
        <font>
         <family>Calibri</family>
@@ -187,7 +194,14 @@
      </widget>
     </item>
     <item>
-     <widget class="QLabel" name="label_3">
+     <widget class="QLabel" name="yearOfDeath_input">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_Age">
       <property name="font">
        <font>
         <family>Calibri</family>
@@ -201,22 +215,25 @@
       </property>
      </widget>
     </item>
+    <item>
+     <widget class="QLabel" name="age_input">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
-  <zorder>label</zorder>
-  <zorder>label_tempNafn</zorder>
+  <zorder>layoutWidget</zorder>
   <zorder>line</zorder>
-  <zorder>label_2</zorder>
-  <zorder>label_3</zorder>
-  <zorder>label_4</zorder>
-  <zorder>pushButton_imageComputer</zorder>
-  <zorder>textBrowser</zorder>
-  <zorder>label_5</zorder>
+  <zorder>image_of_person_input</zorder>
+  <zorder>more_info_input</zorder>
+  <zorder>name_input</zorder>
   <zorder>line_2</zorder>
-  <zorder>label_tempNafn</zorder>
   <zorder>pushButton</zorder>
   <zorder>label</zorder>
   <zorder>line_3</zorder>
+  <zorder>label_Name</zorder>
  </widget>
  <resources>
   <include location="../resources.qrc"/>

@@ -12,12 +12,39 @@ CSMoreInfo::~CSMoreInfo()
 {
     delete ui;
 }
+
 void CSMoreInfo::setComputerScientist(CSPerson myPerson)
 {
-    ui->label_tempNafn->setText(QString::fromStdString(myPerson.getName()));
+    qDebug() << "CHRISTMAS FUNCTION";
+
+    //QString test = QString::fromStdString(myPerson.getName());
+    //qDebug() << test;
+
+    // Set the name of the person
+
+    //ui->name_input->setText(test);
+
+    //ui->name_input->setText(QString::fromStdString(myPerson.getName()));
+    // Set the birth year of the person
+    //ui->yearOfBirth_input->setText(QString::number(myPerson.getBirthYear()));
+    // Set the year of death of the person
+    //ui->yearOfDeath_input->setText(QString::number(myPerson.getPassedAwayYear()));
+    // Set the age of the person
+    //int age = myPerson.getAge();
+    //if(age == constants::STILL_ALIVE)
+    //{
+     //  ui->age_input->setText("Still alive");
+    //}
+    //else
+    //{
+    //    ui->age_input->setText(QString::number(myPerson.getAge()));
+    //}
+
+
+
 
     // Alternatively, load an image file directly into a QByteArray
-    QFile file("test.jpg");
+    /*QFile file("test.jpg");
     if (file.open(QIODevice::ReadOnly))
     {
         qDebug() << "nadi að opna file";
@@ -25,7 +52,7 @@ void CSMoreInfo::setComputerScientist(CSPerson myPerson)
     QByteArray inByteArray = myPerson.getImage();
 
        QPixmap outPixmap = QPixmap();
-       outPixmap.loadFromData( inByteArray );
+       outPixmap.loadFromData( inByteArray );*/
 
        /*
        ui->showPicLabel->setPixmap(outPixmap);

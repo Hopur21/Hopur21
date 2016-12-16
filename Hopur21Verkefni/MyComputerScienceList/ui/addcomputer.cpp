@@ -344,6 +344,11 @@ void AddComputer::on_tableWidget_AddComputer_selectScientistForComputer_doubleCl
         }
     }
 
-    _moreInfo->setComputerScientist(personToView);
-
+    // Error prevention
+    if(personToView.getName() != "")
+    {
+        _moreInfo->setComputerScientist(personToView);
+        _moreInfo->setModal(true);
+        _moreInfo->exec();
+    }
 }
