@@ -19,6 +19,9 @@ private:
     CSPerson _myPerson;
     Ui::CSMoreInfo *ui;
 
+    void setDataInBoxes();
+    void loadImage();
+
 };
 
 #endif // CSMOREINFO_H

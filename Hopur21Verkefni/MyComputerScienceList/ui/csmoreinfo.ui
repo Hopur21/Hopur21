@@ -29,8 +29,8 @@
   <widget class="QPushButton" name="image_of_person_input">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>90</y>
+     <x>30</x>
+     <y>80</y>
      <width>111</width>
      <height>131</height>
     </rect>
@@ -57,8 +57,8 @@
   <widget class="QTextBrowser" name="more_info_input">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>90</y>
+     <x>170</x>
+     <y>80</y>
      <width>201</width>
      <height>171</height>
     </rect>
@@ -233,7 +233,6 @@
   <zorder>pushButton</zorder>
   <zorder>label</zorder>
   <zorder>line_3</zorder>
-  <zorder>label_Name</zorder>
  </widget>
  <resources>
   <include location="../resources.qrc"/>

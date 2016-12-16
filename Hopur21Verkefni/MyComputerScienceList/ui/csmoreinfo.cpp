@@ -1,9 +1,7 @@
 #include "csmoreinfo.h"
 #include "ui_csmoreinfo.h"
 
-CSMoreInfo::CSMoreInfo(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::CSMoreInfo)
+CSMoreInfo::CSMoreInfo( QWidget *parent) : QDialog(parent), ui(new Ui::CSMoreInfo)
 {
     ui->setupUi(this);
 }
@@ -13,8 +11,24 @@ CSMoreInfo::~CSMoreInfo()
     delete ui;
 }
 
+void CSMoreInfo::setDataInBoxes()
+{
+
+    ui->more_info_input->setText(QString::fromStdString(_myPerson.getComments()));
+    loadImage();
+}
+void CSMoreInfo::loadImage()
+{
+    QPixmap pixmap = QPixmap();
+    pixmap.loadFromData( _myPerson.getImage() );
+    QIcon buttonIcon(pixmap);
+    ui->image_of_person_input->setIcon(buttonIcon);
+}
+
 void CSMoreInfo::setComputerScientist(CSPerson myPerson)
 {
+    setDataInBoxes();
+    _myPerson = myPerson;
     qDebug() << "CHRISTMAS FUNCTION";
 
     //QString test = QString::fromStdString(myPerson.getName());

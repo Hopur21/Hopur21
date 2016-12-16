@@ -40,6 +40,7 @@ private:
     int _idForMoreInfo;
     void printComputerList();
     void printComputerScientistList();
+    CSPerson getPersonFromID(int id);
     Ui::ShowList *ui;
 };
 
