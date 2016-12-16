@@ -149,3 +149,27 @@ Computer ShowList::getComputerFromID(int id)
         }
     }
 }
+vector<Computer> ShowList::getComputersFromCSid(int id)
+{
+    vector<Computer> returnValue;
+    for(unsigned int i = 0; i < _computerCSconnection.size(); i++)
+    {
+        if(_computerCSconnection[i].getCSid() == id)
+        {
+            returnValue.push_back(getComputerFromID(_computerCSconnection[i].getCompID()));
+        }
+    }
+    return returnValue;
+}
+vector<CSPerson> ShowList::getCSfromCompID(int id)
+{
+    vector<CSPerson> returnValue;
+    for(unsigned int i = 0; i < _computerCSconnection.size(); i++)
+    {
+        if(_computerCSconnection[i].getCompID() == id)
+        {
+            returnValue.push_back(getComputerFromID(_computerCSconnection[i].getCSid()));
+        }
+    }
+    return returnValue;
+}
