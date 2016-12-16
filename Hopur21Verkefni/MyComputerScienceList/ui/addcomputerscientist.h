@@ -33,7 +33,9 @@ class AddComputerScientist : public QDialog
         void on_pushButton_Addscientist_save_clicked();
         void on_AddScientist_pushButton_image_clicked();
 
-    private:
+        void on_tableWidget_Addscientist_selectComputerForScientist_doubleClicked(const QModelIndex &index);
+
+private:
         CSPerson _newPerson;
         // The computers the newly created scientist is connected to
         vector <int> _computersConnected;

@@ -97,6 +97,7 @@ void ShowList::on_table_ComputerScientist_doubleClicked(const QModelIndex &index
 {
      _personToSend = getPersonFromID(_idForMoreInfo);
     _csMoreInfo.setComputerScientist(_personToSend);
+    _csMoreInfo.setVectorOfComputersConnectedToScientist(getComputersFromCSid(_idForMoreInfo));
     _csMoreInfo.setModal(true);
     _csMoreInfo.exec();
 }

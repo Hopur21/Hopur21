@@ -34,6 +34,20 @@ void CSMoreInfo::setDataInBoxes()
     loadImage();
 }
 
+void CSMoreInfo::addComputerstoCS()
+{
+    ui->tableWidget_aboutRelations->setRowCount(_computersConnectedToScientist.size());
+    ui->tableWidget_aboutRelations->setColumnCount(3);
+    for(unsigned int i = 0; i < _computersConnectedToScientist.size(); i++)
+    {
+        ui->tableWidget_aboutRelations->setItem(i, 0, new QTableWidgetItem(QString::fromStdString(_computersConnectedToScientist[i].getName())));
+        ui->tableWidget_aboutRelations->setItem(i, 1, new QTableWidgetItem(QString::fromStdString(_computersConnectedToScientist[i].getType())));
+        ui->tableWidget_aboutRelations->setItem(i, 2, new QTableWidgetItem(QString::number(_computersConnectedToScientist[i].getDesignYear())));
+    }
+
+
+}
+
 void CSMoreInfo::loadImage()
 {
     QPixmap pixmap = QPixmap();
@@ -57,4 +71,10 @@ void CSMoreInfo::setVectorOfComputersConnectedToScientist(vector<Computer> conne
 {
     _computersConnectedToScientist.clear();
     _computersConnectedToScientist = connectedComputers;
+    addComputerstoCS();
+}
+
+void CSMoreInfo::on_pushButton_2_clicked()
+{
+
 }

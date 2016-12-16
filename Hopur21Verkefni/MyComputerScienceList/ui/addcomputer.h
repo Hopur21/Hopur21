@@ -39,7 +39,6 @@ class AddComputer : public QDialog
         void on_pushButton_AddComputer_browseComputer_clicked();
         void on_pushButton_imageComputer_clicked();
         void on_tableWidget_AddComputer_selectScientistForComputer_doubleClicked(const QModelIndex &index);
-        void on_tableWidget_AddComputer_selectScientistForComputer_cellClicked(int row, int column);
 
     private:
         Ui::AddComputer *ui;

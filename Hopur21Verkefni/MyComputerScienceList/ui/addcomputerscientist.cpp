@@ -319,3 +319,13 @@ void AddComputerScientist::resetAllData()
     _imageName = imageName;
     clearFields();
 }
+
+void AddComputerScientist::on_tableWidget_Addscientist_selectComputerForScientist_doubleClicked(const QModelIndex &index)
+{
+    /*
+    _compMoreInfo.setComputer(getComputerFromID(_idForMoreInfo));
+    _compMoreInfo.setComputerCreators(getCSfromCompID(_idForMoreInfo));
+    _compMoreInfo.setModal(true);
+    _compMoreInfo.exec();
+    */
+}
