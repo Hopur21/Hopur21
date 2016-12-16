@@ -104,7 +104,6 @@ void ShowList::on_table_ComputerScientist_cellClicked(int row)
     ui->Button_Delete->setEnabled(true);
     _removeComputerOrScientist = constants::COMPUTER_SCIENTIST;
     _row = row;
-    qDebug() << " ID: " << _idForMoreInfo << endl;
 }
 void ShowList::on_table_Computer_doubleClicked()
 {
