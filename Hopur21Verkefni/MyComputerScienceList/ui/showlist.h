@@ -2,6 +2,7 @@
 #define SHOWLIST_H
 #include "models/csperson.h"
 #include "services/service.h"
+#include "ui/csmoreinfo.h"
 
 #include <QDialog>
 
@@ -23,16 +24,20 @@ public:
 
 private slots:
     void on_Button_Delete_clicked();
-    void on_tabWidget_scientist_currentChanged(int index);
+    void on_tabWidget_scientist_currentChanged();
     void on_table_Computer_cellClicked(int row);
     void on_table_ComputerScientist_cellClicked(int row);
+    void on_table_ComputerScientist_doubleClicked();
+    void on_table_Computer_doubleClicked();
 
 private:
+    CSMoreInfo _csMoreInfo;
     vector<Computer> _computerList;
     vector<CSPerson> _CSlist;
     bool _removeComputerOrScientist;
     int _row;
     int _idToRemove;
+    int _idForMoreInfo;
     void printComputerList();
     void printComputerScientistList();
     Ui::ShowList *ui;
