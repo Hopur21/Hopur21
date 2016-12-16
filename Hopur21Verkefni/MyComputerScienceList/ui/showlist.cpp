@@ -145,6 +145,7 @@ Computer ShowList::getComputerFromID(int id)
         }
     }
 }
+
 vector<Computer> ShowList::getComputersFromCSid(int id)
 {
     vector<Computer> returnValue;
@@ -157,6 +158,7 @@ vector<Computer> ShowList::getComputersFromCSid(int id)
     }
     return returnValue;
 }
+
 vector<CSPerson> ShowList::getCSfromCompID(int id)
 {
     vector<CSPerson> returnValue;

@@ -50,7 +50,6 @@ class ShowList : public QDialog
         vector<Computer> getComputersFromCSid(int id);
         vector<CSPerson> getCSfromCompID(int id);
         Ui::ShowList *ui;
-
 };
 
 #endif // SHOWLIST_H

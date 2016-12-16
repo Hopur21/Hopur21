@@ -14,6 +14,7 @@ class CSMoreInfo : public QDialog
     public:
         explicit CSMoreInfo(QWidget *parent = 0);
         void setComputerScientist(CSPerson myPerson);
+        void setVectorOfComputersConnectedToScientist(vector<Computer>connectedComputers);
         ~CSMoreInfo();
 
     private slots:
@@ -23,7 +24,6 @@ class CSMoreInfo : public QDialog
         CSPerson _myPerson;
         Ui::CSMoreInfo *ui;
         vector<Computer> _computersConnectedToScientist;
-        void getComputerConnectedToScientist(int ID);
         void setDataInBoxes();
         void loadImage();
 

@@ -11,11 +11,6 @@ CSMoreInfo::~CSMoreInfo()
     delete ui;
 }
 
-void CSMoreInfo::getComputerConnectedToScientist(int ID)
-{
-    //vector<Computer> _computersConnectedToScientist;
-}
-
 void CSMoreInfo::setDataInBoxes()
 {
     ui->plainTextEdit_aboutComment->setPlainText(QString::fromStdString(_myPerson.getComments()));
@@ -23,8 +18,8 @@ void CSMoreInfo::setDataInBoxes()
     ui->lineEdit_aboutYearOfBirth->setText(QString::number(_myPerson.getBirthYear()));
     ui->lineEdit_aboutYearOfDeath->setText(QString::number(_myPerson.getPassedAwayYear()));
     ui->lineEdit_aboutAge->setText(QString::number(_myPerson.getAge()));
+    int ID = _myPerson.getID();
 
-    //vector<Computer> ComputersConntedToCS(const int computerScientistID);
     //_computerCSconnection
     int yearOfDeath = _myPerson.getPassedAwayYear();
 
@@ -56,4 +51,10 @@ void CSMoreInfo::setComputerScientist(CSPerson myPerson)
 void CSMoreInfo::on_pushButton_close_clicked()
 {
     this->close();
+}
+
+void CSMoreInfo::setVectorOfComputersConnectedToScientist(vector<Computer> connectedComputers)
+{
+    _computersConnectedToScientist.clear();
+    _computersConnectedToScientist = connectedComputers;
 }

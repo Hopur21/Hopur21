@@ -96,6 +96,7 @@ void MainWindow::on_action_toolbar_Add_Computer__triggered()
 {
     _addComputer->clearFields();
     _addComputer->resetData();
+    _addComputer->setComputerList(_service.getComputerList(""));
     _addComputer->setComputerType(_service.getComputerTypesList());
     _addComputer->setComputerScientistList(_service.getComputerScientistList(_filterSearch),_service.getCSandCompConnection());
     _addComputer->setComputerTypesComboBox();

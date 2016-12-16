@@ -42,6 +42,11 @@ void AddComputer::setComputerType(vector<ComputerType> computerTypes)
     _listOfComputerTypes = computerTypes;
 }
 
+void AddComputer::setComputerList(vector<Computer> allComputers)
+{
+    _listOfAllComputers = allComputers;
+}
+
 void AddComputer::setComputerTypesComboBox()
 {
     ui->comboBox_AddComputer_selectTypeOfComputer->clear();//Clear the combobox before we insert into it.
@@ -338,19 +343,7 @@ void AddComputer::on_tableWidget_AddComputer_selectScientistForComputer_doubleCl
     _csMoreInfo.exec();
 }
 
-CSPerson AddComputer::getPersonFromID(int id)
-{
-    for(unsigned int i = 0; i < _listOfScientists.size(); i++)
-    {
-        if (_listOfScientists[i].getID() == id)
-        {
-            return _listOfScientists[i];
-        }
-    }
-}
 
-void AddComputer::on_tableWidget_AddComputer_selectScientistForComputer_cellClicked(int row, int column)
-{
-    _personToSend = getPersonFromID(_idForMoreInfo = ui->tableWidget_AddComputer_selectScientistForComputer->item(row,2)->text().toInt());
-    _row = row;
-}
+
+
+

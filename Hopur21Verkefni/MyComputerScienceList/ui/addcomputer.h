@@ -20,8 +20,8 @@ class AddComputer : public QDialog
         ~AddComputer();
         //Sets
         void setComputerType(vector<ComputerType> computerTypes);
+        void setComputerList(vector<Computer> allComputers);
         void clearFields();
-        //Gets
         //Gets
         Computer getComputer() {return _newComputer;}
         vector<int> getCSconntedToComp(){return _scientistsConnected;}
@@ -46,11 +46,14 @@ class AddComputer : public QDialog
         QIntValidator *yearValidator;
         CSMoreInfo _csMoreInfo;
         Computer _newComputer;
+        Computer getComputerFromID(int id);
         vector<ComputerType> _listOfComputerTypes;
         vector<int> _scientistsConnected;
         vector<ComputerScientistToComputer> _computerCSconnection;
         // vector for more info
         vector<CSPerson> _listOfScientists;
+        vector<Computer> _listOfAllComputers;
+        vector<Computer> _getComputersFromCSid(int id);
         CSPerson _personToSend;
         QByteArray _image;
         string _imageName;
