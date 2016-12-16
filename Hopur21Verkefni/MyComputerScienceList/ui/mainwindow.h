@@ -59,6 +59,8 @@ private:
     void addNewScientist();
     void addNewComputer();
     void addNewType();
+    void restoreComputerScientist();
+    void restoreComputer();
 
 
 };

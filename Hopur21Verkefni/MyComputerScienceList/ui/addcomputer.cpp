@@ -172,7 +172,7 @@ void AddComputer::on_pushButton_AddComputer_saveComputer_clicked()
         _newComputer.setCreated(ui->checkBox_AddComputer_wasComputerBuilt->isChecked());
         _newComputer.setBuildYear(buildYear.toInt());
         _newComputer.setType(ui->comboBox_AddComputer_selectTypeOfComputer->currentText().toStdString(),computerTypeID);
-        setResult(QDialog::Accepted);
+        this->setResult(QDialog::Accepted);
         clearFields();
     }
     else

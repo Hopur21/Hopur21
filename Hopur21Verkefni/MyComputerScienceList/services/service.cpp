@@ -85,6 +85,16 @@ bool Service::addNewComputerToList(const vector<int> scientistConnectionID, cons
     updateComputerList();
     return true;
 }
+bool Service::restorePersonToList(const int id)
+{
+    bool success = _dbCon.restoreComputerScientist(id);
+    if(success)
+    {
+        updateComputerScientistList();
+    }
+    return success;
+}
+
 bool Service::removePersonFromList(const string id)
 {
     if(!validNumber(id))
@@ -95,6 +105,15 @@ bool Service::removePersonFromList(const string id)
     if(success)
     {
         updateComputerScientistList();
+    }
+    return success;
+}
+bool Service::restoreComputerToList(const int id)
+{
+    bool success = _dbCon.restoreComputer(id);
+    if(success)
+    {
+        updateComputerList();
     }
     return success;
 }

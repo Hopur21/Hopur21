@@ -56,6 +56,39 @@ QString DbCon::getDateFormat(const string& year)
 {
     return QString::fromStdString(year + "-00-00");
 }
+//Restore
+bool DbCon::restoreComputerScientist(const int& scientistID)
+{
+    bool success = false;
+    QSqlQuery query;
+    try
+    {
+        query.prepare("UPDATE computer_scientists SET removed='0' WHERE ID=(:scientistID)");
+        query.bindValue(":scientistID", scientistID);
+        success = query.exec();
+    }
+    catch(int e)
+    {
+        //{qDebug() << "restoreComputerScientist error:  " << query.lastError();}
+    }
+    return success;
+}
+bool DbCon::restoreComputer(const int& computerID)
+{
+    bool success = false;
+    QSqlQuery query;
+    try
+    {
+        query.prepare("UPDATE computers SET removed ='0' WHERE ID =(:computerID)");
+        query.bindValue(":computerID", computerID);
+        success = query.exec();
+    }
+    catch(int e)
+    {
+        //{qDebug() << "restoreComputerScientist error:  " << query.lastError();}
+    }
+    return success;
+}
 //Remove Querys
 bool DbCon::removeComputerScientist(const int& scientistID)
 {

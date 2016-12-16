@@ -74,7 +74,7 @@
     <attribute name="title">
      <string>Scientists</string>
     </attribute>
-    <widget class="QTableWidget" name="table_computerScientist_2">
+    <widget class="QTableWidget" name="table_ComputerScientist">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -103,6 +103,9 @@
      <property name="midLineWidth">
       <number>0</number>
      </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
      <property name="sizeAdjustPolicy">
       <enum>QAbstractScrollArea::AdjustIgnored</enum>
      </property>
@@ -117,6 +120,9 @@
      </property>
      <property name="alternatingRowColors">
       <bool>false</bool>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::SingleSelection</enum>
      </property>
      <property name="selectionBehavior">
       <enum>QAbstractItemView::SelectRows</enum>
@@ -191,7 +197,7 @@
     <attribute name="title">
      <string>Computers</string>
     </attribute>
-    <widget class="QTableWidget" name="table_computer_2">
+    <widget class="QTableWidget" name="table_Computer">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -206,8 +212,17 @@
        <height>0</height>
       </size>
      </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
      <property name="editTriggers">
       <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::SingleSelection</enum>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
      </property>
      <property name="sortingEnabled">
       <bool>true</bool>

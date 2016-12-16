@@ -28,6 +28,8 @@ class Service
         bool addNewPersonToList(const vector<int> computerConnectionID, const string name,const string gender, const string birthYear, const string deathYear,const string comment, string imageName = "", QByteArray image = NULL);
         bool addNewComputerToList(const vector<int> scientistConnectionID,const string name,const int designyear, const int buildyear, const string typeRealID, const bool created, string imageName = "", QByteArray image = NULL);
         bool addComputerType(const string typeName);
+        bool restorePersonToList(const int id);
+        bool restoreComputerToList(const int id);
         bool removePersonFromList(const string id);
         bool removeComputerFromList(const string id);
         void updateAllLists();

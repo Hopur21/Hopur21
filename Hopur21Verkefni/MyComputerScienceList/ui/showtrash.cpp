@@ -44,3 +44,38 @@ void ShowTrash::printComputerTrash()
         ui->table_trashComputer->setItem(j, 3, new QTableWidgetItem(QString::number(_computerList[j].getBuildYear())));
     }
 }
+
+void ShowTrash::on_table_trashComputerScientist_cellClicked(int row)
+{
+    ui->Button_Restore_Computer_Scientist->setEnabled(true);
+    ui->Button_Restore_Computer->setEnabled(false);
+    _compuerScientistRowSelected = row;
+}
+void ShowTrash::on_table_trashComputer_cellClicked(int row)
+{
+    ui->Button_Restore_Computer->setEnabled(true);
+    ui->Button_Restore_Computer_Scientist->setEnabled(false);
+    _compuerRowSelected = row;
+}
+void ShowTrash::on_Button_Restore_Computer_Scientist_clicked()
+{
+    this->setResult(QDialog::Accepted);
+    _computerOrScientistToRemove = constants::COMPUTER_SCIENTIST;
+    _computerScientistToRestore = _CSList[_compuerScientistRowSelected].getID();
+    disableButtons();
+}
+
+void ShowTrash::on_Button_Restore_Computer_clicked()
+{
+    this->setResult(QDialog::Accepted);
+    _computerOrScientistToRemove = constants::COMPUTER;
+    _computerToRestore = _computerList[_compuerRowSelected].getID();
+    disableButtons();
+}
+void ShowTrash::disableButtons()
+{
+    ui->Button_Restore_Computer_Scientist->setEnabled(false);
+    ui->Button_Restore_Computer->setEnabled(false);
+}
+
+

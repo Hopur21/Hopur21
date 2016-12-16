@@ -31,6 +31,8 @@ void CSMoreInfo::setComputerScientist(CSPerson myPerson)
        ui->showPicLabel->setScaledContents(true);
        ui->showPicLabel->show();
 
+
+
        /* Til að lesa úr skrá
       QFile file("test.jpg");
       if (file.open(QIODevice::ReadOnly))

@@ -140,6 +140,20 @@ void MainWindow::checkDataAdded()
         _addType->setResult(false);
         goHome();
     }
+    //If we are going to restore some data
+    if(_showTrash->result())
+    {
+        if(_showTrash->getCompOrScientistToRestore() == constants::COMPUTER_SCIENTIST)
+        {
+            restoreComputerScientist();
+            _showTrash->setResult(false);
+        }
+        else//Restore computer
+        {
+            restoreComputer();
+            _showTrash->setResult(false);
+        }
+    }
 }
 void MainWindow::addNewScientist()
 {
@@ -169,4 +183,14 @@ void MainWindow::addNewComputer()
 void MainWindow::addNewType()
 {
     _service.addComputerType(_addType->getTypeName());
+}
+void MainWindow::restoreComputerScientist()
+{
+    _service.restorePersonToList(_showTrash->getCSidToRestore());
+    _showTrash->setTrashList(_service.getComputerScientistTrash(), _service.getComputerTrash());
+}
+void MainWindow::restoreComputer()
+{
+    _service.restoreComputerToList(_showTrash->getComputerIDToRestore());
+    _showTrash->setTrashList(_service.getComputerScientistTrash(), _service.getComputerTrash());
 }

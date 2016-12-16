@@ -57,6 +57,9 @@ public:
     //Delete
     bool removeComputerScientist(const int& scientistID);
     bool removeComputer(const int& computerID);
+    //Restore
+    bool restoreComputerScientist(const int& scientistID);
+    bool restoreComputer(const int& computerID);
 
 };
 
