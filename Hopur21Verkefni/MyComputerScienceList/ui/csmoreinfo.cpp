@@ -14,8 +14,8 @@ CSMoreInfo::~CSMoreInfo()
 void CSMoreInfo::setDataInBoxes()
 {
 
-    ui->more_info_input->setText(QString::fromStdString(_myPerson.getComments()));
-    loadImage();
+    //ui->more_info_input->setText(QString::fromStdString(_myPerson.getComments()));
+    //loadImage();
 }
 void CSMoreInfo::loadImage()
 {
@@ -27,9 +27,16 @@ void CSMoreInfo::loadImage()
 
 void CSMoreInfo::setComputerScientist(CSPerson myPerson)
 {
+    if(myPerson.getName() != "")
+    {
+        qDebug() << "CHRISTMAS FUNCTION";
+    }
+
     setDataInBoxes();
-    _myPerson = myPerson;
-    qDebug() << "CHRISTMAS FUNCTION";
+    qDebug() << "YOLO FUNCTION";
+    //_myPerson = myPerson;
+    qDebug() << "TEST : " << QString::fromStdString(myPerson.getName());
+
 
     //QString test = QString::fromStdString(myPerson.getName());
     //qDebug() << test;

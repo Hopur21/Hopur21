@@ -12,3 +12,4 @@ compmoreinfo::~compmoreinfo()
 {
     delete ui;
 }
+
