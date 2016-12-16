@@ -311,6 +311,17 @@
   <zorder>label_aboutAssociation</zorder>
   <zorder>label_aboutName</zorder>
  </widget>
+ <tabstops>
+  <tabstop>pushButton_2</tabstop>
+  <tabstop>pushButton</tabstop>
+  <tabstop>image_of_person_input</tabstop>
+  <tabstop>lineEdit_aboutName</tabstop>
+  <tabstop>plainTextEdit_aboutComment</tabstop>
+  <tabstop>tableWidget_aboutRelations</tabstop>
+  <tabstop>lineEdit_aboutYearOfBirth</tabstop>
+  <tabstop>lineEdit_aboutYearOfDeath</tabstop>
+  <tabstop>lineEdit_aboutAge</tabstop>
+ </tabstops>
  <resources>
   <include location="../resources.qrc"/>
  </resources>
