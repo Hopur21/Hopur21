@@ -3,8 +3,6 @@
 #include <vector>
 #include "models/computer.h"
 #include "models/csperson.h"
-#include "services/computerservice.h"
-#include "services/cspersonservice.h"
 #include "repositories/dbcon.h"
 #include <string>
 
@@ -43,8 +41,6 @@ class Service
         vector<Computer> _computerList;
         vector <ComputerType> _computerTypes;
         DbCon _dbCon;
-        ComputerService _computerService;
-        CSPersonService _cSPersonService;
         bool validNumber(string number);
 
 };

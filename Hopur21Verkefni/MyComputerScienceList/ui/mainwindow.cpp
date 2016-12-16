@@ -10,12 +10,14 @@ MainWindow::MainWindow(QWidget *parent) :
     createAllTabs();
     createTimer();
 }
+
 MainWindow::~MainWindow()
 {
     deleteAllTabs();
     delete timer;
     delete ui;
 }
+
 //We use the timer to check if user has tried to add data to the program.
 void MainWindow::createTimer()
 {
@@ -37,6 +39,7 @@ void MainWindow::hardCodePictureToDB()
     }
     */
 }
+
 void MainWindow::createAllTabs()
 {
     ui->tabWidget_MainWindow->removeTab(1);//Remove second (index 1) tab so we can edit it the rest here.
@@ -66,18 +69,18 @@ void MainWindow::deleteAllTabs()
 //Toolbar
 void MainWindow::goHome()
 {
-    ui->tabWidget_MainWindow->setCurrentIndex(constants::TAB_HOME);//Head back home
+    //Head back home
+    ui->tabWidget_MainWindow->setCurrentIndex(constants::TAB_HOME);
 }
 
 void MainWindow::on_action_toolbar_Home_triggered()
 {
-    //TODO - Refresh all data before entering.
     goHome();
 }
 
 void MainWindow::on_action_toolbar_Show_List_triggered()
 {
-    //Send our data into the show list tab before we open it.
+    // This sends our data into the show list tab before we open it.
     _showList->setList(_service.getComputerScientistList(_filterSearch), _service.getComputerList(_filterSearch),_service.getCSandCompConnection());
     ui->tabWidget_MainWindow->setCurrentIndex(constants::TAB_SHOW_LIST);
 }
@@ -103,7 +106,8 @@ void MainWindow::on_actionAdd_Computer_Type_triggered()
 {
     _addType->clearFields();
     _addType->resetData();
-    _addType->setTypes(_service.getComputerTypesList());//Sending computer types so we can check if this type already exist.
+    //Sending computer types so we can check if this type already exist.
+    _addType->setTypes(_service.getComputerTypesList());
     ui->tabWidget_MainWindow->setCurrentIndex(constants::TAB_ADD_TYPE);
 }
 void MainWindow::on_action_toolbar_Trash_triggered()
@@ -116,17 +120,18 @@ void MainWindow::on_actionExit_triggered()
     QCoreApplication::quit();
 }
 
-//Check if data is needed to be inserted into the database.
+// This checks if data is needed to be inserted into the database.
 void MainWindow::checkDataAdded()
 {
-    //If Computer Scientist was added.
-    if(_addComputerScientist->result())//If Add computer scientist was valid.
+    // If Computer Scientist was added.
+    // and if add computer scientist was valid.
+    if(_addComputerScientist->result())
     {
         addNewScientist();
         _addComputerScientist->setResult(false);//Set result back to false
         goHome();
     }
-    //If Computer was added.
+    // If Computer was added.
     if(_addComputer->result())
     {
         addNewComputer();
@@ -169,6 +174,7 @@ void MainWindow::checkDataAdded()
         _showList->setResult(false);
     }
 }
+
 void MainWindow::addNewScientist()
 {
 
@@ -184,6 +190,7 @@ void MainWindow::addNewScientist()
     _addComputerScientist->resetAllData();
     _addComputerScientist->setComputersList(_service.getComputerList(_filterSearch),_service.getCSandCompConnection());
 }
+
 void MainWindow::addNewComputer()
 {
     Computer newComputer = _addComputer->getComputer();
@@ -201,15 +208,18 @@ void MainWindow::addNewComputer()
     _addComputer->setComputerScientistList(_service.getComputerScientistList(_filterSearch),_service.getCSandCompConnection());
     _addComputer->setComputerTypesComboBox();
 }
+
 void MainWindow::addNewType()
 {
     _service.addComputerType(_addType->getTypeName());
 }
+
 void MainWindow::restoreComputerScientist()
 {
     _service.restorePersonToList(_showTrash->getCSidToRestore());
     _showTrash->setTrashList(_service.getComputerScientistTrash(_filterSearch), _service.getComputerTrash(_filterSearch));
 }
+
 void MainWindow::restoreComputer()
 {
     _service.restoreComputerToList(_showTrash->getComputerIDToRestore());
@@ -221,6 +231,7 @@ void MainWindow::on_TextBox_Search_textChanged()
     _filterSearch = ui->TextBox_Search->text().toStdString();
     refreshAllTables();
 }
+
 void MainWindow::refreshAllTables()
 {
         _showList->setList(_service.getComputerScientistList(_filterSearch), _service.getComputerList(_filterSearch),_service.getCSandCompConnection());

@@ -270,6 +270,7 @@ void AddComputer::resetData()
     vector<ComputerScientistToComputer> computerCSconnection;
     _computerCSconnection = computerCSconnection;
 }
+
 void AddComputer::clearFields()
 {
     // set checkbox default as checked
@@ -290,6 +291,7 @@ void AddComputer::clearFields()
     QIcon icon(pix);
     ui->pushButton_imageComputer->setIcon(icon);
 }
+
 void AddComputer::clearErrorMessages()
 {
     ui->AddComputer_ErrorMessage->clear();
@@ -303,6 +305,7 @@ QString AddComputer::browseForFile()
             "Images (*.png *.gif *.jpg)");
     return filename;
 }
+
 bool AddComputer::comvertAndSaveFile()
 {
     QString fileLocation = browseForFile();
@@ -314,12 +317,12 @@ bool AddComputer::comvertAndSaveFile()
         _image = file.readAll();
         return true;
     }
-    qDebug() << "Could not open file in add computer.";
+
     return false;
 }
+
 void AddComputer::setImageButtonAsImage()
 {
-
     QPixmap pixmap = QPixmap();
     pixmap.loadFromData( _image );
     QIcon buttonIcon(pixmap);
@@ -348,5 +351,4 @@ void AddComputer::on_tableWidget_AddComputer_selectScientistForComputer_cellClic
 {
     _personToSend = getPersonFromID(_idForMoreInfo = ui->tableWidget_AddComputer_selectScientistForComputer->item(row,2)->text().toInt());
     _row = row;
-    qDebug() << " ID: " << _idForMoreInfo << endl;
 }
