@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>List</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(241, 241, 242);</string>
