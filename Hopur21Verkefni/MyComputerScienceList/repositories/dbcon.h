@@ -41,8 +41,8 @@ class DbCon
         //Restore
         bool restoreComputerScientist(const int& scientistID);
         bool restoreComputer(const int& computerID);
-
-    private:
+        vector<ComputerScientistToComputer> getCscientistToComps();
+private:
         bool _connectionSuccess;
         bool makeConnection();
         QSqlDatabase _db;

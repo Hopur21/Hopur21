@@ -51,3 +51,8 @@ void CSMoreInfo::setComputerScientist(CSPerson myPerson)
     _myPerson = myPerson;
     setDataInBoxes();
 }
+
+void CSMoreInfo::on_pushButton_close_clicked()
+{
+    this->close();
+}

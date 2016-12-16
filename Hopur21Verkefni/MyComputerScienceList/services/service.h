@@ -36,7 +36,7 @@ class Service
         //Search
         vector<CSPerson> searchComputerScientist(const string searchString);
         vector<Computer> searchComputer(const string searchString);
-
+        vector<ComputerScientistToComputer> getCSandCompConnection();
     private:
             vector<CSPerson> _computerScientists;
             vector<Computer> _computerList;
@@ -45,6 +45,7 @@ class Service
             ComputerService _computerService;
             CSPersonService _cSPersonService;
             bool validNumber(string number);
+
 };
 
 #endif // SERVICE_H

@@ -1,6 +1,7 @@
 #ifndef SHOWLIST_H
 #define SHOWLIST_H
 #include "models/csperson.h"
+#include "models/computerscientisttocomputer.h"
 #include "services/service.h"
 #include "ui/csmoreinfo.h"
 #include "ui/compmoreinfo.h"
@@ -36,6 +37,8 @@ class ShowList : public QDialog
         vector<Computer> _computerList;
         vector<CSPerson> _CSlist;
         CSPerson _personToSend;
+        vector<CSPerson> _CSconntectToComputer;
+        vector<ComputerScientistToComputer> _computerCSconnection;
         bool _removeComputerOrScientist;
         int _row;
         int _idToRemove;
@@ -45,6 +48,7 @@ class ShowList : public QDialog
         CSPerson getPersonFromID(int id);
         Computer getComputerFromID(int id);
         Ui::ShowList *ui;
+
 };
 
 #endif // SHOWLIST_H

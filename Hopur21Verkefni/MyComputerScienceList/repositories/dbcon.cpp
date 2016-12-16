@@ -252,8 +252,8 @@ vector<ComputerScientistToComputer> DbCon::getCscientistToComps()
         ComputerScientistToComputer temp;
         QString csID = query.value(query.record().indexOf("computer_scientist_ID")).toString();
         QString compID = query.value(query.record().indexOf("computer_ID")).toString();
-        temp._compID = compID.toInt();
-        temp._csID = csID.toInt();
+        temp.setCompID(compID.toInt());
+        temp.setCSID(csID.toInt());
         ourData.push_back(temp);
     }
     return ourData;
