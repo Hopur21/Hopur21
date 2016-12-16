@@ -29,7 +29,7 @@ void ShowList::printComputerScientistList()
 {
     //Display computerScientistList
     ui->table_ComputerScientist->setRowCount(_CSlist.size());
-    ui->table_ComputerScientist->setColumnCount(4);
+    ui->table_ComputerScientist->setColumnCount(5);
     for(size_t i = 0; i < _CSlist.size(); i++)
     {
 
@@ -37,6 +37,8 @@ void ShowList::printComputerScientistList()
         ui->table_ComputerScientist->setItem(i, 1, new QTableWidgetItem(QString::number(_CSlist[i].getAge())));
         ui->table_ComputerScientist->setItem(i, 2, new QTableWidgetItem(QString::number(_CSlist[i].getBirthYear())));
         ui->table_ComputerScientist->setItem(i, 3, new QTableWidgetItem(QString::number(_CSlist[i].getPassedAwayYear())));
+        ui->table_ComputerScientist->setItem(i, 4, new QTableWidgetItem(QString::number(_CSlist[i].getID())));
+        ui->table_ComputerScientist->setColumnHidden(4,true);//Hide our ID column
     }
 }
 void ShowList::printComputerList()
@@ -89,4 +91,5 @@ void ShowList::on_table_ComputerScientist_cellClicked(int row)
     ui->Button_Delete->setEnabled(true);
     _removeComputerOrScientist = constants::COMPUTER_SCIENTIST;
     _row = row;
+    qDebug() << "ID is: " << ui->table_ComputerScientist->item(row,4)->text();
 }

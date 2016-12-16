@@ -27,10 +27,11 @@ void CSMoreInfo::setComputerScientist(CSPerson myPerson)
        QPixmap outPixmap = QPixmap();
        outPixmap.loadFromData( inByteArray );
 
+       /*
        ui->showPicLabel->setPixmap(outPixmap);
        ui->showPicLabel->setScaledContents(true);
        ui->showPicLabel->show();
-
+    */
 
 
        /* Til að lesa úr skrá
