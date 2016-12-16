@@ -1,5 +1,7 @@
 #include "addtype.h"
 #include "ui_addtype.h"
+#include <QDebug>
+#include <QString>
 
 AddType::AddType(QWidget *parent) :
     QDialog(parent),
@@ -33,7 +35,8 @@ void AddType::on_button_Save_Type_clicked()
     }
     else if(typeAlreadyExist(nameType.toStdString()))
     {
-            errorMessage = "Computer type already exists!";
+        canCreateType = false;
+        errorMessage = "Computer type already exists!";
     }
 
     if(canCreateType)
@@ -51,8 +54,10 @@ void AddType::on_button_Save_Type_clicked()
 
 bool AddType::typeAlreadyExist(std::string typeName)
 {
+
     for(unsigned int i = 0; i < _compTypes.size(); i++)
     {
+
         if(typeName == _compTypes[i].getName())
         {
             return true;

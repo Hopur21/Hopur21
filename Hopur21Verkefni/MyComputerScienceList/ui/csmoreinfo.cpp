@@ -33,7 +33,7 @@ void CSMoreInfo::setComputerScientist(CSPerson myPerson)
 
 
 
-       /* Til að lesa úr skrá
+       /* To read from files
       QFile file("test.jpg");
       if (file.open(QIODevice::ReadOnly))
       {
