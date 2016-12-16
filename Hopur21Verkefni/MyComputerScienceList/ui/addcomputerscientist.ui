@@ -52,6 +52,9 @@
       <family>Calibri</family>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(241, 241, 242);</string>
+    </property>
     <property name="text">
      <string>Clear Fields</string>
     </property>
@@ -156,6 +159,9 @@
       <family>Calibri</family>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(241, 241, 242);</string>
+    </property>
     <property name="text">
      <string>Save</string>
     </property>
@@ -191,6 +197,9 @@
      <font>
       <family>Calibri</family>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(241, 241, 242);</string>
     </property>
     <property name="text">
      <string>Browse</string>

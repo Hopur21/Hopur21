@@ -100,6 +100,9 @@
      <height>23</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(241, 241, 242);</string>
+   </property>
    <property name="text">
     <string>Close</string>
    </property>
@@ -211,6 +214,9 @@
      <height>23</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(241, 241, 242);</string>
+   </property>
    <property name="text">
     <string>Edit</string>
    </property>
@@ -300,8 +306,6 @@
   <zorder>pushButton_2</zorder>
   <zorder>lineEdit_aboutName</zorder>
   <zorder>yearOfDeath_input</zorder>
-  <zorder>yearOfBirth_input</zorder>
-  <zorder>age_input</zorder>
   <zorder>plainTextEdit_aboutComment</zorder>
   <zorder>tableWidget_aboutRelations</zorder>
   <zorder>label_aboutAssociation</zorder>
