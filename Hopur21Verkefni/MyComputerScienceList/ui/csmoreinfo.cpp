@@ -105,3 +105,8 @@ void CSMoreInfo::setComputerScientist(CSPerson myPerson)
 
 
 }
+
+void CSMoreInfo::on_pushButton_close_clicked()
+{
+    this->close();
+}
