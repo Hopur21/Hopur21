@@ -30,10 +30,13 @@ private slots:
     void on_table_ComputerScientist_doubleClicked(const QModelIndex &index);
     void on_table_Computer_doubleClicked();
 
+    void on_Button_More_Info_clicked();
+
 private:
     CSMoreInfo _csMoreInfo;
     vector<Computer> _computerList;
     vector<CSPerson> _CSlist;
+    CSPerson _personToSend;
     bool _removeComputerOrScientist;
     int _row;
     int _idToRemove;

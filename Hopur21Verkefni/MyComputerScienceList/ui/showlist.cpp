@@ -79,20 +79,21 @@ void ShowList::on_Button_Delete_clicked()
 void ShowList::on_tabWidget_scientist_currentChanged()
 {
     ui->Button_Delete->setEnabled(false);
+    ui->Button_More_Info->setEnabled(false);
 }
 
 
 void ShowList::on_table_ComputerScientist_doubleClicked(const QModelIndex &index)
 {
-    CSPerson test;
-    test = getPersonFromID(_idForMoreInfo);
-    std::string bull = test.getName();
-    //qDebug() << "name: " << QString::fromStdString(bull);
-    //qDebug() << ui->table_ComputerScientist->model()->data(ui->table_ComputerScientist->model()->index(0,2)).toString();
+    /*QString selectedName = index.model()->data(index, Qt::DisplayRole).toString();
+    string name = selectedName.toStdString();
+    _csMoreInfo.setComputerScientist(getPersonFromName(name));
+    _csMoreInfo.setModal(true);
+    _csMoreInfo.exec();*/
 
 
-
-    _csMoreInfo.setComputerScientist(getPersonFromID(_idForMoreInfo));
+    _csMoreInfo.setComputerScientist(_personToSend);
+    ui->Button_More_Info->setEnabled(false);
     _csMoreInfo.setModal(true);
     _csMoreInfo.exec();
 }
@@ -107,10 +108,12 @@ void ShowList::on_table_Computer_cellClicked(int row)
 
 void ShowList::on_table_ComputerScientist_cellClicked(int row)
 {
+    _personToSend = getPersonFromID(_idForMoreInfo = ui->table_ComputerScientist->item(row,4)->text().toInt());
     ui->Button_Delete->setEnabled(true);
     _removeComputerOrScientist = constants::COMPUTER_SCIENTIST;
     _row = row;
-    _idForMoreInfo = ui->table_ComputerScientist->item(row,4)->text().toInt();
+    ui->Button_More_Info->setEnabled(true);
+    qDebug() << " ID: " << _idForMoreInfo << endl;
 }
 void ShowList::on_table_Computer_doubleClicked()
 {
@@ -118,6 +121,13 @@ void ShowList::on_table_Computer_doubleClicked()
     //TODO kalla í klasann fyrir compass info
 }
 
+void ShowList::on_Button_More_Info_clicked()
+{
+    _csMoreInfo.setComputerScientist(_personToSend);
+    ui->Button_More_Info->setEnabled(false);
+    _csMoreInfo.setModal(true);
+    _csMoreInfo.exec();
+}
 CSPerson ShowList::getPersonFromID(int id)
 {
     for(unsigned int i = 0; i < _CSlist.size(); i++)

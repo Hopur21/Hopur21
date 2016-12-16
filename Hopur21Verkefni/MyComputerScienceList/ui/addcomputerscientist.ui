@@ -502,6 +502,21 @@ font: 75 14pt &quot;Trebuchet MS&quot;;</string>
    </widget>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>lineEdit_Addscientist_name</tabstop>
+  <tabstop>lineEdit_Addscientist_yearofbirth</tabstop>
+  <tabstop>checkBox_Addscientist_isPersonAlive</tabstop>
+  <tabstop>lineEdit_Addscientist_deathYear</tabstop>
+  <tabstop>lineEdit_Addscientist_comment</tabstop>
+  <tabstop>radioButton_Addscientist_male</tabstop>
+  <tabstop>radioButton_Addscientist_female</tabstop>
+  <tabstop>radioButton_Addscientist_otherGender</tabstop>
+  <tabstop>pushButton_browse</tabstop>
+  <tabstop>tableWidget_Addscientist_selectComputerForScientist</tabstop>
+  <tabstop>pushButton_Addscientist_clearFields</tabstop>
+  <tabstop>pushButton_Addscientist_save</tabstop>
+  <tabstop>AddScientist_pushButton_image</tabstop>
+ </tabstops>
  <resources>
   <include location="../resources.qrc"/>
  </resources>
