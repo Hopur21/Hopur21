@@ -15,10 +15,20 @@ void CSMoreInfo::setDataInBoxes()
 {
     ui->more_info_input->setText(QString::fromStdString(_myPerson.getComments()));
     ui->lineEdit_aboutName->setText(QString::fromStdString(_myPerson.getName()));
-    ui->lineEdit_aboutAge->setText(QString::number(_myPerson.getAge()) );
-    //ui->label_yearOfDeath->setText(QString::number(_myPerson.getPassedAwayYear()));
     ui->lineEdit_aboutYearOfBirth->setText(QString::number(_myPerson.getBirthYear()));
     ui->lineEdit_aboutYearOfDeath->setText(QString::number(_myPerson.getPassedAwayYear()));
+    ui->lineEdit_aboutAge->setText(QString::number(_myPerson.getAge()));
+    int yearOfDeath = _myPerson.getPassedAwayYear();
+
+    if(yearOfDeath == constants::STILL_ALIVE)
+    {
+        ui->lineEdit_aboutYearOfDeath->setText("Still alive");
+    }
+    else
+    {
+        ui->lineEdit_aboutYearOfDeath->setText(QString::number(_myPerson.getPassedAwayYear()));
+    }
+
     loadImage();
 
 }
@@ -34,34 +44,6 @@ void CSMoreInfo::setComputerScientist(CSPerson myPerson)
 {
     _myPerson = myPerson;
     setDataInBoxes();
-
-
-
-    //QString test = QString::fromStdString(myPerson.getName());
-    //qDebug() << test;
-
-    // Set the name of the person
-
-    //ui->name_input->setText(test);
-
-    //ui->name_input->setText(QString::fromStdString(myPerson.getName()));
-    // Set the birth year of the person
-    //ui->yearOfBirth_input->setText(QString::number(myPerson.getBirthYear()));
-    // Set the year of death of the person
-    //ui->yearOfDeath_input->setText(QString::number(myPerson.getPassedAwayYear()));
-    // Set the age of the person
-    //int age = myPerson.getAge();
-    //if(age == constants::STILL_ALIVE)
-    //{
-     //  ui->age_input->setText("Still alive");
-    //}
-    //else
-    //{
-    //    ui->age_input->setText(QString::number(myPerson.getAge()));
-    //}
-
-
-
 
     // Alternatively, load an image file directly into a QByteArray
     /*QFile file("test.jpg");
