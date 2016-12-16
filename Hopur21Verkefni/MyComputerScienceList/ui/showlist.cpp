@@ -45,7 +45,7 @@ void ShowList::printComputerList()
 {
     // Display computersList
     ui->table_Computer->setRowCount(_computerList.size());
-    ui->table_Computer->setColumnCount(4);
+    ui->table_Computer->setColumnCount(5);
     for(size_t j = 0; j < _computerList.size(); j++)
     {
 
@@ -53,6 +53,8 @@ void ShowList::printComputerList()
         ui->table_Computer->setItem(j, 1, new QTableWidgetItem(QString::fromStdString(_computerList[j].getType())));
         ui->table_Computer->setItem(j, 2, new QTableWidgetItem(QString::number(_computerList[j].getDesignYear())));
         ui->table_Computer->setItem(j, 3, new QTableWidgetItem(QString::number(_computerList[j].getBuildYear())));
+        ui->table_Computer->setItem(j, 4, new QTableWidgetItem(QString::number(_computerList[j].getID())));
+        ui->table_Computer->setColumnHidden(4,true);//Hide our ID column
     }
 }
 
@@ -84,6 +86,7 @@ void ShowList::on_table_Computer_cellClicked(int row)
     ui->Button_Delete->setEnabled(true);
     _removeComputerOrScientist = constants::COMPUTER;
     _row = row;
+    _idForMoreInfo = ui->table_Computer->item(row,4)->text().toInt();
 }
 
 void ShowList::on_table_ComputerScientist_cellClicked(int row)
@@ -96,6 +99,14 @@ void ShowList::on_table_ComputerScientist_cellClicked(int row)
 
 void ShowList::on_table_ComputerScientist_doubleClicked(const QModelIndex &index)
 {
+    //ID = _idForMoreInfo;
     _csMoreInfo.setModal(true);
     _csMoreInfo.exec();
 }
+
+void ShowList::on_table_Computer_doubleClicked(const QModelIndex &index)
+{
+        //ID = _idForMoreInfo;
+    //TODO kalla í klasann fyrir compass info
+}
+
