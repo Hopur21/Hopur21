@@ -1,7 +1,7 @@
 #ifndef ADDTYPE_H
 #define ADDTYPE_H
 #include "models/computertype.h"
-
+#include <vector>
 #include <QDialog>
 
 namespace Ui {
@@ -15,20 +15,21 @@ class AddType : public QDialog
 public:
     explicit AddType(QWidget *parent = 0);
     ~AddType();
-
-    int getMyIntValue() {return myIntValue;}
+    void clearFields();
+    void resetData();
+    void setTypes(std::vector<ComputerType> compTypes){_compTypes = compTypes;}
+    std::string getTypeName(){return _newTypeName;}
 
 private slots:
     void on_button_Save_Type_clicked();
-
     void on_button_clear_fields_clicked();
 
 private:
     Ui::AddType *ui;
-    ComputerType _newType;
-    ComputerType getType() {return _newType;}
+    std::vector<ComputerType> _compTypes;
+    std::string _newTypeName;
 
-    int myIntValue;
+    bool typeAlreadyExist(std::string typeName);
 };
 
 #endif // ADDTYPE_H

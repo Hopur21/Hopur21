@@ -101,7 +101,9 @@ void MainWindow::on_action_toolbar_Add_Computer__triggered()
 
 void MainWindow::on_actionAdd_Computer_Type_triggered()
 {
-    //TODO - Refresh all data before opening.
+    _addType->clearFields();
+    _addType->resetData();
+    _addType->setTypes(_service.getComputerTypesList());//Sending computer types so we can check if this type already exist.
     ui->tabWidget_MainWindow->setCurrentIndex(constants::TAB_ADD_TYPE);
 }
 void MainWindow::on_action_toolbar_Trash_triggered()
@@ -113,19 +115,29 @@ void MainWindow::on_actionExit_triggered()
 {
     QCoreApplication::quit();
 }
+
 //Check if data is needed to be inserted into the database.
 void MainWindow::checkDataAdded()
 {
+    //If Computer Scientist was added.
     if(_addComputerScientist->result())//If Add computer scientist was valid.
     {
         addNewScientist();
         _addComputerScientist->setResult(false);//Set result back to false
         goHome();
     }
+    //If Computer was added.
     if(_addComputer->result())
     {
         addNewComputer();
         _addComputer->setResult(false);
+        goHome();
+    }
+    //If computer type was added
+    if(_addType->result())
+    {
+        addNewType();
+        _addType->setResult(false);
         goHome();
     }
 }
@@ -153,4 +165,8 @@ void MainWindow::addNewComputer()
                                   newComputer.getIsCreated(),\
                                   _addComputer->getImageName(),\
                                   _addComputer->getImage());
+}
+void MainWindow::addNewType()
+{
+    _service.addComputerType(_addType->getTypeName());
 }

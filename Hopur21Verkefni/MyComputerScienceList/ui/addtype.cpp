@@ -22,40 +22,56 @@ void AddType::on_button_Save_Type_clicked()
     bool nameTypeFail = false;
 
 
-    QString nameType = ui->lineEdit_addComputerType->text();
+    QString nameType = ui->lineEdit_AddComputerType_Name->text();
+    QString errorMessage = "";
 
     if(nameType == "")
     {
         canCreateType = false;
         nameTypeFail = true;
+        errorMessage = "Please enter a computer type!";
+    }
+    else if(typeAlreadyExist(nameType.toStdString()))
+    {
+            errorMessage = "Computer type already exists!";
     }
 
     if(canCreateType)
     {
-        ComputerType newType;
-        _newType = newType;
-        std::string newName = nameType.toStdString();
-        int id = newType.getID();
-        _newType.setTypeValues(newName, id);
-
+        _newTypeName = nameType.toStdString();
         this->setResult(QDialog::Accepted);
-
+        clearFields();
     }
     else
     {
-        QString errorMessage = "Please enter a computer type!";
         ui->label_addTypeErrorField->setText("<span style = 'color : red>" + errorMessage + "</span>");
         this->setResult(QDialog::Rejected);
     }
-    //this->close();
-    //this->setResult(QDialog::Accepted);
+}
+
+bool AddType::typeAlreadyExist(std::string typeName)
+{
+    for(unsigned int i = 0; i < _compTypes.size(); i++)
+    {
+        if(typeName == _compTypes[i].getName())
+        {
+            return true;
+        }
+    }
+    return false;//If name is not in database
 }
 
 void AddType::on_button_clear_fields_clicked()
 {
-    //Clear the input fields
-    ui->lineEdit_addComputerType->clear();
-
-    //this->close();
-    //this->setResult(QDialog::Rejected);
+    clearFields();
+}
+void AddType::clearFields()
+{
+    ui->lineEdit_AddComputerType_Name->clear();
+}
+void AddType::resetData()
+{
+    std::vector<ComputerType> compTypes;
+    _compTypes = compTypes;
+    _newTypeName = "";
 }

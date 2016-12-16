@@ -112,7 +112,7 @@ void AddComputer::on_pushButton_AddComputer_saveComputer_clicked()
     bool isBuilt;
     QString name = ui->lineEdit_AddComputer_nameComputer->text();
     QString designYear = ui->lineEdit_AddComputer_designYear->text();
-    QString buildYear;
+    QString buildYear = "";
     isBuilt = ui->checkBox_AddComputer_wasComputerBuilt->isChecked();
 
     // This function saves the IDs of the selected computer scientist to a member variable
