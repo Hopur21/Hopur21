@@ -14,11 +14,11 @@ CSMoreInfo::~CSMoreInfo()
 void CSMoreInfo::setDataInBoxes()
 {
     ui->more_info_input->setText(QString::fromStdString(_myPerson.getComments()));
-    ui->name_input->setText(QString::fromStdString(_myPerson.getName()));
-    ui->age_input->setText(QString::number(_myPerson.getAge()) );
-    ui->label_yearOfDeath->setText(QString::number(_myPerson.getPassedAwayYear()));
-    ui->yearOfBirth_input->setText(QString::number(_myPerson.getBirthYear()));
-    ui->yearOfDeath_input->setText(QString::number(_myPerson.getPassedAwayYear()));
+    ui->lineEdit_aboutName->setText(QString::fromStdString(_myPerson.getName()));
+    ui->lineEdit_aboutAge->setText(QString::number(_myPerson.getAge()) );
+    //ui->label_yearOfDeath->setText(QString::number(_myPerson.getPassedAwayYear()));
+    ui->lineEdit_aboutYearOfBirth->setText(QString::number(_myPerson.getBirthYear()));
+    ui->lineEdit_aboutYearOfDeath->setText(QString::number(_myPerson.getPassedAwayYear()));
     loadImage();
 
 }
