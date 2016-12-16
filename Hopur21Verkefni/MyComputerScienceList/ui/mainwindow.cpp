@@ -78,7 +78,7 @@ void MainWindow::on_action_toolbar_Home_triggered()
 void MainWindow::on_action_toolbar_Show_List_triggered()
 {
     //Send our data into the show list tab before we open it.
-    _showList->setList(_service.getComputerScientistList(_filterSearch), _service.getComputerList(_filterSearch));
+    _showList->setList(_service.getComputerScientistList(_filterSearch), _service.getComputerList(_filterSearch),_service.getCSandCompConnection());
     ui->tabWidget_MainWindow->setCurrentIndex(constants::TAB_SHOW_LIST);
 }
 
@@ -165,7 +165,7 @@ void MainWindow::checkDataAdded()
         {
             _service.removePersonFromList(to_string(_showList->getIdToRemove()));
         }
-        _showList->setList(_service.getComputerScientistList(_filterSearch), _service.getComputerList(_filterSearch));
+        _showList->setList(_service.getComputerScientistList(_filterSearch), _service.getComputerList(_filterSearch),_service.getCSandCompConnection());
         _showList->setResult(false);
     }
 }
@@ -216,7 +216,7 @@ void MainWindow::on_TextBox_Search_textChanged()
 }
 void MainWindow::refreshAllTables()
 {
-        _showList->setList(_service.getComputerScientistList(_filterSearch), _service.getComputerList(_filterSearch));
+        _showList->setList(_service.getComputerScientistList(_filterSearch), _service.getComputerList(_filterSearch),_service.getCSandCompConnection());
         _addComputerScientist->resetAllData();
         _addComputerScientist->setComputersList(_service.getComputerList(_filterSearch));
         _addComputer->clearFields();

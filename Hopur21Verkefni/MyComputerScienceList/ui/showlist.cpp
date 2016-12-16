@@ -18,8 +18,9 @@ ShowList::ShowList(QWidget *parent) :
     //streaches the name column
     //ui->table_computerScientist_2->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
 }
-void ShowList::setList(vector<CSPerson> compScientistsList, vector<Computer> computerList)
+void ShowList::setList(vector<CSPerson> compScientistsList, vector<Computer> computerList, vector<ComputerScientistToComputer> csCompConnection)
 {
+    _computerCSconnection = csCompConnection;
     _computerList = computerList;
     _CSlist = compScientistsList;
     printComputerList();

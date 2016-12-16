@@ -38,6 +38,7 @@ public:
     //Select
     vector<Computer> getComputersConnectedToCS(const int scientistID);
     vector<CSPerson> getCSConntedToComputer(const int computerID);
+    vector<ComputerScientistToComputer> getCscientistToComps();
     void getComputerScientists(vector<CSPerson>& computerScientists);
     void getComputers(vector<Computer>& computers);
     void getComputerTypes(vector<ComputerType>& computerTypes);
