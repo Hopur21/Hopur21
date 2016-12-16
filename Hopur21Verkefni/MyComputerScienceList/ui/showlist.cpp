@@ -82,12 +82,16 @@ void ShowList::on_tabWidget_scientist_currentChanged()
 }
 
 
-void ShowList::on_table_ComputerScientist_doubleClicked()
+void ShowList::on_table_ComputerScientist_doubleClicked(const QModelIndex &index)
 {
     CSPerson test;
     test = getPersonFromID(_idForMoreInfo);
     std::string bull = test.getName();
-    qDebug() << "name: " << QString::fromStdString(bull);
+    //qDebug() << "name: " << QString::fromStdString(bull);
+    //qDebug() << ui->table_ComputerScientist->model()->data(ui->table_ComputerScientist->model()->index(0,2)).toString();
+
+
+
     _csMoreInfo.setComputerScientist(getPersonFromID(_idForMoreInfo));
     _csMoreInfo.setModal(true);
     _csMoreInfo.exec();
