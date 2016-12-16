@@ -9,7 +9,6 @@
 #include "ui/showlist.h"
 #include "ui/showtrash.h"
 #include "ui/csmoreinfo.h"
-
 #include <QTableWidget>
 #include <QTimer>
 #include <QMainWindow>
@@ -22,10 +21,10 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
-public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
-public slots:
+    public:
+        explicit MainWindow(QWidget *parent = 0);
+        ~MainWindow();
+    public slots:
 
 private slots:
     void on_action_toolbar_Home_triggered();

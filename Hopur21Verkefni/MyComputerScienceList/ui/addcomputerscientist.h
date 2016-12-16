@@ -12,6 +12,7 @@ class AddComputerScientist : public QDialog
 {
     Q_OBJECT
 
+<<<<<<< HEAD
 public:
     explicit AddComputerScientist(QWidget *parent = 0);
     ~AddComputerScientist();
@@ -52,6 +53,43 @@ private:
     QString browseForFile();
     QString getGender();
 
+=======
+    public:
+        explicit AddComputerScientist(QWidget *parent = 0);
+        ~AddComputerScientist();
+        Ui::AddComputerScientist *ui;
+        QString validateUserInput(bool nameFail, bool genderFail, bool birthYearFail, bool deathYearFail);
+        void setComputersList(vector<Computer> allComputers);
+        void clearFields();
+        void resetAllData();
+        //Gets
+        CSPerson getPerson() {return _newPerson;}
+        vector<int> getComputersConnected(){return _computersConnected;}
+        QByteArray getImage(){return _image;}
+        string getImageName(){return _imageName;}
+
+    private slots:
+        void on_checkBox_Addscientist_isPersonAlive_toggled(bool checked);
+        void on_pushButton_browse_clicked();
+        void on_pushButton_Addscientist_clearFields_clicked();
+        void on_pushButton_Addscientist_save_clicked();
+        void on_AddScientist_pushButton_image_clicked();
+
+    private:
+        CSPerson _newPerson;
+        // The computers the newly created scientist is connected to
+        vector <int> _computersConnected;
+        QIntValidator *yearValidator;
+        QByteArray _image;
+        string _imageName;
+        int getCurrentYear();
+        void initValidationData();
+        void saveComputersIDs();
+        void setImageButtonAsImage();
+        bool comvertAndSaveFile();
+        QString browseForFile();
+        QString getGender();
+>>>>>>> bd6e19d2a3839ba1e20cd6ffacf33c25abf9a28b
 };
 
 #endif // ADDCOMPUTERSCIENTIST_H
