@@ -13,7 +13,7 @@ CSMoreInfo::~CSMoreInfo()
 
 void CSMoreInfo::setDataInBoxes()
 {
-    ui->more_info_input->setText(QString::fromStdString(_myPerson.getComments()));
+    ui->plainTextEdit_aboutComment->setPlainText(QString::fromStdString(_myPerson.getComments()));
     ui->lineEdit_aboutName->setText(QString::fromStdString(_myPerson.getName()));
     ui->lineEdit_aboutYearOfBirth->setText(QString::number(_myPerson.getBirthYear()));
     ui->lineEdit_aboutYearOfDeath->setText(QString::number(_myPerson.getPassedAwayYear()));
