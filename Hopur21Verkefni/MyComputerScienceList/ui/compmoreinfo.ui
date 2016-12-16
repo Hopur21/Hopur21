@@ -120,22 +120,6 @@
     <enum>Qt::Horizontal</enum>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_close">
-   <property name="geometry">
-    <rect>
-     <x>480</x>
-     <y>290</y>
-     <width>75</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(241, 241, 242);</string>
-   </property>
-   <property name="text">
-    <string>Close</string>
-   </property>
-  </widget>
   <widget class="Line" name="line_3">
    <property name="geometry">
     <rect>
