@@ -19,6 +19,9 @@ public:
     ~compmoreinfo();
     void setComputer(Computer myComputer);
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::compmoreinfo *ui;
     Computer _myComputer;

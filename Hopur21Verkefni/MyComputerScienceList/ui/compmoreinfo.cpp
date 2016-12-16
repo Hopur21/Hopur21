@@ -39,3 +39,8 @@ void compmoreinfo::setComputer(Computer myComputer)
     _myComputer = myComputer;
     setDataInBoxes();
 }
+
+void compmoreinfo::on_pushButton_clicked()
+{
+    this->close();
+}
