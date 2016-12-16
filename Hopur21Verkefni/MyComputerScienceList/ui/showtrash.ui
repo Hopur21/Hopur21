@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Trash</string>
   </property>
   <widget class="QTabWidget" name="tabWidget_scientist">
    <property name="geometry">

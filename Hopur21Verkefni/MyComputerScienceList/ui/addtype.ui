@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Add Computer Type</string>
   </property>
   <widget class="QPushButton" name="button_Clear_Fields_Type">
    <property name="geometry">

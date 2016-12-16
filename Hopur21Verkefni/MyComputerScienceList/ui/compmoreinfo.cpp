@@ -24,6 +24,20 @@ void compmoreinfo::setDataInBoxes()
 
     loadImage();
 }
+void compmoreinfo::showCreatorsofComputer()
+{
+    std::string output;
+    for(unsigned int i = 0; i < _myCreators.size(); i++)
+    {
+        output += _myCreators[i].getName();
+        if(i+1 < _myCreators.size())
+        {
+            output = output + ",  ";
+        }
+    }
+    ui->associated_input->setText(QString::fromStdString(output));
+}
+
 void compmoreinfo::loadImage()
 {
     QPixmap pixmap = QPixmap();
@@ -36,6 +50,11 @@ void compmoreinfo::setComputer(Computer myComputer)
 {
     _myComputer = myComputer;
     setDataInBoxes();
+}
+void compmoreinfo::setComputerCreators(vector<CSPerson> myCreators)
+{
+    _myCreators = myCreators;
+    showCreatorsofComputer();
 }
 
 void compmoreinfo::on_pushButton_clicked()
