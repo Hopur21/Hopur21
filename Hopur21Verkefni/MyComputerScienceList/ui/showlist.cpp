@@ -79,6 +79,23 @@ void ShowList::on_Button_Delete_clicked()
 void ShowList::on_tabWidget_scientist_currentChanged()
 {
     ui->Button_Delete->setEnabled(false);
+    ui->Button_More_Info->setEnabled(false);
+}
+
+
+void ShowList::on_table_ComputerScientist_doubleClicked(const QModelIndex &index)
+{
+    /*QString selectedName = index.model()->data(index, Qt::DisplayRole).toString();
+    string name = selectedName.toStdString();
+    _csMoreInfo.setComputerScientist(getPersonFromName(name));
+    _csMoreInfo.setModal(true);
+    _csMoreInfo.exec();*/
+
+
+    _csMoreInfo.setComputerScientist(_personToSend);
+    ui->Button_More_Info->setEnabled(false);
+    _csMoreInfo.setModal(true);
+    _csMoreInfo.exec();
 }
 
 void ShowList::on_table_Computer_cellClicked(int row)
@@ -91,25 +108,26 @@ void ShowList::on_table_Computer_cellClicked(int row)
 
 void ShowList::on_table_ComputerScientist_cellClicked(int row)
 {
+    _personToSend = getPersonFromID(_idForMoreInfo = ui->table_ComputerScientist->item(row,4)->text().toInt());
     ui->Button_Delete->setEnabled(true);
     _removeComputerOrScientist = constants::COMPUTER_SCIENTIST;
     _row = row;
-    _idForMoreInfo = ui->table_ComputerScientist->item(row,4)->text().toInt();
+    ui->Button_More_Info->setEnabled(true);
+    qDebug() << " ID: " << _idForMoreInfo << endl;
 }
-
-void ShowList::on_table_ComputerScientist_doubleClicked()
-{
-    _csMoreInfo.setComputerScientist(getPersonFromID(_idForMoreInfo));
-    _csMoreInfo.setModal(true);
-    _csMoreInfo.exec();
-}
-
 void ShowList::on_table_Computer_doubleClicked()
 {
         //ID = _idForMoreInfo;
     //TODO kalla í klasann fyrir compass info
 }
 
+void ShowList::on_Button_More_Info_clicked()
+{
+    _csMoreInfo.setComputerScientist(_personToSend);
+    ui->Button_More_Info->setEnabled(false);
+    _csMoreInfo.setModal(true);
+    _csMoreInfo.exec();
+}
 CSPerson ShowList::getPersonFromID(int id)
 {
     for(unsigned int i = 0; i < _CSlist.size(); i++)
