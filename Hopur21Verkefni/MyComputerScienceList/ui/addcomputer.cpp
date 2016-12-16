@@ -329,30 +329,25 @@ void AddComputer::setImageButtonAsImage()
 
 void AddComputer::on_tableWidget_AddComputer_selectScientistForComputer_doubleClicked(const QModelIndex &index)
 {
+    _csMoreInfo.setComputerScientist(_personToSend);
+    _csMoreInfo.setModal(true);
+    _csMoreInfo.exec();
+}
 
-    QString selectedName = index.model()->data(index, Qt::DisplayRole).toString();
-    string name = selectedName.toStdString();
-    //qDebug() << "NAME" <<QString::fromStdString(name);
-    vector<CSPerson> personToView;
-
-    for(unsigned int i=0;i<_listOfScientists.size();i++)
+CSPerson AddComputer::getPersonFromID(int id)
+{
+    for(unsigned int i = 0; i < _listOfScientists.size(); i++)
     {
-
-        if(name == _listOfScientists.at(i).getName())
+        if (_listOfScientists[i].getID() == id)
         {
-            qDebug() << "PERSON FOUND!!!!";
-            personToView.push_back(_listOfScientists.at(i));
-            qDebug() << "SIZESIZE" <<personToView.size();
-
-            //_moreInfo->setComputerScientist(_listOfScientists.at(i));
-            //_moreInfo->setComputerScientist(*personToView);
-
+            return _listOfScientists[i];
         }
     }
+}
 
-
-    _moreInfo->setModal(true);
-    _moreInfo->setComputerScientist(personToView.at(0));
-    _moreInfo->exec();
-
+void AddComputer::on_tableWidget_AddComputer_selectScientistForComputer_cellClicked(int row, int column)
+{
+    _personToSend = getPersonFromID(_idForMoreInfo = ui->tableWidget_AddComputer_selectScientistForComputer->item(row,2)->text().toInt());
+    _row = row;
+    qDebug() << " ID: " << _idForMoreInfo << endl;
 }

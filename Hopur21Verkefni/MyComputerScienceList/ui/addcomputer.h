@@ -41,19 +41,25 @@ private slots:
     void on_pushButton_imageComputer_clicked();
     void on_tableWidget_AddComputer_selectScientistForComputer_doubleClicked(const QModelIndex &index);
 
+    void on_tableWidget_AddComputer_selectScientistForComputer_cellClicked(int row, int column);
+
 private:
     Ui::AddComputer *ui;
     QIntValidator *yearValidator;
-    CSMoreInfo *_moreInfo;
+    CSMoreInfo _csMoreInfo;
     Computer _newComputer;
     vector<ComputerType> _listOfComputerTypes;
     vector<int> _scientistsConnected;
     // vector for more info
-    vector <CSPerson> _listOfScientists;
+    vector<CSPerson> _listOfScientists;
+    CSPerson _personToSend;
     QByteArray _image;
     string _imageName;
     int getCurrentYear();
+    int _row;
+    int _idForMoreInfo;
     void initValidationData(int year);
+    CSPerson getPersonFromID(int id);
     void saveComputerScientistIDs();
     void clearErrorMessages();
     QString browseForFile();
