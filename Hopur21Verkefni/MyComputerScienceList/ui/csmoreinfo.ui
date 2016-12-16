@@ -152,7 +152,7 @@
      <x>420</x>
      <y>70</y>
      <width>80</width>
-     <height>181</height>
+     <height>194</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -172,16 +172,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QLabel" name="yearOfBirth_input">
-      <property name="font">
-       <font>
-        <family>Calibri</family>
-       </font>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
+     <widget class="QLineEdit" name="lineEdit_aboutYearOfBirth"/>
     </item>
     <item>
      <widget class="QLabel" name="label_yearOfDeath">
@@ -199,16 +190,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QLabel" name="yearOfDeath_input">
-      <property name="font">
-       <font>
-        <family>Calibri</family>
-       </font>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
+     <widget class="QLineEdit" name="lineEdit_aboutYearOfDeath"/>
     </item>
     <item>
      <widget class="QLabel" name="label_Age">
@@ -226,16 +208,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QLabel" name="age_input">
-      <property name="font">
-       <font>
-        <family>Calibri</family>
-       </font>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
+     <widget class="QLineEdit" name="lineEdit_aboutAge"/>
     </item>
    </layout>
   </widget>
@@ -252,6 +225,70 @@
     <string>Edit</string>
    </property>
   </widget>
+  <widget class="QLineEdit" name="lineEdit_aboutName">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>50</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="yearOfDeath_input">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>220</y>
+     <width>78</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Calibri</family>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="yearOfBirth_input">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>190</y>
+     <width>78</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Calibri</family>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="age_input">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>140</y>
+     <width>78</width>
+     <height>43</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Calibri</family>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>layoutWidget</zorder>
   <zorder>line</zorder>
   <zorder>image_of_person_input</zorder>
@@ -262,6 +299,10 @@
   <zorder>label</zorder>
   <zorder>line_3</zorder>
   <zorder>pushButton_2</zorder>
+  <zorder>lineEdit_aboutName</zorder>
+  <zorder>yearOfDeath_input</zorder>
+  <zorder>yearOfBirth_input</zorder>
+  <zorder>age_input</zorder>
  </widget>
  <resources>
   <include location="../resources.qrc"/>
