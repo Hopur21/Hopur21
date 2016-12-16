@@ -91,5 +91,11 @@ void ShowList::on_table_ComputerScientist_cellClicked(int row)
     ui->Button_Delete->setEnabled(true);
     _removeComputerOrScientist = constants::COMPUTER_SCIENTIST;
     _row = row;
-    qDebug() << "ID is: " << ui->table_ComputerScientist->item(row,4)->text();
+    _idForMoreInfo = ui->table_ComputerScientist->item(row,4)->text().toInt();
+}
+
+void ShowList::on_table_ComputerScientist_doubleClicked(const QModelIndex &index)
+{
+    _csMoreInfo.setModal(true);
+    _csMoreInfo.exec();
 }
