@@ -27,12 +27,8 @@ private slots:
     void on_tabWidget_scientist_currentChanged(int index);
     void on_table_Computer_cellClicked(int row);
     void on_table_ComputerScientist_cellClicked(int row);
-
     void on_table_ComputerScientist_doubleClicked(const QModelIndex &index);
-
     void on_table_Computer_doubleClicked(const QModelIndex &index);
-
-    void on_table_Computer_cellClicked(int row, int column);
 
 private:
     CSMoreInfo _csMoreInfo;
