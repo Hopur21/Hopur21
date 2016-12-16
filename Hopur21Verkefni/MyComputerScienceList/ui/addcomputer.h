@@ -3,6 +3,7 @@
 #include "models/csperson.h"
 #include "models/computer.h"
 #include "models/computertype.h"
+#include "ui/csmoreinfo.h"
 
 namespace Ui {
 class AddComputer;
@@ -37,16 +38,19 @@ private slots:
     void on_comboBox_AddComputer_selectTypeOfComputer_highlighted(int index);
     void on_pushButton_AddComputer_browseComputer_clicked();
     void on_pushButton_imageComputer_clicked();
+    void on_tableWidget_AddComputer_selectScientistForComputer_doubleClicked(const QModelIndex &index);
 
 private:
     Ui::AddComputer *ui;
     QIntValidator *yearValidator;
+    CSMoreInfo *_moreInfo;
     Computer _newComputer;
     vector<ComputerType> _listOfComputerTypes;
     vector<int> _scientistsConnected;
+    // vector for more info
+    vector <CSPerson> _listOfScientists;
     QByteArray _image;
     string _imageName;
-
     int getCurrentYear();
     void initValidationData(int year);
     void saveComputerScientistIDs();

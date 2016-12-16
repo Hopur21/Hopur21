@@ -52,6 +52,7 @@ void AddComputer::setComputerTypesComboBox()
 
 void AddComputer::setComputerScientistList(vector<CSPerson> allScientists)
 {
+    _listOfScientists = allScientists;
     ui->tableWidget_AddComputer_selectScientistForComputer->setRowCount(allScientists.size());
     ui->tableWidget_AddComputer_selectScientistForComputer->setColumnCount(3);
     for(size_t i = 0; i < allScientists.size(); i++)
@@ -324,4 +325,25 @@ void AddComputer::setImageButtonAsImage()
     pixmap.loadFromData( _image );
     QIcon buttonIcon(pixmap);
     ui->pushButton_imageComputer->setIcon(buttonIcon);
+}
+
+void AddComputer::on_tableWidget_AddComputer_selectScientistForComputer_doubleClicked(const QModelIndex &index)
+{
+
+    QString selectedName = index.model()->data(index, Qt::DisplayRole).toString();
+    string name = selectedName.toStdString();
+    CSPerson personToView;
+
+    for(unsigned int i=0;i<_listOfScientists.size();i++)
+    {
+
+        if(name == _listOfScientists.at(i).getName())
+        {
+            personToView = _listOfScientists.at(i);
+            break;
+        }
+    }
+
+    _moreInfo->setComputerScientist(personToView);
+
 }

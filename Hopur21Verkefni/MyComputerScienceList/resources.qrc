@@ -24,5 +24,6 @@
         <file>images/logo_addType.png</file>
         <file>images/icon_compType.png</file>
         <file>images/logo_about.png</file>
+        <file>images/icon_addComputer.png</file>
     </qresource>
 </RCC>

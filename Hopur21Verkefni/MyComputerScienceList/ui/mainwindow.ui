@@ -185,7 +185,7 @@
   <action name="action_toolbar_Add_Computer_">
    <property name="icon">
     <iconset resource="../resources.qrc">
-     <normaloff>:/icons/images/computer_icon.png</normaloff>:/icons/images/computer_icon.png</iconset>
+     <normaloff>:/icons/images/icon_addComputer.png</normaloff>:/icons/images/icon_addComputer.png</iconset>
    </property>
    <property name="text">
     <string>Add Computer</string>

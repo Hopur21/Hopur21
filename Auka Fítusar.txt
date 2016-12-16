@@ -1,4 +1,4 @@
-﻿Gagnagrunnur er midlægur (external server)
+Gagnagrunnur er midlægur (external server)
 Vector-ar eru geymdir Ì services og sendir med call by reference.
 Haegt er ad fjarlaegja tolvunarfraeding og tolvu og svo birta tha sem buid er ad henda.
 Leitin leitar eftir ollum flokkum thegar leitarstrengur er kominn inn
@@ -6,10 +6,6 @@ Leitin leitar eftir ollum flokkum thegar leitarstrengur er kominn inn
 Við notum QIntValidator fyrir þá reiti sem að taka inn tölur, validatorinn
 kemur í veg fyrir að strengir séu settir inn sem og tölur sem að eru ekki á réttu 
 talnabili. Það er t.d. ekki hægt að setja fæðingarár né dánarár hærra en núverandi ár.
-
-Í fallinu setComputerTypesComboBox í AddComputer klasanum notumst við við qSort reikniritið til að sortera tölvutegundirnar í stafrófsröð (sem er mun fallegra en að láta þær koma handahófskennt í comboboxið).
-
-
 
 
 Myndir af tölvunarfræðingum og tölvum eru vistaðar sem blob í database.
